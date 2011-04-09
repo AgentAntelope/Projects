@@ -120,7 +120,9 @@ static int write_dir(cs1550_directory_entry *written){
 	}
 	return ret;
 }
-
+/*
+Used only for rmdir.
+*/
 static int write_dir_place(cs1550_directory_entry *written, int place){
 	int ret = 0;
 	cs1550_directory_entry test_exist;
