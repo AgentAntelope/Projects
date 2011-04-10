@@ -86,7 +86,7 @@ static int get_dir(cs1550_directory_entry *fill, int i){
 	if(f == NULL) return ret;
 	seekCode = fseek(f, sizeof(cs1550_directory_entry)*i, SEEK_SET);	
 	seekCode = fread(fill, sizeof(cs1550_directory_entry), 1, f);
-	if(seekCode == sizeof(cs1550_directory_entry)){
+	if(seekCode == 1){
 		ret = 1;
 	}
 	fclose(f);
@@ -103,6 +103,7 @@ static int write_dir(cs1550_directory_entry *written){
 	int i = 0;
 	cs1550_directory_entry check;
 	while(get_dir(&check, i) != 0){
+	
 		if(check.nFiles == -1){
 			FILE *f = fopen(".directories", "r+");
 			fseek(f, sizeof(cs1550_directory_entry)*i, SEEK_SET);
@@ -156,55 +157,83 @@ static int dir_exists(char * name){
 *Returns what the path is.
 *If the path is a root, return 0.
 *If the path is a directory, return 1
-*If the path is a file, return 2.
+*If the path is a file, return 2 or 3(3 has an extension)
 */
-static int path_name(char *directory, char *filename, char *extension){
-	int ret = 0;
-	if(strlen(directory) > 0){
+static int path_name(char *directory,char *file,char *extension){
+	int ret = 0;	
+	if(directory != NULL){
 		ret = 1;
 	}
-	if(strlen(filename) > 0){
-		ret = 2;
+	if(file != NULL)
+		ret = 2;	
+	if(extension != NULL){
+		ret = 3;
 	}
 	return ret;
 }
+
 /*
  * Called whenever the system wants to know the file attributes, including
  * simply whether the file exists or not. 
  *
  * man -s 2 stat will show the fields of a stat structure
  */
+/*
+ * Called whenever the system wants to know the file attributes, including
+ * simply whether the file exists or not.
+ *
+ * man -s 2 stat will show the fields of a stat structure
+ */
 static int cs1550_getattr(const char *path, struct stat *stbuf)
 {
 	int res = 0;
-	cs1550_directory_entry f;
-	get_dir(&f, 5);
-	memset(stbuf, 0, sizeof(struct stat)); 
+	char *directory = strtok(path, "/");
+	char *filename = strtok(NULL, "/");
+	char *ext = strtok(NULL, ".");
+
+	memset(stbuf, 0, sizeof(struct stat));
+
+    int type = path_name(directory, filename, ext);
 	//is path the root dir?
-	if (strcmp(path, "/") == 0) {
+	if (type==0) {
 		stbuf->st_mode = S_IFDIR | 0755;
 		stbuf->st_nlink = 2;
-	} else {
+	} else{ // path is a directory or file
 
-	//Check if name is subdirectory
-	/* 
-		//Might want to return a structure with these fields
-		stbuf->st_mode = S_IFDIR | 0755;
-		stbuf->st_nlink = 2;
-		res = 0; //no error
-	*/
+	    // see if dir exists
+	    int index = dir_exists(directory);
+	    if(index==-1){
+            res = -ENOENT; // directory does not exists
+	    }
+	    else{ // directory exists
+            	struct cs1550_directory_entry curr;
+            	get_dir(&curr,index); // get directory
+            	if(type==1){ // path is a directory
 
-	//Check if name is a regular file
-	/*
-		//regular file, probably want to be read and write
-		stbuf->st_mode = S_IFREG | 0666; 
-		stbuf->st_nlink = 1; //file links
-		stbuf->st_size = 0; //file size - make sure you replace with real size!
-		res = 0; // no error
-	*/
+                // set structure
+                // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! What else do I need to set??
+                // im looking at the man page on stat, but it's not evident to me what else i need to set if anything else
+                stbuf->st_mode = S_IFDIR | 0755;
+                stbuf->st_nlink = 2;
+            	}
+            else{ // path is a file
+                // see if file exists
+             	   int i;
+		   res = -ENOENT;
 
-		//Else return that path doesn't exist
-		res = -ENOENT;
+             	   for(i=0; i< curr.nFiles; i++){
+             	       if(strcmp(curr.files[i].fname,filename)==0){ // file exists
+				if(type == 3 && strcmp(curr.files[i].fext,ext)!=0){
+					continue;
+				}	
+                       			stbuf->st_mode = S_IFREG | 0666;
+                        		stbuf->st_nlink = 1; //file links
+                        		stbuf->st_size = curr.files[i].fsize;
+                        		res = 0; // file found
+                    	}
+               	  }
+               }
+	    }
 	}
 	return res;
 }
@@ -224,25 +253,25 @@ static int cs1550_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 	(void) offset;
 	(void) fi;
 
-	if (strcmp(path, "/") != 0){
+	if (strcmp(path, "/") == 0){
 		int i = 0;
 		filler(buf, ".", NULL,0);
 		filler(buf, "..", NULL, 0);
 		while(get_dir(&curr_dir, i) != 0){
+			i++;
 			if(curr_dir.nFiles == -1){
 				continue;
 		 	}
 			filler(buf, curr_dir.dname, NULL, 0);
+		
 		}
 		ret = 0;
 	}
 	else{
-		char *directory = (char *)malloc(strlen(path)+1);
-		char *filename = (char *)malloc(strlen(path)+1);
-		char *extension = (char *)malloc(strlen(path)+1);
-		int path_type;
-		sscanf(path, "/%[^/]/%[^.].%s", directory, filename, extension);
-		path_type = path_name(directory,filename,extension);
+		char *directory = strtok(path, "/");
+		char *filename = strtok(NULL, "/");
+		char *ext = strtok(NULL, ".");
+		int path_type = path_name(directory, filename, ext);
 		if(path_type >= 1){
 			int dirEntry = dir_exists(directory);
 			if(dirEntry != -1 && path_type == 1){
@@ -262,9 +291,7 @@ static int cs1550_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 				ret= -ENOENT;
 			}
 		}
-		free(directory);
-		free(filename);
-		free(extension);
+
 	}	
 	//the filler function allows us to add entries to the listing
 	//read the fuse.h file for a description (in the ../include dir)
@@ -277,17 +304,43 @@ static int cs1550_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 	return ret;
 }
 
-/* 
+/*
  * Creates a directory. We can ignore mode since we're not dealing with
  * permissions, as long as getattr returns appropriate ones for us.
  */
 static int cs1550_mkdir(const char *path, mode_t mode)
 {
-        (void) path;
-        (void) mode;
+	int ret = 0;
+	char *directory = strtok(path, "/");
+	char *filename = strtok(NULL, "/");
+	char *ext = strtok(NULL, ".");
+	(void) mode;
+	printf("%s\n", directory);
+	if(path_name(directory, filename, ext) !=1){
+		ret = -EPERM;
+	}
+	else{
+        // name NOT too long
+        if(dir_exists(directory)==-1){
+            // directory does NOT exist
+            if(strlen(directory)<=MAX_FILENAME){
+		 // good to go, create directory
+                cs1550_directory_entry new_directory;
+                strcpy(new_directory.dname, directory);
+		new_directory.nFiles = 0;
+		printf("Hello world\n");
+                write_dir(&new_directory);
+            }
+            else{
+                 ret = -ENAMETOOLONG;   // filename submitted
+            }
+        }
+        else{
+            ret = -EEXIST; // directory already exists
+        }
+	}
 
-
-	return 0;
+    return ret;
 }
 
 /* 
@@ -295,13 +348,12 @@ static int cs1550_mkdir(const char *path, mode_t mode)
  */
 static int cs1550_rmdir(const char *path)
 {
-        char *directory = (char *)malloc(strlen(path)+1);
-        char *filename = (char *)malloc(strlen(path)+1);
-        char *extension = (char *)malloc(strlen(path)+1);
+	char *directory = strtok(path, "/");
+	char *filename = strtok(NULL, "/");
+	char *ext = strtok(NULL, ".");
         int path_type;
 	int ret = 0;
-        sscanf(path, "/%[^/]/%[^.].%s", directory, filename, extension);
-        path_type = path_name(directory,filename,extension);
+        path_type = path_name(directory,filename,ext);
 	if(path_type == 1){
 		int dir_place;
 		cs1550_directory_entry curr;
@@ -311,7 +363,7 @@ static int cs1550_rmdir(const char *path)
 		}
 		else{
 			get_dir(&curr, dir_place);
-			if(curr.nFiles != 0){
+			if(curr.nFiles > 0){
 				ret = -ENOTEMPTY;
 			}
 			else{
@@ -323,13 +375,6 @@ static int cs1550_rmdir(const char *path)
 	else{
 		ret = -ENOTDIR;
 	}
-
-
-        free(directory);
-        free(filename);
-        free(extension);
-
-
 
     return ret;
 }
@@ -478,6 +523,6 @@ static struct fuse_operations hello_oper = {
 
 //Don't change this.
 int main(int argc, char *argv[])
-{
+{	
 	return fuse_main(argc, argv, &hello_oper, NULL);
 }
