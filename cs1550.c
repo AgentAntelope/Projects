@@ -326,6 +326,7 @@ static int get_free_block(){
 	}
 	return i;
 }
+
 /*
 Creates a disk block in the first empty block found in the bitmap
 Returns -1 if failed.
@@ -337,6 +338,62 @@ static int create_space(){
 	return i;
 }
 
+
+/*
+returns current Disk block to start writing to.
+returns position into the current disk block to start at
+returns -1 if over the offset by a large margin (too large for append)
+*/
+static int get_offset(cs1550_disk_block *f,int start_pos, int offset){
+	get_block(f, start_pos);
+	while(f->size <= offset){
+		if(f->nNextBlock == -1){
+			return -1;
+		}
+		offset = offset - f->size;
+		get_block(f, f->nNextBlock);
+	}
+	return offset;
+}
+static int write_block(cs1550_disk_block *to_write, int place){
+	if(place <= 3 || place > MAX_BITMAP_BYTES){
+		return -1;
+	}
+	FILE *f = fopen(".disk", "r+");
+	if(f == NULL){
+		return -1;
+	}
+	fseek(f, sizeof(cs1550_disk_block)*place, SEEK_SET);
+	fwrite(to_write, sizeof(cs1550_disk_block), 1, f);
+	printf("char 1 is %c\n", to_write->data[0]);
+	fclose(f);	
+	return 0;
+}
+/*
+Will put as much data it can into the current block. If it succeeds into reducing size to 0,
+return 1. If it needs more space, return 0.
+
+*/
+static int put_data_in_block(cs1550_disk_block *data_block, char *buf, int size, int position){
+	while(size > 0){
+		if(position < MAX_DATA_IN_BLOCK){
+			data_block->data[position] = *buf;
+			size--;
+			buf++;
+			position++;
+			data_block->size = data_block->size + 1;
+		}
+	}
+	write_block(data_block, position);
+	return size;
+}
+/**
+
+*/
+static int write_data(int start_block, char *buff, int offset, int size){
+	cs1550_disk_block start;
+	get_offset(&start, start_block, offset);
+}
 /*
  * Called whenever the system wants to know the file attributes, including
  * simply whether the file exists or not. 
