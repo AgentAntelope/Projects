@@ -374,17 +374,36 @@ Will put as much data it can into the current block. If it succeeds into reducin
 return 1. If it needs more space, return 0.
 
 */
+/*
+Will put as much data it can into the current block. If it succeeds into reducing size to 0,
+return 1. If it needs more space, return 0.
+
+*/
 static int put_data_in_block(cs1550_disk_block *data_block, char *buf, int size, int position){
 	while(size > 0){
 		if(position < MAX_DATA_IN_BLOCK){
 			data_block->data[position] = *buf;
 			size--;
 			buf++;
+
+			if(position >= data_block->size){
+				data_block->size = data_block->size + 1;
+			}
 			position++;
-			data_block->size = data_block->size + 1;
 		}
 	}
-	write_block(data_block, position);
+	return size;
+}
+
+static int get_data_from_block(cs1550_disk_block *data_block, char *buf, int size, int position){
+	while(size > 0){
+		if(position < MAX_DATA_IN_BLOCK){
+			*buf= data_block->data[position];
+			size--;
+			buf++;
+			position++;
+		}
+	}
 	return size;
 }
 /**
@@ -392,8 +411,51 @@ static int put_data_in_block(cs1550_disk_block *data_block, char *buf, int size,
 */
 static int write_data(int start_block, char *buff, int offset, int size){
 	cs1550_disk_block start;
-	get_offset(&start, start_block, offset);
+	int return_size = 0;
+	int new_size, point;
+	int position = get_offset(&start, start_block, offset, point);
+	if(position < 0){
+		return -EFBIG;
+	}
+	new_size = put_data_in_block(start,buf,size,position);
+	position = 0;
+	while(new_size > 0){
+		if(start.nNextBlock == -1){
+			int new_block = create_space();
+			start.nNextBlock = new_block;
+			write_block(start, point);
+			point = new_block;
+			buf += (size-new_size);
+			return_size += size-new_size;
+			size = new_size;
+			get_block(&start, point);
+			new_size = put_data_in_block(start, buf, size, position);
+		}
+		else{
+			
+		}
+
+	}
 }
+
+static int read_data(int start_block, char *buff, int offset, int size){
+	cs1550_disk_block start;
+	int return_size = 0;
+	int new_size, point;
+	int new_position = get_offset(&start, start_block, offset, point);
+	if(new_position < 0){
+		return -EFBIG;
+	}
+	new_size = get_data_from_block(start,buf,size,point);
+	while(new_size > 0){
+		get_block(&start, start.nNextBlock);
+		buf += (size-new_size);
+		return_size += size-new_size;
+		size = new_size;
+		new_size = get_data_from_block(start, buf, size, point);
+	}
+}
+
 /*
  * Called whenever the system wants to know the file attributes, including
  * simply whether the file exists or not. 
@@ -697,9 +759,22 @@ static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 	//read in data
 	//set size and return, or error
 
-	size = 0;
+	if(path_type >= 2){//Right place for a file
+		int directory_place = dir_exists(directory);
+		int file_place;
+		cs1550_directory_entry curr;
 
-	return size;
+		if(directory_place == -1){
+			return -EISDIR;
+		}
+
+
+		get_dir(&curr, directory_place);
+		return read_data(curr.nStartBlock, buf, offset, size)
+			
+	}
+
+	return -EISDIR;
 }
 
 /* 
@@ -709,8 +784,7 @@ static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 static int cs1550_write(const char *path, const char *buf, size_t size, 
 			  off_t offset, struct fuse_file_info *fi)
 {
-	(void) buf;
-	(void) offset;
+	
 	(void) fi;
 	char *directory = strtok(path, "./");
 	char *filename = strtok(NULL, "./");
@@ -723,16 +797,12 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
 		cs1550_directory_entry curr;
 
 		if(directory_place == -1){
-			return -ENOENT;
+			return -EISDIR;
 		}
 
 
 		get_dir(&curr, directory_place);
-		file_place = get_file_location(&curr, filename, ext, path_type);
-		if(file_place == -1){
-			return -ENOENT;
-		}
-		
+		return write_data(curr.nStartBlock, buf, offset, size)
 			
 	}	
 	//check to make sure path exists
@@ -743,7 +813,6 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
 	//write data
 	//set size (should be same as input) and return, or error
 
-	return size;
 }
 
 /******************************************************************************
