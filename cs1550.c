@@ -18,7 +18,7 @@
 #include <stdlib.h>
 //size of a disk block
 #define	BLOCK_SIZE 512
-
+#define MAX_BITMAP_BYTES 1280
 //we'll use 8.3 filenames
 #define	MAX_FILENAME 8
 #define	MAX_EXTENSION 3
@@ -92,12 +92,39 @@ static int get_dir(cs1550_directory_entry *fill, int i){
 	fclose(f);
 	return ret;
 }
+
+/**
+will get the file location of the file from the directory entry or will return -1 if
+it does not exist.
+params:
+	directory_entry is self explanatory
+	filename is the first part of the filename
+	ext is the extension
+	file_type is the type of file (either 2 for a file with no extension or 3 with an extension)
+
+return value: a number that is the i'th position of the file with that name
+		-1 if it can't find one.
+
+*/
+static int get_file_location(cs1550_directory_entry *fill, char * filename, char *ext, int file_type){
+	int i;
+
+	for(i = 0; i < fill->nFiles; i++){
+		if(file_type == 2 && !strcmp(filename, fill->files[i].fname) && (strlen(fill->files[i].fext) == 0)){
+			return i;
+		}
+		else if(file_type == 3 && !strcmp(filename, fill->files[i].fname) && !strcmp(fill->files[i].fext, ext)){
+			return i;
+		}
+	}
+	return -1;
+}
 /*
  * CHECK BLOCK
  * Returns 1 if block is allocated, 0 if free
  * -1 on error (requested block is out of range) or File not found.
  */
-int checkBitmap(int block){
+static int checkBitmap(int block){
 	if(block < MAX_BITMAP_BYTES && block >= 0){
 		int currByte = block/8;
 		int bitLocation = block % 8 ;
@@ -128,7 +155,7 @@ int checkBitmap(int block){
  * Sets the firekitten-th bit to 0 (indicating block is now free)
  * Returns 0 if firekitten falls outside of the range of blocks managed by the bitmap
 */
-int freeBlock(int blockNum){
+static int freeBlock(int blockNum){
 	if(blockNum < MAX_BITMAP_BYTES && blockNum >= 4){
 		int byteLoc = blockNum/8;
 		int bitLoc = blockNum % 8;
@@ -157,7 +184,7 @@ int freeBlock(int blockNum){
  * Sets the plainkitten-th bit to 1 (indicating block is now allocated)
  * Returns 0 if plainkitten falls outside of the range of blocks managed by the bitmap
 */
-int allocateBlock(int blockNum){
+static int allocateBlock(int blockNum){
 	if(blockNum < MAX_BITMAP_BYTES && blockNum >= 4){
 		int byteLoc = blockNum/8;
 		int bitLoc = blockNum % 8 ;
@@ -262,31 +289,54 @@ static int path_name(char *directory,char *file,char *extension){
 	return ret;
 }
 /**
-will get the file location of the file from the directory entry or will return -1 if
-it does not exist.
-params:
-	directory_entry is self explanatory
-	filename is the first part of the filename
-	ext is the extension
-	file_type is the type of file (either 2 for a file with no extension or 3 with an extension)
+Given a place, will write to that area on disk.
+returns -1 if outside the bounds of the .disk file, or if it could not find .disk.
 
-return value: a number that is the i'th position of the file with that name
-		-1 if it can't find one.
+else return 0.
 
 */
-static int get_file_location(cs1550_directory_entry *fill, char * filename, char *ext, int file_type){
-	int i;
+static int create_disk_block(int place){
+	if(place <= 3 || place > MAX_BITMAP_BYTES){
+		return -1;
+	}
+	cs1550_disk_block newBlock;
+	newBlock.size = MAX_DATA_IN_BLOCK;
+	FILE *f = fopen(".disk", "r+");
+	if(f == NULL){
+		return -1;
+	}
+	fseek(f, sizeof(cs1550_disk_block)*place, SEEK_SET);
+	fwrite(&newBlock, sizeof(cs1550_disk_block), 1, f);
+	fclose(f);
+	return 0;
+}
+/*
+*  Gets the first free block available. For better efficiency, it would be best to store int somewhere
+*  and then just make the bitmap circular in nature. 
 
-	for(i = 0; i < fill->nFiles; i++){
-		if(file_type == 2 && !strcmp(filename, fill->files[i].fname) && (strlen(fill->files[i].fext) == 0)){
-			return i;
-		}
-		else if(file_type == 3 && !strcmp(filename, fill->files[i].fname) && !strcmp(fill->files[i].fext, ext)){
-			return i;
+Will return -1 if .disk is full, otherwise returns ith position (not touching the reserved bitmap space)
+*/
+static int get_free_block(){
+	int i = 4;
+	while(checkBitmap(i)!= 0){
+		i++;
+		if(i > MAX_BITMAP_BYTES){
+			return -1;
 		}
 	}
-	return -1;
+	return i;
 }
+/*
+Creates a disk block in the first empty block found in the bitmap
+Returns -1 if failed.
+*/
+static int create_space(){
+	int i = get_free_block();
+	create_disk_block(i);
+	allocateBlock(i);
+	return i;
+}
+
 /*
  * Called whenever the system wants to know the file attributes, including
  * simply whether the file exists or not. 
@@ -395,11 +445,20 @@ static int cs1550_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 			  	get_dir(&curr_dir, dirEntry);
 				filler(buf, ".", NULL, 0);
 			        filler(buf, "..", NULL, 0);
-				
+
 				for(; i< curr_dir.nFiles; i++){
-					sprintf(buffer, "%s.%s", curr_dir.files[i].fname, curr_dir.files[i].fext);
+					printf("strlen is %d\n", strlen(curr_dir.files[i].fext));
+					if(strlen(curr_dir.files[i].fext) > 0){
+						
+						sprintf(buffer, "%s.%s", curr_dir.files[i].fname, curr_dir.files[i].fext);
+					}
+					else{
+						sprintf(buffer, "%s", curr_dir.files[i].fname);
+					}
 					filler(buf, buffer, NULL, 0);
 				}
+
+
 				ret= 0;
 			}
 			else{
@@ -521,11 +580,16 @@ static int cs1550_mknod(const char *path, mode_t mode, dev_t dev)
 		else{
 			cs1550_directory_entry curr;
 			get_dir(&curr, directory_place);
-			if(get_file_location(curr, filename, ext, path_type) == -1){
+			if(get_file_location(&curr, filename, ext, path_type) == -1){
 				strcpy(curr.files[curr.nFiles].fname ,filename);
 				if(path_type == 3){
 					strcpy(curr.files[curr.nFiles].fext ,ext);
 				}
+				else{
+					strcpy(curr.files[curr.nFiles].fext, "\0");
+				}
+				curr.files[curr.nFiles].nStartBlock = create_space();
+				curr.files[curr.nFiles].fsize = 0;
 				curr.nFiles = curr.nFiles+1;
 				write_dir_place(&curr, directory_place);
 				ret = 0;
@@ -563,7 +627,12 @@ static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 	(void) buf;
 	(void) offset;
 	(void) fi;
-	(void) path;
+	char *directory = strtok(path, "./");
+	char *filename = strtok(NULL, "./");
+	char *ext = strtok(NULL, ".");
+        int path_type;
+	int ret = 0;
+        path_type = path_name(directory,filename,ext);
 
 	//check to make sure path exists
 	//check that size is > 0
@@ -586,9 +655,32 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
 	(void) buf;
 	(void) offset;
 	(void) fi;
-	(void) path;
+	char *directory = strtok(path, "./");
+	char *filename = strtok(NULL, "./");
+	char *ext = strtok(NULL, ".");
+        int path_type;
+        path_type = path_name(directory,filename,ext);
+	if(path_type >= 2){//Right place for a file
+		int directory_place = dir_exists(directory);
+		int file_place;
+		cs1550_directory_entry curr;
 
+		if(directory_place == -1){
+			return -ENOENT;
+		}
+
+
+		get_dir(&curr, directory_place);
+		file_place = get_file_location(&curr, filename, ext, path_type);
+		if(file_place == -1){
+			return -ENOENT;
+		}
+		
+			
+	}	
 	//check to make sure path exists
+
+
 	//check that size is > 0
 	//check that offset is <= to the file size
 	//write data
