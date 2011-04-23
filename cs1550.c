@@ -355,6 +355,12 @@ static int get_offset(cs1550_disk_block *f,int start_pos, int offset){
 	}
 	return offset;
 }
+/*
+Will write a disk block back to disk. Has to be within specified parameters
+
+return 0 if successful,
+otherwise 1.
+*/
 static int write_block(cs1550_disk_block *to_write, int place){
 	if(place <= 3 || place > MAX_BITMAP_BYTES){
 		return -1;
@@ -372,12 +378,6 @@ static int write_block(cs1550_disk_block *to_write, int place){
 /*
 Will put as much data it can into the current block. If it succeeds into reducing size to 0,
 return 1. If it needs more space, return 0.
-
-*/
-/*
-Will put as much data it can into the current block. If it succeeds into reducing size to 0,
-return 1. If it needs more space, return 0.
-
 */
 static int put_data_in_block(cs1550_disk_block *data_block, char *buf, int size, int position){
 	while(size > 0){
@@ -395,6 +395,12 @@ static int put_data_in_block(cs1550_disk_block *data_block, char *buf, int size,
 	return size;
 }
 
+/*
+Will attempt to get size from the current block and put it into the buffer. 
+If it doesn't, it returns a smaller size than it once had.
+
+position used to get the n'th data bit.
+*/
 static int get_data_from_block(cs1550_disk_block *data_block, char *buf, int size, int position){
 	while(size > 0){
 		if(position < MAX_DATA_IN_BLOCK){
@@ -407,7 +413,9 @@ static int get_data_from_block(cs1550_disk_block *data_block, char *buf, int siz
 	return size;
 }
 /**
-
+First, get offset block.
+You subtract n-times to get to that block, and what is left is a position of where to start
+abstracting data.
 */
 static int write_data(int start_block, char *buff, int offset, int size){
 	cs1550_disk_block start;
@@ -767,9 +775,8 @@ static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 		if(directory_place == -1){
 			return -EISDIR;
 		}
-
-
 		get_dir(&curr, directory_place);
+		if(
 		return read_data(curr.nStartBlock, buf, offset, size)
 			
 	}
@@ -786,6 +793,7 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
 {
 	
 	(void) fi;
+	int file_loc;
 	char *directory = strtok(path, "./");
 	char *filename = strtok(NULL, "./");
 	char *ext = strtok(NULL, ".");
@@ -802,14 +810,21 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
 
 
 		get_dir(&curr, directory_place);
-		return write_data(curr.nStartBlock, buf, offset, size)
+		file_loc = get_file_location(&curr, filename, ext, path_type)
+		if(curr.files[file_loc].fsize < offset){
+			return -EFBIG;
+		}
+		
+		if(file_loc <= MAX_FILES_IN_DIR)
+			int size_written = write_data(curr.files[file_loc].nStartBlock, buf, offset, size);
+			curr.files[file_loc].fsize = offset + size_written - curr.files[file_loc].fsize;
+			write_dir_place(&curr, directory_place);
+		else{
+			return -ENOENT;
+		}
 			
 	}	
 	//check to make sure path exists
-
-
-	//check that size is > 0
-	//check that offset is <= to the file size
 	//write data
 	//set size (should be same as input) and return, or error
 
