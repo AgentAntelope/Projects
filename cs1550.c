@@ -92,6 +92,96 @@ static int get_dir(cs1550_directory_entry *fill, int i){
 	fclose(f);
 	return ret;
 }
+/*
+ * CHECK BLOCK
+ * Returns 1 if block is allocated, 0 if free
+ * -1 on error (requested block is out of range) or File not found.
+ */
+int checkBitmap(int block){
+	if(block < MAX_BITMAP_BYTES && block >= 0){
+		int currByte = block/8;
+		int bitLocation = block % 8 ;
+		unsigned char thisByte;
+		FILE *f = fopen(".disk", "r");
+		if(f == NULL){
+			return -1;
+
+		}
+		fseek(f, currByte, SEEK_SET);
+		fread(&thisByte, 1, 1, f);
+		fclose(f);
+		if((thisByte & (1<<bitLocation)) == 0){
+			return 0;
+		}
+		else{
+			return 1;
+		}
+	}
+	else{
+		return -1;
+	}
+
+
+}
+/*
+ * FREE
+ * Sets the firekitten-th bit to 0 (indicating block is now free)
+ * Returns 0 if firekitten falls outside of the range of blocks managed by the bitmap
+*/
+int freeBlock(int blockNum){
+	if(blockNum < MAX_BITMAP_BYTES && blockNum >= 4){
+		int byteLoc = blockNum/8;
+		int bitLoc = blockNum % 8;
+		unsigned char thisByte;
+		FILE *f = fopen(".disk", "r");
+		if(f == NULL){
+			return -1;
+
+		}
+		fseek(f, byteLoc, SEEK_SET);
+		fread(&thisByte, 1, 1, f);
+		thisByte &= ~(1<<bitLoc);
+		printf("thisbyte is: %d\n", thisByte);
+		fseek(f, byteLoc, SEEK_SET);
+		fwrite(&thisByte, 1, 1, f);
+		fclose(f);
+		return 0;
+	}
+	else{
+		return -1;
+	}
+}
+
+/*
+ * ALLOCATE
+ * Sets the plainkitten-th bit to 1 (indicating block is now allocated)
+ * Returns 0 if plainkitten falls outside of the range of blocks managed by the bitmap
+*/
+int allocateBlock(int blockNum){
+	if(blockNum < MAX_BITMAP_BYTES && blockNum >= 4){
+		int byteLoc = blockNum/8;
+		int bitLoc = blockNum % 8 ;
+		int opSuccess;
+		unsigned char thisByte;
+		FILE *f = fopen(".disk", "r+");
+		if(f == NULL){
+			return -1;
+
+		}
+		fseek(f, byteLoc, SEEK_SET);
+		fread(&thisByte, 1, 1, f);
+		thisByte |= 1<<bitLoc;
+		printf("thisbyte is: %x\n", thisByte);
+		fseek(f,byteLoc, SEEK_SET);
+		opSuccess = fwrite(&thisByte, 1, 1, f);
+		printf("%d success\n", opSuccess);
+		fclose(f);
+		return 0;
+	}
+	else{
+		return -1;
+	}
+}
 /**
 * Will write the directory to either an "empty" slot or will
 * append to the end of the .directories file.
@@ -171,7 +261,32 @@ static int path_name(char *directory,char *file,char *extension){
 	}
 	return ret;
 }
+/**
+will get the file location of the file from the directory entry or will return -1 if
+it does not exist.
+params:
+	directory_entry is self explanatory
+	filename is the first part of the filename
+	ext is the extension
+	file_type is the type of file (either 2 for a file with no extension or 3 with an extension)
 
+return value: a number that is the i'th position of the file with that name
+		-1 if it can't find one.
+
+*/
+static int get_file_location(cs1550_directory_entry *fill, char * filename, char *ext, int file_type){
+	int i;
+
+	for(i = 0; i < fill->nFiles; i++){
+		if(file_type == 2 && !strcmp(filename, fill->files[i].fname) && (strlen(fill->files[i].fext) == 0)){
+			return i;
+		}
+		else if(file_type == 3 && !strcmp(filename, fill->files[i].fname) && !strcmp(fill->files[i].fext, ext)){
+			return i;
+		}
+	}
+	return -1;
+}
 /*
  * Called whenever the system wants to know the file attributes, including
  * simply whether the file exists or not. 
@@ -187,8 +302,8 @@ static int path_name(char *directory,char *file,char *extension){
 static int cs1550_getattr(const char *path, struct stat *stbuf)
 {
 	int res = 0;
-	char *directory = strtok(path, "/");
-	char *filename = strtok(NULL, "/");
+	char *directory = strtok(path, "./");
+	char *filename = strtok(NULL, "./");
 	char *ext = strtok(NULL, ".");
 
 	memset(stbuf, 0, sizeof(struct stat));
@@ -268,8 +383,8 @@ static int cs1550_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 		ret = 0;
 	}
 	else{
-		char *directory = strtok(path, "/");
-		char *filename = strtok(NULL, "/");
+		char *directory = strtok(path, "./");
+		char *filename = strtok(NULL, "./");
 		char *ext = strtok(NULL, ".");
 		int path_type = path_name(directory, filename, ext);
 		if(path_type >= 1){
@@ -311,8 +426,8 @@ static int cs1550_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
 static int cs1550_mkdir(const char *path, mode_t mode)
 {
 	int ret = 0;
-	char *directory = strtok(path, "/");
-	char *filename = strtok(NULL, "/");
+	char *directory = strtok(path, "./");
+	char *filename = strtok(NULL, "./");
 	char *ext = strtok(NULL, ".");
 	(void) mode;
 	printf("%s\n", directory);
@@ -348,8 +463,8 @@ static int cs1550_mkdir(const char *path, mode_t mode)
  */
 static int cs1550_rmdir(const char *path)
 {
-	char *directory = strtok(path, "/");
-	char *filename = strtok(NULL, "/");
+	char *directory = strtok(path, "./");
+	char *filename = strtok(NULL, "./");
 	char *ext = strtok(NULL, ".");
         int path_type;
 	int ret = 0;
@@ -385,10 +500,47 @@ static int cs1550_rmdir(const char *path)
  */
 static int cs1550_mknod(const char *path, mode_t mode, dev_t dev)
 {
-	(void) path;
 	(void) mode;
 	(void) dev;
-	return 0;
+	char *directory = strtok(path, "./");
+	char *filename = strtok(NULL, "./");
+	char *ext = strtok(NULL, ".");
+        int path_type;
+	int ret = 0;
+        path_type = path_name(directory,filename,ext);
+	if(path_type >= 2){//Right place to put the file
+		int directory_place = dir_exists(directory);
+		//No extension, just file name.
+
+		if(strlen(filename) > MAX_FILENAME){
+			ret = -ENAMETOOLONG;
+		}
+		else if(path_type == 3  && strlen(ext)> MAX_EXTENSION){//If it has an extension (path_type = 3) and that extension is greater than max..
+			ret = -ENAMETOOLONG;
+		}
+		else{
+			cs1550_directory_entry curr;
+			get_dir(&curr, directory_place);
+			if(get_file_location(curr, filename, ext, path_type) == -1){
+				strcpy(curr.files[curr.nFiles].fname ,filename);
+				if(path_type == 3){
+					strcpy(curr.files[curr.nFiles].fext ,ext);
+				}
+				curr.nFiles = curr.nFiles+1;
+				write_dir_place(&curr, directory_place);
+				ret = 0;
+				
+			}
+			else{
+				ret = -EEXIST;
+			}
+			
+		}
+	}
+	else{ 
+		ret = -EPERM;
+	}
+	return ret;
 }
 
 /*
