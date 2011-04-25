@@ -93,6 +93,94 @@ static int get_dir(cs1550_directory_entry *fill, int i){
 	return ret;
 }
 
+
+
+/**
+* Will write the directory to either an "empty" slot or will
+* append to the end of the .directories file.
+* returns 1 if successful. Otherwise 0.
+*/
+
+static int write_dir(cs1550_directory_entry *written){
+	int ret = 0;
+	int i = 0;
+	cs1550_directory_entry check;
+	while(get_dir(&check, i) != 0){
+	
+		if(check.nFiles == -1){
+			FILE *f = fopen(".directories", "r+");
+			fseek(f, sizeof(cs1550_directory_entry)*i, SEEK_SET);
+			fwrite(written, sizeof(cs1550_directory_entry), 1, f);
+			fclose(f);
+			ret = 1;
+		}
+		i++;
+	}
+	if(ret == 0){
+		FILE *f = fopen(".directories", "a");
+		fwrite(written, sizeof(cs1550_directory_entry),1,f);
+		ret = 1;
+		fclose(f);
+	}
+	return ret;
+}
+/*
+Used only for rmdir.
+*/
+static int write_dir_place(cs1550_directory_entry *written, int place){
+	int ret = 0;
+	cs1550_directory_entry test_exist;
+	if(get_dir(&test_exist, place) != 0){
+                 FILE *f = fopen(".directories", "r+");
+                 fseek(f, sizeof(cs1550_directory_entry)*place, SEEK_SET);
+                 fwrite(written, sizeof(cs1550_directory_entry), 1, f);
+                 fclose(f);
+                 ret = 1;
+	}
+	return ret;
+}
+/**
+* will return the ith place in .directories of where the file is.
+* returns -1 if directory doesn't exist.
+*/
+static int dir_exists(char * name){
+	int ret = -1;
+	cs1550_directory_entry curr_dir;
+	int i = 0;
+	while(get_dir(&curr_dir, i) != 0){
+		if(strcmp(name, curr_dir.dname) == 0 && curr_dir.nFiles != -1){
+			ret = i;
+			break;
+		}
+		i++;	
+	}
+	return ret;
+}
+/**
+*Returns what the path is.
+*If the path is a root, return 0.
+*If the path is a directory, return 1
+*If the path is a file, return 2 or 3(3 has an extension)
+*/
+static int path_name(char *directory,char *file,char *extension){
+	int ret = 0;	
+	if(directory != NULL){
+		ret = 1;
+	}
+	if(file != NULL)
+		ret = 2;	
+	if(extension != NULL){
+		ret = 3;
+	}
+	return ret;
+}
+//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////Functions for Files////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 /**
 will get the file location of the file from the directory entry or will return -1 if
 it does not exist.
@@ -119,6 +207,7 @@ static int get_file_location(cs1550_directory_entry *fill, char * filename, char
 	}
 	return -1;
 }
+
 /*
  * CHECK BLOCK
  * Returns 1 if block is allocated, 0 if free
@@ -210,85 +299,6 @@ static int allocateBlock(int blockNum){
 	}
 }
 /**
-* Will write the directory to either an "empty" slot or will
-* append to the end of the .directories file.
-* returns 1 if successful. Otherwise 0.
-*/
-
-static int write_dir(cs1550_directory_entry *written){
-	int ret = 0;
-	int i = 0;
-	cs1550_directory_entry check;
-	while(get_dir(&check, i) != 0){
-	
-		if(check.nFiles == -1){
-			FILE *f = fopen(".directories", "r+");
-			fseek(f, sizeof(cs1550_directory_entry)*i, SEEK_SET);
-			fwrite(written, sizeof(cs1550_directory_entry), 1, f);
-			fclose(f);
-			ret = 1;
-		}
-		i++;
-	}
-	if(ret == 0){
-		FILE *f = fopen(".directories", "a");
-		fwrite(written, sizeof(cs1550_directory_entry),1,f);
-		ret = 1;
-		fclose(f);
-	}
-	return ret;
-}
-/*
-Used only for rmdir.
-*/
-static int write_dir_place(cs1550_directory_entry *written, int place){
-	int ret = 0;
-	cs1550_directory_entry test_exist;
-	if(get_dir(&test_exist, place) != 0){
-                 FILE *f = fopen(".directories", "r+");
-                 fseek(f, sizeof(cs1550_directory_entry)*place, SEEK_SET);
-                 fwrite(written, sizeof(cs1550_directory_entry), 1, f);
-                 fclose(f);
-                 ret = 1;
-	}
-	return ret;
-}
-/**
-* will return the ith place in .directories of where the file is.
-* returns -1 if directory doesn't exist.
-*/
-static int dir_exists(char * name){
-	int ret = -1;
-	cs1550_directory_entry curr_dir;
-	int i = 0;
-	while(get_dir(&curr_dir, i) != 0){
-		if(strcmp(name, curr_dir.dname) == 0 && curr_dir.nFiles != -1){
-			ret = i;
-			break;
-		}
-		i++;	
-	}
-	return ret;
-}
-/**
-*Returns what the path is.
-*If the path is a root, return 0.
-*If the path is a directory, return 1
-*If the path is a file, return 2 or 3(3 has an extension)
-*/
-static int path_name(char *directory,char *file,char *extension){
-	int ret = 0;	
-	if(directory != NULL){
-		ret = 1;
-	}
-	if(file != NULL)
-		ret = 2;	
-	if(extension != NULL){
-		ret = 3;
-	}
-	return ret;
-}
-/**
 Given a place, will write to that area on disk.
 returns -1 if outside the bounds of the .disk file, or if it could not find .disk.
 
@@ -309,6 +319,24 @@ static int create_disk_block(int place){
 	fwrite(&newBlock, sizeof(cs1550_disk_block), 1, f);
 	fclose(f);
 	return 0;
+}
+/*
+gets the ith block from the disk and stores it in (point)
+returns -1 if out of bounds or can't find file.
+*/
+static int get_block(cs1550_disk_block *point, int place){
+	if(place <= 3 || place > MAX_BITMAP_BYTES){
+		return -1;
+	}
+	FILE *f = fopen(".disk", "r");
+	if(f == NULL){
+		return -1;
+	}
+	fseek(f, sizeof(cs1550_disk_block)*place, SEEK_SET);
+	fread(point, sizeof(cs1550_disk_block), 1, f);
+	fclose(f);	
+	printf("char 1 is %c\n", point->data[0]);
+	return 0;	
 }
 /*
 *  Gets the first free block available. For better efficiency, it would be best to store int somewhere
@@ -421,23 +449,24 @@ static int write_data(int start_block, char *buff, int offset, int size){
 	cs1550_disk_block start;
 	int return_size = 0;
 	int new_size, point;
-	int position = get_offset(&start, start_block, offset, point);
+	int position = get_offset(&start, start_block, offset);
 	if(position < 0){
 		return -EFBIG;
 	}
-	new_size = put_data_in_block(start,buf,size,position);
+	new_size = put_data_in_block(&start,buff,size,position);
 	position = 0;
 	while(new_size > 0){
 		if(start.nNextBlock == -1){
+			printf("The size at this point is %d\n", new_size);
 			int new_block = create_space();
 			start.nNextBlock = new_block;
-			write_block(start, point);
+			write_block(&start, point);
 			point = new_block;
-			buf += (size-new_size);
+			buff += (size-new_size);
 			return_size += size-new_size;
 			size = new_size;
 			get_block(&start, point);
-			new_size = put_data_in_block(start, buf, size, position);
+			new_size = put_data_in_block(&start, buff, size, position);
 		}
 		else{
 			
@@ -450,17 +479,17 @@ static int read_data(int start_block, char *buff, int offset, int size){
 	cs1550_disk_block start;
 	int return_size = 0;
 	int new_size, point;
-	int new_position = get_offset(&start, start_block, offset, point);
+	int new_position = get_offset(&start, start_block, offset);
 	if(new_position < 0){
 		return -EFBIG;
 	}
-	new_size = get_data_from_block(start,buf,size,point);
+	new_size = get_data_from_block(&start,buff,size,point);
 	while(new_size > 0){
 		get_block(&start, start.nNextBlock);
-		buf += (size-new_size);
+		buff += (size-new_size);
 		return_size += size-new_size;
 		size = new_size;
-		new_size = get_data_from_block(start, buf, size, point);
+		new_size = get_data_from_block(&start, buff, size, point);
 	}
 }
 
@@ -758,7 +787,6 @@ static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 	char *filename = strtok(NULL, "./");
 	char *ext = strtok(NULL, ".");
         int path_type;
-	int ret = 0;
         path_type = path_name(directory,filename,ext);
 
 	//check to make sure path exists
@@ -769,15 +797,27 @@ static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 
 	if(path_type >= 2){//Right place for a file
 		int directory_place = dir_exists(directory);
-		int file_place;
+		int file_loc;
+		int size_read;
 		cs1550_directory_entry curr;
 
 		if(directory_place == -1){
 			return -EISDIR;
 		}
+		
 		get_dir(&curr, directory_place);
-		if(
-		return read_data(curr.nStartBlock, buf, offset, size)
+		file_loc = get_file_location(&curr, filename, ext, path_type);
+		if(curr.files[file_loc].fsize < offset){
+			return -EFBIG;
+		}
+		if(file_loc != -1){
+			size_read = read_data(curr.files[file_loc].nStartBlock, buf, offset, size);
+			printf("sizeread is: %d\n", size_read);
+		}
+		else{
+			return -ENOENT;
+		}
+		return size_read;
 			
 	}
 
@@ -793,7 +833,6 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
 {
 	
 	(void) fi;
-	int file_loc;
 	char *directory = strtok(path, "./");
 	char *filename = strtok(NULL, "./");
 	char *ext = strtok(NULL, ".");
@@ -801,24 +840,26 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
         path_type = path_name(directory,filename,ext);
 	if(path_type >= 2){//Right place for a file
 		int directory_place = dir_exists(directory);
-		int file_place;
+		int file_loc;
 		cs1550_directory_entry curr;
 
 		if(directory_place == -1){
 			return -EISDIR;
 		}
 
-
 		get_dir(&curr, directory_place);
-		file_loc = get_file_location(&curr, filename, ext, path_type)
+		file_loc = get_file_location(&curr, filename, ext, path_type);
+		printf("current file specs: file size: %d, location: %d \n\n\n",curr.files[file_loc].fsize, curr.files[file_loc].nStartBlock);
 		if(curr.files[file_loc].fsize < offset){
 			return -EFBIG;
 		}
 		
-		if(file_loc <= MAX_FILES_IN_DIR)
+		if(file_loc != -1){
 			int size_written = write_data(curr.files[file_loc].nStartBlock, buf, offset, size);
 			curr.files[file_loc].fsize = offset + size_written - curr.files[file_loc].fsize;
 			write_dir_place(&curr, directory_place);
+			printf("size written is: %d\n\n\n", size_written);
+		}
 		else{
 			return -ENOENT;
 		}
