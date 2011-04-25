@@ -475,7 +475,7 @@ static int write_data(int start_block, char *buff, int offset, int size){
 		else{  //If there is a next block...
 			write_block(&start, point);
 			buff += (size-new_size);
-			point = start.nNextBlock
+			point = start.nNextBlock;
 			get_block(&start, point);//Gets the next block.
 			return_size += size-new_size;
 			size = new_size;			
