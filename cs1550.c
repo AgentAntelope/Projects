@@ -257,7 +257,6 @@ static int freeBlock(int blockNum){
 		fseek(f, byteLoc, SEEK_SET);
 		fread(&thisByte, 1, 1, f);
 		thisByte &= ~(1<<bitLoc);
-		printf("thisbyte is: %d\n", thisByte);
 		fseek(f, byteLoc, SEEK_SET);
 		fwrite(&thisByte, 1, 1, f);
 		fclose(f);
@@ -290,7 +289,7 @@ static int allocateBlock(int blockNum){
 		printf("thisbyte is: %x\n", thisByte);
 		fseek(f,byteLoc, SEEK_SET);
 		opSuccess = fwrite(&thisByte, 1, 1, f);
-		printf("%d success\n", opSuccess);
+
 		fclose(f);
 		return 0;
 	}
@@ -310,7 +309,8 @@ static int create_disk_block(int place){
 		return -1;
 	}
 	cs1550_disk_block newBlock;
-	newBlock.size = MAX_DATA_IN_BLOCK;
+	newBlock.size = 0;
+	newBlock.nNextBlock = -1;
 	FILE *f = fopen(".disk", "r+");
 	if(f == NULL){
 		return -1;
@@ -335,7 +335,6 @@ static int get_block(cs1550_disk_block *point, int place){
 	fseek(f, sizeof(cs1550_disk_block)*place, SEEK_SET);
 	fread(point, sizeof(cs1550_disk_block), 1, f);
 	fclose(f);	
-	printf("char 1 is %c\n", point->data[0]);
 	return 0;	
 }
 /*
@@ -399,7 +398,6 @@ static int write_block(cs1550_disk_block *to_write, int place){
 	}
 	fseek(f, sizeof(cs1550_disk_block)*place, SEEK_SET);
 	fwrite(to_write, sizeof(cs1550_disk_block), 1, f);
-	printf("char 1 is %c\n", to_write->data[0]);
 	fclose(f);	
 	return 0;
 }
@@ -408,16 +406,20 @@ Will put as much data it can into the current block. If it succeeds into reducin
 return 1. If it needs more space, return 0.
 */
 static int put_data_in_block(cs1550_disk_block *data_block, char *buf, int size, int position){
+	int i = 0;
 	while(size > 0){
 		if(position < MAX_DATA_IN_BLOCK){
 			data_block->data[position] = *buf;
 			size--;
+			printf("%s\n",buf);
 			buf++;
-
 			if(position >= data_block->size){
 				data_block->size = data_block->size + 1;
 			}
 			position++;
+		}
+		else{
+			break;
 		}
 	}
 	return size;
@@ -430,12 +432,17 @@ If it doesn't, it returns a smaller size than it once had.
 position used to get the n'th data bit.
 */
 static int get_data_from_block(cs1550_disk_block *data_block, char *buf, int size, int position){
+	printf("datablocksize %d\n", data_block->size);
 	while(size > 0){
-		if(position < MAX_DATA_IN_BLOCK){
+		if(position < MAX_DATA_IN_BLOCK && position < data_block->size){
 			*buf= data_block->data[position];
 			size--;
+			printf("%s\n",buf);
 			buf++;
 			position++;
+		}
+		else{
+			break;
 		}
 	}
 	return size;
@@ -445,16 +452,17 @@ First, get offset block.
 You subtract n-times to get to that block, and what is left is a position of where to start
 abstracting data.
 */
+
 static int write_data(int start_block, char *buff, int offset, int size){
 	cs1550_disk_block start;
+	printf("startblock %d\n",start_block);
 	int return_size = 0;
 	int new_size, point;
-	int position = get_offset(&start, start_block, offset);
-	if(position < 0){
-		return -EFBIG;
-	}
+	point = start_block;
+	int position = get_offset(&start, start_block, offset, &point);
 	new_size = put_data_in_block(&start,buff,size,position);
 	position = 0;
+	printf("new_size is %d", new_size);
 	while(new_size > 0){
 		if(start.nNextBlock == -1){
 			printf("The size at this point is %d\n", new_size);
@@ -468,29 +476,41 @@ static int write_data(int start_block, char *buff, int offset, int size){
 			get_block(&start, point);
 			new_size = put_data_in_block(&start, buff, size, position);
 		}
-		else{
+		else{  //If there is a next block...
+			buff += (size-new_size);
+			get_block(&start, start.nNextBlock);//Gets the next block.
 			
 		}
 
 	}
+	write_block(&start, point);
+	printf("what is the size:: %d, endsave: %d\n", start.size, point);
+	return_size += size-new_size;
+	return  return_size;
 }
-
 static int read_data(int start_block, char *buff, int offset, int size){
+
 	cs1550_disk_block start;
 	int return_size = 0;
 	int new_size, point;
-	int new_position = get_offset(&start, start_block, offset);
-	if(new_position < 0){
-		return -EFBIG;
-	}
+	int new_position = get_offset(&start, start_block, offset); //Gets the starting block from the offset
+	printf("size here outside:%d start_block = %d\n", start.size, start_block);
 	new_size = get_data_from_block(&start,buff,size,point);
+	printf("new size is: %d", new_size);
 	while(new_size > 0){
+		printf("next block is: %d", start.nNextBlock);
+		return_size += size-new_size;
+		if(start.nNextBlock < 0){
+			break;
+		}
 		get_block(&start, start.nNextBlock);
 		buff += (size-new_size);
-		return_size += size-new_size;
+		printf("return size is: %d\n", return_size);
 		size = new_size;
 		new_size = get_data_from_block(&start, buff, size, point);
 	}
+	return_size += size-new_size;
+	return return_size;
 }
 
 /*
@@ -780,7 +800,6 @@ static int cs1550_unlink(const char *path)
 static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 			  struct fuse_file_info *fi)
 {
-	(void) buf;
 	(void) offset;
 	(void) fi;
 	char *directory = strtok(path, "./");
@@ -794,7 +813,9 @@ static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 	//check that offset is <= to the file size
 	//read in data
 	//set size and return, or error
-
+	if(size <= 0){
+		return 0;
+	}
 	if(path_type >= 2){//Right place for a file
 		int directory_place = dir_exists(directory);
 		int file_loc;
@@ -804,15 +825,15 @@ static int cs1550_read(const char *path, char *buf, size_t size, off_t offset,
 		if(directory_place == -1){
 			return -EISDIR;
 		}
-		
 		get_dir(&curr, directory_place);
 		file_loc = get_file_location(&curr, filename, ext, path_type);
 		if(curr.files[file_loc].fsize < offset){
 			return -EFBIG;
 		}
 		if(file_loc != -1){
+			printf("file size is: %d and %d is pointing\n", curr.files[file_loc].fsize, curr.files[file_loc].nStartBlock);
 			size_read = read_data(curr.files[file_loc].nStartBlock, buf, offset, size);
-			printf("sizeread is: %d\n", size_read);
+			printf("sizeread is: %d buff is %s\n", size_read, buf);
 		}
 		else{
 			return -ENOENT;
@@ -833,6 +854,7 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
 {
 	
 	(void) fi;
+	char *buff = buf;
 	char *directory = strtok(path, "./");
 	char *filename = strtok(NULL, "./");
 	char *ext = strtok(NULL, ".");
@@ -849,16 +871,23 @@ static int cs1550_write(const char *path, const char *buf, size_t size,
 
 		get_dir(&curr, directory_place);
 		file_loc = get_file_location(&curr, filename, ext, path_type);
-		printf("current file specs: file size: %d, location: %d \n\n\n",curr.files[file_loc].fsize, curr.files[file_loc].nStartBlock);
+		printf("current file specs: file size: %d, location: %d buffer is:%s \n\n\n",curr.files[file_loc].fsize, curr.files[file_loc].nStartBlock, buff);
+		printf("offset at %d filesize is %d\n", offset, curr.files[file_loc].fsize);
 		if(curr.files[file_loc].fsize < offset){
 			return -EFBIG;
 		}
 		
 		if(file_loc != -1){
-			int size_written = write_data(curr.files[file_loc].nStartBlock, buf, offset, size);
+			int size_written = write_data(curr.files[file_loc].nStartBlock, buff, offset, size);
 			curr.files[file_loc].fsize = offset + size_written - curr.files[file_loc].fsize;
 			write_dir_place(&curr, directory_place);
 			printf("size written is: %d\n\n\n", size_written);
+			if(size_written <= 0){
+				return 0;
+			}
+			else{
+				return size_written;
+			}
 		}
 		else{
 			return -ENOENT;
