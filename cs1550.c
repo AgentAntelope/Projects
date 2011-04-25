@@ -198,10 +198,10 @@ static int get_file_location(cs1550_directory_entry *fill, char * filename, char
 	int i;
 
 	for(i = 0; i < fill->nFiles; i++){
-		if(file_type == 2 && !strcmp(filename, fill->files[i].fname) && (strlen(fill->files[i].fext) == 0)){
+		if(file_type == 2 && !strcmp(filename, fill->files[i].fname) && (strlen(fill->files[i].fext) == 0) && fill->files[i].size != -1){
 			return i;
 		}
-		else if(file_type == 3 && !strcmp(filename, fill->files[i].fname) && !strcmp(fill->files[i].fext, ext)){
+		else if(file_type == 3 && !strcmp(filename, fill->files[i].fname) && !strcmp(fill->files[i].fext, ext)&& fill->files[i].size != -1){
 			return i;
 		}
 	}
