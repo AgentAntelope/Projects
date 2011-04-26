@@ -65,7 +65,7 @@ class User{
 		$stmt->bind_result($screen_name);
 		if($stmt->fetch())
 		{
-			return new User($screenname, $guid);
+			return new User($screen_name, $guid);
 		}
 		else
 		{
@@ -87,7 +87,7 @@ class User{
 			echo "Successfully logged in" . "<br />";
 		}
 		else{
-			echo "Nope";	
+			echo "Nope, screen_name is ". $this->screen_name . " and guid is: " . $this->guid;	
 		}
 	}
 	public function __toString(){
@@ -109,6 +109,6 @@ class User{
 
 $rawr = 'sean';
 $pew = 'rawr';
-$a = User::login($rawr, $pew);
+$a = User::fb_login(111);
 echo "Object:" . $a;
 ?>
