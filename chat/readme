@@ -32,8 +32,24 @@ User::screenNameInDB($screen_name)
         Returns: False if the screen name is not in the database.
         
 ************************************************************************************       
-All these functions require an instantiated user object.
-To instantiate a user object, either use User::login or...
+All these next functions require an instantiated user object.
+To instantiate a user object, you must login first like:
+
+$user = User::login($screenname, $pw);
+or
+$user = User::fb_login($me_id);
+
+Once logged in, you must either use setLogin or sendLogin:
+        
+$user->setLogin();  will set the Cookie and Session variables for this person.(hard refresh of page required)
+       OR 
+$user->sendLogin();  will set the Session variable, and send in a JSON Object the Cookie info to the client(for AJAX calls to login).
+       
+After you do this and set the cookies and session, to instantiate an object just use:
+
+$user = User::userObject();  so you do not need to worry about session or cookies(will do it automagically)
+        
+*************************************************************************************
 
 $user = new User($screen_name, $guid);
         $screen_name --is their screen name(stored in cookie and session state).
@@ -46,5 +62,8 @@ $user->setUserInterestRating($id, $rating)
 $user->updateUserInterestRating($id, $rating)
         $id -- The rating id you want to update.
         $rating -- the rating number to update to.
-        
-        
+$user->setLogin()
+        Will set login state variables (Cookies and session);
+
+$user->sendLogin()
+        Will send login state variables(so ajax can set the cookies on the client side).
