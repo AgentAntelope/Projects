@@ -20,7 +20,8 @@ class User{
 	{
 		$hashPW = md5($pw);
 		$db = new mysqli('pseudocodingnet.fatcowmysql.com', 'kittenfire', '128411', 'chatengine');
-		if(!$db){
+		if(!$db)
+		{
 			echo "Could not connect";
 			die();
 		}
@@ -48,28 +49,33 @@ class User{
 		Sets up all the private fields of the user. This way we can edit them without having to query from the db every
 		2 seconds.
 	****************************************************************************************************************/
-	private function setupCredentials(){
+	private function setupCredentials()
+	{
 		$stmt = $this->db->prepare("select * from Members where screen_name = ? AND guid=?");
 		$stmt->bind_param('ss',$this->screen_name, $this->guid);
 		$stmt->execute();
 		$stmt->bind_result($this->user_id, $this->screen_name, $this->f_name, $this->l_name, $this->email, $this->password, $this->curr_chat_id, $this->fb_id, $this->guid);
-		if($stmt->fetch()){
+		if($stmt->fetch())
+		{
 			echo "Successfully logged in" . "<br />";
 		}
-		else{
+		else
+		{
 			echo "Nope";	
 		}
 	}
 	/**************************************************************
 	 *Couldn't think of anything creative to put here yet...
 	 ****************************************************************/
-	public function __toString(){
+	public function __toString()
+	{
 			return "HELLO";
 	}
 	/*****************************************************
 	 *Creates a user rating, using the rating id and the number($rating)
 	 ***************************************************/
-	public function setUserInterestRating($id, $rating){
+	public function setUserInterestRating($id, $rating)
+	{
 		$stmt = $this->db->prepare("insert into Ratings(user_id,int_id,rating) values(?,?,?)");
 		$stmt->bind_param('iii', $this->user_id, $id, $rating);
 		$stmt->execute();
@@ -78,7 +84,8 @@ class User{
 	/****************************************************************
 	 *takes the rating id, and the new rating and updates it. 
 	 *************************************************************/
-	public function updateUserInterestRating($id, $rating){
+	public function updateUserInterestRating($id, $rating)
+	{
 		$uid = $this->user_id;
 		$this->db->query("update Ratings set rating = $rating where user_id = $uid AND int_id= $id");
 	}
