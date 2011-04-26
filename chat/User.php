@@ -1,4 +1,6 @@
  <?php
+ 
+
 class User{
 	private $user_id, $screen_name, $f_name, $l_name, $email, $password, $curr_chat_id, $fb_id, $guid, $db;
 	public function __construct($screen_name, $guid)
@@ -39,7 +41,7 @@ class User{
 		}
 		else
 		{
-			echo "FUCK YOU HACKER";//lol.
+			//echo "FUCK YOU HACKER";//lol.
 			return NULL;
 		}
 	}
@@ -69,7 +71,7 @@ class User{
 		}
 		else
 		{
-			echo "FUCK YOU HACKER";//lol.
+			//echo "FUCK YOU HACKER";//lol.
 			return NULL;
 		}
 	}
@@ -90,6 +92,74 @@ class User{
 			echo "Nope, screen_name is ". $this->screen_name . " and guid is: " . $this->guid;	
 		}
 	}
+	public static function createUser($screen_name, $password, $first_name, $last_name, $email){
+		if(User::screenNameInDB($screen_name)){
+			return json_encode(array("created"=>-1));
+		}		
+		$db = new mysqli('pseudocodingnet.fatcowmysql.com', 'kittenfire', '128411', 'chatengine');
+		$password = md5($password);
+		if(!$db){
+			echo "Could not connect";
+			die();
+		}
+		$query ="insert into Members(screen_name, f_name, l_name, email, password, curr_chat_id) values(?,?,?,?,?,0)";
+		$stmt = $db->prepare($query);
+		$stmt->bind_param('sssss',$screen_name, $first_name, $last_name, $email, $password);
+		$stmt->execute();
+		return json_encode(array("created"=>1));
+	}
+	public static function createUserFB($screen_name, $fb_id, $first_name, $last_name, $email){
+		if(User::screenNameInDB($screen_name)){
+			return json_encode(array("created"=>-1));
+		}
+		if(User::fbInDB($fb_id)){
+			return json_encode(array("created"=>0));
+		}
+		$db = new mysqli('pseudocodingnet.fatcowmysql.com', 'kittenfire', '128411', 'chatengine');
+		$password = md5(uniqid('',true));
+		if(!$db){
+			echo "Could not connect";
+			die();
+		}
+		$query ="insert into Members(screen_name, f_name, l_name, email, password, fb_id,curr_chat_id) values(?,?,?,?,?,?, 0)";
+		$stmt = $db->prepare($query);
+		$stmt->bind_param('sssssi',$screen_name, $first_name, $last_name, $email, $password, $fb_id);
+		$stmt->execute();
+		return json_encode(array("created"=>1));
+		}
+	public static function fbInDB($fb_id){
+		$db = new mysqli('pseudocodingnet.fatcowmysql.com', 'kittenfire', '128411', 'chatengine');
+		if(!$db){
+			echo "Could not connect";
+			die();
+		}
+		$stmt = $db->prepare("select screen_name from Members where fb_id=$fb_id");
+		$stmt->execute();
+		$stmt->bind_result($screen);
+		if($stmt->fetch()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
+	public static function screenNameInDB($screen_name){
+		$db = new mysqli('pseudocodingnet.fatcowmysql.com', 'kittenfire', '128411', 'chatengine');
+		if(!$db){
+			echo "Could not connect";
+			die();
+		}
+		$stmt = $db->prepare("select screen_name from Members where screen_name = \"$screen_name\"");
+		$stmt->execute();
+		$stmt->bind_result($screen);
+		if($stmt->fetch()){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 	public function __toString(){
 			return "HELLO";
 	}
@@ -105,10 +175,13 @@ class User{
 	}
 }
 
-
-
-$rawr = 'sean';
-$pew = 'rawr';
-$a = User::fb_login(111);
-echo "Object:" . $a;
+//$a = User::fb_login(111); //I manlly edited my username to have this fb_login_id
+//echo "Object:" . $a;
+/*
+if(User::screenNameInDB('PEW')){
+	echo "IT IS IN THE DATABASE";
+}
+else{
+	echo "Not in db";
+}*/
 ?>
