@@ -1,9 +1,7 @@
- <?php
- 
-
+<?php
 class User{
-	private $user_id, $screen_name, $f_name, $l_name, $email, $password, $curr_chat_id, $fb_id, $guid, $db;
-	public function __construct($screen_name, $guid)
+	private $user_id, $screen_name, $f_name, $l_name, $email, $password, $curr_chat_id, $fb_id, $guid, $db, $loginState;
+	private function __construct($screen_name, $guid)
 		{
 			$this->screen_name = $screen_name;
 			$this->guid = $guid;
@@ -86,10 +84,10 @@ class User{
 		$stmt->execute();
 		$stmt->bind_result($this->user_id, $this->screen_name, $this->f_name, $this->l_name, $this->email, $this->password, $this->curr_chat_id, $this->fb_id, $this->guid);
 		if($stmt->fetch()){
-			echo "Successfully logged in" . "<br />";
+			$this->loginState = true;
 		}
 		else{
-			echo "Nope, screen_name is ". $this->screen_name . " and guid is: " . $this->guid;	
+			$this->loginState = false;
 		}
 	}
 	public static function createUser($screen_name, $password, $first_name, $last_name, $email){
@@ -172,6 +170,45 @@ class User{
 	public function updateUserInterestRating($id, $rating){
 		$uid = $this->user_id;
 		$this->db->query("update Ratings set rating = $rating where user_id = $uid AND int_id= $id");
+	}
+	public function setSession(){
+		$_SESSION['screen_name'] = $this->screen_name;
+		$_SESSION['guid'] = $this->guid;
+	}
+	public function sendLogin(){
+		if($this->loginState){
+			$_SESSION['screen_name'] = $this->screen_name;
+			$_SESSION['guid'] = $this->guid;	
+			return json_encode(array("screen_name"=>$this->screen_name, "guid"=>$this->guid));
+		}
+		else{
+			return NULL;
+		}
+	}
+	public function setLogin(){
+		if($this->loginState){
+			$_SESSION['screen_name'] = $this->screen_name;
+			$_SESSION['guid'] = $this->guid;	
+			setcookie('screen_name', $this->screen_name, time()+30000000);
+			setcookie('guid', $this->guid, time()+30000000);
+			return true;
+		}
+		return false;
+	}
+	public static function userObject(){
+		if(isset($_SESSION['screen_name']) && isset($_SESSION['guid'])){
+			return new User($_SESSION['screen_name'], $_SESSION['guid']);
+		}
+		if(isset($_COOKIE['screen_name']) && isset($_COOKIE['guid'])){
+			$a = new User($_COOKIE['screen_name'], $_COOKIE['guid']);
+			if($a->loginState){
+				$a->setSession();
+				return $a;
+			}
+			else{
+				return NULL;
+			}			
+		}
 	}
 }
 
