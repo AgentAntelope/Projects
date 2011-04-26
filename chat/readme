@@ -1,0 +1,50 @@
+All the functions for User Class:
+
+User::login($screenname, $pw)
+        Parameters: a username and unhashed password
+        Returns: a user object if the user and password are correct
+        Returns: null if they are not.
+        
+User::fb_login($me_id)
+        Parameters: the facebook ID of the user
+        Returns: Null if the user is not in the database
+        Returns: A user object if the me id is in the db.
+        
+User::createUser($screen_name, $password, $first_name, $last_name, $email)
+        Parameters: Obvious.
+        Returns {'created':-1} if the screen name is already in the database.
+        Returns {'created':1} if inserted.
+        
+User::createUserFB($screen_name, $fb_id, $first_name, $last_name, $email)
+        Parameters: Obvious
+        Returns {'created':-1} if the screen name is already in the database.
+        Returns {'created': 0} if the fb_id is already in the database
+        Returns {'created':1} if inserted.
+        
+User::fbInDB($fb_id)
+        Parameter: The facebook id of the user to check
+        Returns: True if user in database
+        Returns: False if the user is not in the database.
+    
+User::screenNameInDB($screen_name)
+        Paremeter: screen_name to check
+        Returns: True if screen name in database
+        Returns: False if the screen name is not in the database.
+        
+************************************************************************************       
+All these functions require an instantiated user object.
+To instantiate a user object, either use User::login or...
+
+$user = new User($screen_name, $guid);
+        $screen_name --is their screen name(stored in cookie and session state).
+        $guid-- is their unique key set when logged in (stored in cookie and session state)
+
+$user->setUserInterestRating($id, $rating)
+        $id --The rating id you want to insert for this User
+        $rating -- the rating number.
+        
+$user->updateUserInterestRating($id, $rating)
+        $id -- The rating id you want to update.
+        $rating -- the rating number to update to.
+        
+        
