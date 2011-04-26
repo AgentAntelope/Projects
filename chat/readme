@@ -51,10 +51,6 @@ $user = User::userObject();  so you do not need to worry about session or cookie
         
 *************************************************************************************
 
-$user = new User($screen_name, $guid);
-        $screen_name --is their screen name(stored in cookie and session state).
-        $guid-- is their unique key set when logged in (stored in cookie and session state)
-
 $user->setUserInterestRating($id, $rating)
         $id --The rating id you want to insert for this User
         $rating -- the rating number.
