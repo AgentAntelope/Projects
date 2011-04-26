@@ -44,6 +44,36 @@ class User{
 		}
 	}
 	
+	/***********************************************************************
+	 If me_id is correct, will return a User object.
+	 Otherwise, will return null (and call you a fucking hacker).
+	************************************************************************/
+	public static function fb_login($me_id){
+		$db = new mysqli('pseudocodingnet.fatcowmysql.com', 'kittenfire', '128411', 'chatengine');
+		if(!$db){
+			echo "Could not connect";
+			die();
+		}
+		//Creates a new GUID every attempt to login to prevent hackers from hacking the place!
+		$guid = uniqid('', true);
+		$db->query("update Members set guid='$guid' where fb_id='$me_id'"); 
+		
+		//Check to see if the user exists with the username and pw..
+		$stmt = $db->prepare("select screen_name from Members where fb_id=? ");
+		$stmt->bind_param('i', $me_id);
+		$stmt->execute();
+		$stmt->bind_result($screen_name);
+		if($stmt->fetch())
+		{
+			return new User($screenname, $guid);
+		}
+		else
+		{
+			echo "FUCK YOU HACKER";//lol.
+			return NULL;
+		}
+	}
+	
 	/***************************************************************************************************************
 		Sets up all the private fields of the user. This way we can edit them without having to query from the db every
 		2 seconds.
