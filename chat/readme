@@ -13,13 +13,13 @@ User::fb_login($me_id)
 User::createUser($screen_name, $password, $first_name, $last_name, $email)
         Parameters: Obvious.
         Returns {'created':-1} if the screen name is already in the database.
-        Returns {'created':1} if inserted.
+        Returns {'created':1 , 'screen_name': value, 'guid':value, 'user_id': value} if inserted.
         
 User::createUserFB($screen_name, $fb_id, $first_name, $last_name, $email)
         Parameters: Obvious
         Returns {'created':-1} if the screen name is already in the database.
         Returns {'created': 0} if the fb_id is already in the database
-        Returns {'created':1} if inserted.
+        Returns {'created':1 , 'screen_name': value, 'guid':value, 'user_id': value} if inserted.
         
 User::fbInDB($fb_id)
         Parameter: The facebook id of the user to check
@@ -31,6 +31,7 @@ User::screenNameInDB($screen_name)
         Returns: True if screen name in database
         Returns: False if the screen name is not in the database.
         
+User::
 ************************************************************************************       
 All these next functions require an instantiated user object.
 To instantiate a user object, you must login first like:
@@ -63,3 +64,4 @@ $user->setLogin()
 
 $user->sendLogin()
         Will send login state variables(so ajax can set the cookies on the client side).
+        
