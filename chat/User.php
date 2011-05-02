@@ -115,6 +115,7 @@ class User{
 			$arMerge= $user->sendLogin();
 			$result = array_merge($created, $arMerge);
 			$user->createOnline();
+			$user->createDefaultRatings();
 			//Encode those cookies to the client.
 			return json_encode($result);
 		}
@@ -147,6 +148,7 @@ class User{
 			$user = User::fb_login($fb_id);
 			$arMerge= $user->sendLogin();
 			$user->createOnline();
+			$user->createDefaultRatings();
 			$result = array_merge($created, $arMerge);
 			return json_encode($result);
 		}
@@ -361,8 +363,75 @@ class User{
 		return json_encode($this->parseData($totalResults));
 	}
 	private function parseData($usersOnline){
+		# this array will hold all the ratings. initially it is unsorted.
+		# it's associative 2D -- the fields are userID and score
+		$EucArray = array();
 		
+		#$select_curr_ratings = "SELECT r.*, m.* FROM Ratings r, Members m WHERE r.user = m.user AND m.user ='".$this->user_id."'";
+		
+		# this foreach calculates all the compatibility scores between other users
+		# and the current user
+		foreach($usersOnline as $index => $value)
+		{
+			$userB = $value['user_id'];
+			$Bcat = $value['cat_id'];
+		
+			$tempArray['user_id'] = $userB;
+			$tempArray['score'] = $this->calcEuclidean($userB, $Bcat);
+			$tempArray['cat_id'] = $Bcat;
+			$tempArray['screen_name'] = $value['screen_name'];
+			
+			$EucArray[] = $tempArray;
+		}
+		
+		# now need to sort the array we just finished building based on score and category
+		usort($EucArray, 'valueCmp');
+		
+		return $EucArray;
 	}
+
+
+	
+	private function calcEuclidean($userB, $cat){
+		# query the database to get the interest ratings from curr user
+		$user_id = $this->user_id;
+		$select_rating_curr = "SELECT r.rating FROM Ratings r, Members m, interests WHERE r.user_id=m.user_id AND interests.int_id = r.int_id AND m.user_id=$user_id AND interests.cat_id=$cat";
+		$select_rating_b = "SELECT r.rating FROM Ratings r, Members m, interests WHERE r.user_id=m.user_id AND interests.int_id = r.int_id AND m.user_id=$userB AND interests.cat_id=$cat";
+		$result_curr = $this->db->prepare($select_rating_curr);
+		$result_curr->execute();
+		$result_curr->bind_result($ratingCurr);
+		$temp_arrayA = array();
+		while($result_curr->fetch())
+               {        
+                       $temp_arrayA[] = $rowCurr;
+               }
+	       
+		#query the database to get the interest ratings from user b
+		$result_b = $this->db->prepare($select_rating_b);
+		$result_b->execute();
+		$result_b->bind_result($ratingB);
+		$sum = 0;
+		$temp_arrayB = array();
+		while($result_b->fetch()){
+			$temp_arrayB = $ratingB;
+		}
+		# iterate through results
+		# this is going to get us the bottom part of the equation where
+		# we calculate the sum.
+		$i = 0;
+		while(isset($temp_arrayA[i]) && isset($temp_arrayB[i])){
+			$temp_sum = $temp_arrayB[i] - $temp_arrayA[i];
+			if($temp_sum < 0) $temp_sum = $temp_sum * (-1);
+			
+			$sum = $sum + $temp_sum;
+			$i++;
+		}
+		# now time to get the similarity score:
+		$score = 1/(1+$sum);
+		
+		# return the score to the parse data function
+		return $score;
+	} # end calcEuclidean
 	public static function getAllCategories(){
 		$db = new mysqli('pseudocodingnet.fatcowmysql.com', 'kittenfire', '128411', 'chatengine');
 		if(!$db){
@@ -378,25 +447,44 @@ class User{
 		}
 		return json_encode($totalResults);
 	}
-	public static function getRatingsForCat($cat_id){
-		$db = new mysqli('pseudocodingnet.fatcowmysql.com', 'kittenfire', '128411', 'chatengine');
-		if(!$db){
-			echo "Could not connect";
-			die();
-		}
-		$stmt =$db->prepare("select * from interests where cat_id=?");
-		$stmt->bind_param('i', $cat_id);
+	public function createDefaultRatings(){
+		$stmt = $this->db->prepare("select int_id from interests");
+		$tempArray = array();
 		$stmt->execute();
-		$stmt->bind_result($intID, $intName, $catID);
+		$stmt->bind_result($intID);
+		while($stmt->fetch()){
+			$tempArray[] = $intID;
+		}
+		$stmt->close();
+		foreach($tempArray as $int_id){
+			$userID = $this->user_id;
+			$this->db->query("insert into Ratings(user_id, int_id, rating) values($userID,$int_id,3)");
+		}
+		
+	}
+	public function getRatingsForCat($cat_id){
+		$stmt =$this->db->prepare("select Ratings.rating, interests.int_id, interests.int_name from interests, Ratings where Ratings.int_id = interests.int_id AND interests.cat_id=? AND Ratings.user_id = ?");
+		$stmt->bind_param('ii',$cat_id, $this->user_id);
+		$stmt->execute();
+		$stmt->bind_result($rating, $intID, $intName);
 		$totalResults = array();
 		while($stmt->fetch()){
-			$totalResults[] = array('cat_id'=>$catID, 'int_name'=>$intName, 'int_id'=>$intID);
+			$totalResults[] = array('cat_id'=>$cat_id, 'rating'=>$rating ,'int_name'=>$intName, 'int_id'=>$intID);
 		}
 		return json_encode($totalResults);
 		
 	}
 }
-
+	function valueCmp( $a, $b ){
+		if ( $a['score'] == $b['score'] )
+			return 0;
+		else if ( $a['score'] < $b['score'] )
+			return -1;
+		else{
+			return 1;			
+		}
+		
+	}
 //$a = User::fb_login(111); //I manlly edited my username to have this fb_login_id
 //echo "Object:" . $a;
 /*
