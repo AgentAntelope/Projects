@@ -1,0 +1,37 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+table{
+    border: 1px solid #EDEDED;
+    display: inline-block;
+    margin: 0px;
+    padding:0px;
+}
+td{
+    margin: 0px;
+    padding:10px;
+    text-align: center;
+}
+table{
+    border-collapse: collapse;
+}
+tr:nth-child(odd){
+   background-color: #EDEDED;
+}
+tr{
+    border: 1px solid #BFBFBF;
+
+}
+tr:hover{
+   background-color: #DDDDDD;    
+}
+th{
+    background-color: #DDDDDD;
+    padding:10px;
+
+}
+canvas{
+    display: inline-block;
+    
+}
