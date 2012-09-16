@@ -1,0 +1,67 @@
+All the functions for User Class:
+
+User::login($screenname, $pw)
+        Parameters: a username and unhashed password
+        Returns: a user object if the user and password are correct
+        Returns: null if they are not.
+        
+User::fb_login($me_id)
+        Parameters: the facebook ID of the user
+        Returns: Null if the user is not in the database
+        Returns: A user object if the me id is in the db.
+        
+User::createUser($screen_name, $password, $first_name, $last_name, $email)
+        Parameters: Obvious.
+        Returns {'created':-1} if the screen name is already in the database.
+        Returns {'created':1 , 'screen_name': value, 'guid':value, 'user_id': value} if inserted.
+        
+User::createUserFB($screen_name, $fb_id, $first_name, $last_name, $email)
+        Parameters: Obvious
+        Returns {'created':-1} if the screen name is already in the database.
+        Returns {'created': 0} if the fb_id is already in the database
+        Returns {'created':1 , 'screen_name': value, 'guid':value, 'user_id': value} if inserted.
+        
+User::fbInDB($fb_id)
+        Parameter: The facebook id of the user to check
+        Returns: True if user in database
+        Returns: False if the user is not in the database.
+    
+User::screenNameInDB($screen_name)
+        Paremeter: screen_name to check
+        Returns: True if screen name in database
+        Returns: False if the screen name is not in the database.
+        
+User::
+************************************************************************************       
+All these next functions require an instantiated user object.
+To instantiate a user object, you must login first like:
+
+$user = User::login($screenname, $pw);
+or
+$user = User::fb_login($me_id);
+
+Once logged in, you must either use setLogin or sendLogin:
+        
+$user->setLogin();  will set the Cookie and Session variables for this person.(hard refresh of page required)
+       OR 
+$user->sendLogin();  will set the Session variable, and send in a JSON Object the Cookie info to the client(for AJAX calls to login).
+       
+After you do this and set the cookies and session, to instantiate an object just use:
+
+$user = User::userObject();  so you do not need to worry about session or cookies(will do it automagically)
+        
+*************************************************************************************
+
+$user->setUserInterestRating($id, $rating)
+        $id --The rating id you want to insert for this User
+        $rating -- the rating number.
+        
+$user->updateUserInterestRating($id, $rating)
+        $id -- The rating id you want to update.
+        $rating -- the rating number to update to.
+$user->setLogin()
+        Will set login state variables (Cookies and session);
+
+$user->sendLogin()
+        Will send login state variables(so ajax can set the cookies on the client side).
+        
