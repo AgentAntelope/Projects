@@ -25,9 +25,27 @@ void mem_barrier() {
  */
 
 void atomic_sub( int * value, int dec_val) {
+	int result = *value;
+	dec_val = -dec_val;
+	asm("   lock       ;\n"
+		"   addl %1,%0 ;\n"
+		: "=m" (result)
+		: "r" (dec_val), "m" (result)
+		:
+		);
+	*value = result;
+
 }
 
 void atomic_add( int * value, int inc_val) {
+	int result = *value;
+	asm("   lock       ;\n"
+				 "   addl %1,%0 ;\n"
+				 : "=m" (result)
+				 : "ir" (inc_val), "m" (result)
+				 :
+		);
+	*value = result;
 }
 
 

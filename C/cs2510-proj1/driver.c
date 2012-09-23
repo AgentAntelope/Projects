@@ -23,6 +23,7 @@ void * ex1_sub_fn(void * ptr) {
     pthread_barrier_wait(&barrier);
 
     for (i = 0; i < ITERATIONS; i++) {
+        printf("Current iteration: %d, global value: %d\n", i, global_value);
         atomic_sub(&global_value, 1);
     }
 
@@ -169,13 +170,12 @@ int main(int argc, char ** argv) {
     cpu_set_t cpuset;
     
 
-    printf("num_cpus=%d\n", (int)num_cpus);
+    printf("num_cpus=%d\n", num_cpus);
 
     num_threads = num_cpus;
 
     threads = malloc(sizeof(pthread_t) * num_threads);
     attrs = malloc(sizeof(pthread_attr_t) * num_threads);
-
   
     for (x = 0; x < num_threads; x++) {
 	CPU_ZERO(&cpuset);
@@ -194,7 +194,7 @@ int main(int argc, char ** argv) {
     {
         int i = 0;
         global_value = (num_threads * ITERATIONS);
-
+        printf("Gloab: %d", global_value);
         for (i = 0; i < num_threads; i++) {
             pthread_create(&threads[i], &attrs[i], &ex1_sub_fn, NULL);
             
@@ -205,7 +205,7 @@ int main(int argc, char ** argv) {
             pthread_join(threads[i], &ret);
         }
 
-
+        printf("Global Value: %d\n", global_value);
         if (global_value != 0) {
             printf("ERROR\n");
         } else {
