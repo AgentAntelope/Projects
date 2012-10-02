@@ -1,0 +1,9 @@
+Problem 3:
+Solution is reentering or any large numbers of combinations.
+
+Attempts to solve:
+- First I had to trace the code, and without the symbol table, it was exponentially more difficult than either of the other two, even when you use objdump to see the source code. Since I couldn't really trace it correctly just by randomly inserting breaks, I ran a perl script to auto-generate breaks at every instruction and then traced normally.
+
+After about 1-2 times through of guessing wrong, I noticed a compare with a constant of 0x8 and that the amount of characters that it will be willing to read is 9. Certain guesses would produce a certain number to compare to 0x8. Each time through, it would look at the letter, assign a number to it and then "and" it by another number. Each letter, in the end, had a specific value that would either work out to a 1 or a 0. I had began testing with all e's and then tested each letter to get a different result and then could work any combination I wanted when I knew them all.
+
+I chose the word above out of many choices like: eeeeeeesop or random words because that is what I noticed the most. Mostly with the getChar, there was a lot of reentering the same "function" again and again. Each time, the values would be stored and read using the ebp and offsetting with negative values. They also changed each time, changing what the function produced. I think that was what was supposed to be learned in this lab, how if you offset into the function previous, the values on the fringe are the values passed in the parameter of a normal function. 

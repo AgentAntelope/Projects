@@ -1,0 +1,7 @@
+total 62
+-rw-r--r--  1 stm52 UNKNOWN2   373 Aug 25  2003 lex.c
+-rw-r--r--  1 stm52 UNKNOWN2 36172 Jan 26 20:37 lex.yy.c
+-rwxr-xr-x  1 stm52 UNKNOWN2 20811 Jan 30 11:49 myshell
+-rw-r--r--  1 stm52 UNKNOWN2  2850 Jan 30 11:49 myshell.c
+-rw-r--r--  1 stm52 UNKNOWN2     0 Jan 30 11:50 rawr
+-rw-r--r--  1 stm52 UNKNOWN2     1 Jan 26 20:30 shell.c

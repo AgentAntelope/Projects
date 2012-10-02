@@ -23,11 +23,12 @@ void * ex1_sub_fn(void * ptr) {
     pthread_barrier_wait(&barrier);
 
     for (i = 0; i < ITERATIONS; i++) {
-        printf("Current iteration: %d, global value: %d\n", i, global_value);
+        //printf("Current iteration: %d, global value: %d\n", i, global_value);
         atomic_sub(&global_value, 1);
     }
 
     return NULL;
+
 }
 
 void * ex2_fn(void * ptr) {
@@ -194,7 +195,6 @@ int main(int argc, char ** argv) {
     {
         int i = 0;
         global_value = (num_threads * ITERATIONS);
-        printf("Gloab: %d", global_value);
         for (i = 0; i < num_threads; i++) {
             pthread_create(&threads[i], &attrs[i], &ex1_sub_fn, NULL);
             
@@ -205,7 +205,6 @@ int main(int argc, char ** argv) {
             pthread_join(threads[i], &ret);
         }
 
-        printf("Global Value: %d\n", global_value);
         if (global_value != 0) {
             printf("ERROR\n");
         } else {

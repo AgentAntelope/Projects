@@ -1,0 +1,9 @@
+The size of int is 4 bytes
+The size of short is 2 bytes
+The size of long is 8 bytes
+The size of long long is 8 bytes
+The size of char is 1 bytes
+The size of unsigned int is 4 bytes
+The size of float is 4 bytes
+The size of double is 8 bytes
+The size of long double is 16 bytes

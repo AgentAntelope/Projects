@@ -1,0 +1,8 @@
+Please insert a weight and we will tell you your weight on other planets:Your weight on other planets:
+Mercury: 38.00 lbs
+Mars: 38.00 lbs
+Venus: 91.00 lbs
+Jupiter: 254.00 lbs
+Saturn: 108.00 lbs
+Uranus: 91.00 lbs
+Neptune: 119.00 lbs

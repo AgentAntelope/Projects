@@ -1,0 +1,8 @@
+#!/bin/bash
+scp 
+stm52@thot.cs.pitt.edu:/u/OSLab/stm52/linux-2.6.23.1/arch/i386/boot/bzImage /boot/bzImage-devel
+scp stm52@thot.cs.pitt.edu:/u/OSLab/stm52/linux-2.6.23.1/System.map /boot/System.map-devel
+scp stm52@thot.cs.pitt.edu:/u/OSLab/stm52/prodcons /root/
+
+lilo
+reboot

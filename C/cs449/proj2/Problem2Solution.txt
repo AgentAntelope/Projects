@@ -1,0 +1,7 @@
+Problem 2 Solution:
+aaaaaaaaaaaaaaaaaaa (or as I like to call it: the cat laying on the keyboard solution)
+
+How I got this:
+This one was kind of easy. Once I broke apart the S function and saw that it was counting the string I input, I started typing randomly. This didn't work obviously since, you can only have one type of letter (or number...or symbol in the ascii table above ascii number 0) in your password. After I hit the 15 letter limit and they were all the same letters, I was golden.
+
+What I Noted: This one had no large string table like the last one. This makes me believe that it was either dynamically linked or loaded, I am leaning towards the former. More proof is the fact that, compared to the last one, the size is drastically smaller. The string table wasn't stripped or anything since string literals were there. It didn't have a set answer, the answer was based on the input, so looking in the table would be useless. I also saw, for the first time, calling conventions of callees vs callers, and how their activation records were put on the stack. There had to be some symbol table since, compared to the third one that I haven't started on yet, I can still call things like "breakpoint main" and it recognizes what main is.
