@@ -1,0 +1,65 @@
+.data
+str: .space 33
+
+
+.text
+#Main program
+la $a0, str
+li $a1, 32
+li $v0, 8
+syscall
+jal signedNum
+move $a0, $v0
+li $v0, 1
+syscall
+li $v0, 10
+syscall
+
+
+#input a0, pointer to the beginning of the string
+#v0 binary number
+signedNum:
+addi 		$sp, $sp, -4
+sw 		$ra, 0($sp)
+jal 		returnLength
+move 	$t0, $v0
+move 	$t1, $a0
+lbu 		$t2, 0($t1)
+addi 		$t2, $t2, -49	#Will be 0 if ascii 1
+beqz		$t2, signed
+signedLoop:
+addi 		$t0, $t0, -1
+bltz 		$t0, returnSigned
+lbu 		$t2, 0($t1)
+addi 		$t2, $t2, -48
+sllv 		$t2, $t2, $t0
+add 		$t3, $t3, $t2
+addi 		$t1, $t1, 1	
+j 		signedLoop
+returnSigned:
+lw		$ra, 0($sp)
+addi		$sp, $sp, 4
+move 	$v0, $t3
+jr 		$ra
+signed:
+addi		$t3, $0, -1
+addi 		$t0, $t0, -1
+addi		$t1, $t1, 1
+sllv		$t3, $t3, $t0
+j 		signedLoop
+
+#input a0, pointer to the beginning of the string
+#return v0, length of string
+returnLength:
+move $t0, $a0
+addi $t1, $t1, 0
+lengthLoop:
+lbu $t2, 0($t0)
+addi $t2, $t2, -48
+bltz $t2, foundLength
+addi $t0, $t0, 1
+addi $t1, $t1, 1
+j lengthLoop
+foundLength:
+move $v0, $t1
+jr $ra
