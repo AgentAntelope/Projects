@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin -1in
+\headheight 0in
+\headsep 0in
+\textheight 8.5in
+\textwidth 6.5in
+\oddsidemargin 0in
+\evensidemargin 0in
+\headheight 77pt
+\headsep 0in
+\footskip .75in
+
+\title{CS1510  Dynamic Programming Problems 24,\& 25, Reduction Problem 2}
+\author{Rebecca Negley, Sean Myers}
+\date{October 14, 2011}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\setcounter{enumi}{23}
+\item Give a polynomial time algorithm for the following problem. The input consists of a sequence 
+\newline$R = R_0, ..., R_n$ of non negative integers, and an integer $k$. The number $R_i$ represents the number of
+\newline users requesting some particular piece of information at time $i$ (say from a www.server. If the
+\newline server broadcasts this information at some time $t$, the requests of all the users who requested the
+\newline information strictly before time $t$ are satisfied. The server can broadcast this information at most 
+\newline $k$ times.  The goal is to pick the $k$ times to broadcast in order to minimize the total time (over all
+\newline requests) that requests/users have to wait in order to have their requests satisfied
+
+Solution:
+
+\item Assume that you are given a collection $B_1,...,B_n$ of boxes. You are told that the weight in kilograms
+\newline of each box is an integer between 1 and some constant $L$, inclusive. However you do not know the
+\newline specific weight of any box, and you do not know the specific value of $L$. You are also given a pan 
+\newline balance. A pan balance functions in the following manner. You can give the pan balance any two
+\newline disjoint sub-collections, say $S_1$ and $S_2$ of the boxes. Let $|S_1|$ and $|S_2|$ be the cumulative weight of the 
+\newline boxes in $S_1$ and $S_2$, respectively. The pan balance then determines whether $|S_1| < |S_2|$, $|S_1| = |S_2|$,
+\newline or $|S_1| > |S_2|$. You have nothing else at your disposal other than these $n$ boxes and the pan balance. 
+\newline The problem is to determine if one can partition the boxes into two disjoint sub-collections of equal
+\newline weight. Give an algorithm for this problem that makes at most $O(n^2L)$ uses of the pan balance. For
+\newline partial credit, find an algorithm where the number of uses is polynomial in $n$ and $L$.
+
+Solution:
+
+%Reduction 2:
+\item Show that if there is an $O(n^k)$, $k \ge 2$, time algorithm for inverting a nonsingular $n$ by $n$ matrix $C$
+\newline then there is an $O(n^k)$ time algorithm for multiply two arbitrary $n$ by $n$ matrices $A$ and $B$.
+\newline For a square matrix $A$, $A$ inverse, denoted $A^{-1}$, is the unique matrix such that $AA^{-1}= I$, where $I$ is 
+\newline the identity matrix with 1's on the main diagonal and 0's every place else. Not that not every square
+\newline matrix has an inverse, e.g. the all zero matrix.
+
+Solution: If we can reduce multiplying two arbitrary n x n matrices to inverting a matrix, and the most inefficient part of the algorithm is the inversion, then the algorithm will run in at least $O(n^k)$. If we set up a matrix $C$, where the matrix of size 3n x 3n, where the matrix looks like:
+\begin{tabular}{ |l  c  r |  }
+I & A & 0  \\ 
+0 & I & B  \\
+0 & 0 & I  \\ 
+\end{tabular}
+(I being identity matrix). The setup of this matrix would take $9*n^2$, since it is trivial to set up an identity matrix, copy a matrix or 0-pad a matrix like so.
+
+Then the inverse(derivation not shown) would look something like:
+\begin{tabular}{ |l  c  r |  }
+I & -A & A*B  \\ 
+0 & I & -B  \\
+0 & 0 & I  \\ 
+\end{tabular}
+
+Then all we would need to do is extrapolate the top right node (which takes $n^2$ amount of time), and we have our matrix multiplication.
+
+The time to convert to the input matrix $C$ is $O(n^2)$, the inversion takes $O(n^k)$ where k must be greater than or equal to 2 and then once we have the output, the time to translate to the desired output is $O(n^2)$. Hence, the algorithm's slowest possible run time is that of the inverse multiplication $O(n^k)$.
+
+\end{enumerate}
+\end{document}
+

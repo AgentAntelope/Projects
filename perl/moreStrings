@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $buddy = 'James';
+my $whazzup = "Hey there, $buddy!"; #Double quotes used for interp
+my $wallet = 11.00;
+my $need = "Can I len you \$$wallet \n";
+my $banter = "$whazzup $need";
+print $banter;
+my $Banter = '$whazzup dog';
+print $Banter;

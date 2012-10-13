@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin -1in
+\headheight 0in
+\headsep 0in
+\textheight 8.5in
+\textwidth 6.5in
+\oddsidemargin 0in
+\evensidemargin 0in
+\headheight 77pt
+\headsep 0in
+\footskip .75in
+
+\title{CS1510  Reduction Problems 7, 9, \& 13}
+\author{Rebecca Negley, Sean Myers}
+\date{October 21, 2011}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\setcounter{enumi}{6}
+%Problem 7
+\item Show that if one of the following three problems has a polynomial time algorithm, then they all do:
+\begin{enumerate]
+\item The input is two undirected graphs $G$ and $H$. The problem is to determine if the graphs are
+\newline isomorphic.
+\item The input is two directed graphs $G$ and $H$. The problem is to determine if the graphs are
+\newline isomorphic.
+\item The input is two undirected graphs $G$ and $H$ and an integer $k$. The problem is to determine if
+\newline the graphs are isomorphic and all the vertices in each graph have degree $k$.
+\end{enumerate}
+Intuitively, two graphs are isomorphic if one can name/label the vertices so that the graphs are identical.
+\newline More formally, two undirected graphs $G$ and $H$ are isomorphic if there is a bijection $f$ from the vertices
+\newline of $G$ to the vertices of $H$ such that ($v,w$) is an edge in $G$ if and only if $(f(v), f(w))$ is an edge in $G$.
+\newline More formally, two directed graphgs $G$ and $H$ are isomorphic if there is a bijection $f$ from the vertices
+\newline of $G$ to the vertices of $h$ such that $(v,w)$ is a directed edge in $G$ if and only if ($f(v), f(w)$) is a directed
+\newline edge in $G$. The degree of a vertex is the number of edges incident to that vertex.
+\newline
+
+Solution:
+
+\setcounter{enumi}{8}
+%Problem 9
+\item The input to the Hamiltonian Cycle Problem is an undirected graph $G$. The problem is to find a
+\newline Hamiltonian cycle, if one exists. A hamiltonian cycle is a simple cycle that spans $G$. Show that the
+\newline Hamiltonian cycle problem is self reducible. That is, show that if there is a polynomial time algorithm
+\newline that determines whether a graph has a Hamiltonian cycle, then there is a polynomial time algorithm to find Hamiltonian cycles. 
+\newline
+Solution:
+
+\setcounter{enumi}{12}
+\item Show that the following problem is $NP$-hard:
+\newline INPUT: A graph $G$. Let $n$ be the number of vertices in $G$.
+\newline OUTPUT: 1 if $G$ contains a simple cycle with \sqrt{$n$} edges, and 0 otherwise.
+\newline Use the fact the following problem is $NP$-hard:
+INPUT: A graph $G$.\newline
+OUTPUT: 1 if $G$ contains a simple cycle that spans $g$, and 0 otherwise.
+
+Solution:
+\end{enumerate}
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{courier}
+\usepackage[table]{xcolor}
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin -1in
+\headheight 0in
+\headsep 0in
+\textheight 8.5in
+\textwidth 6.5in
+\oddsidemargin 0in
+\evensidemargin 0in
+\headheight 77pt
+\headsep 0in
+\footskip .75in
+
+\title{CS1510 Dynamic Algorithms}
+\author{Sean Myers}
+\date{September 14, 2011}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\item Give an efficient algorithm for finding the shortest common super-sequence of two strings $A$ and $B$. $C$ 
+\newline is a super-sequence of $A$ if and only if $A$ is a subsequence of $C$.
+
+Solution:
+\begin{tabbing}
+SCS(\= char A[m], char B[n]):\\
+\>int SCS[m+1,n+1]\\
+\>for(\=i = 0 to n):\\
+\>\>SCS[0,n] = n\\
+\>for(i = 1 to m):\\
+\>\>for(\=j = 1 to n):\\
+\>\>\>if(\=A[m] == B[n]):\\
+\>\>\>\>SCS[m,n] = SCS[m-1, n-1] +1\\
+\>\>\>else:\\
+\>\>\>\>SCS[m,n] = min(SCS[m-1,n] +1, SCS[m,n-1]+1)\\
+\>return SCS[m,n] //Length of Shortest Common Super-Sequence
+\end{tabbing}
+
+\item Consider the algorithm that you developed for the previous problem.
+\newline
+\begin{enumerate}
+\item Show the table that your algorithm constructs for the inputs $A = zxyyzz$, and $B = zzyxzy$
+
+\begin{tabular}{| l | c | c | c | c | c | c | r | }
+\hline
+   	& * & \textit{z} & \textit{x} & \textit{y} & \textit{y} & \textit{z} & \textit{z} \\ \hline
+  * 	   & 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+\textit{z} & 1 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+\textit{z} & 2 & 2 & 3 & 4 & 5 & 5 & 6 \\ \hline
+\textit{y} & 3 & 3 & 4 & 4 & 5 & 6 & 7 \\ \hline
+\textit{x} & 4 & 4 & 4 & 5 & 6 & 7 & 8 \\ \hline
+\textit{z} & 5 & 5 & 5 & 6 & 7 & 7 & 8 \\ \hline
+\textit{y} & 6 & 6 & 6 & 6 & 7 & 8 & 9 \\ \hline
+\end{tabular}
+
+
+\item Explain how to find the length of the shortest common super-sequence in your table.
+
+The strings that were used to get the answer will have lengths m and n. Do an array query on row m and column n to get the optimal length.
+\newline
+
+\item Explain how to compute the actual shortest common super-sequence from your table by tracing back from the table entry that gives the length of the shortest common super-sequence. 
+\newline
+
+To explain this, first let us look at what all array searches will be comparing:
+
+\begin{tabular}{ l | c}
+$x_{1}$ & $x_{2}$ \\ \hline
+$x_{3}$ & $x_{current}$
+\end{tabular}
+Looking at this sub-table, we can base how to build the string. The current position at the start will be at position $[n,m]$ in the array. If the current spot we are at have equal letters at the array intersection of current (so at the beginning, it will be the $nth$ character of String A, and the $mth$ character of B), then we go to the diagonal position $x_{1}$ and add the letter of current to our string. We then repeat the process, making $x_{1}$ our new current, and the row above it $x_{2}$ and the column to the left $x_{3}$. If they are not the same letters, and $x_{2} < x_{3}$, choose $x_{2}$ as the new current, and add the letter that was in the row to the string. If it is none of the above cases, then make $x_{3}$ your new current and add the current column's letter to the beginning of your string.
+
+The trace would look something like this: 
+
+\begin{tabular}{| l | c | c | c | c | c | c | r | }
+\hline
+   	& * & \textit{z} & \textit{x} & \textit{y} & \textit{y} & \textit{z} & \textit{z} \\ \hline
+  * 	& \cellcolor[gray]{0.8} Finish &   &   &   &   &   &   \\ \hline
+\textit{z} & \cellcolor[gray]{0.8} add z &   &   &   &   &   &   \\ \hline
+\textit{z} &   & \cellcolor[gray]{0.8} add z &   &   &   &   &   \\ \hline
+\textit{y} &   & \cellcolor[gray]{0.8} add y &   &   &   &   &   \\ \hline
+\textit{x} &   &   & \cellcolor[gray]{0.8} add x &   &   &   &   \\ \hline
+\textit{z} &   &   & \cellcolor[gray]{0.8} add z & \cellcolor[gray]{0.8} add y &   &   &   \\ \hline
+\textit{y} &   &   &   &   & \cellcolor[gray]{0.8}
+ add y & \cellcolor[gray]{0.8} add z & \cellcolor[gray]{0.8} add z \\ \hline
+\end{tabular}
+
+The same table with the original values:
+
+\begin{tabular}{| l | c | c | c | c | c | c | r | }
+\hline
+   	& * & \textit{z} & \textit{x} & \textit{y} & \textit{y} & \textit{z} & \textit{z} \\ \hline
+  * 	   & \cellcolor[gray]{0.8} 0 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+\textit{z} & \cellcolor[gray]{0.8} 1 & 1 & 2 & 3 & 4 & 5 & 6 \\ \hline
+\textit{z} & 2 & \cellcolor[gray]{0.8} 2 & 3 & 4 & 5 & 5 & 6 \\ \hline
+\textit{y} & 3 & \cellcolor[gray]{0.8} 3 & 4 & 4 & 5 & 6 & 7 \\ \hline
+\textit{x} & 4 & 4 & \cellcolor[gray]{0.8} 4 & 5 & 6 & 7 & 8 \\ \hline
+\textit{z} & 5 & 5 & \cellcolor[gray]{0.8} 5 & \cellcolor[gray]{0.8} 6 & 7 & 7 & 8 \\ \hline
+\textit{y} & 6 & 6 & 6 & 6 & \cellcolor[gray]{0.8} 7 & \cellcolor[gray]{0.8} 8 & \cellcolor[gray]{0.8} 9 \\ \hline
+\end{tabular}
+
+
+\textit{An interesting little side note: you can derive the largest common substring of this problem by doing the same procedure as above, except only adding the letters when A[n]==B[m]}
+\end{enumerate}
+\end{enumerate}
+\end{document}

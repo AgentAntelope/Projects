@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+my $junk =  "Sweet data of mine";  #'my' is like var, declaration.
+$junk = 2.3e-3;
+my $Junk = $junk;
+print $junk, "\n";

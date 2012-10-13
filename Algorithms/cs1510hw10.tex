@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage[table]{xcolor}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin -1in
+\headheight 0in
+\headsep 0in
+\textheight 8.5in
+\textwidth 6.5in
+\oddsidemargin 0in
+\evensidemargin 0in
+\headheight 77pt
+\headsep 0in
+\footskip .75in
+
+\title{CS1510  Dynamic Programming Problems 8 \& 9}
+\author{Rebecca Negley, Sean Myers}
+\date{September 21, 2011}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item 
+The input to this problem is a sequence $S$ of integers (not necessarily positive). The problem is to find
+\newline the consecutive subsequence of $S$ with maximum sum. "Consecutive" means that you are not allowed
+\newline to skip numbers. For example if the input was
+\being{center}
+12,-14,1, 23, -6, 22, -34, 13
+\end{center}
+
+the output would be 1,23,-6,22. Give a linear algorithm for this problem.
+\newline
+
+Solution: First, let's create a recursive algorithm to this problem and then reconstruct our dynamic algorithm around that. To start, let's say we choose every possible integer as the "end of the subsequence". We would add that to the sum of the smaller subproblem until we get the max subsequence with the end being that integer. Then we take the max of all those we just calculated, and that would be the answer! The pseudocode would look something like this:
+
+MCS(int n):
+	if(n <= 1){
+		return sequence[n];
+	}
+	else{
+		if(the cost of adding the next node is greater than 
+	}
+\item
+the input to this problem is a tree $T$ with integer weights on the edges. The weights may be negative,
+\newline zer, or positive. Give a linear time algorithm to find the shortest simple path in $T$. The length of a
+\newline path is the sum of the weights of the edges in the path. A path is simple if no vertex is repeated. Note
+\newline that the endpoints of the path are unconstrained.
+\end{enumerate}
+\end{document}

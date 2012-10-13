@@ -1,0 +1,5 @@
+Name: Sean Myers
+
+State of the Code: Seems to work just fine (aka success with the driver). Though, I seem to create a slightly starved Writer lock condition if more than one writer requests the lock. It will still put the state into writer-requested-lock, but it only does that once, so after the first writer is done, the reader can pick up the lock and it is no longer writer requested.
+
+Answer to the Dequeue/Enqueue question: I feel like it is fine to have more than one Dequeue. The reason is that Enqueue threads don't really matter in terms of dequeue threads. The dequeue updates the head of the previously enqueued node (or original dummy node) while the enqueue updates the tail, so those two don't seem to depend on eachother. Also, since the head is in constant spin until it has updated itself to its actual position(two or more dequeue threads working at the same time would cause this), then there shouldn't be problems when working with multiple dequeue threads either.

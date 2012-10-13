@@ -1,0 +1,1011 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"roll",
+				"rollDie"
+			],
+			[
+				"nextIn",
+				"nextInt(int)	int"
+			],
+			[
+				"ret",
+				"returnValue"
+			],
+			[
+				"print",
+				"printDiceSides"
+			],
+			[
+				"WRITER",
+				"WRITER_LOCKED"
+			],
+			[
+				"comp",
+				"compare_and_swap"
+			],
+			[
+				"WRI",
+				"WRITER_REQUESTED_LOCK"
+			],
+			[
+				"pr",
+				"printf	printf …"
+			],
+			[
+				"WR",
+				"WRITER_REQUESTED_LOCK"
+			],
+			[
+				"previo",
+				"previous_state"
+			],
+			[
+				"READER",
+				"READER_LOCKED"
+			],
+			[
+				"lock",
+				"lock_state"
+			],
+			[
+				"readers",
+				"readers_left"
+			],
+			[
+				"atomi",
+				"atomic_sub"
+			],
+			[
+				"prev",
+				"previous_state"
+			],
+			[
+				"threa",
+				"threads_enqueued"
+			],
+			[
+				"threads",
+				"threads_enqueued"
+			],
+			[
+				"thread",
+				"thread_threshold"
+			],
+			[
+				"check",
+				"check_val"
+			],
+			[
+				"compare",
+				"compare_and_swap"
+			],
+			[
+				"global",
+				"global_value"
+			],
+			[
+				"glob",
+				"global_value"
+			],
+			[
+				"gl",
+				"global_value"
+			],
+			[
+				"inc",
+				"inc_val"
+			],
+			[
+				"til",
+				"tiles_out_of_place_heuristic  (function)"
+			],
+			[
+				"man",
+				"manhatten_distance_heuristic"
+			],
+			[
+				"star",
+				"start_state"
+			],
+			[
+				"curr",
+				"current_city_node"
+			],
+			[
+				"conn",
+				"connected_city"
+			],
+			[
+				"current",
+				"current_city_str"
+			],
+			[
+				"col",
+				"col_tile_val"
+			],
+			[
+				"row",
+				"row_tile_val"
+			],
+			[
+				"r",
+				"row_distance_sums"
+			],
+			[
+				"tile",
+				"tile_value"
+			],
+			[
+				"current_",
+				"current_puzzle_state"
+			],
+			[
+				"curre",
+				"current_puzzle_state"
+			],
+			[
+				"cu",
+				"current_puzzle_node"
+			],
+			[
+				"run",
+				"runAlgorithmSet"
+			],
+			[
+				"succ",
+				"succStates"
+			],
+			[
+				"taget",
+				"target_col"
+			],
+			[
+				"tag",
+				"target_row"
+			],
+			[
+				"sou",
+				"source_row"
+			],
+			[
+				"ROW",
+				"PUZZLE_ROWS"
+			],
+			[
+				"PUZZ",
+				"PUZZLE_ROWS"
+			],
+			[
+				"sourc",
+				"source_row"
+			],
+			[
+				"puz",
+				"puzzle_state"
+			],
+			[
+				"PU",
+				"PUZZLE_COLS"
+			],
+			[
+				"PUZZLE_O",
+				"PUZZLE_ROWS"
+			],
+			[
+				"edge",
+				"edgeCost"
+			],
+			[
+				"start",
+				"startState"
+			],
+			[
+				"ke",
+				"keyboard"
+			],
+			[
+				"GOAL",
+				"GOAL_PUZZLE_STATE"
+			],
+			[
+				"GOAL_",
+				"goal_puzzle_state"
+			],
+			[
+				"Queue",
+				"QueueIterator"
+			],
+			[
+				"CHERR",
+				"CHERRY_PIE_SLICE"
+			],
+			[
+				"PUZ",
+				"PUZZLE_COLS"
+			],
+			[
+				"sour",
+				"source_col"
+			],
+			[
+				"targ",
+				"target_col"
+			],
+			[
+				"source",
+				"source_row"
+			],
+			[
+				"target",
+				"target_col"
+			],
+			[
+				"targe",
+				"target_row"
+			],
+			[
+				"tar",
+				"target_row"
+			],
+			[
+				"tiles",
+				"tiles_out_of_place"
+			],
+			[
+				"goal_",
+				"goal_puzzle_state"
+			],
+			[
+				"goal",
+				"goal_puzzle_state"
+			],
+			[
+				"PUZZL",
+				"PUZZLE_COLS"
+			],
+			[
+				"MOUS",
+				"MOUSE_DOWN"
+			],
+			[
+				"Tex",
+				"TextureProxy"
+			],
+			[
+				"temp",
+				"temp_img_texture"
+			],
+			[
+				"init",
+				"initTexture"
+			],
+			[
+				"LIGH",
+				"LIGHT_DAY_INTERVAL"
+			],
+			[
+				"BAS",
+				"BASETIME"
+			],
+			[
+				"sta",
+				"start_count"
+			],
+			[
+				"reser",
+				"reserve_log"
+			],
+			[
+				"ass",
+				"assertEquals"
+			],
+			[
+				"med",
+				"MEDIUM_INTERVAL"
+			],
+			[
+				"crea",
+				"create_parallel_jobs"
+			],
+			[
+				"curren",
+				"current_jobs"
+			],
+			[
+				"res",
+				"reserve_log"
+			],
+			[
+				"end",
+				"end_time"
+			],
+			[
+				"AmOUNT",
+				"JOB_AMOUNT"
+			],
+			[
+				"conver",
+				"conversion_rate"
+			],
+			[
+				"HEA",
+				"HEAVY_POOL"
+			],
+			[
+				"HEAVY",
+				"HEAVY_POOL"
+			],
+			[
+				"ba",
+				"BASE_INSTANCES"
+			],
+			[
+				"BA",
+				"BASE_INSTANCES"
+			],
+			[
+				"BaS",
+				"BASE_RUNTIME_JOBS"
+			],
+			[
+				"BASE",
+				"BASE_RUNTIME_JOBS"
+			],
+			[
+				"HEAV",
+				"HEAVY_UTIL"
+			],
+			[
+				"EM",
+				"EMPTY_INSTANCE_POOL"
+			],
+			[
+				"optimized",
+				"optimized_cost"
+			],
+			[
+				"graph_",
+				"graph_overall_hours_simulation"
+			],
+			[
+				"instan",
+				"instance_pool"
+			],
+			[
+				"IN",
+				"INSTANCE_NAME"
+			],
+			[
+				"alloca",
+				"allocate_job"
+			],
+			[
+				"instanc",
+				"instancetype"
+			],
+			[
+				"instances_",
+				"instances_utilized"
+			],
+			[
+				"insta",
+				"instances_needed"
+			],
+			[
+				"instances",
+				"instances_utilized"
+			],
+			[
+				"isn",
+				"instances_utilized"
+			],
+			[
+				"pool",
+				"pool_used"
+			],
+			[
+				"instance",
+				"instancetype"
+			],
+			[
+				"reserve",
+				"reserve_hours"
+			],
+			[
+				"new",
+				"new_node"
+			],
+			[
+				"imag",
+				"imageRequestManager"
+			],
+			[
+				"getDynamicSub",
+				"getDynamicSubEvents"
+			],
+			[
+				"las",
+				"last_loc_id"
+			],
+			[
+				"b",
+				"border	border-color: color"
+			],
+			[
+				"last",
+				"lastLogin"
+			],
+			[
+				"la",
+				"last_login_ts"
+			],
+			[
+				"require_",
+				"require_once"
+			],
+			[
+				"Event",
+				"EventManager"
+			],
+			[
+				"bind",
+				"bind_param"
+			],
+			[
+				"info",
+				"infoWindows"
+			],
+			[
+				"cafe",
+				"cafeIcon"
+			],
+			[
+				"web",
+				"webkit-transition"
+			],
+			[
+				"verti",
+				"vertical-align"
+			],
+			[
+				"child",
+				"childrenId"
+			],
+			[
+				"chil",
+				"childrenId"
+			],
+			[
+				"canvas",
+				"canvas2d"
+			],
+			[
+				"display",
+				"displayColor"
+			],
+			[
+				"over",
+				"overlays"
+			],
+			[
+				"canva",
+				"canvas3d"
+			],
+			[
+				"with",
+				"withinSpan"
+			],
+			[
+				"J3",
+				"J3DIMath"
+			],
+			[
+				"c",
+				"canvas2d"
+			],
+			[
+				"pixel",
+				"pixelSpaceToDegreeSpace"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/jflex.sublime-build",
+	"command_palette":
+	{
+		"height": 54.0,
+		"selected_items":
+		[
+			[
+				"filediff",
+				"FileDiffs: Menu"
+			],
+			[
+				"filedif",
+				"FileDiffs: Menu"
+			],
+			[
+				"diff",
+				"FileDiffs: Menu"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Remove Package"
+			],
+			[
+				"todo",
+				"Show TODOs: Project and open files"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"gid",
+				"Git: Diff All"
+			],
+			[
+				"git push",
+				"Git: Push Current Branch"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"git",
+				"Git: Diff All"
+			],
+			[
+				"git ",
+				"Git: Diff Tool"
+			],
+			[
+				"git add ",
+				"Git: Add..."
+			],
+			[
+				"git bl",
+				"Git: Blame"
+			],
+			[
+				"pack",
+				"Package Control: Remove Package"
+			],
+			[
+				"svn",
+				"Preferences: SVN Settings"
+			],
+			[
+				"co",
+				"Color picker"
+			],
+			[
+				"color",
+				"Color picker"
+			],
+			[
+				"CO",
+				"Color picker"
+			],
+			[
+				"col",
+				"Color picker"
+			],
+			[
+				"colo",
+				"Color picker"
+			],
+			[
+				"git commit",
+				"Git: Quick Commit"
+			],
+			[
+				"git add",
+				"Git: Add..."
+			],
+			[
+				"git pull",
+				"Git: Pull Current Branch"
+			],
+			[
+				"git push ",
+				"Git: Push Current Branch"
+			],
+			[
+				"git commi",
+				"Git: Quick Commit"
+			],
+			[
+				"git pull ",
+				"Git: Pull Current Branch"
+			],
+			[
+				"git comm",
+				"Git: Quick Commit"
+			],
+			[
+				"git merge ",
+				"Git: Merge Branch"
+			],
+			[
+				"git merge",
+				"Git: Merge Branch"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ice",
+				"Set Syntax: Iced Coffee"
+			],
+			[
+				"iced",
+				"Set Syntax: Iced Coffee"
+			],
+			[
+				"git commit ",
+				"Git: Quick Commit"
+			],
+			[
+				"git add...",
+				"Git: Add..."
+			],
+			[
+				"push",
+				"Git: Push Current Branch"
+			],
+			[
+				"commi",
+				"Git: Quick Commit"
+			],
+			[
+				"sftp",
+				"SFTP: Browse Server…"
+			],
+			[
+				"git add current file",
+				"Git: Add Current File"
+			],
+			[
+				"git pu",
+				"Git: Push"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Git",
+				"Set Syntax: Git Commit Message"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/sean/programming/C/cs2510-proj1/driver.c",
+		"/home/sean/programming/C/cs2510-proj1/locking.h",
+		"/home/sean/programming/C/cs2510-proj1/Makefile",
+		"/home/sean/programming/C/cs2510-proj1/driver2.c",
+		"/home/sean/Desktop/pewpew.txt",
+		"/home/sean/programming/C/cs2510-proj1/DiceRoll.java",
+		"/home/sean/programming/C/cs2510-proj1/locking.c",
+		"/home/sean/programming/java/cs1622/stm52_project1/pretty.flex",
+		"/home/sean/programming/C/cs2510-proj1/example.java",
+		"/home/sean/programming/java/cs1622/stm52_project1/test_input.java",
+		"/home/sean/programming/C/cs449/Project1/id3TagEditor.c",
+		"/home/sean/programming/java/cs1622/run.sh",
+		"/home/sean/programming/java/cs1622/ant.sh",
+		"/home/sean/programming/java/cs1622/jflex.yy",
+		"/home/sean/programming/Networking/http_server1.cc",
+		"/home/sean/programming/Networking/http_server2.cc",
+		"/home/sean/.config/sublime-text-2/Packages/FileDiffs/FileDiffs.sublime-settings",
+		"/home/sean/programming/java/cs1622/Lexer.java",
+		"/home/sean/programming/java/cs1622/fac_comp.java",
+		"/home/sean/programming/java/cs1622/rawr.java",
+		"/home/sean/programming/java/cs1622/fact.java",
+		"/home/sean/programming/java/cs1622/Main.java",
+		"/home/sean/programming/python/cs2710/driver.py",
+		"/home/sean/programming/python/cs2710/eight_puzzle.py",
+		"/home/sean/programming/python/cs2710/romania_path.py",
+		"/home/sean/programming/python/cs2710/README.txt",
+		"/home/sean/programming/python/cs2710/search.py",
+		"/home/sean/programming/python/cs2710/Example3.java",
+		"/home/sean/programming/java/Lab3.java",
+		"/home/sean/programming/java/Pi.java",
+		"/home/sean/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/sean/.config/sublime-text-2/Packages/SublimeTODO/Default.sublime-commands",
+		"/home/sean/.config/sublime-text-2/Packages/TodoManager/TodoManager.sublime-settings",
+		"/home/sean/.config/sublime-text-2/Packages/Package Control/Package Control.sublime-settings",
+		"/home/sean/.config/sublime-text-2/Packages/Python PEP8 Autoformat/Default (Linux).sublime-keymap",
+		"/home/sean/.config/sublime-text-2/Packages/User/jflex.sublime-build",
+		"/home/sean/programming/java/cs1622/sym.java",
+		"/home/sean/programming/java/cs1622/Symbols.java",
+		"/home/sean/programming/java/cs1622/Symbols",
+		"/home/sean/programming/java/cs1622/Queue.java",
+		"/home/sean/programming/java/cs1622/Driver.java",
+		"/home/sean/programming/java/Java Projects/0401Stuff/src/DrawingProject/Assign5.java",
+		"/home/sean/programming/java/cs1622/PrettyPrint.java",
+		"/home/sean/programming/java/cs1622/driver.java",
+		"/home/sean/Desktop/Lab1.java",
+		"/home/sean/programming/java/Java Projects/0401Stuff/src/DrawingProject/CyclicList3.java",
+		"/home/sean/programming/java/Java Projects/0401Stuff/src/DrawingProject/CyclicList2.java",
+		"/home/sean/programming/java/Java Projects/0401Stuff/src/DrawingProject/CyclicList.java",
+		"/home/sean/.config/sublime-text-2/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/sean/.config/sublime-text-2/Packages/Python PEP8 Autoformat/pep8_autoformat.sublime-settings",
+		"/home/sean/programming/python/cs2710/utils.py",
+		"/home/sean/programming/python/cs2710/Alina.java",
+		"/home/sean/programming/python/cs2710/rawr",
+		"/home/sean/site/Astro/src/Old/View.coffee",
+		"/home/sean/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/sean/site/Astro/bin/jhead-2.96/._changes.txt",
+		"/home/sean/site/Astro/src/Util.coffee",
+		"/home/sean/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/sean/.config/sublime-text-2/Packages/User/Distraction Free.sublime-settings",
+		"/home/sean/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
+		"/home/sean/opengles-book-samples-read-only/WebGL/Common/esUtil.js",
+		"/home/sean/opengles-book-samples-read-only/WebGL/Common/esTransform.js",
+		"/home/sean/Desktop/Link to site/WebGL/Chapter_2/Hello_Triangle/Hello_Triangle.html",
+		"/home/sean/site/WebGL/Chapter_13/ParticleSystem/ParticleSystem.html",
+		"/home/sean/opengles-book-samples-read-only/WebGL/Common/esShapes.js",
+		"/home/sean/opengles-book-samples-read-only/WebGL/Common/esShader.js",
+		"/home/sean/opengles-book-samples-read-only/WebGL/Chapter_2/Hello_Triangle/Hello_Triangle.html",
+		"/home/sean/.vimrc",
+		"/home/sean/programming/python/EC2-Load-Predictor/ec2_cost.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/graph_jobs.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/instance_tool.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/job_filter.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/optimizer.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/simulate_jobs.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/test_optimize.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/test_instance_predictor.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/usage_predictor.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/instance_reserve_utils.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/audit_test.py",
+		"/home/sean/programming/python/EC2-Load-Predictor/ec2/time_allocation.py",
+		"/home/sean/.config/sublime-text-2/Packages/Pylinter/Pylinter.sublime-settings",
+		"/home/sean/.config/sublime-text-2/Packages/User/Pylinter.sublime-settings",
+		"/home/sean/site/test/overlay/src/View.coffee",
+		"/home/sean/site/test/overlay/src/Overlay.coffee",
+		"/home/sean/.config/sublime-text-2/Packages/SVN/SVN.sublime-settings",
+		"/home/sean/site/test/overlay/tests/movementTest.html",
+		"/home/sean/site/test/overlay/Util.coffee",
+		"/home/sean/site/test/overlay/tests/View.coffee",
+		"/home/sean/site/test/overlay/tests/Overlay.iced",
+		"/home/sean/.config/sublime-text-2/Packages/IcedCoffeeScript/Commands/IcedCoffeeScript.sublime-build",
+		"/home/sean/site/test/overlay/View.coffee",
+		"/home/sean/site/test/overlay/image.coffee",
+		"/home/sean/site/SAPIENS/lib/User.php",
+		"/home/sean/site/SAPIENS/public/css/sapiens.css",
+		"/home/sean/site/SAPIENS/src/event_list.php",
+		"/home/sean/site/SAPIENS/lib/EventManager.php",
+		"/home/sean/site/SAPIENS/src/checkinScript.php",
+		"/home/sean/site/SAPIENS/src/test.php",
+		"/home/sean/site/SAPIENS/src/event_map.php",
+		"/home/sean/site/SAPIENS/src/map1.html",
+		"/home/sean/site/SAPIENS/db/db.php",
+		"/home/sean/site/SAPIENS/lib/Subscription.php",
+		"/home/sean/site/SAPIENS/src/index.php",
+		"/home/sean/site/SAPIENS/src/links.php",
+		"/home/sean/site/SAPIENS/src/bitch.php",
+		"/home/sean/site/SAPIENS/lib/Location.php",
+		"/home/sean/site/SAPIENS/src/login.php",
+		"/home/sean/site/SAPIENS/src/register.php",
+		"/home/sean/Desktop/Link to site/jamie/map.php",
+		"/home/sean/site/SAPIENS/lib/global.php",
+		"/home/sean/site/SAPIENS/.gitignore",
+		"/home/sean/site/SAPIENS/index.php",
+		"/home/sean/site/mmchat/User.php",
+		"/home/sean/site/test/overlay/testimage.php",
+		"/home/sean/site/test/overlay/BoxOverlay.coffee",
+		"/home/sean/.config/sublime-text-2/Packages/IcedCoffeeScript/Commands/Insert Heredoc triple single quotes.tmCommand",
+		"/home/sean/.config/sublime-text-2/Packages/User/wtf.sublime-macro",
+		"/tmp/sublime-sftp-browse-1334535849/CSServer/afs/cs.pitt.edu/usr0/stm52/public/html/site/test/overlay/J3DIMath.js",
+		"/home/sean/site/test/overlay/J3DIMath.js",
+		"/home/sean/site/test/overlay/J3DI.js",
+		"/tmp/sublime-sftp-browse-1334535687/CSServer/afs/cs.pitt.edu/usr0/stm52/public/html/site/test/overlay/testimage.php",
+		"/tmp/sublime-sftp-browse-1334535807/CSServer/afs/cs.pitt.edu/usr0/stm52/public/html/site/test/overlay/J3DI.js",
+		"/home/sean/.config/sublime-text-2/Packages/User/sftp_servers/CSServer",
+		"/home/sean/.config/sublime-text-2/Packages/User/SideBarGit.sublime-settings",
+		"/home/sean/site/test/overlay/Util.js",
+		"/home/sean/site/test/overlay/Test.coffee",
+		"/tmp/sublime-sftp-browse-1334527574/CSServer/afs/cs.pitt.edu/usr0/stm52/public/html/site/test/overlay/image.coffee",
+		"/tmp/sublime-sftp-browse-1334529762/CSServer/afs/cs.pitt.edu/usr0/stm52/public/html/site/test/overlay/BoxOverlay.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"d1",
+			"atomic_sub",
+			"ELSE",
+			"NOTE",
+			"hval",
+			"Yytoken",
+			"yytoken",
+			"edgecost",
+			"timer",
+			"canvas",
+			"keyPressed",
+			"initTexture",
+			"mouseCoords",
+			"TODO",
+			"Texture",
+			"@Texture",
+			"Texture",
+			"initTexture",
+			"handleLoadedTexture",
+			"handlLoadedTexture",
+			"@gl",
+			"vintage",
+			"vim",
+			"initTexture",
+			"@gridBlocks",
+			"render",
+			"var gl",
+			"print",
+			"pool",
+			"instancegroup",
+			"ALASKA",
+			"	",
+			"overlay"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"deltaX",
+			"mouse_coords",
+			"gl",
+			"TIME",
+			"view"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 281.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/sean/.config/sublime-text-2/Packages/IcedCoffeeScript/Commands/IcedCoffeeScript.sublime-build"
+			],
+			[
+				"i",
+				"image.coffee"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/sean/Desktop/Astro.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 217.0,
+	"status_bar_visible": true
+}

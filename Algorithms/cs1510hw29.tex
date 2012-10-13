@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\topmargin -1in
+\headheight 0in
+\headsep 0in
+\textheight 8.5in
+\textwidth 6.5in
+\oddsidemargin 0in
+\evensidemargin 0in
+\headheight 77pt
+\headsep 0in
+\footskip .75in
+
+\title{CS1510  Parallel Problems 15,17,18,20}
+\author{Rebecca Negley, Sean Myers}
+\date{November 14, 2011}
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+%Problem 9
+\setcounter{enumi}{15}
+\item Give an algorithm for the minimum edit distance problem that runs in poly-log time on a CREW
+\newline PRAM with a polynomial number of processors. Here poly-log means ($log^kn$) where $n$ is the 
+\newline input size and $k$ is some constant independent of the input size.
+\newline Recall that the input to this problem is a pair of strings $A = a_1 ...  a_m$ and $B = b_1 ... b_n$. The goal is
+\newline to convert A into B as cheaply as possible. The rules are as follows. For a cost of 3 you can delete any
+\newline letter. For a cost of 4 you can insert a letter in any position. For a cost of 5 you can replace any letter
+\newline by any other letter
+\newline Solution
+\newline
+\setcounter{enumi}{16}
+\item Design a parallel algorithm that finds the maximum number in a sequence $x_1... x_n$ of (not necessarily
+\newline distinct) integers. Your algorithm should run in time O($log log n$) on a CRCW PRAM with $n$ processors.
+\newline
+Solution:
+\newline
+\item Design a parallel algorithm that finds the maximum number in a sequence $x_1...x_n$ of (not necessarily
+\newline distinct) integers in the range 1 to $n$. Your algorithm should run in constant time on a CRCW Priority
+\newline PRAM with $n$ processors. Note that it is important here that the $x_i$'s have restricted range. In a
+\newline CRCW priority PRAM, each processor has a unique positive integer identifier, and in the case of write
+\newline conflicts, the value written is the value that the processor with the lowest identifier is trying to write.
+\newline
+Solution:
+\newline
+\setcounter{enumi}{19}
+\item Show that if there is an an algorithm for a particular problem that runs in time $T(n, p)$ on a p
+\newline processor CRCW machine, then there is an algorithm for this problem that runs in time $T(n, p)$ log p
+on a p processor EREW machine.
+\newline
+Solution:
+\end{enumerate}
+\end{document}
