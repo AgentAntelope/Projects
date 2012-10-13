@@ -1,0 +1,61 @@
+Reading "pretty.flex"
+
+Error in file "pretty.flex" (line 160): 
+Syntax error.
+  {Identifier} /({whitespace}* {Identifier}){ System.out.print(yytext() + " "); }
+                                            ^
+
+Error in file "pretty.flex" (line 160): 
+Syntax error.
+  {Identifier} /({whitespace}* {Identifier}){ System.out.print(yytext() + " "); }
+                                                                      ^
+2 errors, 0 warnings.
+class Factorial {
+	public static void main( String[] a ) {
+		System.out.println( new Fac().ComputeFac( 10 ) );
+		int b = 6;
+		helloh = new hello();
+		h.printHello( 0, b, 2 );
+	}
+}
+/*
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum interdum
+ 
+rhoncus. Nullam eget massa id sapien tincidunt iaculis sit amet et arcu. Nulla 
+consectetur varius commodo. Cras sed nulla lorem, a auctor tortor. Nam a porta 
+nulla. Curabitur in arcu mi, a convallis lorem. Nunc pulvinar tincidunt massa vulputate
+ 
+lacinia. Nam malesuada viverra suscipit. Quisque ultrices gravida purus, at tempus
+ 
+enim gravida pulvinar. Suspendisse tristique lorem non orci vulputate sit amet 
+dictum mi vehicula. Aliquam sem elit, lobortis at consequat a, ultricies mollis 
+dui. Morbi sapien arcu, facilisis tristique consectetur non, lacinia eget lorem.
+ 
+Aliquam vitae massa quis ligula rutrum auctor. In interdum metus nulla, ac vehicula
+ 
+dui.
+*/
+class Fac {
+	public int ComputeFac( int num ) {
+		int num_aux;
+		if( num < 1 )
+			num_aux = 1;
+		else
+			num_aux = num * ( this.ComputeFac( num - 1 ) );
+		return num_aux;
+	}
+}
+class hello extends Fac {
+	public void printHello( int a, int b, int c ) {
+		/*
+		 am I indented? 
+		*/
+		System.out.println( 123 );
+		boolean isIt = !a;
+		while( c < 5 )
+			c = c + 1;
+		int[] arr = new int[ 6 ];
+		arr[ 3 ] =  - 5;
+		return ;
+	}
+}

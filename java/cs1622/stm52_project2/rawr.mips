@@ -1,0 +1,11 @@
+.data
+FUCK: .asciiz "Hello world\n"
+.asciiz "Hellolo"
+
+
+.text
+add $r2, $r3, $r5
+slt $r5, $r2, $r9
+sub $r12, $r8, $r30
+addi $r2, $r2, 100
+j RAWR

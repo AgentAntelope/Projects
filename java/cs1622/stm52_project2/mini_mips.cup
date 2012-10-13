@@ -1,0 +1,81 @@
+import java_cup.runtime.Symbol;
+import parser.instructions.*;
+import parser.InstructionAssembler;
+import parser.Immediate;
+/* Preliminaries to use the scanner.  */
+scan with {: return lexer.next_token(); :};
+
+parser code {: 
+  MipsLex lexer;
+  public InstructionAssembler assembler;
+  public parser(MipsLex lex) {
+      super(lex);
+      lexer = lex;
+      assembler = new InstructionAssembler();
+
+  }
+  public InstructionAssembler getAssembler(){
+  	return assembler;
+  }
+:}; 
+
+terminal String REGISTER, LABEL;
+terminal String J_OPT, R_OPT, I_OPT;
+terminal LPAREN, RPAREN;
+terminal TEXT, DATA;
+terminal Integer INT;
+terminal NEWLINE;
+terminal EOL;
+terminal COLON;
+terminal String IMMEDIATE;
+terminal String STRING;
+terminal ASCIIZ;
+
+non terminal String optional_label;
+non terminal instruction_list;
+non terminal instruction;
+non terminal mips_program;
+non terminal data_section;
+non terminal text_section;
+non terminal string_list;
+non terminal string_declaration;
+
+start with mips_program;
+mips_program ::= data_section text_section;
+
+data_section ::= DATA string_list
+			 |;
+string_list 	::=	 string_list string_declaration
+				|
+				;
+string_declaration ::=	optional_label:label ASCIIZ STRING:str
+				{:parser.assembler.addData(label, str);:}
+				|
+				STRING: str;
+optional_label ::= LABEL:label
+				{:RESULT = label;:}
+				|
+				{:RESULT = null;:}
+				;
+
+text_section ::= TEXT instruction_list;
+instruction_list ::= instruction_list instruction
+					|	instruction_list LABEL:label instruction
+					{: System.out.println(label);:}
+					|
+					;
+instruction 	 ::= R_OPT:opt REGISTER:rs REGISTER:rt REGISTER:rd
+					{: parser.assembler.addInstruction(new RInstruction(opt, rs, rt, rd));:}
+					| R_OPT:opt
+					{: parser.assembler.addInstruction(new RInstruction(opt)); :}
+					| R_OPT:opt REGISTER:rs REGISTER:rt INT:i
+					{: parser.assembler.addInstruction(new RInstruction(opt, rs, rt, i));:}
+					| I_OPT REGISTER:rt REGISTER:rs IMMEDIATE
+					{: System.out.println("I TYPE"); :}
+					| I_OPT:opt REGISTER:rt REGISTER:rs INT:i
+					{: parser.assembler.addInstruction(new IInstruction(opt, rt, rs, new Immediate(i))); :}
+					| I_OPT REGISTER:rt INT LPAREN REGISTER:rs RPAREN
+					{: System.out.println("I TYPE"); :}
+					| J_OPT IMMEDIATE
+					{: System.out.println("J TYPE"); :}
+					;
