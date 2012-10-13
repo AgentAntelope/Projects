@@ -1,0 +1,8 @@
+/**
+ * @author sean
+ * Purpose of this class: Create user permissions on client-side to relieve
+ * server load.
+ */
+public class User {
+
+}

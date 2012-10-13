@@ -1,0 +1,86 @@
+package Try;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+public class SearchPanel extends JPanel {
+	enum searchOption{PeopleSoft , FirstName, LastName, Returning};
+	public searchOption main;
+	private JComboBox searchQuery;
+	private ArrayList<Student> DB;
+	JTextField queryEntry;
+	
+	public SearchPanel(ArrayList<Student> database){
+		super();
+		DB = database;
+		setLayout(new FlowLayout());
+		String[] namesOfSearchQueries= {"PeopleSoft", "First Name", "Last Name", "Returning"};
+		searchQuery = new JComboBox(namesOfSearchQueries);	//Combo box to choose what query you want to search with
+		choiceSelected();
+		queryEntry = new JTextField(5); //The box to get the query data from the chosen combo box
+		JButton Search = new JButton("Search"); 
+			Search.addActionListener(
+					new ActionListener(){
+						public void actionPerformed(ActionEvent e) {
+							ArrayList<Student> test=searchDatabase(queryEntry.getText());
+							System.out.println(test.get(0).getPeopleSoft());
+						}
+						
+					});
+		this.add(searchQuery);
+		this.add(queryEntry);
+		this.add(Search);
+
+	//Preview box when a student is clicked
+	
+	//Button to open the student.
+	//List box that displays the search results
+	
+	}
+	public ArrayList<Student> searchDatabase(String query){
+		ArrayList<Student> searchFound = new ArrayList<Student>();
+		
+		if(main == searchOption.PeopleSoft){
+			int queryNum;
+			try{
+				queryNum = Integer.parseInt(query);
+			}
+			catch(Exception e){
+			     queryNum = 0;
+			}
+			
+			for(Student i: DB){
+				if(i.getPeopleSoft()== queryNum)
+					searchFound.add(i);
+			}
+		}
+			
+		return searchFound;
+	}
+	public void choiceSelected(){
+		switch(searchQuery.getSelectedIndex()){
+		case 0: main = searchOption.PeopleSoft;
+		break;
+		case 1: main = searchOption.FirstName;
+		break;
+		case 2: main = searchOption.LastName;
+		break;
+		case 3: main = searchOption.Returning;
+		break;
+		}
+	}
+
+	public static void main(String[]Args){
+		ArrayList<Student> yar = new ArrayList<Student>();
+		Student Sean = new Student();
+		Sean.setPeopleSoft(3597108);
+		yar.add(Sean);
+		JFrame pew = new JFrame("Test");
+		pew.setSize(new Dimension(300,300));
+		pew.setVisible(true);
+		pew.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		pew.add(new SearchPanel(yar));
+	}
+}

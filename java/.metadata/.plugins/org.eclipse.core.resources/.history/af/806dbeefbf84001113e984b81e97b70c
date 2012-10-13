@@ -1,0 +1,134 @@
+
+public class Register {
+	private int bits;
+	protected boolean[] buffer;
+	public Register(int n){
+		buffer = new boolean[n];
+		bits = n;
+	}
+	public Register(Register other){
+		buffer = new boolean[other.buffer.length];
+		for(int i = 0; i < other.buffer.length; i++){
+			buffer[i] = other.buffer[i];
+		}
+		bits = buffer.length;
+	}
+	public int length(){
+		return bits;
+	}
+	public void and(Register other){
+		assert(this.buffer.length == other.buffer.length);
+		for(int i = 0; i < this.buffer.length; i++){
+			this.buffer[i] = this.buffer[i] && other.buffer[i];
+		}
+	}
+	public void or(Register other){
+		assert(this.buffer.length == other.buffer.length);
+		for(int i = 0; i < this.buffer.length; i++){
+			this.buffer[i] = this.buffer[i] || other.buffer[i];
+		}		
+	}
+	public void xor(Register other){
+		assert(this.buffer.length == other.buffer.length);
+		for(int i = 0; i < this.buffer.length; i++){
+			this.buffer[i] = (this.buffer[i] && !other.buffer[i])||(!this.buffer[i] && other.buffer[i]);
+		}		
+	}
+	public void add(Register other){
+	      assert(this.buffer.length==other.buffer.length);
+
+	      boolean carry = false;;
+	      for(int k=0; k<this.buffer.length-1; k++){
+	         if(this.buffer[k] && other.buffer[k] && carry){
+	            this.buffer[k] = true;
+	            carry = true;
+	         }
+	         else if(this.buffer[k] && other.buffer[k] && !carry){
+	            this.buffer[k] = false;
+	            carry = true;
+	         }
+	         else if(this.buffer[k] && !other.buffer[k] && carry){
+	            this.buffer[k] = false;
+	            carry = true;
+	         }
+	         else if(this.buffer[k] && !other.buffer[k] && !carry){
+	            this.buffer[k] = true;
+	            carry = false;
+	         }
+	         else if(!this.buffer[k] && other.buffer[k] && carry){
+	            this.buffer[k] = false;
+	            carry = true;
+	         }
+	         else if(!this.buffer[k] && other.buffer[k] && !carry){
+	            this.buffer[k] = true;
+	            carry = false;
+	         }
+	         else if(!this.buffer[k] && !other.buffer[k] && carry){
+	            this.buffer[k] = true;
+	            carry = false;
+	         }
+	         else{
+	            this.buffer[k] = false;
+	            carry = false;
+	         }
+	      }
+	   }
+	public void load(String string) {
+		for(int i = 0; i < string.length(); i++){
+			if(string.charAt(string.length()-1-i) == '1'){
+				buffer[i] = true;	
+			}
+			else{
+				buffer[i] = false;
+			}
+			
+		}
+		
+	}
+	public boolean getRegister(int n){
+		assert(n >= 0 || n < buffer.length);
+		return buffer[n];
+	}
+	public void setRegister(int n, boolean val){
+		buffer[n] = val;
+	}
+	public long value(){
+		long sum = 0;
+		for(int i = 0; i < bits-1; i++){
+			if(buffer[i]){
+				sum+= Math.pow(2, i);
+			}
+		}
+		if(buffer[bits-1]){
+			return -sum;
+		}
+		return sum;
+	}
+	public boolean isZero(){
+		for(int i = 0; i < bits-1; i++){
+			if(buffer[i])
+				return false;
+		}
+		return true;
+	}
+	public int signBit(){
+		if(buffer[bits-1]){
+			return 1;
+		}
+		else{
+			return 0;
+		}
+	}
+	public String toString(){
+		String bin = "";
+		for(int i = 0; i < bits; i++){
+			if(buffer[i]){
+				bin = "1" + bin;
+			}
+			else{
+				bin = "0" + bin;
+			}
+		}
+		return bin;
+	}
+}

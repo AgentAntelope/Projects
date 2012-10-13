@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.version,sysinfo,,,"1.6.0_17",1263359973200
+java.vm.info,sysinfo,,,"mixed mode",1263359973200
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1263359973200
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1263359973200
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1263359973200
+java.vm.specification.version,sysinfo,,,"1.0",1263359973200
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1263359973200
+java.vm.version,sysinfo,,,"14.3-b01",1263359973200
+started,bundle,org.eclipse.team.cvs.ui,3.3.201.R35x_v20090826-0905,"org.eclipse.team.cvs.ui",1263359973437
+started,bundle,com.android.ide.eclipse.adt,0.9.5.v200911191123-20404,"com.android.ide.eclipse.adt",1263359973668
+started,bundle,org.eclipse.epp.usagedata.ui,1.1.0.R200906100410,"org.eclipse.epp.usagedata.ui",1263359974497
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1263359975305
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263359978630
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360239192
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360245391
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360246393
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360251590
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360340910
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360371660
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360380564
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360388031
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263360402878
+started,bundle,org.eclipse.jpt.core,2.2.1.v200908270220,"org.eclipse.jpt.core",1263360403366
+started,bundle,org.eclipse.jpt.eclipselink.core,1.2.0.v200905310000,"org.eclipse.jpt.eclipselink.core",1263360403419
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1263360409786

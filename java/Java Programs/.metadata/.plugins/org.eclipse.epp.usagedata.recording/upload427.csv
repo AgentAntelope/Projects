@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503686
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503686
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503689
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503691
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503691
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503694
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503694
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503694
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503696
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503696
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503699
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503699
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503701
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503701
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846511701
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846541227
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.newWizard",1262846541271
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1262846551127
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1262846551323
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1262846554759
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846556577
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846559615
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846560653
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846561111
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846561179

@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846479095
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846479178
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846481398
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1262846483209
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846486622
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846488503
+executed,command,org.eclipse.ltk.ui.refactoring,3.4.100.v20090604,"org.eclipse.ltk.ui.refactoring.commands.deleteResources",1262846488523
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.delete",1262846488523
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1262846489762
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.copy",1262846492352
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1262846493642
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846498859
+started,bundle,org.eclipse.wst.jsdt.manipulation,1.0.100.v200809240707,"org.eclipse.wst.jsdt.manipulation",1262846500573
+started,bundle,org.eclipse.wst.jsdt.core,1.0.201.v200908101420,"org.eclipse.wst.jsdt.core",1262846501228
+started,bundle,org.eclipse.wst.jsdt.ui,1.0.200.v200905242047,"org.eclipse.wst.jsdt.ui",1262846501456
+started,bundle,org.eclipse.pde.core,3.5.100.v20090821,"org.eclipse.pde.core",1262846503264
+closed,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1262846503406
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1262846503519
+executed,command,org.eclipse.ltk.ui.refactoring,3.4.100.v20090604,"org.eclipse.ltk.ui.refactoring.commands.deleteResources",1262846503569
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.delete",1262846503569
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503679
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503681
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503681
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503684
+error,log,,,"Unable to get nature of project 'HelloAndroid'.",1262846503684

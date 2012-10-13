@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+locale,sysinfo,,,"en_US",1264633120008
+processors,sysinfo,,,"2",1264633120008
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1264633120008
+java.runtime.version,sysinfo,,,"1.6.0_17-b04",1264633120008
+java.specification.name,sysinfo,,,"Java Platform API Specification",1264633120008
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1264633120008
+java.specification.version,sysinfo,,,"1.6",1264633120008
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1264633120008
+java.version,sysinfo,,,"1.6.0_17",1264633120008
+java.vm.info,sysinfo,,,"mixed mode",1264633120008
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1264633120008
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1264633120008
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1264633120008
+java.vm.specification.version,sysinfo,,,"1.0",1264633120008
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1264633120008
+java.vm.version,sysinfo,,,"14.3-b01",1264633120008
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1264633120959
+started,bundle,org.eclipse.wst.server.core,1.1.102.v20090825,"org.eclipse.wst.server.core",1264633134999
+started,bundle,org.eclipse.wst.server.ui,1.1.103.v20090909,"org.eclipse.wst.server.ui",1264633135093
+started,bundle,org.eclipse.wst.common.emf,1.1.301.v200908181930,"org.eclipse.wst.common.emf",1264633135452
+started,bundle,org.eclipse.jst.j2ee.core,1.1.301.v200908181930,"org.eclipse.jst.j2ee.core",1264633135483
+started,bundle,org.eclipse.jem,2.0.300.v200901272200,"org.eclipse.jem",1264633135670
+started,bundle,org.eclipse.emf.ecore.xmi,2.5.0.v200906151043,"org.eclipse.emf.ecore.xmi",1264633135733
+started,bundle,org.eclipse.jst.jee,1.0.201.v200909030330,"org.eclipse.jst.jee",1264633136091
+started,bundle,org.eclipse.jpt.core,2.2.1.v200908270220,"org.eclipse.jpt.core",1264633136372

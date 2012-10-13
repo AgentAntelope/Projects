@@ -1,0 +1,10 @@
+/**
+ * @author sean
+ * Purpose of this class: Create user permissions on client-side to relieve
+ * server load.
+ */
+public class User {
+	public User(){
+		System.out.printf("Please enter your username: ");
+	}
+}

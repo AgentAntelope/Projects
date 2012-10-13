@@ -1,0 +1,46 @@
+package algs;
+
+public class HashTable {
+	private int tableSize;
+	private int probe;
+	public HashTable(int size, int probeInterval){
+		tableSize= findPrime(size);
+		probe = probeInterval;
+	}
+	public int hashCode(String tobe) {
+		   int hash = 0;
+		   int len = tobe.length();
+		   
+		   for ( int i=0; i<len; i++) {
+		      hash = (31 * hash + tobe.charAt(i)) % tableSize;
+		   }
+
+		   return hash;
+		}
+	public int findPrime(int size){
+		int prime = size;
+		Boolean check = true;;
+		while(check){
+			check =checkPrime(prime);
+			if(check)
+			prime++;
+		}
+		return prime;
+	}
+	public Boolean checkPrime(int size){
+		int i = size;
+		int iter = 2;
+		while(iter < i){
+			if(i%iter == 0){
+				return true;
+			}
+			iter++;
+		}
+		return false;
+	}
+	public static void main(String[]Args){
+		new HashTable(80,10);
+	}
+}
+
+

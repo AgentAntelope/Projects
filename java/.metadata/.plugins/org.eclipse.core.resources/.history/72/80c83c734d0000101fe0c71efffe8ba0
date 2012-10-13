@@ -1,0 +1,35 @@
+package algs;
+
+public class HashTable {
+	public HashTable(int size, int probeInterval){
+		System.out.println(findPrime(size));
+	}
+	
+	public int findPrime(int size){
+		int prime = size;
+		Boolean check = true;;
+		while(check){
+			check =checkPrime(prime);
+			if(check)
+			prime++;
+		}
+		return prime;
+	}
+	public Boolean checkPrime(int size){
+		int i =  (int) Math.ceil(Math.sqrt(size))+1;
+		int iter = 2;
+		for(; iter < i; iter++){
+			System.out.println(i+ " % "+ iter + " = " + (i%iter));
+			if(i%iter == 0){
+				return true;
+			}
+
+		}
+		return false;
+	}
+	public static void main(String[]Args){
+		new HashTable(20,10);
+	}
+}
+
+

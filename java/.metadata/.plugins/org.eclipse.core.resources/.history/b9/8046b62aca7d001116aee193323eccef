@@ -1,0 +1,52 @@
+import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+
+public class BrutePoint {
+	public static void main(String[] args) throws FileNotFoundException{
+		Scanner a = new Scanner(new File("input40.txt"));
+		StdDraw.setXscale(0, 32768);
+		StdDraw.setYscale(0, 32768);
+		StdDraw.setPenColor(Color.BLACK);
+		StdDraw.setPenRadius(.001);
+		int numPoints = Integer.parseInt(a.nextLine());
+		CollinearPoint[] points = new CollinearPoint[numPoints];
+		for(int i = 0; i < points.length; i++){
+			points[i] = new CollinearPoint(a.nextInt(), a.nextInt());
+		}
+		a.close();
+
+		for(int i = 0; i < points.length; i++){
+			for(int j = i+1; j < points.length; j++){
+				for(int k = j+1; k < points.length; k++){
+					for(int l = k+1; l < points.length; l++){
+						if(CollinearPoint.areCollinear(points[i], points[j], points[k],points[l])){
+							drawCollinears(points[i], points[j], points[k],points[l]);
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	public static void drawCollinears(CollinearPoint a,CollinearPoint b, CollinearPoint c, CollinearPoint d){
+		StdDraw.setPenColor(Color.BLACK);
+		StdDraw.setPenRadius(.001);
+		Point origin = new Point(0,0);
+		Point endY = new Point(0, 32362);
+		Point endX = new Point(32362,0);
+		origin.drawTo(endY);
+		origin.drawTo(endX);
+		a.drawTo(b);
+		b.drawTo(c);
+		c.drawTo(d);
+		StdDraw.setPenRadius(.02);
+		StdDraw.setPenColor(new Color(140, 30, 130));
+		a.draw();
+		b.draw();
+		c.draw();
+		d.draw();
+	}
+}

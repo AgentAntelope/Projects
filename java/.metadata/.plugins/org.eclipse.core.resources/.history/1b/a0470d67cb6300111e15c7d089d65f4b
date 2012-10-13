@@ -1,0 +1,22 @@
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class GUI {
+	public static void main(String[]fsdafseew){
+		JFrame frame = new JFrame("Example");
+		frame.setSize(400, 400);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel pane = new JPanel();
+		JTextField textbox = new JTextField(9);
+		JLabel label = new JLabel("Song File:");
+		pane.add(label);
+		pane.add(textbox);
+		
+		frame.add(pane);
+		//frame.pack();
+	}
+}

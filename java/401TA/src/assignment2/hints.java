@@ -1,0 +1,40 @@
+package assignment2;
+
+import java.util.Random;
+
+
+public class hints {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int[] frequencyChars = new int[127];
+		
+		int sum = 0;
+		char c = 'c';
+	
+		Random rand = new Random();
+		
+		for(int i = 0; i < 25; i++){
+			frequencyChars[rand.nextInt(126)] += 1;
+		}
+		
+		int frequency = rand.nextInt(25)+1; //Amount of times word is caught
+		int i = 0;
+		while(true){
+			frequency -= frequencyChars[i];
+			if(frequency <= 0){
+				break;
+			}
+			i++;
+		}
+		System.out.println((char)i);
+	}
+	static void printArray(int[] arr){
+		for(int i = 0; i < arr.length; i++){
+			System.out.print(arr[i]+ ", ");
+		}
+		System.out.println();
+	}
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 3 elements(s) to &apos;Data-Structures/src/ArrayList&apos;&#x0D;&#x0A;- Original project: &apos;ArrayList&apos;&#x0D;&#x0A;- Destination element: &apos;Data-Structures/src/ArrayList&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     MyArrayList.java&#x0D;&#x0A;     MyArrayListInterface.java&#x0D;&#x0A;     DemonstrateMyArrayList.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="=Data-Structures/src&lt;ArrayList" element1="/src&lt;{MyArrayList.java" element2="/src&lt;{MyArrayListInterface.java" element3="/src&lt;{DemonstrateMyArrayList.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1273714982000" units="3" version="1.0"/>
+</session>

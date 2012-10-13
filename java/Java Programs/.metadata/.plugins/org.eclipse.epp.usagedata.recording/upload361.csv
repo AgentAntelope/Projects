@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.mylyn.context.core,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.context.core",1260476998987
+started,bundle,org.eclipse.mylyn.context.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.context.ui",1260476999059
+started,bundle,org.eclipse.mylyn.monitor.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.monitor.ui",1260476999077
+started,bundle,org.eclipse.mylyn.tasks.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.tasks.ui",1260476999129
+started,bundle,org.eclipse.mylyn.team.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.team.ui",1260476999147
+os,sysinfo,,,"win32",1260476999154
+arch,sysinfo,,,"x86",1260476999154
+ws,sysinfo,,,"win32",1260476999154
+locale,sysinfo,,,"en_US",1260476999154
+processors,sysinfo,,,"2",1260476999154
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1260476999154
+java.runtime.version,sysinfo,,,"1.6.0_17-b04",1260476999154
+java.specification.name,sysinfo,,,"Java Platform API Specification",1260476999154
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1260476999154
+java.specification.version,sysinfo,,,"1.6",1260476999154
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1260476999154
+java.version,sysinfo,,,"1.6.0_17",1260476999154
+java.vm.info,sysinfo,,,"mixed mode",1260476999154
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1260476999154
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1260476999154
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1260476999154
+java.vm.specification.version,sysinfo,,,"1.0",1260476999154
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1260476999154
+java.vm.version,sysinfo,,,"14.3-b01",1260476999154
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1260476999664

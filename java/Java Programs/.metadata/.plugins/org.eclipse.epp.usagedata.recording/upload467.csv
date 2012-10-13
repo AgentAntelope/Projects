@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1263404558028
+java.specification.version,sysinfo,,,"1.6",1263404558028
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1263404558028
+java.version,sysinfo,,,"1.6.0_17",1263404558028
+java.vm.info,sysinfo,,,"mixed mode",1263404558028
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1263404558028
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1263404558028
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1263404558028
+java.vm.specification.version,sysinfo,,,"1.0",1263404558028
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1263404558028
+java.vm.version,sysinfo,,,"14.3-b01",1263404558028
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1263404559097
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263404612940
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263404613066
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263404646140
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263404902700
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1263404911025
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1263404911259
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1263404912946
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263405056295
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263405056423
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263405085715
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263405240906
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263405300072
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263405300222

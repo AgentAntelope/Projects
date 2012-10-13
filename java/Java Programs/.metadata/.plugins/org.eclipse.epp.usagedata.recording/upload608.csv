@@ -1,0 +1,14 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264909639736
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264909641175
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264909735774
+error,log,,,"Unable to create editor ID org.eclipse.jdt.ui.ClassFileEditor: The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').",1264909736767
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1264909736800
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1264909736806
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1264909736876
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1264909742123
+closed,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1264909742123
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264909747610
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264909771990
+closed,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264909773699
+stopped,bundle,org.eclipse.jst.ws.axis.creation.ui,1.0.406.v200903031852,"org.eclipse.jst.ws.axis.creation.ui",1264909774514

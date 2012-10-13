@@ -1,0 +1,173 @@
+package Try;
+
+import org.apache.pdfbox.pdmodel.*;
+import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
+import org.apache.pdfbox.pdmodel.interactive.form.PDField;
+
+public class StatReader {
+	private Student student;
+	private String inputFile;
+	private PDDocument stat;
+	private PDDocumentCatalog docCatalog;
+	private PDAcroForm acroForm;
+	private PDField field;
+	private int spr, sum12, sumI, sumII, f;
+	
+	public StatReader(){		
+	}
+	
+	public StatReader(Student x, String file){
+		student = x;
+		inputFile = file;
+	}
+	
+	public void extract(){
+		try {
+			stat = PDDocument.load(inputFile);			
+			docCatalog = stat.getDocumentCatalog(); 
+			acroForm = docCatalog.getAcroForm();
+			
+			//read fields & set in student object
+			field = acroForm.getField("first");
+			student.setFirst(field.getValue());
+			
+			field = acroForm.getField("mi");
+			student.setMiddle(field.getValue());
+			
+			field = acroForm.getField("last");
+			student.setLast(field.getValue());
+			
+			field = acroForm.getField("peopleSoft");
+			student.setPeopleSoft((Integer.parseInt(field.getValue())));
+			
+			field = acroForm.getField("chapter");
+			if(field.getValue().contains("1606"))
+				student.setChapter("1606");
+			else if(field.getValue().contains("1607"))
+				student.setChapter("1607");
+			else if(field.getValue().contains("1607"))
+				student.setChapter("1607");
+			else if(field.getValue().contains("30"))
+				student.setChapter("30");
+			else if(field.getValue().contains("31"))
+				student.setChapter("31");
+			else if(field.getValue().contains("32"))
+				student.setChapter("32");
+			else if(field.getValue().contains("33"))
+				student.setChapter("33");
+			else
+				student.setChapter("35");
+			
+			field = acroForm.getField("address1");
+			String address = field.getValue();
+			field = acroForm.getField("address2");
+			address += " " + field.getValue();
+			student.setAddress(address);
+			
+			field = acroForm.getField("city");
+			student.setCity(field.getValue());
+			
+			field = acroForm.getField("state");
+			student.setState(field.getValue());
+			
+			field = acroForm.getField("zip");
+			student.setZip(Integer.parseInt(field.getValue()));
+			
+			field = acroForm.getField("phone");
+			student.setPhone(field.getValue());
+			
+			field = acroForm.getField("email");
+			student.setEmail(field.getValue());
+			
+			field = acroForm.getField("degree");
+			if(field.getValue().equals("BS"))
+				student.setDegree("BS");
+			else if(field.getValue().equals("BA"))
+				student.setDegree("BA");
+			else if(field.getValue().equals("masters"))
+				student.setDegree("masters");
+			else if(field.getValue().equals("phd"))
+				student.setDegree("phd");
+			else{
+				field = acroForm.getField("other");
+				student.setDegree(field.getValue());
+			}
+			
+			field = acroForm.getField("program");
+			student.setProgram(field.getValue());
+			
+			field = acroForm.getField("school");
+			student.setSchool(field.getValue());
+			
+			field = acroForm.getField("credSpr");
+			if(!(field.getValue() == null)){
+				if(Integer.parseInt(field.getValue()) > 0)
+					spr = Integer.parseInt(field.getValue());
+			}
+			else spr = 0;
+			
+			field = acroForm.getField("credSum12");
+			if(!(field.getValue() == null)){
+				if(Integer.parseInt(field.getValue()) > 0)
+					sum12 = Integer.parseInt(field.getValue());
+			}
+			else sum12 = 0;
+			
+			field = acroForm.getField("credSumI");
+			if(!(field.getValue() == null)){
+				if(Integer.parseInt(field.getValue()) > 0)
+					sumI = Integer.parseInt(field.getValue());
+			}
+			else sumI = 0;
+			
+			field = acroForm.getField("credSumII");
+			if(!(field.getValue() == null)){
+				if(Integer.parseInt(field.getValue()) > 0)
+					sumII = Integer.parseInt(field.getValue());
+			}
+			else sumII = 0;
+			
+			field = acroForm.getField("credFall");
+			if(!(field.getValue() == null)){
+				if(Integer.parseInt(field.getValue()) > 0)
+					f = Integer.parseInt(field.getValue());
+			}
+			else f = 0;
+			
+			student.setSemester(spr, sum12, sumI, sumII, f);
+			
+			if(spr > 0){
+				field = acroForm.getField("yearSpr");
+				student.setYear(Integer.parseInt(field.getValue()));
+			}
+			
+			if(sum12 > 0){
+				field = acroForm.getField("yearSum12");
+				student.setYear(Integer.parseInt(field.getValue()));
+			}
+			
+			if(sumI > 0){
+				field = acroForm.getField("yearSumI");
+				student.setYear(Integer.parseInt(field.getValue()));
+			}
+			
+			if(sumII > 0){
+				field = acroForm.getField("yearSumII");
+				student.setYear(Integer.parseInt(field.getValue()));
+			}
+			
+			if(f > 0){
+				field = acroForm.getField("yearFall");
+				student.setYear(Integer.parseInt(field.getValue()));
+			}
+	
+			/**saves student specific Stat PDF
+			 * format:  Last, First - PeopleSoft - TermCode.pdf
+			 */
+			stat.save(student.getLast() +  ", " + student.getFirst() + " - " + student.getPeopleSoft() + " - " + student.getTermCode() + ".pdf");
+			stat.close();
+		} catch (Exception e) {			
+			e.printStackTrace();
+		}
+	}
+}

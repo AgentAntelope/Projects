@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504727884
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504730849
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504731582
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504733996
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504734945
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504737213
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504749701
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504761557
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504762603
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504785999
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.undo",1260504802969
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.undo",1260504803560
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504812513
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504842187
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504873952
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504882414
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.undo",1260504884471
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.undo",1260504884993
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1260504893878
+error,log,,,"Internal Error",1260504894005
+error,log,,,"Internal Error",1260504898176
+error,log,,,"Internal Error",1260504899322
+error,log,,,"Internal Error",1260504900803
+error,log,,,"Internal Error",1260504901879
+error,log,,,"Internal Error",1260504902338

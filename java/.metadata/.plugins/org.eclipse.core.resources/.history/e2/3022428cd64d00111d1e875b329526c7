@@ -1,0 +1,13 @@
+
+public class TwoComp{
+	public static void main(String[]Args){
+		String binaryNum = Args[0];
+		
+		System.out.println(twosComp(binaryNum));
+	}
+	public static String twosComp(String binaryNum){
+		String currentNum;
+		
+		return null;
+	}
+}

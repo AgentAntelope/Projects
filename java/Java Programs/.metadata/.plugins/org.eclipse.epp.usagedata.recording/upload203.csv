@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"org.eclipse.ui.workbench",1258652095464
+started,bundle,org.eclipse.ui.workbench.texteditor,3.5.0.v20090603,"org.eclipse.ui.workbench.texteditor",1258652095984
+started,bundle,org.eclipse.update.configurator,3.3.0.v20090312,"org.eclipse.update.configurator",1258652096014
+started,bundle,org.eclipse.update.core,3.2.300.v20090525,"org.eclipse.update.core",1258652096044
+started,bundle,org.eclipse.update.scheduler,3.2.200.v20081127,"org.eclipse.update.scheduler",1258652096054
+started,bundle,org.eclipse.wst.common.frameworks,1.1.300.v200904160730,"org.eclipse.wst.common.frameworks",1258652096064
+started,bundle,org.eclipse.wst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.wst.common.project.facet.core",1258652096064
+started,bundle,org.eclipse.wst.web,1.1.301.v200909021400,"org.eclipse.wst.web",1258652096074
+started,bundle,org.eclipse.wst.ws.service.policy.ui,1.0.102.v200903070248,"org.eclipse.wst.ws.service.policy.ui",1258652096074
+started,bundle,org.eclipse.mylyn.bugzilla.core,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.bugzilla.core",1258652096094
+started,bundle,org.eclipse.mylyn.bugzilla.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.bugzilla.ui",1258652096104
+started,bundle,org.eclipse.mylyn.commons.net,3.3.0.v20091013-0200-e3x,"org.eclipse.mylyn.commons.net",1258652096104
+started,bundle,org.eclipse.mylyn.commons.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.commons.ui",1258652096114
+started,bundle,org.eclipse.mylyn.context.core,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.context.core",1258652096124
+started,bundle,org.eclipse.mylyn.context.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.context.ui",1258652096134
+started,bundle,org.eclipse.mylyn.monitor.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.monitor.ui",1258652096144
+started,bundle,org.eclipse.mylyn.tasks.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.tasks.ui",1258652096174
+started,bundle,org.eclipse.mylyn.team.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.team.ui",1258652096174
+os,sysinfo,,,"win32",1258652096184
+arch,sysinfo,,,"x86",1258652096184
+ws,sysinfo,,,"win32",1258652096184
+locale,sysinfo,,,"en_US",1258652096184
+processors,sysinfo,,,"2",1258652096184
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1258652096184
+java.runtime.version,sysinfo,,,"1.6.0_16-b01",1258652096184

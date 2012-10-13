@@ -1,0 +1,36 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import javax.swing.JFrame;
+
+
+public class assignment7 {
+	final static int SAMPLESPERSECOND = 44100;
+	public static void main(String[] args) throws FileNotFoundException {
+		JFrame fr = new JFrame();
+		Scanner reader = new Scanner(new File("song.txt"));
+		while(reader.hasNext()){
+			int i = reader.nextInt();
+			double time = reader.nextDouble();
+			double frequency = createFrequency(i);
+			playNote(frequency,time);
+		}
+	}
+	public static double[] playNote(double freq, double time){
+		 int numberOfSamples = (int) (SAMPLESPERSECOND * time);
+         
+         double[] sound = new double[numberOfSamples]; 
+         
+         for(int i=0; i<numberOfSamples; i++)
+            sound[i] = Math.sin(2 * Math.PI * freq* i / SAMPLESPERSECOND);
+         
+         StdAudio.play(sound);
+
+		return null;
+	}
+	public static double createFrequency(int i){
+		return (440.0*(Math.pow(2, (i/12.0))));
+	}
+
+}

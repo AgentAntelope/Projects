@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001457
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001458
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001464
+error,log,,,"Unable to create editor ID org.eclipse.jdt.ui.ClassFileEditor: The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').",1256488001489
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001493
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001494
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001500
+error,log,,,"Unable to create editor ID org.eclipse.jdt.ui.ClassFileEditor: The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').",1256488001525
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001530
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001531
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001536
+error,log,,,"Unable to create editor ID org.eclipse.jdt.ui.ClassFileEditor: The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').",1256488001560
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001565
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001566
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001570
+error,log,,,"Unable to create editor ID org.eclipse.jdt.ui.ClassFileEditor: The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').",1256488001595
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001599
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001600
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001605
+error,log,,,"Unable to create editor ID org.eclipse.jdt.ui.ClassFileEditor: The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').",1256488001631
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001639
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001640
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001645
+error,log,,,"Unable to create editor ID org.eclipse.jdt.ui.ClassFileEditor: The Class File Viewer cannot handle the given input ('org.eclipse.ui.ide.FileStoreEditorInput').",1256488001669
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.ClassFileEditor",1256488001673

@@ -1,0 +1,99 @@
+%Unit 1
+aeger: ill, bad
+adiutrix: assistant, subordinate, helper
+arca: coffin
+ardeo: burn, be on fire, desire
+augustus: dignified
+aureus: golden, of gold
+capillatus: hairy
+capulus: coffin
+contentio: effort
+crassus: compact
+cursus: career, profession
+delere: erase
+densus: dense, solid
+deus: god
+durus: hard
+felix: auspicious, happy
+formosus: fair
+gravis: dignified
+historias: historian
+illa: that
+illud: that
+inducere: erase
+labor: effort
+magnus: large, big
+malum: ill, bad
+mathematicus: astrologer
+opera: effort
+prosper: auspicious
+quae: that
+que: that
+quod: that
+rigidus: rigid, hard
+solidus: compact, dense
+vastus: large, big
+venustus: beautiful
+
+%Unit 2
+aberro: escape, deviate 
+absonus: harsh
+acinus: berry
+apud: at
+asper: harsh, cruel
+baca: berry
+criitus: hairy, dangerous
+discrimen: danger, hazzard
+divus: divinity, god
+dulcis: sweet
+erga: about
+evolo: escape, to flee
+grandis: large
+lares: god
+liberare: free, liberated
+manumittere: free, liberated
+oppugnare: attack
+periculum: danger
+petare: attack, assult
+pilosus: hairy
+pugilatio: fight, conflict
+pulcher: fair, beautiful
+qui : that
+raucus: harsh, cruel
+scriptor: historian
+
+%Unit 3
+adiutor: assistant, helper
+agrestis: awkward, ill at ease, clumsy
+astrologus: astrologer, clairvoyant
+atque: and
+aurum: gold
+chaldaeus: astrologer
+comatus: hairy
+corrumpere: corrupt
+cupa: tub, barrel
+curriculum: career, program
+defendere: defend, shield, protect
+expeditus: easy, simple
+fabula: story, fable
+faustus: auspicious
+frugi: thrifty, frugal
+indecones: indecent
+lacertosus: brawny, strong
+lanx: dish, bowl
+obsenus: indecent
+orca: barrel, tub
+parcus: frugal, thrifty
+patella: dish, bowl
+patina: dish
+penates: god
+proclivis: easy
+propugnare: defend
+pugnare: fight, wage war
+robustus: brawny, muscular
+rudis: clumsy
+rusticus: clumsy, awkward, gauche
+seria: barrel, tub
+tueri: protect
+turpis: indecent
+vitiare: corrupt, shady

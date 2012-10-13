@@ -1,0 +1,87 @@
+import java.util.*;
+
+public class LabShell
+{
+	public static void main(String[] args)
+	{
+		Scanner keyboard = new Scanner(System.in);
+		Polynomial p = null;
+
+		while(true)
+		{
+			System.out.print("Type coefs from lowest to highest power, hit enter ^D: \nTo stop enter 0, hit enter and ^D:");
+			p = readPoly(keyboard);
+			if(p.eq(new Polynomial(0,0)))
+				break;
+			computeRationalRoots(p);
+			System.out.println();
+		}
+	}
+
+	public static Polynomial readPoly(Scanner scan)
+	{
+		String polyInput = scan.nextLine();
+		int i = 0;
+		String[] polyLine = polyInput.split(" ");
+		int[] poly = new int[polyLine.length];
+		Polynomial p = new Polynomial(Integer.parseInt(polyLine[0]),0);
+
+		for(int k = 1; k < polyLine.length; k++)
+			p = p.plus(new Polynomial(Integer.parseInt(polyLine[k]),k));
+
+		return p;
+
+	}
+
+	public static ArrayList<Integer> divisors(int x)
+	{
+		ArrayList<Integer> alist = new ArrayList<Integer>();
+		for(int i = 1; i <= x; i++)
+		{
+			if(x % i == 0)
+				alist.add(i);
+		}
+		return alist;
+	}
+
+	public static void computeRationalRoots(Polynomial p)
+	{
+		int[] getpoly = p.coef();
+		int x = getpoly[0];
+		int y = getPoly[getpoly.length - 1];
+
+		ArrayList<Integer> a0div = divisors(x);
+		ArrayList<Integer> aNdiv = divisors(y);
+		System.out.println(a0div);
+		System.out.println(aNdiv);
+		ArrayList<Rational> possible = new ArrayList<Rational>();
+		ArrayList<Rational> rational = new ArrayList<Rational>();
+
+		for(int i = 0; i < a0div.size(); i++)
+		{
+			for(int j = 0; j < aNdiv.size(); j++)
+			{
+				possible.add(new Rational(a0div.get(i), aNdiv.get(j)));
+			}
+		}
+		System.out.print("Rational Roots: ");
+		for(Rational r : possible)
+		{
+			int num = p.evaluate((int)r.toDouble());
+			int test = 0;
+			if(num == 0)
+			{
+				for(int i = 0; i < rational.size(); i++)
+				{
+					if(r == rational.get(i))
+						test = 1;
+				}
+				if(test == 0){
+					rational.add(r);
+					System.out.println(r.toDouble());
+				}
+			}
+		}
+
+	}
+}

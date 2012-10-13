@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 2 elements(s) to &apos;0401Stuff/src/SluggerPercent&apos;&#x0D;&#x0A;- Original project: &apos;SluggerPercent&apos;&#x0D;&#x0A;- Destination element: &apos;0401Stuff/src/SluggerPercent&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     SluggerMain.java&#x0D;&#x0A;     Player.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="=0401Stuff/src&lt;SluggerPercent" element1="/src&lt;{SluggerMain.java" element2="/src&lt;{Player.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1273715350676" units="2" version="1.0"/>
+</session>

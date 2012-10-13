@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move 2 elements(s) to &apos;Data-Structures/src/NOfQueens&apos;&#x0D;&#x0A;- Original project: &apos;N-of-Queens&apos;&#x0D;&#x0A;- Destination element: &apos;Data-Structures/src/NOfQueens&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     NQueen.java&#x0D;&#x0A;     DemonstrationOne.java&#x0D;&#x0A;- Update references to refactored element" description="Move compilation units" destination="=Data-Structures/src&lt;NOfQueens" element1="/src&lt;{NQueen.java" element2="/src&lt;{DemonstrationOne.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1273714933407" units="2" version="1.0"/>
+</session>

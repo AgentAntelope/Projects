@@ -1,0 +1,25 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1263805332784
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263805359203
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263805364281
+started,bundle,org.eclipse.ui.externaltools,3.2.0.v20090504,"org.eclipse.ui.externaltools",1263805387517
+executed,command,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.commands.DebugLast",1263805427888
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263805428944
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263805432620
+error,log,,,"Referenced part does not exist yet: org.eclipse.ui.views.ProblemView.",1263805432708
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.DebugView",1263805433375
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.VariableView",1263805433604
+opened,view,com.android.ide.eclipse.ddms,0.9.5.v200911191123-20404,"com.android.ide.eclipse.ddms.views.LogCatView",1263805433829
+activated,perspective,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.DebugPerspective",1263805433971
+opened,view,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui.BreakpointView",1263805435177
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263805448284
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263805449910
+activated,view,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console.ConsoleView",1263805460577
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1263805473713
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263805497930
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263845252339
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263845252377
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263845254809
+closed,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1263845255220
+stopped,bundle,org.eclipse.jst.ws.axis.creation.ui,1.0.406.v200903031852,"org.eclipse.jst.ws.axis.creation.ui",1263845257606
+stopped,bundle,org.eclipse.jst.ws.axis.consumption.ui,1.0.405.v200901261650,"org.eclipse.jst.ws.axis.consumption.ui",1263845257647

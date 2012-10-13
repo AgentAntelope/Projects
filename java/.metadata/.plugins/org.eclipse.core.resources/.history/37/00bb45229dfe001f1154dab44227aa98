@@ -1,0 +1,29 @@
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+/**
+ * @author sean
+ * Purpose of this class: Create user permissions on client-side to relieve
+ * server load.
+ */
+public class User {
+	String username;
+	public User(databaseConnect a){
+		getUser(a.getConnection());
+	}
+	public void getUser(Connection a){
+		Scanner read = new Scanner(System.in);
+		System.out.printf("Please enter your username: ");
+		username = read.nextLine();
+		try {
+			a.prepareStatement("select username from users where username = ?");
+		} catch (SQLException e) {
+			System.out.println("There was a problem with loading your username, now exiting the program.");
+			exit();
+		}
+	}
+	public void exit(){
+		
+	}
+}

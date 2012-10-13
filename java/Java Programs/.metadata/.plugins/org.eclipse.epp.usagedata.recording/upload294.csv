@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.jst.jee,1.0.201.v200909030330,"org.eclipse.jst.jee",1259905407443
+started,bundle,org.eclipse.jpt.core,2.2.1.v200908270220,"org.eclipse.jpt.core",1259905407483
+started,bundle,org.eclipse.jpt.eclipselink.core,1.2.0.v200905310000,"org.eclipse.jpt.eclipselink.core",1259905407488
+started,bundle,org.eclipse.wst.sse.core,1.1.401.v200909172215,"org.eclipse.wst.sse.core",1259905407536
+started,bundle,org.eclipse.wst.common.frameworks.ui,1.1.301.v200908101600,"org.eclipse.wst.common.frameworks.ui",1259905407560
+started,bundle,org.eclipse.wst.xml.core,1.1.401.v200908242115,"org.eclipse.wst.xml.core",1259905407564
+started,bundle,org.eclipse.wst.common.emfworkbench.integration,1.1.301.v200908101600,"org.eclipse.wst.common.emfworkbench.integration",1259905407635
+started,bundle,org.eclipse.wst.common.modulecore,1.1.301.v200908101600,"org.eclipse.wst.common.modulecore",1259905407664
+started,bundle,org.eclipse.wst.validation,1.2.102.v200905201610,"org.eclipse.wst.validation",1259905407685
+started,bundle,org.eclipse.jst.j2ee,1.1.301.v200909030330,"org.eclipse.jst.j2ee",1259905407730
+started,bundle,org.eclipse.compare,3.5.0.I20090514-0808,"org.eclipse.compare",1259905408018
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1259905409810
+started,bundle,org.eclipse.wst.jsdt.manipulation,1.0.100.v200809240707,"org.eclipse.wst.jsdt.manipulation",1259905412782
+started,bundle,org.eclipse.wst.jsdt.core,1.0.201.v200908101420,"org.eclipse.wst.jsdt.core",1259905413279
+started,bundle,org.eclipse.wst.jsdt.ui,1.0.200.v200905242047,"org.eclipse.wst.jsdt.ui",1259905413455
+started,bundle,com.android.ide.eclipse.ddms,0.9.4.v200910220141-17704,"com.android.ide.eclipse.ddms",1259905414452
+started,bundle,com.android.ide.eclipse.adt,0.9.4.v200910220141-17704,"com.android.ide.eclipse.adt",1259905414685
+error,log,,,"Unable to get nature of project 'Yar'.",1259905415424
+error,log,,,"Unable to get nature of project 'Yar'.",1259905415434
+error,log,,,"Unable to get nature of project 'Yar'.",1259905415436
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1259905425004
+executed,command,org.eclipse.ltk.ui.refactoring,3.4.100.v20090604,"org.eclipse.ltk.ui.refactoring.commands.deleteResources",1259905425141
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.delete",1259905425141
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1259905426241
+started,bundle,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui",1259905429190

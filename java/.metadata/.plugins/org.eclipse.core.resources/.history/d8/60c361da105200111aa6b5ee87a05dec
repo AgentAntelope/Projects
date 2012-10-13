@@ -1,0 +1,79 @@
+/****************************************
+ * @author: Sean Myers
+ ****************************************/
+import java.util.*;
+/*
+   Sample run:
+
+      bash-3.2$ java LabShell
+      Type coefs from lowest to highest power, hit enter ^D:
+      To stop enter 0, hit enter and ^D: 105 -76 -34 4 1
+      The rational roots of 1x^4 + 4x^3 - 34x^2 - 76x + 105 are:
+       1
+      -3
+       5
+      -7
+
+      Type coefs from lowest to highest power, hit enter ^D:
+      To stop enter 0, hit enter and ^D: 0
+      bash-3.2$
+*/
+
+
+public class LabShell{
+   public static void main(String[] args){
+      Scanner keyboard = null;
+      Polynomial p = null;
+
+      while(true){
+         System.out.print("Type coefs from lowest to highest power, hit enter ^D:\nTo stop enter 0, hit enter and ^D: ");
+         p = readPoly(keyboard);      
+         
+         if(p.eq(new Polynomial(0,0))) break;
+         System.out.println("The rational roots of "+p + " are:");
+         computeRationalRoots(p);
+         System.out.println();
+      }
+   }
+
+
+    public static Polynomial readPoly(Scanner scan){
+    	scan = new Scanner(System.in);
+    	String polys = scan.nextLine();
+    	System.out.println(polys);
+    	String[] indTerms = polys.split(" ");
+    	Polynomial ret = new Polynomial(Integer.parseInt(indTerms[0]), 0);
+    	for(int i = 1; i < indTerms.length; i++){
+    		int coef = Integer.parseInt(indTerms[i]);
+    		ret = ret.plus(new Polynomial(coef, i));
+    	}
+    	return ret;
+   }
+
+
+   public static ArrayList<Integer> divisors(int x){
+	   ArrayList<Integer> divs = new ArrayList<Integer>();
+	   for(int i = 0; i < x; i++){
+		   if(x % i == 0){
+			   divs.add(i);
+			   divs.add(-i);
+		   }
+	   }
+
+	   return divs;
+   }
+
+
+   public static void computeRationalRoots(Polynomial p){
+	   int a_0 =p.coef()[0];   
+	   int a_n = p.coef()[p.coef().length-1];
+	   ArrayList<Integer> numerators = divisors(a_0);
+	   ArrayList<Integer> denominators = divisors(a_n);
+	   for(int i = 0; i < numerators.size(); i++){
+	   	for(int j = 0; j < denominators.size(); j++){
+	 	   Rational potential = new Rational(numerators.get(j), denominators.get(j));
+	 	  
+	   	}	   
+	   }
+   }
+}

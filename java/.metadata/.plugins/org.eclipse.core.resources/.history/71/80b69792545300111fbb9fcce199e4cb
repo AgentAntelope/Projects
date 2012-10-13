@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+
+public class StringSplit {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner keyboard = new Scanner(System.in);
+		String polyLine = keyboard.nextLine();
+		String[] a = polyLine.split(" ");
+		for(int i = 0; i < a.length; i++){
+			System.out.println(a[i]);
+		}
+	}
+
+}

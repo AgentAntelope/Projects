@@ -1,0 +1,60 @@
+import javax.swing.JOptionPane;
+
+public class MainTest {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		int inputNum;
+		do
+		{
+		String inputString = JOptionPane.showInputDialog("Enter the amount of items you want");
+		inputNum = Integer.parseInt(inputString);
+		}
+		while(inputNum <= 0);
+		double[] data = new double[inputNum];
+data[1]= 14;
+data[2]=10;
+data[3]= 15;
+
+
+	}
+
+	public static double max(double[]data)
+	{
+		double max = 0;
+		for(int i = 0; i < data.length; i++)
+		{
+
+			for(int j = i+1; j<data.length; j++)
+			{
+				if(data[i] > data[j])
+				max = data[i];
+			}	
+		}
+		return max;
+	}
+	public static double min(double[]data)
+	{
+		double min = 0;
+		for(int i = 0; i < data.length; i++)
+		{
+
+			for(int j = i+1; j<data.length; j++)
+			{
+				if(data[i] < data[j])
+				min = data[i];
+			}	
+		}
+		return min;	
+	}
+	public static double sum(double[]data)
+	{
+		double sum = 0;
+		for(double: data)
+		{
+			
+		}
+	}
+}

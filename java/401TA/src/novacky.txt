@@ -1,0 +1,16 @@
+What are the main goals of this assignment? Use a hashtable table, learn about natural language processing, and learn about Markov models.
+What is the origin of the Markov text generator? It was first described by Claude Shannon in 1948. The first computer version was apparently written by Don P. Mitchell, adapted by Bruce Ellis, and popularized by A. K. Dewdney in the Computing Recreations section of Scientific American. Brian Kernighan and Rob Pike revived the program in a University setting and described it as an example of design in The Practice of Programming. The program is also described in Jon Bentley's Programming Pearls.
+Do I have to implement the prescribed API? Yes, or you will lose a substantial number of points.
+How do I read in the input text from standard input? Use a Scanner and concatenate each line together to create the text.
+Given a string s, is there an efficient way to extract a substring? Use s.substring(i, i+k) to get the k-character substring starting at i. In Java, this operation takes constant time, regardless of the size of k.
+How do I emulate the behavior of a circular string? There are a number of approaches. One way is to concatenate the first k characters to the end of the input text.
+How do I convert a char to an int? A char is a 16-bit (unsigned) integer. Java will automatically promote a char to an int if you use it as an index into an array.
+How can I define a global constant that can be accessed by all of the methods within a class? You can define a final instance variable so that each object has its own constant.
+  <blockquote>private final int ASCII = 128;</blockquote> 
+If all of the objects within the class use the same constant, use the static modifier so that one global constant is shared by each object in the class.
+  <blockquote>private static final int ASCII = 128;</blockquote> 
+Should my program generate a different output each time I run it? Yes.
+My random text ends in the middle of a sentence. Is that OK? Yes, that's to be expected. We recommend adding a System.out.println(); statement after the last character you print out.
+For which values of k should my program work? It should work for all well-defined values of k from and including 0 to and including the length of the input text. Naturally, as k gets larger, your program will use more memory and take longer.
+
+How do I define the hashtable?

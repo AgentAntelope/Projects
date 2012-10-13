@@ -1,0 +1,8 @@
+package Try;
+
+public class Notebook {
+String note;
+boolean alert;
+
+
+}

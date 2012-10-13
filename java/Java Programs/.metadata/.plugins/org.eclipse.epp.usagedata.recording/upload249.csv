@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1259650398563
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1259650398563
+java.vm.specification.version,sysinfo,,,"1.0",1259650398563
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1259650398563
+java.vm.version,sysinfo,,,"14.2-b01",1259650398563
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1259650398984
+started,bundle,org.eclipse.epp.usagedata.ui,1.1.0.R200906100410,"org.eclipse.epp.usagedata.ui",1259650399694
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1259650400285
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1259650424466
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1259650426239
+started,bundle,com.android.ide.eclipse.ddms,0.9.4.v200910220141-17704,"com.android.ide.eclipse.ddms",1259650428223
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1259650428478
+started,bundle,com.android.ide.eclipse.adt,0.9.4.v200910220141-17704,"com.android.ide.eclipse.adt",1259650428546
+started,bundle,org.eclipse.wst.sse.core,1.1.401.v200909172215,"org.eclipse.wst.sse.core",1259650428678
+started,bundle,org.eclipse.wst.html.core,1.1.300.v200903120608,"org.eclipse.wst.html.core",1259650428734
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1259650430483
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1259650442467
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1259650442536
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1259650445829
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1259650448460
+closed,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1259650451186
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1259650458118
+started,bundle,org.eclipse.wst.ws.service.policy,1.0.103.v200905151848,"org.eclipse.wst.ws.service.policy",1259650469162
+started,bundle,org.eclipse.wst.command.env,1.0.408.v200903110045,"org.eclipse.wst.command.env",1259650469221
+started,bundle,org.eclipse.wst.ws,1.1.103.v200903111822,"org.eclipse.wst.ws",1259650469250

@@ -1,0 +1,32 @@
+package Try;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+public class SearchPanel extends JPanel {
+
+	public SearchPanel(ArrayList<Student> database){
+		super();
+		setLayout(new FlowLayout());
+		String[] namesOfSearchQueries= {"PeopleSoft", "First Name", "Last Name", "Returning"};
+		JComboBox searchQuery = new JComboBox(namesOfSearchQueries);	//Combo box to choose what query you want to search with
+		JTextField queryEntry = new JTextField(5); //The box to get the query data from the chosen combo box
+		JButton Search = new JButton("Search"); 
+			Search.addActionListener(
+					new ActionListener(){
+						public void actionPerformed(ActionEvent e) {
+							
+						}
+						
+					});
+
+	//Preview box when a student is clicked
+	
+	//Button to open the student.
+	//List box that displays the search results
+	
+	
+	}
+}

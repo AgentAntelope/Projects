@@ -1,0 +1,142 @@
+package FinalProduct;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+public class NewVetForm extends JDialog{
+
+	private JLabel peopleSoft, fName, mInitial, lName, address, zip, state, city, GI, email, telephone1, telephone2,telephone3;
+	private JTextField PSBox, fNameBox, mNameBox, lNameBox, zipBox, addressBox, GIBox, cityBox, stateBox, emailBox, telephoneBox, telephoneBox2,telephoneBox3;
+	private JPanel nameArea, psArea, telephoneArea, addressPanel, mainPanel;
+	private JButton submit;
+	private SubmitListener submitAction;
+	public NewVetForm(){
+		
+		//Initializing JLabel Fields
+		peopleSoft = new JLabel("Example 3245436");
+		peopleSoft.setFont(new Font("Serif", Font.ITALIC, 9));
+		fName = new JLabel("First:");
+		mInitial = new JLabel("M.I:");
+		lName = new JLabel("Last:");
+		address = new JLabel("Address:");
+		GI = new JLabel("GI Chapter:");
+		email = new JLabel("E-Mail:");
+		telephone1 = new JLabel("(");
+		telephone2 = new JLabel(")");
+		telephone3 = new JLabel("-");
+		city = new JLabel("City:");
+		state = new JLabel("State:");
+		zip = new JLabel("Zip Code:");
+
+		//------------------------------------------
+
+		
+		//Initializing JTextFields
+		PSBox = new JTextField(7);
+		fNameBox = new JTextField(5);
+		mNameBox = new JTextField(2);
+		lNameBox = new JTextField(5);
+		addressBox = new JTextField(10);
+		telephoneBox = new JTextField(2);
+		telephoneBox2 = new JTextField(2);
+		telephoneBox3 = new JTextField(3);
+		cityBox = new JTextField(4);
+		stateBox = new JTextField(2);
+		zipBox = new JTextField(4);
+
+		//------------------------------------------
+		
+		submit = new JButton("Submit");
+		submitAction = new SubmitListener();
+		submit.addActionListener(submitAction);
+		
+		//Add Components to the Name Panel------------------
+		nameArea = new JPanel();
+		nameArea.add(fName);
+		nameArea.add(fNameBox);
+		nameArea.add(mInitial);
+		nameArea.add(mNameBox);
+		nameArea.add(lName);
+		nameArea.add(lNameBox);
+		nameArea.setBorder(BorderFactory.createTitledBorder("Name"));
+      //-----------------------------------------
+	
+		psArea = new JPanel();
+		psArea.add(peopleSoft);
+		psArea.add(PSBox);
+		psArea.setBorder(BorderFactory.createTitledBorder("PeopleSoft #"));
+		
+		//----------------------------------------------------------------
+		
+		
+		
+		telephoneArea = new JPanel();
+		telephoneArea.add(telephone1);
+		telephoneArea.add(telephoneBox);
+		telephoneArea.add(telephone2);
+		telephoneArea.add(telephoneBox2);
+		telephoneArea.add(telephone3);
+		telephoneArea.add(telephoneBox3);
+		telephoneArea.setBorder(BorderFactory.createTitledBorder("Telephone #"));
+
+		//-----------------------------------------------------------------
+		
+		addressPanel = new JPanel();
+		addressPanel.setLayout(new GridLayout(0,4));
+		addressPanel.add(address);
+		addressPanel.add(addressBox);
+		addressPanel.add(zip);
+		addressPanel.add(zipBox);
+		addressPanel.add(city);
+		addressPanel.add(cityBox);
+		addressPanel.add(state);
+		addressPanel.add(stateBox);
+		addressPanel.setBorder(BorderFactory.createTitledBorder("Address"));
+		nameArea.setPreferredSize(new Dimension(328, 66));
+	
+		
+		mainPanel = new JPanel();
+		mainPanel.setLayout(new FlowLayout());
+		mainPanel.add(nameArea);
+		mainPanel.add(addressPanel);
+		mainPanel.add(psArea);
+		mainPanel.add(telephoneArea);
+		//mainPanel.add(submit);
+		mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		this.add(mainPanel);
+		this.pack();
+		this.setSize(400,350);
+		System.out.println(nameArea.getWidth() +", " + nameArea.getHeight());
+		this.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		this.setVisible(true);
+		
+
+	}
+	class SubmitListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			StringBuilder b = new StringBuilder();
+			String info = "Name: "+ fNameBox.getText() + " " + mNameBox.getText()+" "+ lNameBox.getText() + "\n";
+			b.append(info);
+			String moreInfo = "PeopleSoft ID: " + PSBox.getText() + "\n";
+			b.append(moreInfo);
+			String evenMoreInfo = "Telephone Number: (" + telephoneBox.getText()+ ")"+ telephoneBox2.getText()+"-" + telephoneBox3.getText();
+			b.append(evenMoreInfo);
+			JOptionPane.showMessageDialog(null, b.toString());
+			
+			
+		}
+		
+	}	
+	public static void main(String[]Args){
+		new NewVetForm();
+	}
+}

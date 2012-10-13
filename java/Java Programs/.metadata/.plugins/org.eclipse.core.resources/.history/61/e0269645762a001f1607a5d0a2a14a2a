@@ -1,0 +1,10 @@
+import java.util.ArrayList;
+
+
+public class ConvexHull {
+
+	public ArrayList hull(ArrayList<Point> p)
+	{
+		return null;
+	}
+}

@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"org.eclipse.ui.workbench",1263150047582
+started,bundle,org.eclipse.ui.workbench.texteditor,3.5.0.v20090603,"org.eclipse.ui.workbench.texteditor",1263150047597
+started,bundle,org.eclipse.update.configurator,3.3.0.v20090312,"org.eclipse.update.configurator",1263150047610
+started,bundle,org.eclipse.update.core,3.2.300.v20090525,"org.eclipse.update.core",1263150047632
+started,bundle,org.eclipse.update.scheduler,3.2.200.v20081127,"org.eclipse.update.scheduler",1263150047642
+started,bundle,org.eclipse.wst.common.frameworks,1.1.300.v200904160730,"org.eclipse.wst.common.frameworks",1263150047655
+started,bundle,org.eclipse.wst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.wst.common.project.facet.core",1263150047655
+started,bundle,org.eclipse.wst.web,1.1.301.v200909021400,"org.eclipse.wst.web",1263150047672
+started,bundle,org.eclipse.wst.ws.service.policy.ui,1.0.102.v200903070248,"org.eclipse.wst.ws.service.policy.ui",1263150047702
+started,bundle,org.eclipse.mylyn.commons.net,3.3.0.v20091013-0200-e3x,"org.eclipse.mylyn.commons.net",1263150047702
+started,bundle,com.android.ide.eclipse.ddms,0.9.5.v200911191123-20404,"com.android.ide.eclipse.ddms",1263150047702
+started,bundle,org.eclipse.mylyn.bugzilla.core,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.bugzilla.core",1263150047710
+started,bundle,org.eclipse.mylyn.bugzilla.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.bugzilla.ui",1263150047727
+started,bundle,org.eclipse.mylyn.commons.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.commons.ui",1263150047755
+started,bundle,org.eclipse.mylyn.context.core,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.context.core",1263150047767
+started,bundle,org.eclipse.mylyn.context.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.context.ui",1263150047792
+started,bundle,org.eclipse.mylyn.monitor.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.monitor.ui",1263150047805
+started,bundle,org.eclipse.mylyn.tasks.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.tasks.ui",1263150047870
+started,bundle,org.eclipse.mylyn.team.ui,3.3.1.v20091215-0000-e3x,"org.eclipse.mylyn.team.ui",1263150047907
+os,sysinfo,,,"win32",1263150047915
+arch,sysinfo,,,"x86",1263150047915
+ws,sysinfo,,,"win32",1263150047915
+locale,sysinfo,,,"en_US",1263150047915
+processors,sysinfo,,,"2",1263150047915
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1263150047915

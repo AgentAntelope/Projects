@@ -1,0 +1,36 @@
+import javax.swing.*;
+
+import java.awt.*;
+import java.awt.event.*;
+
+
+public class GUI {
+	public static void main(String[]fsdafseew){
+		JFrame frame = new JFrame("Example");
+		frame.setSize(400, 400);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JPanel pane = new JPanel();
+		JTextField textbox = new JTextField(9);
+		JLabel label = new JLabel("Song File:");
+		JButton button = new JButton("Click Me to Do something");
+		button.add(new ActionButton());
+		pane.add(label);
+		pane.add(textbox);
+		pane.add(button);
+		
+		frame.add(pane);
+		frame.pack();
+	}
+	
+	
+	class ActionButton implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			System.out.println("Button Clicked!");
+		}
+		
+	}
+}

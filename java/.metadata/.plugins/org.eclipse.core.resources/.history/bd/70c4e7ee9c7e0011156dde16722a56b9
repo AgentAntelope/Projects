@@ -1,0 +1,63 @@
+import java.util.*;
+import java.io.*;
+
+public class ElegantPoint
+{
+	public static void main(String[] args) throws IOException
+	{
+		CollinearPoint zero = new CollinearPoint(0,0);
+		Scanner typie = new Scanner(System.in);
+		System.out.print("Enter input text file: ");
+		String filename = typie.nextLine();
+		Scanner file = new Scanner(new File(filename));
+
+		int[] iteration = new int[4];
+		int N = file.nextInt();
+		int[] x = new int[N];
+		int[] y = new int[N];
+		int count = 0;
+
+		while(file.hasNextLine() && count < N)
+		{
+			x[count] = file.nextInt();
+			y[count] = file.nextInt();
+			count++;
+		}
+
+		ArrayList<CollinearPoint> coPoint = new ArrayList<CollinearPoint>();
+
+		for(int i = 0; i < x.length; i++)
+			coPoint.add(new CollinearPoint(x[i], y[i]));
+
+		StdDraw.setXscale(0, 32768);
+		StdDraw.setYscale(0, 32768);
+		Collections.sort(coPoint);
+		Collections.reverse(coPoint);
+		while(coPoint.size() > 0)
+		{
+			CollinearPoint holder = coPoint.remove(0);
+			Collections.sort(coPoint, holder.SLOPE_ORDER);
+			for(int i = 0; i < coPoint.size()-2; i++)
+			{
+				boolean coline = zero.areCollinear(holder, coPoint.get(i), coPoint.get(i+1), coPoint.get(i+2));
+				if(coline == true)
+				{
+					holder.draw();
+					coPoint.get(i).draw();
+					coPoint.get(i+1).draw();
+					coPoint.get(i+2).draw();
+					holder.drawTo(coPoint.get(i));
+					coPoint.get(i).drawTo(coPoint.get(i+1));
+					coPoint.get(i+1).drawTo(coPoint.get(i+2));
+					System.out.println(holder + ", " + coPoint.get(i) + ", " + coPoint.get(i+1) + ", " + coPoint.get(i+2));
+				}
+
+			}
+		}
+
+
+		//System.out.println("Four-point collinear line segments: ");
+
+
+	}
+}

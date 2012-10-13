@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.specification.version,sysinfo,,,"1.0",1257527032293
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1257527032293
+java.vm.version,sysinfo,,,"14.2-b01",1257527032293
+started,bundle,org.eclipse.epp.usagedata.ui,1.1.0.R200906100410,"org.eclipse.epp.usagedata.ui",1257527033369
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527034493
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527040077
+started,bundle,org.eclipse.equinox.p2.ui,1.0.101.R35x_v20090819,"org.eclipse.equinox.p2.ui",1257527045803
+started,bundle,org.eclipse.equinox.p2.ui.sdk,1.0.100.v20090520-1905,"org.eclipse.equinox.p2.ui.sdk",1257527045803
+started,bundle,org.eclipse.equinox.p2.metadata,1.0.100.v20090525,"org.eclipse.equinox.p2.metadata",1257527046317
+started,bundle,org.eclipse.ecf.identity,3.0.0.v20090831-1906,"org.eclipse.ecf.identity",1257527047659
+started,bundle,org.eclipse.ecf,3.0.0.v20090831-1906,"org.eclipse.ecf",1257527047690
+started,bundle,org.eclipse.ecf.provider.filetransfer.httpclient,3.0.1.v20090831-1906,"org.eclipse.ecf.provider.filetransfer.httpclient",1257527047815
+started,bundle,org.eclipse.ecf.provider.filetransfer,3.0.1.v20090831-1906,"org.eclipse.ecf.provider.filetransfer",1257527047831
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527048002
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527051871
+executed,command,org.eclipse.equinox.p2.ui.sdk,1.0.100.v20090520-1905,"org.eclipse.equinox.p2.ui.sdk.install",1257527051887
+executed,command,org.eclipse.equinox.p2.ui.sdk,1.0.100.v20090520-1905,"org.eclipse.equinox.p2.ui.sdk.update",1257527055100
+started,bundle,org.eclipse.equinox.p2.extensionlocation,1.0.100.v20090520-1905,"org.eclipse.equinox.p2.extensionlocation",1257527055163
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527055475
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527058189
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527067112
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527075224
+executed,command,org.eclipse.equinox.p2.ui.sdk,1.0.100.v20090520-1905,"org.eclipse.equinox.p2.ui.sdk.install",1257527075240
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527077049
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527082041

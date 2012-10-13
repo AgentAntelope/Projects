@@ -1,0 +1,18 @@
+import java.util.*;
+public class BellCurve {
+	public static void main(String [] args){
+		Random rnd= new Random(System.currentTimeMillis());
+		int[] buckets = new int[50];
+		for(int i= 0; i < Integer.parseInt(args[0]); i++){
+			buckets[rollDice(10,rnd)-10] += 1;
+		}
+		rollDice(10, rnd);
+	}
+	public static int rollDice(int times, Random rnd){
+		int total = 0;
+		for(int i = 0; i < times; i++){
+			total += rnd.nextInt(5)+1;
+		}
+		return total;
+	}
+}

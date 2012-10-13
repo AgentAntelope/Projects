@@ -1,0 +1,19 @@
+
+public class HangPlayer {
+private int losses;
+private int wins;
+private String name;
+
+public void SetName(String name)
+{
+	this.name = name;
+}
+public String GetName()
+{
+	return name;
+}
+public void SetLosses()
+{
+	losses++;
+}
+}

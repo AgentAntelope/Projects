@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265234880594
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265234902323
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265234903709
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265234904038
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235119342
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235124431
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235127725
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235459768
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235460878
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235483671
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265235486033
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265235486286
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235528545
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235541676
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.export",1265235541707
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.selectAll",1265235562269
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.copy",1265235563225
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1265235574429
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235580910
+error,log,,,"Internal Error",1265235587515
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235587958
+started,bundle,org.eclipse.jpt.core,2.2.1.v200908270220,"org.eclipse.jpt.core",1265235588714
+started,bundle,org.eclipse.jpt.eclipselink.core,1.2.0.v200905310000,"org.eclipse.jpt.eclipselink.core",1265235588774
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235596393
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265235601338

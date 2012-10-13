@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.vm.specification.version,sysinfo,,,"1.0",1257440421343
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1257440421343
+java.vm.version,sysinfo,,,"14.2-b01",1257440421343
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257440444926
+started,bundle,org.eclipse.jdt.apt.core,3.3.201.R35x_v20090818-0235,"org.eclipse.jdt.apt.core",1257440459489
+started,bundle,org.eclipse.jdt.apt.pluggable.core,1.0.201.R35x_v20090818-0225,"org.eclipse.jdt.apt.pluggable.core",1257440459489
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257440459524
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1257440459891
+started,bundle,org.eclipse.jpt.core,2.2.1.v200908270220,"org.eclipse.jpt.core",1257440459896
+started,bundle,org.eclipse.jpt.eclipselink.core,1.2.0.v200905310000,"org.eclipse.jpt.eclipselink.core",1257440459906
+started,bundle,org.eclipse.ltk.core.refactoring,3.5.0.v20090513-2000,"org.eclipse.ltk.core.refactoring",1257440462291
+started,bundle,org.eclipse.ltk.ui.refactoring,3.4.100.v20090604,"org.eclipse.ltk.ui.refactoring",1257440462299
+started,bundle,org.eclipse.compare,3.5.0.I20090514-0808,"org.eclipse.compare",1257440463084
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257440465449
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257440480509
+started,bundle,org.eclipse.compare.core,3.5.0.I20090430-0408,"org.eclipse.compare.core",1257440481517
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1257440481589
+started,bundle,org.eclipse.core.variables,3.2.200.v20090521,"org.eclipse.core.variables",1257440482224
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1257440482262
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257440482442
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257440491254
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.paste",1257440492862
+started,bundle,org.eclipse.jdt.junit,3.5.1.r351_v20090708-0800,"org.eclipse.jdt.junit",1257440494484
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.save",1257440499157
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257440502972

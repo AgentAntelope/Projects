@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+os,sysinfo,,,"win32",1264041458065
+arch,sysinfo,,,"x86",1264041458065
+ws,sysinfo,,,"win32",1264041458065
+locale,sysinfo,,,"en_US",1264041458065
+processors,sysinfo,,,"2",1264041458065
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1264041458065
+java.runtime.version,sysinfo,,,"1.6.0_17-b04",1264041458065
+java.specification.name,sysinfo,,,"Java Platform API Specification",1264041458065
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1264041458065
+java.specification.version,sysinfo,,,"1.6",1264041458065
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1264041458065
+java.version,sysinfo,,,"1.6.0_17",1264041458065
+java.vm.info,sysinfo,,,"mixed mode",1264041458065
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1264041458065
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1264041458065
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1264041458065
+java.vm.specification.version,sysinfo,,,"1.0",1264041458065
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1264041458065
+java.vm.version,sysinfo,,,"14.3-b01",1264041458065
+started,bundle,org.eclipse.team.cvs.ui,3.3.201.R35x_v20090826-0905,"org.eclipse.team.cvs.ui",1264041458195
+started,bundle,org.eclipse.emf.ecore,2.5.0.v200906151043,"org.eclipse.emf.ecore",1264041458195
+started,bundle,org.eclipse.jem.util,2.0.200.v200905140200,"org.eclipse.jem.util",1264041458223
+started,bundle,org.eclipse.wst.common.frameworks,1.1.300.v200904160730,"org.eclipse.wst.common.frameworks",1264041458235
+started,bundle,org.eclipse.jst.jsf.common,1.1.7.v20090903,"org.eclipse.jst.jsf.common",1264041458345
+started,bundle,org.eclipse.jst.jsf.core,1.2.2.v20090903,"org.eclipse.jst.jsf.core",1264041458445

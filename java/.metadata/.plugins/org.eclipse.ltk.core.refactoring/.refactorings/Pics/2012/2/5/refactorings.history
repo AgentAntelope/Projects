@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;Pics/pipe.png.crdownload&apos; to &apos;pipe.png&apos;" description="Rename resource &apos;pipe.png.crdownload&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="pipe.png.crdownload" name="pipe.png" stamp="1328285556290" updateReferences="true"/>&#x0A;<refactoring accessors="true" comment="Delete element from project &apos;Pics&apos;&#x0A;- Original project: &apos;Pics&apos;&#x0A;- Original element: &apos;pipe.png&apos;" description="Delete element" element1="pipe.png" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1328285597427" subPackages="false" version="1.0"/>
+</session>

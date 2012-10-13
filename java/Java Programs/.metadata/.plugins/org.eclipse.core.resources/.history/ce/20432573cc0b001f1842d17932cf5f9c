@@ -1,0 +1,67 @@
+import java.awt.Color;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.util.Random;
+
+import edu.ship.SimpleGraphics.*;
+
+
+/**
+ * @author Travis Fitzsimmons
+ *
+ */
+public class firstday
+{
+	static final int MAX_VALUE = 25;
+	static final int MIN_VALUE = 1;
+	static final int NUMBER_OF_VALUES = (MAX_VALUE - MIN_VALUE + 1);
+	private static int x = 0;
+	private static int y = 0;
+	
+        /**
+         * @param args
+         */
+        public static void main (String args[])
+        {
+                SimpleGraphics g = new SimpleGraphics();
+               
+                g.setColor(Color.MAGENTA);
+                g.drawText(new Point (250,45),"Comic Sans 36", "Welcome to CS2");
+                g.setColor(Color.YELLOW);
+                g.drawFilledOval(new Rectangle (250,250,500,500));
+                g.setColor(Color.BLACK);
+                g.drawFilledOval(new Rectangle (370,370,100, 100));
+                g.drawFilledOval(new Rectangle (600,370,100, 100));
+                g.drawArc(new Rectangle (450,500,200,200), -180, 180);
+                
+                
+                Smiley s = new Smiley();
+             
+        		int[][] HoldValues = null;
+        		Random R = new Random();
+        		for(int i = 0; i < 5; i++ )
+        		{
+        			for(int j = 0;  j < 5; j++)
+        			{
+        				HoldValues[i][j] = R.nextInt(200);
+        			}
+        		}
+        		
+                s.draw(R.nextInt(4));
+                g.paint();
+                }
+                
+        }
+
+		private static void draw(int x, int y)
+		{
+			double random;
+			random = Math.random() * NUMBER_OF_VALUES + MIN_VALUE;
+			x = (int)(random);
+			
+			random = Math.random() * NUMBER_OF_VALUES + MIN_VALUE;
+			y = (int)(random);
+			
+		}
+       
+}

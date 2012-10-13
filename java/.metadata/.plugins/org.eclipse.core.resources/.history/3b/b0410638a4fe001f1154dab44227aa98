@@ -1,0 +1,63 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+/**
+ * @author sean
+ * Purpose of this class: Create user permissions on client-side to relieve
+ * server load.
+ */
+public class User {
+	private String username;
+	private String password;
+	public User(databaseConnect a){
+		getUser(a.getConnection());
+	}
+	public void getUser(Connection a){
+		String testUser = null;
+		while(true){
+		Scanner read = new Scanner(System.in);
+		System.out.printf("Please enter your username: ");
+		username = read.nextLine();
+		if(username.equals("-1")){
+			exit();
+			break;
+		}
+		try {
+			PreparedStatement b= a.prepareStatement("select username,password from users where username = ?");
+			b.setString(0, username);
+			ResultSet c =b.executeQuery();
+			testUser = c.getString("username");
+			if(testUser != null){
+				password = c.getString("password");
+				break;
+			}
+			System.out.println("Username does not exist, try again (or -1 to quit) ");
+			
+		} catch (SQLException e) {
+			System.out.println("There was a problem with loading your user file, now exiting the program.");
+			exit();
+			}
+		}
+		username = testUser;
+	}
+	public void promptPassword(){
+		while(true){
+			String pwTemp;
+			Scanner read = new Scanner(System.in);
+			System.out.printf("Please enter your password: ");
+			pwTemp = read.nextLine();
+			if(pwTemp.equals(password)){
+				break;
+			}
+			
+		}
+		
+		
+	}
+	public void exit(){
+		//Implement exit later.
+	}
+}

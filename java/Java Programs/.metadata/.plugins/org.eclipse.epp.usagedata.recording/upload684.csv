@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.runtime.version,sysinfo,,,"1.6.0_17-b04",1265562577710
+java.specification.name,sysinfo,,,"Java Platform API Specification",1265562577710
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1265562577710
+java.specification.version,sysinfo,,,"1.6",1265562577710
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1265562577710
+java.version,sysinfo,,,"1.6.0_17",1265562577710
+java.vm.info,sysinfo,,,"mixed mode",1265562577710
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1265562577710
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1265562577710
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1265562577710
+java.vm.specification.version,sysinfo,,,"1.0",1265562577710
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1265562577710
+java.vm.version,sysinfo,,,"14.3-b01",1265562577710
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1265562579130
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265563097136
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265563099039
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265563101051
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265563101254
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.selectAll",1265563225462
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.edit.copy",1265563226429
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1265563232528
+started,bundle,org.eclipse.jpt.core,2.2.1.v200908270220,"org.eclipse.jpt.core",1265563234120
+started,bundle,org.eclipse.jpt.eclipselink.core,1.2.0.v200905310000,"org.eclipse.jpt.eclipselink.core",1265563234166
+started,bundle,org.eclipse.wst.sse.core,1.1.401.v200909172215,"org.eclipse.wst.sse.core",1265563234276
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265563239564

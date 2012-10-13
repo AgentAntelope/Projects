@@ -1,0 +1,15 @@
+what,kind,bundleId,bundleVersion,description,time
+started,bundle,org.eclipse.mylyn.context.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.context.ui",1258405480806
+started,bundle,org.eclipse.mylyn.tasks.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.tasks.ui",1258405481077
+started,bundle,org.eclipse.mylyn.team.ui,3.3.0.v20091015-0500-e3x,"org.eclipse.mylyn.team.ui",1258405481105
+started,bundle,org.eclipse.jdt.apt.core,3.3.201.R35x_v20090818-0235,"org.eclipse.jdt.apt.core",1258405481927
+started,bundle,org.eclipse.jdt.apt.pluggable.core,1.0.201.R35x_v20090818-0225,"org.eclipse.jdt.apt.pluggable.core",1258405482219
+started,bundle,org.eclipse.jsch.core,1.1.100.I20090430-0408,"org.eclipse.jsch.core",1258405482514
+started,bundle,org.eclipse.team.cvs.core,3.3.200.I20090430-0408,"org.eclipse.team.cvs.core",1258405482522
+started,bundle,org.eclipse.team.ui,3.5.0.I20090430-0408,"org.eclipse.team.ui",1258405482624
+started,bundle,org.eclipse.ui.console,3.4.0.v20090513,"org.eclipse.ui.console",1258405483021
+started,bundle,org.eclipse.team.cvs.ui,3.3.201.R35x_v20090826-0905,"org.eclipse.team.cvs.ui",1258405483237
+started,bundle,org.eclipse.core.variables,3.2.200.v20090521,"org.eclipse.core.variables",1258405483258
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1258405648716
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1258405650354
+closed,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1258405650771

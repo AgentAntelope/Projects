@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1258045213398
+java.runtime.version,sysinfo,,,"1.6.0_16-b01",1258045213398
+java.specification.name,sysinfo,,,"Java Platform API Specification",1258045213398
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1258045213398
+java.specification.version,sysinfo,,,"1.6",1258045213398
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1258045213398
+java.version,sysinfo,,,"1.6.0_16",1258045213398
+java.vm.info,sysinfo,,,"mixed mode",1258045213398
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1258045213398
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1258045213398
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1258045213398
+java.vm.specification.version,sysinfo,,,"1.0",1258045213398
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1258045213398
+java.vm.version,sysinfo,,,"14.2-b01",1258045213398
+started,bundle,org.eclipse.epp.usagedata.ui,1.1.0.R200906100410,"org.eclipse.epp.usagedata.ui",1258045214412
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1258045215348
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1258045218670
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1258045234629
+activated,view,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.PackageExplorer",1258045236220
+started,bundle,com.android.ide.eclipse.ddms,0.9.4.v200910220141-17704,"com.android.ide.eclipse.ddms",1258045236579
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1258045236938
+started,bundle,com.android.ide.eclipse.adt,0.9.4.v200910220141-17704,"com.android.ide.eclipse.adt",1258045237000
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1258045239262
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1258045248310
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1258045248466

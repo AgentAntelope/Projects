@@ -1,0 +1,53 @@
+import java.io.IOException;
+import java.util.*;
+
+public class Assign3 {
+
+	public static void main(String[] args) throws IOException {
+		WordDatabase Word = new WordDatabase();
+		Scanner inKey = new Scanner(System.in);
+		Word.LoadWords(inKey);
+		Boolean repeat = true;
+		do
+		{
+			int wrongTries = 0;
+		String WordChoice = Word.GetNextWord();
+			if(WordChoice == null)
+			{
+				System.out.println("You have ran out of words to use!");
+				break;
+			}
+		String HiddenText =LetterHider(WordChoice);
+		for(Boolean HangGame = true; HangGame==true;)
+			{
+		System.out.println(HiddenText);
+		System.out.println("Please enter a letter");
+		String letter = inKey.nextLine();
+		char guess= letter.charAt(0);
+			}
+		}
+		while(repeat);
+		
+	}
+	
+	public static String LetterHider(String Word)
+	{
+		StringBuffer Hide = new StringBuffer();
+		for(int i = 0; i < Word.length(); i++)
+		Hide.append("_ ");
+		return Hide.toString();
+	}
+	public static String LetterReveal(String HiddenWord, String ActualWord, char guess)
+	{
+		char[] HiddenWordArray = new char[HiddenWord.length()];
+		HiddenWordArray=HiddenWord.toCharArray();
+		for(int i = 0; i < ActualWord.length(); i++)
+		{
+			if (guess== ActualWord.charAt(i))
+			{
+
+			}
+		}
+		return null;
+	}
+}

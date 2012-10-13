@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+processors,sysinfo,,,"2",1264909783521
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1264909783521
+java.runtime.version,sysinfo,,,"1.6.0_17-b04",1264909783521
+java.specification.name,sysinfo,,,"Java Platform API Specification",1264909783521
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1264909783521
+java.specification.version,sysinfo,,,"1.6",1264909783521
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1264909783521
+java.version,sysinfo,,,"1.6.0_17",1264909783521
+java.vm.info,sysinfo,,,"mixed mode",1264909783521
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1264909783521
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1264909783521
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1264909783521
+java.vm.specification.version,sysinfo,,,"1.0",1264909783521
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1264909783521
+java.vm.version,sysinfo,,,"14.3-b01",1264909783521
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1264909787167
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1264909787263
+closed,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1264909787264
+started,bundle,org.eclipse.jdt.junit,3.5.1.r351_v20090708-0800,"org.eclipse.jdt.junit",1264909787357
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264909789710
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264910430997
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264910433260
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1264910463797
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1264910464063
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1264910464230

@@ -1,0 +1,34 @@
+import java.util.ArrayList;
+
+
+public class ConvexHull {
+
+	public static ArrayList hull(ArrayList<Point> p)
+	{
+		Point StartPoint = p.get(0);
+		
+		//Finding the Starting point by going through the array..
+		for(int i = 1; i < p.size(); i++)
+		{
+			if(p.get(i).y < StartPoint.y)
+			{
+				StartPoint = p.get(i);
+			}
+			// If their y's are the same, check which x is farther to the right.
+			// If it is the new point, swap out.
+			if(p.get(i).y == StartPoint.y && p.get(i).x > StartPoint.x )
+			{
+				StartPoint = p.get(i);
+			}
+		}
+		
+		
+		
+		return null;
+	}
+	
+	private double isLeft(Point Start, Point p1, Point p2)
+	{
+		 return (p1.x - Start.x)*(p2.y - Start.y) - (p2.x - Start.x)*(p1.y - Start.y);
+	}
+}

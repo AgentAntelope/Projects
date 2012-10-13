@@ -1,0 +1,31 @@
+import java.util.Random;
+
+
+public class BellRecursive {
+	public static int[] buckets = new int[51];
+	public static int total;
+	public static void main(String [] args){
+		Random rnd= new Random(System.currentTimeMillis());
+		total = Integer.parseInt(args[0]);
+		for(int i= 0; i < total; i++){
+			buckets[rollDice(10,rnd)-10] += 1;
+		}
+		
+	}
+	public static int rollDice(int times, Random rnd){
+		int total = 0;
+		for(int i = 0; i < times; i++){
+			int rand =(rnd.nextInt(6)+1); 
+			total += rand;
+		}		
+		if(total == 60){
+			System.out.println("%");
+		}
+		return total;
+	}
+	public static void calculateProbability(int[] probability){
+		for(int i = 0; i < buckets.length; i++){
+			
+		}
+	}
+}

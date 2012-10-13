@@ -1,0 +1,21 @@
+package Java;
+
+import java.awt.*;
+import javax.swing.*;
+public class TestChecker {
+	
+	
+public static void main(String args[])
+{
+    JFrame chess=new JFrame("The Checker board for chess game");
+    Checker c=new Checker();
+    
+    
+    chess.setSize(400,400);
+    c.setBackground(Color.WHITE);
+    chess.add(c);
+    chess.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+    
+    chess.setVisible(true);
+}
+}

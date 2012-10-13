@@ -1,0 +1,104 @@
+import java.io.IOException;
+import java.util.*;
+
+public class Assign3 {
+
+	public static void main(String[] args) throws IOException {
+		WordDatabase Word = new WordDatabase();
+		Scanner inKey = new Scanner(System.in);
+		Word.LoadWords(inKey);
+		Boolean repeat = true;
+		do
+		{
+			int wrongTries = 0;
+		String WordChoice = Word.GetNextWord();
+			if(WordChoice == null)
+			{
+				System.out.println("You have ran out of words to use!");
+				break;
+			}
+		String HiddenText =LetterHider(WordChoice);
+		StringBuffer GuessesTried = new StringBuffer();
+		for(Boolean HangGame = true; HangGame==true;)
+			{
+		Word.HangManPicture(wrongTries);
+		System.out.println(" ");
+		System.out.println("Your word is: "+HiddenText);
+		System.out.println("Your tries so far: "+ GuessesTried);
+		System.out.print("Please guess a letter: ");
+		char guess;
+		Boolean rerun = false;
+		do
+		{
+		 String letter = inKey.nextLine();
+		 guess= letter.charAt(0);
+		/*for(int i = 0; i < GuessesTried.length(); i++ )
+		{
+		if(GuessesTried.charAt(i)== guess){
+			rerun = true;
+		}
+		}*/
+		}
+		while(rerun);
+		GuessesTried.append(guess);
+		if(WordTrue(WordChoice,guess))
+		HiddenText = LetterReveal(HiddenText, WordChoice, guess);
+		else
+		{
+			wrongTries++;
+		}
+		
+		
+		if(HiddenText.equals(WordChoice))
+				{
+			System.out.println("Correct! The word is: "+ WordChoice);
+			HangGame = false;
+				}
+		if(wrongTries == 6)
+		{
+			Word.HangManPicture(wrongTries);
+			System.out.println("Oh no, the hang man has been assembled!");
+			System.out.println("The correct word was: "+ WordChoice);
+			
+			HangGame = false;
+		}
+			}
+		}
+		while(repeat);
+		
+	}
+	
+	public static String LetterHider(String Word)
+	{
+		StringBuffer Hide = new StringBuffer();
+		for(int i = 0; i < Word.length(); i++)
+		Hide.append("_");
+		return Hide.toString();
+	}
+	public static String LetterReveal(String HiddenWord, String ActualWord, char guess)
+	{
+		char[] HiddenWordArray = new char[HiddenWord.length()];
+		HiddenWordArray=HiddenWord.toCharArray();
+		StringBuffer AssembleWord = new StringBuffer();
+		for(int i = 0; i < ActualWord.length(); i++)
+		{
+			if (guess== ActualWord.charAt(i))
+			{
+				HiddenWordArray[i]=guess;
+			}
+			AssembleWord.append(HiddenWordArray[i]);
+		}
+		
+		return AssembleWord.toString();
+	}
+	public static Boolean WordTrue(String ActualWord, char guess)
+	{
+		for(int i = 0; i < ActualWord.length(); i++)
+		{
+			if(guess==ActualWord.charAt(i))
+				return true;
+		}
+		
+		return false;
+	}
+}

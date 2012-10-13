@@ -1,0 +1,12 @@
+Name: Sean Myers      Assignment #: 2
+Lab Day and Time: Thursday 12:15~~
+Lab Instructor: Mike Maksymowych
+Program Due Date: 1/15 ~ 11:59
+Handed in Date: 10/15 
+Source code file name(s):
+Player.java, SluggerMain.java
+Compiled (.class) file name(s) : Player.class
+SluggerMain.class
+
+Does your program compile without error?: 
+

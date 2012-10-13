@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.specification.name,sysinfo,,,"Java Platform API Specification",1257527496955
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1257527496955
+java.specification.version,sysinfo,,,"1.6",1257527496955
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1257527496955
+java.version,sysinfo,,,"1.6.0_16",1257527496955
+java.vm.info,sysinfo,,,"mixed mode",1257527496955
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1257527496955
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1257527496955
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1257527496955
+java.vm.specification.version,sysinfo,,,"1.0",1257527496955
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1257527496955
+java.vm.version,sysinfo,,,"14.2-b01",1257527496955
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257527541431
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257541936193
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257541936786
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257579093493
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257579094109
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257664052011
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257664056643
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257664095455
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257739787186
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257739787563
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1257754066696
+started,bundle,com.android.ide.eclipse.ddms,0.9.4.v200910220141-17704,"com.android.ide.eclipse.ddms",1257754070246
+started,bundle,com.android.ide.eclipse.adt,0.9.4.v200910220141-17704,"com.android.ide.eclipse.adt",1257754070574

@@ -1,0 +1,58 @@
+import java.util.Random;
+
+
+public class BellRecursive {
+	public static int[] buckets = new int[61];
+	public static double[] probability = new double[61];
+	public static int total;
+	public static void main(String [] args){
+		Random rnd= new Random(System.currentTimeMillis());
+		total = 500;
+		for(int i= 0; i < total; i++){
+			buckets[rollDice(10,rnd)] += 1;
+		}
+		for(int i = 0; i < 60; i++){
+			System.out.println(probability(10,i, 0));	
+		}
+		
+		//calculateProbability();
+		
+	}
+	public static double probability(int M, int k, int level){
+		if((k >= 1 || k <= 6) && M == 1){
+			return 1.0/6.0;
+		}
+		else if((k < 1 || k > 6)&& M == 1){
+			return 0;
+		}
+		else if(M % 2 == 0){
+			double sum = 0;
+			for(int i = 1; i < k; i++){
+				sum += probability(M/2, i)*probability(M/2, k-i);
+			}
+			return sum;
+		}
+		else{
+			double sum = 0;
+			for(int i = 1; i < k; i++){
+				sum+= probability(M/2, i)*probability(M/2+1, k-i);
+			}
+			return sum;
+		}
+	}
+	public static int rollDice(int times, Random rnd){
+		int total = 0;
+		for(int i = 0; i < times; i++){
+			int rand =(rnd.nextInt(6)+1); 
+			total += rand;
+		}		
+		return total;
+	}
+	public static void calculateProbability(){
+		double totPercent = 0;
+		for(int i = 0; i < buckets.length; i++){
+			probability[i] = (double)(buckets[i])/total;
+			totPercent += probability[i];
+		}
+	}
+}

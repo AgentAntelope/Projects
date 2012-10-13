@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1265437252227
+java.runtime.version,sysinfo,,,"1.6.0_17-b04",1265437252227
+java.specification.name,sysinfo,,,"Java Platform API Specification",1265437252227
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1265437252227
+java.specification.version,sysinfo,,,"1.6",1265437252227
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1265437252227
+java.version,sysinfo,,,"1.6.0_17",1265437252227
+java.vm.info,sysinfo,,,"mixed mode",1265437252227
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1265437252227
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1265437252227
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1265437252227
+java.vm.specification.version,sysinfo,,,"1.0",1265437252227
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1265437252227
+java.vm.version,sysinfo,,,"14.3-b01",1265437252227
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1265437253225
+started,bundle,org.eclipse.debug.ui,3.5.1.v20090811_r351,"org.eclipse.debug.ui",1265437271696
+started,bundle,org.eclipse.wst.server.core,1.1.102.v20090825,"org.eclipse.wst.server.core",1265437272694
+started,bundle,org.eclipse.wst.server.ui,1.1.103.v20090909,"org.eclipse.wst.server.ui",1265437272834
+started,bundle,org.eclipse.wst.common.emf,1.1.301.v200908181930,"org.eclipse.wst.common.emf",1265437273209
+started,bundle,org.eclipse.jst.j2ee.core,1.1.301.v200908181930,"org.eclipse.jst.j2ee.core",1265437273256
+started,bundle,org.eclipse.jem,2.0.300.v200901272200,"org.eclipse.jem",1265437273458
+started,bundle,org.eclipse.emf.ecore.xmi,2.5.0.v200906151043,"org.eclipse.emf.ecore.xmi",1265437273474
+started,bundle,org.eclipse.jst.jee,1.0.201.v200909030330,"org.eclipse.jst.jee",1265437273677
+started,bundle,org.eclipse.jpt.core,2.2.1.v200908270220,"org.eclipse.jpt.core",1265437273864
+started,bundle,org.eclipse.jpt.eclipselink.core,1.2.0.v200905310000,"org.eclipse.jpt.eclipselink.core",1265437274176

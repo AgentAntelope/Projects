@@ -1,0 +1,169 @@
+import java.util.Iterator;
+
+
+public class MyArrayList<T> implements MyArrayListInterface<T>, Iterable<T>
+{
+	
+	public static final int INITIAL_CAPACITY = 10;
+	public static final float RESIZE_FACTOR = 2.0f;
+	
+	private int Capacity = 0;//Available slots in the array
+	private int Stored = 0;//Currently filled slots in the array
+	
+    public static int COPIES = 0;//Count copies in the program
+    public static int SHIFTS = 0;// Count shifts in the program
+    
+    private T[] MainArray; // Behind the scenes array 
+    
+    /**
+     * Needs to have 2 constructors. Default constructor will produce 10
+     * capacity while the other will have user defined Capacity.
+     */
+  public MyArrayList(){
+    MainArray = (T[])new Object[INITIAL_CAPACITY];	
+    Capacity = INITIAL_CAPACITY;
+    }
+    
+  public MyArrayList(int i) {
+    MainArray = (T[])new Object[i];
+    Capacity = i;
+    }
+    
+  /**
+   * Note to self:Separate method should be reused to check for Resize to
+   * decrease amount of code used.
+   * 
+   * Add an element of Type T to the end of array, increment Stored
+   */
+  public void add(T element) {
+	  increaseArraySize();
+	  MainArray[Stored] = element;
+	  Stored++;
+	  }
+  
+/**
+ * Adds an element of type T at a certain point. Use for loop iteration to
+ * work from index given and use a temporary storage unit to hold previous
+ * element
+ * Note to self: Don't forget Shift incrementing
+ */
+	  public void add(int index, T element) {
+		  increaseArraySize();
+			for(int i = index; i < Stored; i++)
+			{
+				T Temp = MainArray[i];
+				MainArray[i] = element;
+				element =  Temp;
+				SHIFTS++;
+			}
+			Stored++;
+	  }
+
+	  /**
+	   * Set doesn't require shifts or stored. Just replace with 
+	   * index given.
+	   */
+	  public void set(int index, T element) {
+		  MainArray[index] = element;
+	  }
+	  public T get(int index) 
+	  {
+		T GrabItem = MainArray[index];
+		return GrabItem;}
+
+	  public void remove(int index) {
+			for (int i = index; i < Stored-1; i++)
+			{
+				MainArray[i]=MainArray[i+1];
+				SHIFTS++;
+			}
+			Stored--;
+	  }
+
+	  public boolean contains(T element) { 
+		  for(int i = 0; i < MainArray.length; i++)
+		  	{
+			if(MainArray[i] == element)
+				return true;
+		  	}
+		  return false;
+		  }
+
+	  public int indexOf(T element) { 
+		  for(int i = 0; i < Stored;i++)
+		  	{
+			if(MainArray[i].equals(element))
+				return i ;
+		  	}
+		  return -1;
+		  }
+
+	  public int size() {return Capacity;}
+
+	  public Iterator<T> iterator()
+	  {return new MyArrayListIterator<T>(this);}
+	  
+	  private class MyArrayListIterator<T> implements Iterator<T>
+	  {
+		  private MyArrayList<T> a;
+		  private int IteratorIndex;
+		  private Boolean removeTrue;
+		  
+			public MyArrayListIterator(MyArrayList<T> b) {
+				IteratorIndex = 0;
+				a = b;
+				
+			}
+		  
+		  public boolean hasNext(){
+			  if(IteratorIndex == Stored)
+				  return false;
+			  else
+				  return true;}
+		  public T next(){
+			  removeTrue = true;
+			  IteratorIndex++;
+			  return  a.MainArray[IteratorIndex-1];}
+		  public void remove(){
+			  if (removeTrue ==true)
+			  {
+			  removeTrue = false;
+			  for(int i = IteratorIndex-1; i < Stored; i++)
+			  {
+				  a.MainArray[i]= a.MainArray[i+1];
+				  
+			  }
+			  a.Stored--;
+			  }
+		  }
+	  }
+	  
+	  private void increaseArraySize()
+	  {
+		  if(Stored==Capacity)
+		  {
+		  T[] B = (T[])new Object[MainArray.length*(int)RESIZE_FACTOR];
+		  for(int i = 0; i < MainArray.length; i++ )
+		  {
+			 B[i] = MainArray[i];
+			 COPIES++;
+		  }
+		  MainArray = B;
+		  Capacity = MainArray.length;
+		  }
+	  }
+	  /**
+	   * Use Stringbuilder (Not buffer since no Thread sync required) 
+	   * to build the current stored elements into a single string.
+	   */
+	  public String toString()
+	    {
+	       StringBuilder ArraytoString = new StringBuilder();
+	        for(int i = 0; i < Stored; i++)
+	        {
+	        	ArraytoString.append(MainArray[i]);
+	        	ArraytoString.append(" ");
+	        }
+	        return ArraytoString.toString();
+	    }
+}

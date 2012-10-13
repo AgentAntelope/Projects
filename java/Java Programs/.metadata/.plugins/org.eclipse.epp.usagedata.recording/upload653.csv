@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+java.runtime.version,sysinfo,,,"1.6.0_17-b04",1265349152446
+java.specification.name,sysinfo,,,"Java Platform API Specification",1265349152446
+java.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1265349152446
+java.specification.version,sysinfo,,,"1.6",1265349152446
+java.vendor,sysinfo,,,"Sun Microsystems Inc.",1265349152446
+java.version,sysinfo,,,"1.6.0_17",1265349152446
+java.vm.info,sysinfo,,,"mixed mode",1265349152446
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1265349152446
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1265349152446
+java.vm.specification.vendor,sysinfo,,,"Sun Microsystems Inc.",1265349152446
+java.vm.specification.version,sysinfo,,,"1.0",1265349152446
+java.vm.vendor,sysinfo,,,"Sun Microsystems Inc.",1265349152446
+java.vm.version,sysinfo,,,"14.3-b01",1265349152446
+started,bundle,org.eclipse.jst.common.project.facet.core,1.4.1.v200908111817,"org.eclipse.jst.common.project.facet.core",1265349153334
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265349190022
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265349428522
+opened,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265349431441
+activated,editor,org.eclipse.jdt.ui,3.5.1.r351_v20090821-0800,"org.eclipse.jdt.ui.CompilationUnitEditor",1265349431628
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265349437162
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265349447227
+executed,command,org.eclipse.ui,3.5.1.M20090902-1000,"org.eclipse.ui.file.export",1265349447264
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265349451511
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265349459051
+deactivated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265349466756
+activated,workbench,org.eclipse.ui.workbench,3.5.1.M20090826-0800a,"",1265349467719
