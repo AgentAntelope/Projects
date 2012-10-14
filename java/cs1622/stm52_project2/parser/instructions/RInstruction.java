@@ -6,24 +6,26 @@ import parser.Encoding;
 
 public class RInstruction extends Instruction{
 	private int rs, rt, rd, shamt;
+
 	public RInstruction(String optCode) throws InvalidInstructionException{
 		this.opt = translateOpName(optCode);
 	}
 	public RInstruction(String optCode, String rd, String rs, String rt) throws InvalidInstructionException{
-		this.opt = translateOpName(optCode); //Opt holds funct info. shamt always is 0
+		this.opt = translateOpName(optCode); 
 		this.rs = Integer.parseInt(rs.substring(2)); 
 		this.rt = Integer.parseInt(rt.substring(2)); 
 		this.rd = Integer.parseInt(rd.substring(2)); 
 	}
 
 	public RInstruction(String optCode, String rd, String rt, int shamt) throws InvalidInstructionException{
-		this.opt = translateOpName(optCode); //Opt holds funct info. shamt always is 0
+		this.opt = translateOpName(optCode); 
 		this.rt = Integer.parseInt(rt.substring(2)); 
 		this.rd = Integer.parseInt(rd.substring(2)); 
 		if(shamt > 32 || shamt < 0){
 			throw new InvalidInstructionException("shift amount");
 		}
-		shamt = shamt;
+		this.shamt = shamt;
+
 	}
 	public int assembleInstruction(){
 		int encoding = 0;

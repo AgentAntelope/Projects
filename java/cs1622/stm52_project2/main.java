@@ -18,9 +18,9 @@ public class main {
 		try {
 			parser parser_obj = new parser(new MipsLex(new FileInputStream(args[0])));
 			parse_tree = parser_obj.parse();
-			InstructionAssembler a = parser_obj.getAssembler();
-			a.resolve();
-			System.out.println(a.toString());
+			InstructionAssembler assembler = parser_obj.getAssembler();
+			assembler.resolve();
+			System.out.println(assembler.toString());
 
 		} catch (IOException e) {
 			System.err.println("ERROR: Unable to open file: " + args[0]);

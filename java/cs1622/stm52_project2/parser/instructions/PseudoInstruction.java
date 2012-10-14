@@ -1,3 +1,9 @@
+/* Can implement later. Lets us make pseudo instructions that will compile into real instructions later.
+
+	Need to have some sort of *size* operator. 
+	Need to create a resolveInstruction method in Instruction to return an array of real instructions.
+
+*/
 public class PseudoInstruction extends Instruction{
 	private Operation opt;
 	private String label;

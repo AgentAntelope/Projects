@@ -1,8 +1,14 @@
 /**
 * @author: Sean Myers 
 */
-package parser;
 
+package parser;
+/*
+	This won't change too much. Encodings are fairly constant since there are only 3 instruction types that
+	don't deviate from this pattern.
+
+	Encodings: size(bits to encode), starting position(shift amount in encoding)
+*/
 public enum Encoding{
 	FUNCT(6, 0),
 	SHAMT(5, 6),

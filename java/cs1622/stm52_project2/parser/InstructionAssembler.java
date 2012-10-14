@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.ArrayList;
 import parser.instructions.*;
+
 public class InstructionAssembler{
 	HashMap<String, Integer> resolvedLabels, labels;
 	ArrayList<String> declaredStrings;
@@ -28,20 +29,21 @@ public class InstructionAssembler{
 		instructions.add(instruction);
 		labels.put(label, new Integer(currentInstruction));
 	}
+
 	public void addData(String label, String val){
 		associativeLabel.add(label);
 		declaredStrings.add(val);
 	}
+
+	/**
+	*	Resolves all label conflicts and builds the string labels in data.
+	*/
 	public void resolve(){
 		resolveData();
-		System.out.println("DATA BITCHES");
-		for(Data i: resolvedStrings){
-			System.out.printf("0x%08x  0x%08x\n", i.getHeapPosition(), i.getStrData());
-
-		}
-		//walkInstructions();
+		walkInstructions();
 	}
 
+	/* Resolves all data elements. */
 	public void resolveData(){
 		int position = 0x10010000;
 		int currentEncoding = 0;
@@ -56,69 +58,135 @@ public class InstructionAssembler{
 			str = str.substring(1, str.length()-1);
 			//////////Encode string
 			for(int currentStrPos = 0; currentStrPos < str.length(); currentStrPos++){
-				if( encodingPosition % 4 == 0 && encodingPosition != 0){
-					encodings.add(currentEncoding);
-					currentEncoding = 0;				
-					encodingPosition = 0;
-				}
-
 				char currentChar = str.charAt(currentStrPos);
 				if((currentStrPos+1) < str.length() && currentChar == '\\' && str.charAt(currentStrPos+1) == 'n'){
 					currentChar = '\n';
 					currentStrPos++;
 				}				
 
+				// Encode current position
 				int placeholder = currentChar;
-				placeholder = placeholder << (8 * encodingPosition);
+				placeholder = placeholder << (8 * (3 - encodingPosition));
+
 				currentEncoding = currentEncoding | placeholder;
 				encodingPosition++;
+				position++;
+
+				// If fully encoded, then save
+				if( encodingPosition % 4 == 0 && encodingPosition != 0){
+					Data d = new Data(position-4, currentEncoding);
+					resolvedStrings.add(d);					
+					currentEncoding = 0;				
+					encodingPosition = 0;
+				}
+				// Check if it is \n
+
 			}
-			if( encodingPosition % 4 == 0 && encodingPosition!= 0){
-				encodings.add(currentEncoding);
+			int placeholder = 0;
+			placeholder = placeholder << (8 * (3 - encodingPosition));
+			currentEncoding = currentEncoding | placeholder;
+			encodingPosition++;
+			position++;
+			if(encodingPosition!= 0){
+				position += (position % 4);
+				Data d = new Data(position-4, currentEncoding);
+				resolvedStrings.add(d);						
 				currentEncoding = 0;
 				encodingPosition = 0;
 			}
-			int placeholder = 0;
-			placeholder = placeholder << (8 * encodingPosition);
-			currentEncoding = currentEncoding | placeholder;
-			encodingPosition++;
 		}
-		if(encodingPosition % 4 != 0){
-			encodings.add(currentEncoding);
+		if(encodingPosition != 0){
+				Data d = new Data(position-4, currentEncoding);
+				resolvedStrings.add(d);		
 		}
-
-		for(int encoding: encodings){
-			Data d = new Data(position, encoding);
-			resolvedStrings.add(d);
-			position += 4;
-		}	
+	
 	}
 
-	public int offset(Immediate imm, Instruction current){
+	/* Walks the instructions resolving all the labels in them. */
+	public void walkInstructions(){
+		int place = 0;
+		for(Instruction ins: instructions){
+			ins.resolveImmediate(this, place);
+			place++;
+		}
+	}
+
+	public void offset(Immediate imm, int place){
 		if(!imm.isLabel){
-			return imm.value();
+			
 		}
 		else{
-			/* TODO: Return the offset of the instruction.  */
-			return 0;
+			int offsetPosition = labels.get(imm.label);
+			offsetPosition = place - offsetPosition;
+			//offsetPosition *= 4;
+			imm.setImmediate(-offsetPosition);
 		}
 	}
-
-	public int jump(Immediate imm){
+	public void upper(Immediate imm, int place){
 		if(!imm.isLabel){
-			return imm.value();
+			
 		}
 		else{
-			/* TODO: Return the jump of the instruction.  */
-			return 0;
+			int position = translateLabel(imm.label);
+			position = position >> 16;
+
+			imm.setImmediate(position);
+		}
+	}
+	public void lower(Immediate imm, int place){
+		if(!imm.isLabel){
+			
+		}
+		else{
+			int position = translateLabel(imm.label);
+			position = position & 0x0000FFFF;
+			imm.setImmediate(position);
 		}
 	}
 
+	public int translateLabel(String label){
+		int labelPosition = 0;
+		if(labels.get(label) == null && resolvedLabels.get(label) == null){
+			System.out.println("Warning: NO LABEL, SOMETHING HAS GONE WRONG!");
+		}
+		else if(labels.get(label) == null){
+			labelPosition = resolvedLabels.get(label);
+		}
+		else{
+			int textPosition = 0x00400000;
+			labelPosition = labels.get(label);
+			labelPosition *= 4;
+			labelPosition += textPosition;
+		}
+
+		return labelPosition;
+	}
+	public void jump(Immediate imm, int place){
+		if(!imm.isLabel){
+		}
+		else{
+			int labelPosition = translateLabel(imm.label);
+			// Calculate only the first 26 bits
+			labelPosition = labelPosition & 0x0FFFFFFF;
+			labelPosition = labelPosition >> 2;
+			imm.setImmediate(labelPosition);
+		}
+	}
+
+	/* PRINT OUT THE ENTIRE ASSEMBLY! */
 	public String toString(){
-		String ret = "";
+		StringBuilder ret = new StringBuilder();
+		//Print out the assembled instruction.
 		for(Instruction i: instructions){
-			System.out.printf("0x%08x\n", i.assembleInstruction());
+			ret.append(String.format("0x%08x\n", i.assembleInstruction()));
 		}
-		return ret;
+
+		ret.append("DATA SEGMENT\n");
+		for(Data i: resolvedStrings){
+			ret.append(String.format("0x%08x 0x%08x\n", i.getHeapPosition(), i.getStrData()));
+
+		}
+	
+		return ret.toString();
 	}
 }
