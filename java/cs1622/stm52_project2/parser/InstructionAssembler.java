@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import parser.instructions.*;
 
 public class InstructionAssembler{
-	HashMap<String, Integer> resolvedLabels, labels;
+	public HashMap<String, Integer> resolvedLabels, labels;
 	ArrayList<String> declaredStrings;
 	ArrayList<String> associativeLabel;
 	ArrayList<Data> resolvedStrings;
@@ -79,16 +79,15 @@ public class InstructionAssembler{
 					currentEncoding = 0;				
 					encodingPosition = 0;
 				}
-				// Check if it is \n
-
 			}
 			int placeholder = 0;
 			placeholder = placeholder << (8 * (3 - encodingPosition));
 			currentEncoding = currentEncoding | placeholder;
 			encodingPosition++;
 			position++;
+
 			if(encodingPosition!= 0){
-				position += (position % 4);
+				position += (4 - (encodingPosition % 5));
 				Data d = new Data(position-4, currentEncoding);
 				resolvedStrings.add(d);						
 				currentEncoding = 0;

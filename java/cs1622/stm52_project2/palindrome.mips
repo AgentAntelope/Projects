@@ -31,7 +31,3 @@ syscall
 exit:
 addi $r2, $r0, 10
 syscall
-
-# Arguments: load_byte(word, offset,ret_address)
-LOAD_BYTE:
-lw $r20, -4(4)

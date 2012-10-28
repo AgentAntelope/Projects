@@ -27,9 +27,6 @@ terminal String STRING;
 terminal LPAREN, RPAREN;
 terminal TEXT, DATA;
 terminal Integer INT;
-terminal NEWLINE;
-terminal EOL;
-terminal COLON;
 terminal ASCIIZ;
 
 non terminal String optional_label;

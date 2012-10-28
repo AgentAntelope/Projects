@@ -34,7 +34,6 @@ public abstract class Instruction{
 		int mask = 0;
 		int bitShifted = 1;
 
-		0x1F
 		// Create a bit mask for toEncode to make sure it doesn't delete anything
 		for (int i = 0; i < bitAmount; i++) {
 			mask += bitShifted;
@@ -52,6 +51,38 @@ public abstract class Instruction{
 		maskedBits = maskedBits << shiftAmount;
 		currentEncoding = currentEncoding | maskedBits;
 		return currentEncoding;
+	}
+
+	/* Helpful little function for printing all the bits of an integer. */
+	public static void printBits(int num){
+		String temp = "";
+		String temp2 = "";
+		int currentBit = 1;
+		for(int i = 0; i < 32; i++){
+			if((num & currentBit) != 0){
+				if(i > 8){
+					temp = "|" +  1 + " |" + temp;
+
+				}
+				else{
+					temp = "|" +  1 + "|" + temp;
+				}
+
+			}
+			else{
+				if(i > 8){
+					temp = "|" +  0 + " |" + temp;
+
+				}
+				else{
+					temp = "|" +  0 + "|" + temp;
+				}			}
+
+			temp2 = "|" + (i + 1) + "|" + temp2;
+			currentBit = currentBit << 1;
+		}
+		System.out.println(temp);
+		System.out.println(temp2);
 	}
 	
 	/* Implemented to stop annoying the fuck out out of me trying to implement this in RInstruction and PseudoInstruction */
