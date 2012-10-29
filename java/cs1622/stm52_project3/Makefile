@@ -21,4 +21,4 @@ run:
 save:
 	java -classpath `pwd`/tools/java-cup-11a.jar:`pwd`/ main $(INPUT_FILE) > $(OUTPUT_FILE)
 clean:
-	rm *.class  parser/*.class  parser/instructions/*.class
+	rm *.class  tools/*.class syntaxtree/*.class visitor/*.class

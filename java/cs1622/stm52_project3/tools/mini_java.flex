@@ -36,6 +36,7 @@ op = "+" | "*" | ">" | "<"
 "void"                  {return new Symbol(VOID, yyline +1, yycolumn + 1);}
 "main"                  {return new Symbol(MAIN, yyline +1, yycolumn + 1);}
 "if"                    {return new Symbol(IF, yyline +1, yycolumn + 1);}
+"String"                {return new Symbol(STRING, yyline +1, yycolumn + 1);}
 "while"                 {return new Symbol(WHILE, yyline +1, yycolumn + 1);}
 "System"                {return new Symbol(SYSTEM, yyline +1, yycolumn + 1);}
 "out"                   {return new Symbol(OUT, yyline +1, yycolumn + 1);}

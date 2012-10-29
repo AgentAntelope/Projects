@@ -1,8 +1,9 @@
 package tools;
 import java_cup.runtime.Symbol;
+import syntaxtree.*;
 
 /* Preliminaries to use the scanner.  */
-scan with {: return lexer.next_token(); :};
+scan with {: Symbol tok = lexer.next_token(); System.out.println(tok); return tok; :};
 
 parser code {: 
   JavaLex lexer;
@@ -12,23 +13,31 @@ parser code {:
 
   }
 :};
-terminal IDENT, INT, INT_LIT, BOOLEAN, STRING, TRUE, FALSE;
+terminal String IDENT, OP;
+terminal INT, BOOLEAN, STRING, TRUE, FALSE;
+terminal Integer INT_LIT;
 terminal PUBLIC, STATIC, VOID, MAIN, EXTENDS, IF, WHILE, SYSTEM, OUT, PRINTLN, CLASS, RETURN, NEW, ELSE, LENGTH, THIS;
 terminal LBRACE, LSQBRACKET, LPAREN, RBRACE, RSQBRACKET, RPAREN, SEMICOLON;
-terminal COMMA, PERIOD, EQUAL, OP;
+terminal COMMA, PERIOD, EQUAL;
 non terminal java_program;
-non terminal main_class, class_decl, class_decls;
-non terminal var_decl, var_decls, method_decl, method_decls;
-non terminal formal_list, formal_rest, formal_rests, type;
+non terminal class_decl, class_decls;
+non terminal method_decl, method_decls;
+non terminal formal_list, formal_rests, formal_rest;
 non terminal statement, statements;
-non terminal exp, exp_list, exp_rest;
+non terminal Type type;
+non terminal VarDecl var_decl;
+non terminal VarDeclList var_decls;
+non terminal MainClass main_class;
+non terminal Exp exp;
+non terminal ExpList exp_list, exp_rest;
 
 precedence left OP;
-
+precedence left IDENT;
 start with java_program;
 java_program ::= main_class class_decls
             ;
-main_class  ::= CLASS IDENT LBRACE PUBLIC STATIC VOID MAIN LPAREN STRING LSQBRACKET RSQBRACKET IDENT RPAREN LBRACE statement RBRACE RBRACE
+main_class  ::= CLASS IDENT:id1 LBRACE PUBLIC STATIC VOID MAIN LPAREN STRING LSQBRACKET RSQBRACKET IDENT:id2 RPAREN LBRACE statements:as RBRACE RBRACE
+            {:RESULT = new MainClass(new Identifier(id1), new Identifier(id2), as);:}
             ;
 class_decls ::= class_decl class_decls
             |
@@ -36,25 +45,34 @@ class_decls ::= class_decl class_decls
 class_decl  ::= CLASS IDENT LBRACE var_decls method_decls RBRACE
             |   CLASS IDENT EXTENDS IDENT LBRACE var_decls method_decls RBRACE
             ;
-var_decls   ::= var_decls var_decl
+var_decls   ::= var_decl:item var_decls:curlist
+            {:curlist.addElement(item); RESULT = curlist;:}
             |
+            {:RESULT = new VarDeclList();:}
             ;
-var_decl    ::= type IDENT SEMICOLON
+var_decl    ::= type:t IDENT:id SEMICOLON
+            {:RESULT = new VarDecl(t, new Identifier(id));:}
             ;
-method_decls::= method_decl method_decls
+method_decls::= method_decls method_decl
             |
             ;
 method_decl ::= PUBLIC type IDENT LPAREN formal_list RPAREN LBRACE var_decls statements RETURN exp SEMICOLON RBRACE;
-formal_list ::= type IDENT formal_rests;
+formal_list ::= type IDENT formal_rests
+            |
+            ;
 formal_rests::= formal_rest formal_rests
             |
             ;
 formal_rest ::= COMMA type IDENT
             ;
 type        ::= INT LSQBRACKET RSQBRACKET
+                {:RESULT = new IntArrayType();:}
             |   BOOLEAN
+                {:RESULT = new BooleanType();:}
             |   INT
-            |   IDENT
+                {:RESULT = new IntegerType();:}
+            |   IDENT:id
+                {:RESULT = new IdentifierType(id);:}
             ;
 statements  ::= statement statements
             |
@@ -66,20 +84,54 @@ statement   ::= LBRACE statements RBRACE
             |   IDENT EQUAL exp SEMICOLON
             |   IDENT LSQBRACKET exp RSQBRACKET EQUAL exp SEMICOLON
             ;
-exp         ::= exp OP exp
-            | exp LSQBRACKET exp RSQBRACKET
-            | exp PERIOD LENGTH
-            | exp PERIOD IDENT LPAREN exp_list RPAREN
-            | INT_LIT
+exp         ::= exp:e1 OP:op exp:e2
+            {:
+            if(op.equalsIgnoreCase("and")){
+                RESULT = new And(e1, e2);
+            }
+            else if(op.equalsIgnoreCase("minus")){
+                RESULT = new Minus(e1, e2);
+            }
+            else if(op.equalsIgnoreCase("plus")){
+                RESULT = new Plus(e1, e2);
+            }
+            else if(op.equalsIgnoreCase("<")){
+                RESULT = new LessThan(e1, e2);
+            }
+            else if(op.equalsIgnoreCase("*")){
+                RESULT = new Times(e1, e2);
+            }
+            else{
+                System.out.println("NOT A REAL OP");
+                System.exit(0);
+            }
+            :}
+            | exp:e1 LSQBRACKET exp:e2 RSQBRACKET
+            {:RESULT = new ArrayLookup(e1, e2);:}
+            | exp:e PERIOD LENGTH
+            {:RESULT = new ArrayLength(e);:}
+            | exp:e PERIOD IDENT:id LPAREN exp_list:eList RPAREN
+            {:RESULT = new Call(e, new Identifier(id), eList);:}
+            | INT_LIT:ai
+            {:RESULT = new IntegerLiteral(ai);:}
             | TRUE
+            {:RESULT = new True();:}
             | FALSE
-            | IDENT
+            {:RESULT = new False();:}
+            | IDENT:id
+            {:RESULT = new IdentifierExp(id);:}
             | THIS
-            | NEW INT LSQBRACKET exp RSQBRACKET
-            | NEW IDENT LSQBRACKET RSQBRACKET
+            {:RESULT = new This();:}
+            | NEW INT LSQBRACKET exp:e RSQBRACKET
+            {:RESULT = new NewArray(e);:}
+            | NEW IDENT:id LPAREN RPAREN
+            {:RESULT = new NewObject(new Identifier(id)); :}
             ;
-exp_list    ::= exp exp_rest
-            | exp
+exp_list    ::= exp:e exp_rest:eList
+            {:eList.addElement(e); RESULT = eList;:}
             ;
-exp_rest    ::= COMMA exp
+exp_rest    ::= COMMA exp:e exp_rest:eList
+            {:eList.addElement(e); RESULT = eList;:}
+            |
+            {:RESULT = new ExpList();:}
             ;
