@@ -7,6 +7,7 @@ scan with {: Symbol tok = lexer.next_token(); System.out.println(tok); return to
 
 parser code {: 
   JavaLex lexer;
+  public Program p;
   public Parser(JavaLex lex) {
       super(lex);
       lexer = lex;
@@ -19,33 +20,42 @@ terminal Integer INT_LIT;
 terminal PUBLIC, STATIC, VOID, MAIN, EXTENDS, IF, WHILE, SYSTEM, OUT, PRINTLN, CLASS, RETURN, NEW, ELSE, LENGTH, THIS;
 terminal LBRACE, LSQBRACKET, LPAREN, RBRACE, RSQBRACKET, RPAREN, SEMICOLON;
 terminal COMMA, PERIOD, EQUAL;
-non terminal java_program;
-non terminal class_decl, class_decls;
-non terminal method_decl, method_decls;
-non terminal formal_list, formal_rests, formal_rest;
-non terminal statement, statements;
+non terminal Program java_program;
 non terminal Type type;
 non terminal VarDecl var_decl;
 non terminal VarDeclList var_decls;
 non terminal MainClass main_class;
 non terminal Exp exp;
 non terminal ExpList exp_list, exp_rest;
+non terminal Statement statement;
+non terminal StatementList statements;
+non terminal FormalList formal_list, formal_rests;
+non terminal Formal formal_rest;
+non terminal MethodDecl method_decl;
+non terminal MethodDeclList method_decls;
+non terminal ClassDecl class_decl;
+non terminal ClassDeclList class_decls;
 
 precedence left OP;
 precedence left IDENT;
 start with java_program;
-java_program ::= main_class class_decls
+java_program ::= main_class:m class_decls:cList
+            {:RESULT = new Program(m, cList); this.parser.p = RESULT;:}
             ;
-main_class  ::= CLASS IDENT:id1 LBRACE PUBLIC STATIC VOID MAIN LPAREN STRING LSQBRACKET RSQBRACKET IDENT:id2 RPAREN LBRACE statements:as RBRACE RBRACE
+main_class  ::= CLASS IDENT:id1 LBRACE PUBLIC STATIC VOID MAIN LPAREN STRING LSQBRACKET RSQBRACKET IDENT:id2 RPAREN LBRACE statement:as RBRACE RBRACE
             {:RESULT = new MainClass(new Identifier(id1), new Identifier(id2), as);:}
             ;
-class_decls ::= class_decl class_decls
+class_decls ::= class_decl:c class_decls:cList
+            {:cList.addElement(c); RESULT= cList;:}
             |
+            {:RESULT = new ClassDeclList();:}
             ;
-class_decl  ::= CLASS IDENT LBRACE var_decls method_decls RBRACE
-            |   CLASS IDENT EXTENDS IDENT LBRACE var_decls method_decls RBRACE
+class_decl  ::= CLASS IDENT:id LBRACE var_decls:vList method_decls:mList RBRACE
+            {:RESULT = new ClassDeclSimple(new Identifier(id), vList, mList);:}
+            |   CLASS IDENT:id EXTENDS IDENT:id2 LBRACE var_decls:vList method_decls:mList RBRACE
+            {:RESULT = new ClassDeclExtends(new Identifier(id), new Identifier(id2), vList, mList);:}
             ;
-var_decls   ::= var_decl:item var_decls:curlist
+var_decls   ::= var_decls:curlist var_decl:item
             {:curlist.addElement(item); RESULT = curlist;:}
             |
             {:RESULT = new VarDeclList();:}
@@ -53,17 +63,26 @@ var_decls   ::= var_decl:item var_decls:curlist
 var_decl    ::= type:t IDENT:id SEMICOLON
             {:RESULT = new VarDecl(t, new Identifier(id));:}
             ;
-method_decls::= method_decls method_decl
+method_decls::= method_decls:mList method_decl:m
+            {:mList.addElement(m); RESULT = mList;:}
             |
+            {:RESULT = new MethodDeclList();:}
             ;
-method_decl ::= PUBLIC type IDENT LPAREN formal_list RPAREN LBRACE var_decls statements RETURN exp SEMICOLON RBRACE;
-formal_list ::= type IDENT formal_rests
+method_decl ::= PUBLIC type:t IDENT:id LPAREN formal_list:fList RPAREN LBRACE var_decls:vList statements:sList RETURN exp:e SEMICOLON RBRACE
+            {:RESULT = new MethodDecl(t, new Identifier(id), fList, vList, sList, e);:}
+            ;
+formal_list ::= type:t IDENT:id formal_rests:fList
+            {:Formal f = new Formal(t,new Identifier(id)); fList.addElement(f); RESULT = fList;:}
             |
+            {:RESULT = new FormalList();:}
             ;
-formal_rests::= formal_rest formal_rests
+formal_rests::= formal_rest:f formal_rests:fList
+            {:fList.addElement(f); RESULT = fList;:}
             |
+            {:RESULT = new FormalList();:}
             ;
-formal_rest ::= COMMA type IDENT
+formal_rest ::= COMMA type:t IDENT:id
+            {:RESULT = new Formal(t, new Identifier(id));:}
             ;
 type        ::= INT LSQBRACKET RSQBRACKET
                 {:RESULT = new IntArrayType();:}
@@ -74,15 +93,23 @@ type        ::= INT LSQBRACKET RSQBRACKET
             |   IDENT:id
                 {:RESULT = new IdentifierType(id);:}
             ;
-statements  ::= statement statements
+statements  ::= statements:sList statement:s
+            {:sList.addElement(s); RESULT = sList;:}
             |
+            {:RESULT = new StatementList();:}
             ;
-statement   ::= LBRACE statements RBRACE
-            |   IF LPAREN exp RPAREN statement ELSE statement
-            |   WHILE LPAREN exp RPAREN statement
-            |   SYSTEM PERIOD OUT PERIOD PRINTLN LPAREN exp RPAREN SEMICOLON
-            |   IDENT EQUAL exp SEMICOLON
-            |   IDENT LSQBRACKET exp RSQBRACKET EQUAL exp SEMICOLON
+statement   ::= LBRACE statements:sList RBRACE
+            {:RESULT = new Block(sList);:}
+            | IF LPAREN exp:e RPAREN statement:s ELSE statement:s2
+            {:RESULT = new If(e, s, s2);:}
+            |   WHILE LPAREN exp:e RPAREN statement:s
+            {:RESULT = new While(e, s);:}
+            |   SYSTEM PERIOD OUT PERIOD PRINTLN LPAREN exp:e RPAREN SEMICOLON
+            {:RESULT = new Print(e);:}
+            |   IDENT:id EQUAL exp:e SEMICOLON
+            {:RESULT = new Assign(new Identifier(id), e);:}
+            |   IDENT:id LSQBRACKET exp:e1 RSQBRACKET EQUAL exp:e2 SEMICOLON
+            {:RESULT = new ArrayAssign(new Identifier(id), e1, e2); :}
             ;
 exp         ::= exp:e1 OP:op exp:e2
             {:
@@ -130,7 +157,7 @@ exp         ::= exp:e1 OP:op exp:e2
 exp_list    ::= exp:e exp_rest:eList
             {:eList.addElement(e); RESULT = eList;:}
             ;
-exp_rest    ::= COMMA exp:e exp_rest:eList
+exp_rest    ::=  exp_rest:eList COMMA exp:e
             {:eList.addElement(e); RESULT = eList;:}
             |
             {:RESULT = new ExpList();:}

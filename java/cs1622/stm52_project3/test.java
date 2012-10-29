@@ -4,10 +4,25 @@ class Hi{
     }
 
 }
+
 class Pew{
-    int pew;
-    public int doSomething(){
-        pew = 1;
-        return pew;
+    public int rawr(){
+        return true;
+    }
+    public int pew(){
+        int i;
+        int p;
+        if(i < p) System.out.println(true);
+        else System.out.println(false);
+
+        if(i < p){
+            System.out.println(true);
+        }
+        else{
+            System.out.println(false);
+        }
+
+        return true;
+
     }
 }
