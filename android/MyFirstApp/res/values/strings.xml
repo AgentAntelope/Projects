@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Postage Calculator</string>
+    <string name="calculate">Calculate</string>
+    <string name="edit_message">1-13oz</string>
+    <string name="description">Weight of Package</string>
+    <string-array name="itemthings">
+        <item>Envelope</item>
+        <item>Large Envelope</item>
+        <item>Package</item>
+    </string-array>
+</resources>
