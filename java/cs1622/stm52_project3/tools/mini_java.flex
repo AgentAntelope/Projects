@@ -22,11 +22,13 @@ import java_cup.runtime.Symbol;
 
 whitespace = \t|\r|\n|\r\n|" "
 id = [a-zA-Z_][a-zA-Z0-9_]*
-int = ("+" | "-")? (0 | [1-9][0-9]*)
-op = "+" | "*" | ">" | "<"
-
-
+int =  (0 | [1-9][0-9]*)
+comment = ("//"~\n)|("/*"~"*/")
 %% 
+{comment}               {}
+"extends"               {return new Symbol(EXTENDS, yyline+1, yycolumn+1);}
+"!"						{return new Symbol(NOT, yyline +1, yycolumn + 1);}
+"&&"					{return new Symbol(AND, yyline +1, yycolumn + 1);}
 "int"                   {return new Symbol(INT, yyline +1, yycolumn + 1);}
 "boolean"               {return new Symbol(BOOLEAN, yyline +1, yycolumn + 1);}
 "true"                  {return new Symbol(TRUE, yyline +1, yycolumn + 1);}
@@ -54,10 +56,15 @@ op = "+" | "*" | ">" | "<"
 "["                     {return new Symbol(LSQBRACKET, yyline +1, yycolumn + 1);}
 "]"                     {return new Symbol(RSQBRACKET, yyline +1, yycolumn + 1);}
 ";"                     {return new Symbol(SEMICOLON, yyline +1, yycolumn + 1);}
+","                     {return new Symbol(COMMA, yyline +1, yycolumn + 1);}
 "."                     {return new Symbol(PERIOD, yyline +1, yycolumn + 1);}
 "="                     {return new Symbol(EQUAL, yyline +1, yycolumn + 1);}
-{op}                    {return new Symbol(OP, yyline + 1, yycolumn + 1, yytext());}
+"<"                     {return new Symbol(LESS, yyline + 1, yycolumn + 1, yytext());}
+"+"                     {return new Symbol(PLUS, yyline + 1, yycolumn + 1, yytext());}
+"-"                     {return new Symbol(MINUS, yyline + 1, yycolumn + 1, yytext());}
+"*"                     {return new Symbol(TIMES, yyline + 1, yycolumn + 1, yytext());}
+
 {id}                    {return new Symbol(IDENT, yyline + 1, yycolumn + 1, yytext());}
-{int}                   {return new Symbol(INT_LIT, yyline + 1, yycolumn + 1, yytext());}
+{int}                   {return new Symbol(INT_LIT, yyline + 1, yycolumn + 1, Integer.parseInt(yytext()));}
 {whitespace}            {}
 

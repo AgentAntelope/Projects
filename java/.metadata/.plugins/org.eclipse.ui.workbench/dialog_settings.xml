@@ -6,7 +6,12 @@
 		<item value="3" key="DIALOG_Y_ORIGIN"/>
 		<item value="-47" key="DIALOG_X_ORIGIN"/>
 	</section>
-	<section name="ZipFileImportWizard">
+	<section name="InstallationDialogSettings">
+		<item value="804" key="DIALOG_WIDTH"/>
+		<item value="0" key="DIALOG_Y_ORIGIN"/>
+		<item value="774" key="DIALOG_HEIGHT"/>
+		<item value="17" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.ui.wizards.new.file" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
@@ -15,12 +20,7 @@
 			<item value="org.eclipse.pde.userAssistance"/>
 		</list>
 	</section>
-	<section name="InstallationDialogSettings">
-		<item value="804" key="DIALOG_WIDTH"/>
-		<item value="0" key="DIALOG_Y_ORIGIN"/>
-		<item value="17" key="DIALOG_X_ORIGIN"/>
-		<item value="774" key="DIALOG_HEIGHT"/>
-		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	<section name="ZipFileImportWizard">
 	</section>
 	<section name="org.eclipse.ui.preferences.keysPreferencePage">
 	</section>

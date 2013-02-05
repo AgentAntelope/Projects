@@ -2,8 +2,8 @@
 <section name="Workbench">
 	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
 	<item value="/home/sean/java/Java Projects" key="org.eclipse.jdt.ui.lastextjar"/>
-	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="3" key="TypeHierarchyViewPart.orientation"/>
 	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
 	<section name="OptionalMessageDialog.hide.">
 		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
@@ -45,60 +45,60 @@
 		<item value="/home/sean/programming/java/401TA/javadoc.xml" key="antpath"/>
 		<item value="true" key="fromStandard"/>
 		<section name="projects">
-			<section name="GUI">
-				<item value="/home/sean/programming/java/GUI/doc" key="destdir"/>
-				<item value="/home/sean/programming/java/GUI/javadoc.xml" key="antpath"/>
-				<item value="" key="href"/>
-			</section>
 			<section name="Othello">
 				<item value="/home/sean/programming/java/Othello/doc" key="destdir"/>
+				<item value="" key="href"/>
 				<item value="/home/sean/programming/java/Othello/javadoc.xml" key="antpath"/>
-				<item value="" key="href"/>
 			</section>
-			<section name="tutorials">
-				<item value="/home/sean/programming/java/tutorials/doc" key="destdir"/>
-				<item value="/home/sean/programming/java/tutorials/javadoc.xml" key="antpath"/>
+			<section name="GUI">
+				<item value="/home/sean/programming/java/GUI/doc" key="destdir"/>
 				<item value="" key="href"/>
+				<item value="/home/sean/programming/java/GUI/javadoc.xml" key="antpath"/>
 			</section>
 			<section name="SQL">
 				<item value="/home/sean/programming/java/SQL/doc" key="destdir"/>
-				<item value="/home/sean/programming/java/SQL/javadoc.xml" key="antpath"/>
 				<item value="" key="href"/>
+				<item value="/home/sean/programming/java/SQL/javadoc.xml" key="antpath"/>
+			</section>
+			<section name="tutorials">
+				<item value="/home/sean/programming/java/tutorials/doc" key="destdir"/>
+				<item value="" key="href"/>
+				<item value="/home/sean/programming/java/tutorials/javadoc.xml" key="antpath"/>
 			</section>
 			<section name="401TA">
 				<item value="/home/sean/programming/java/401TA/doc" key="destdir"/>
+				<item value="" key="href"/>
 				<item value="/home/sean/programming/java/401TA/javadoc.xml" key="antpath"/>
-				<item value="" key="href"/>
-			</section>
-			<section name="tuts">
-				<item value="/home/sean/programming/java/tuts/doc" key="destdir"/>
-				<item value="/home/sean/programming/java/tuts/javadoc.xml" key="antpath"/>
-				<item value="" key="href"/>
 			</section>
 			<section name="SQLProject">
 				<item value="/home/sean/programming/java/SQLProject/doc" key="destdir"/>
+				<item value="" key="href"/>
 				<item value="/home/sean/programming/java/SQLProject/javadoc.xml" key="antpath"/>
-				<item value="" key="href"/>
 			</section>
-			<section name="Algorithms">
-				<item value="/home/sean/programming/java/Algorithms/doc" key="destdir"/>
-				<item value="/home/sean/programming/java/Algorithms/javadoc.xml" key="antpath"/>
+			<section name="tuts">
+				<item value="/home/sean/programming/java/tuts/doc" key="destdir"/>
 				<item value="" key="href"/>
+				<item value="/home/sean/programming/java/tuts/javadoc.xml" key="antpath"/>
 			</section>
 			<section name="tutorial">
 				<item value="/home/sean/programming/java/tutorial/doc" key="destdir"/>
-				<item value="/home/sean/programming/java/tutorial/javadoc.xml" key="antpath"/>
 				<item value="" key="href"/>
+				<item value="/home/sean/programming/java/tutorial/javadoc.xml" key="antpath"/>
+			</section>
+			<section name="Algorithms">
+				<item value="/home/sean/programming/java/Algorithms/doc" key="destdir"/>
+				<item value="" key="href"/>
+				<item value="/home/sean/programming/java/Algorithms/javadoc.xml" key="antpath"/>
 			</section>
 			<section name="Pics">
 				<item value="/home/sean/programming/java/Pics/doc" key="destdir"/>
-				<item value="/home/sean/programming/java/Pics/javadoc.xml" key="antpath"/>
 				<item value="" key="href"/>
+				<item value="/home/sean/programming/java/Pics/javadoc.xml" key="antpath"/>
 			</section>
 			<section name="Pictures">
 				<item value="/home/sean/programming/java/Pictures/doc" key="destdir"/>
-				<item value="/home/sean/programming/java/Pictures/javadoc.xml" key="antpath"/>
 				<item value="" key="href"/>
+				<item value="/home/sean/programming/java/Pictures/javadoc.xml" key="antpath"/>
 			</section>
 		</section>
 	</section>
@@ -108,8 +108,8 @@
 		<section name="DialogBoundsSettings">
 			<item value="600" key="DIALOG_WIDTH"/>
 			<item value="27" key="DIALOG_Y_ORIGIN"/>
-			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="206" key="DIALOG_X_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
 			<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		</section>
 	</section>
@@ -124,18 +124,18 @@
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
-	<section name="RenameInformationPopup">
-	</section>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="1" key="updateSimilarElementsMatchStrategy"/>
 		<item value="false" key="updateTextualMatches"/>
 		<item value="false" key="updateSimilarElements"/>
 	</section>
+	<section name="RenameInformationPopup">
+	</section>
 	<section name="JavadocWizardDialog">
 		<item value="708" key="DIALOG_WIDTH"/>
 		<item value="27" key="DIALOG_Y_ORIGIN"/>
-		<item value="671" key="DIALOG_HEIGHT"/>
 		<item value="286" key="DIALOG_X_ORIGIN"/>
+		<item value="671" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 </section>

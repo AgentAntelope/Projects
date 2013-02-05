@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="19" version="2.0">
+<workbench progressCount="15" version="2.0">
 <workbenchAdvisor/>
-<window height="750" maximized="true" width="630" x="206" y="26">
+<window height="773" width="638" x="640" y="26">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -12,7 +12,7 @@
 <coolItem id="additions" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="120" y="30"/>
 <coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="30"/>
-<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="76" y="30"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="108" y="30"/>
 <coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="124" y="30"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -31,23 +31,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
-<part id="2"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TextGenerator.java" partName="TextGenerator.java" path="/home/sean/programming/java/401TA/src/assignment2/TextGenerator.java" title="TextGenerator.java" tooltip="401TA/src/assignment2/TextGenerator.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/401TA/src/assignment2/TextGenerator.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1159" selectionTopPixel="444"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MarkovModel.java" partName="MarkovModel.java" path="/home/sean/programming/java/401TA/src/assignment2/MarkovModel.java" title="MarkovModel.java" tooltip="401TA/src/assignment2/MarkovModel.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/401TA/src/assignment2/MarkovModel.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="95" selectionTopPixel="0"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KGramSizeException.java" partName="KGramSizeException.java" path="/home/sean/programming/java/401TA/src/assignment2/KGramSizeException.java" title="KGramSizeException.java" tooltip="401TA/src/assignment2/KGramSizeException.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/401TA/src/assignment2/KGramSizeException.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="106" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Graphical1.java" partName="Graphical1.java" path="/home/sean/programming/java/401TA/src/graphics/Graphical1.java" title="Graphical1.java" tooltip="401TA/src/graphics/Graphical1.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/401TA/src/graphics/Graphical1.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="555" selectionTopPixel="131"/>
 </editor>
 </editors>
 <views>
@@ -66,9 +56,7 @@
 </view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
 <viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1287246816263">
-<customFilters userDefinedPatternsEnabled="false">
-<xmlDefinedFilters>
-<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
+<customFilters userDefinedPatternsEnabled="false">&#x0A;<xmlDefinedFilters>&#x0A;<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
 <child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter1" isEnabled="true"/>
@@ -342,21 +330,24 @@
 <view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
-<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
-<fastViewBars/>
+<fastViewBars>
+<fastViewBar fastViewLocation="16384" id="left" orientation="512" selectedTabId="org.eclipse.jdt.ui.PackageExplorer" style="0">
+<fastViews>
+<view id="org.eclipse.jdt.ui.PackageExplorer" ratio="0.3"/>
+</fastViews>
+</fastViewBar>
+</fastViewBars>
 <layout>
 <mainWindow>
 <info folder="true" part="left">
-<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
-<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
-<part id="0"/>
-</presentation>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="954" ratioRight="318" relationship="2" relative="left">
@@ -367,7 +358,7 @@
 </folder>
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.25" ratioLeft="318" ratioRight="954" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.5064935" ratioLeft="312" ratioRight="304" relationship="4" relative="org.eclipse.ui.editorss">
+<info folder="true" part="bottom" ratio="0.702439" ratioLeft="432" ratioRight="183" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
 <page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
@@ -413,22 +404,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/401TA/src/assignment2/MarkovModel.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/401TA/src/assignment2/MarkovModel.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/401TA/src/assignment2/KGramSizeException.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/401TA/src/graphics/Graphical1.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/401TA/src/assignment2/MarkovModel.java"/>
 </editors>
-<item historyLabel="Register.java" index="0">
-<position info="not_deleted" x="351" y="0"/>
-</item>
-<item historyLabel="ShiftRegister.java" index="1">
-<position info="not_deleted" x="550" y="0"/>
-</item>
-<item historyLabel="ShiftRegister.java" index="1">
-<position info="not_deleted" x="634" y="0"/>
-</item>
-<item historyLabel="ShiftRegister.java" index="1">
-<position info="not_deleted" x="914" y="0"/>
-</item>
-<item historyLabel="ShiftRegister.java" index="1">
-<position info="not_deleted" x="921" y="0"/>
-</item>
 <item historyLabel="Register.java" index="0">
 <position info="not_deleted" x="366" y="0"/>
 </item>
@@ -561,8 +539,23 @@
 <item historyLabel="MarkovModel.java" index="10">
 <position info="not_deleted" x="95" y="0"/>
 </item>
-<item active="true" historyLabel="TextGenerator.java" index="8">
+<item historyLabel="TextGenerator.java" index="8">
+<position info="not_deleted" x="1159" y="0"/>
+</item>
+<item historyLabel="Graphical1.java" index="12">
 <position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="MarkovModel.java" index="13">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Graphical1.java" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Graphical1.java" index="12">
+<position info="not_deleted" x="275" y="0"/>
+</item>
+<item active="true" historyLabel="Graphical1.java" index="12">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -570,6 +563,9 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -581,6 +577,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Graphical1.java" tooltip="401TA/src/graphics/Graphical1.java">
+<persistable path="/401TA/src/graphics/Graphical1.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KGramSizeException.java" tooltip="401TA/src/assignment2/KGramSizeException.java">
 <persistable path="/401TA/src/assignment2/KGramSizeException.java"/>
 </file>
@@ -622,9 +621,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ElegantPoint.java" tooltip="401TA/src/ElegantPoint.java">
 <persistable path="/401TA/src/ElegantPoint.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BrutePoint.java" tooltip="401TA/src/BrutePoint.java">
-<persistable path="/401TA/src/BrutePoint.java"/>
 </file>
 </mruList>
 </workbench>

@@ -9,7 +9,7 @@ all: build run
 build: build_tools build_class
 
 build_tools:
-	java -jar tools/java-cup-11a.jar -package tools -parser Parser -interface tools/$(GRAMMAR_FILE)
+	java -jar tools/java-cup-11a.jar -expect 4 -package tools -parser Parser -interface tools/$(GRAMMAR_FILE)
 	mv Parser.java tools/
 	mv sym.java tools/
 	jflex tools/$(FLEX_FILE)

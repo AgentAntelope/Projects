@@ -8,6 +8,8 @@ public class GraphicalRectangle{
 	public GraphicalRectangle(){
 		frame = new JFrame("These are your Rectangles!");
 		pane = new PaintPanel(500, 500);
+        JButton a = new JButton("HI!");
+        frame.add(a);
 		frame.add(pane);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();

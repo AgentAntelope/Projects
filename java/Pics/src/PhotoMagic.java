@@ -7,9 +7,9 @@ public class PhotoMagic {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		Picture pic = new Picture("pipe.png");
-		StringBuffer bits = new StringBuffer("01101000010");
-		int tapbit = 8;
+		Picture pic = new Picture(args[0]);
+		StringBuffer bits = new StringBuffer(args[1]);
+		int tapbit = Integer.parseInt(args[2]);
 		transform(pic, bits, tapbit);
 
 	}
@@ -20,15 +20,21 @@ public class PhotoMagic {
 				int red = curr.getRed();
 				int green = curr.getGreen();
 				int blue = curr.getBlue();
-				red = red^Byte.valueOf(TwoComp.twosComp(RandomBit.generate(8, bits, tapbit)));
+
+				//red = red^Byte.valueOf(TwoComp.twosComp(RandomBit.generate(8, bits, tapbit)));
+				String bitsz = RandomBit.generate(8, bits, tapbit);
+				red = red^Byte.valueOf(TwoComp.twosComp(bitsz));
+				System.out.println(bits);
 				if(red < 0){
 					red += 256;
 				}
 				green= green^Byte.valueOf(TwoComp.twosComp(RandomBit.generate(8, bits, tapbit)));
+				System.out.println(bits);
 				if(green< 0){
 					green += 256;
 				}
 				blue = blue^Byte.valueOf(TwoComp.twosComp(RandomBit.generate(8, bits, tapbit)));
+				System.out.println(bits);
 				if(blue < 0){
 					blue += 256;
 				}
@@ -37,7 +43,7 @@ public class PhotoMagic {
 			}
 		}
 		picture.show();
-		
+
 		return picture;
 	}
 
