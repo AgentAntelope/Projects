@@ -13,21 +13,18 @@ import android.widget.RelativeLayout;
 
 public class CanvasActivity extends Activity {
 	PaintWidget paint;
-	int color;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if(color == 0){
-			color = Color.RED;
-		}
+
 		setContentView(R.layout.activity_canvas);
 		paint = new PaintWidget(this);
 
 		final RelativeLayout rel = (RelativeLayout)findViewById(R.id.rel);
-		rel.addView(paint, 0);
 		final Button settings = (Button) findViewById(R.id.Settings);
 		final Button clear = (Button) findViewById(R.id.clear);
+		rel.addView(paint, 0);
 		
 		settings.setOnClickListener(new OnClickListener(){
 
@@ -46,6 +43,7 @@ public class CanvasActivity extends Activity {
 			}
 		});
 	}
+	
 	protected void onRestoreInstanceState(Bundle notInUSe){
 		super.onRestoreInstanceState(notInUSe);
 
@@ -53,6 +51,14 @@ public class CanvasActivity extends Activity {
 	protected void onResume(){
 		super.onResume();
 		
+	}
+	
+	protected void onPause(){
+		super.onPause();
+	}
+	
+	protected void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
 	}
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,7 +73,7 @@ public class CanvasActivity extends Activity {
 		//Get the data hoes!!
 		super.onActivityResult(requestCode, resultCode, data);
 		if(data.getExtras().containsKey("color")){
-			color = data.getIntExtra("color", Color.RED);
+			int color = data.getIntExtra("color", Color.RED);
 	        paint.setColor(color);
 		}
 
