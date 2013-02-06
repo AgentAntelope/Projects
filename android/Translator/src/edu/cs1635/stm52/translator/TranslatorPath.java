@@ -5,14 +5,22 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
-
 import java.util.ArrayList;
 
+/**
+ * 
+ * @author sean
+ * TranslatorPath has two main added functionalities:
+ * 1. To make it so each path has an individual color to draw.
+ * 2. When transmitting data, we can normalize it before sending it, so we store
+ * 		an extra set of points to do so.
+ */
 public class TranslatorPath extends Path {
 	private ArrayList<Point> points;
 	float normalizedWidth;
 	float normalizedHeight;
 	int color;
+
 	/**
 	 * TranslatorPath
 	 * 
@@ -40,12 +48,17 @@ public class TranslatorPath extends Path {
 		points.add(new Point((int)(dx * normalizedWidth), (int)(dy * normalizedHeight)));
 	}
 	
+	/**
+	 * setColor: Simple method for changing the color.
+	 * @param newColor an integer constant you want to set the color to.
+	 */
 	public void setColor(int newColor){
 		color = newColor;
 	}
 	
 	/**
-	 * 
+	 * draw: Each path now has an individual color, so the canvas must be
+	 * 		brought to the path, like so. Nondestructive to the paint object.
 	 * @param canvas the canvas you want to draw to.
 	 */
 	public void draw(Canvas canvas, Paint paint){
