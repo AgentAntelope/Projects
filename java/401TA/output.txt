@@ -1,0 +1,155 @@
+C:\>java Lab7
+Enter your choice:
+1. List movies
+2. Add new movie
+3. Find movie
+4. Quit
+1
+Movie List:
+
+Title: Star Wars
+Director: George Lucas
+Studio: 20th Century Fox
+Gross: $798,000,000.00
+
+Title: Jaws
+Director: Steven Spielberg
+Studio: Universal
+Gross: $470,600,000.00
+
+Title: The Return of the King
+Director: Peter Jackson
+Studio: New Line
+Gross: $1,129,200,000.00
+
+
+Enter your choice:
+1. List movies
+2. Add new movie
+3. Find movie
+4. Quit
+2
+Movie name?
+Spider-Man
+Director?
+Sam Raimi
+Studio?
+Sony
+Gross?
+821600000
+Enter your choice:
+1. List movies
+2. Add new movie
+3. Find movie
+4. Quit
+1
+Movie List:
+
+Title: Star Wars
+Director: George Lucas
+Studio: 20th Century Fox
+Gross: $798,000,000.00
+
+Title: Jaws
+Director: Steven Spielberg
+Studio: Universal
+Gross: $470,600,000.00
+
+Title: The Return of the King
+Director: Peter Jackson
+Studio: New Line
+Gross: $1,129,200,000.00
+
+Title: Spider-Man
+Director: Sam Raimi
+Studio: Sony
+Gross: $821,600,000.00
+
+
+Enter your choice:
+1. List movies
+2. Add new movie
+3. Find movie
+4. Quit
+3
+Movie name?
+Jaws
+Movie:
+Title: Jaws
+Director: Steven Spielberg
+Studio: Universal
+Gross: $470,600,000.00
+
+Enter your choice:
+1. List movies
+2. Add new movie
+3. Find movie
+4. Quit
+3
+Movie name?
+Weasel-Man
+Weasel-Man was not found
+Enter your choice:
+1. List movies
+2. Add new movie
+3. Find movie
+4. Quit
+4
+Good-bye
+
+C:\>java Lab7
+Enter your choice:
+1. List movies
+2. Add new movie
+3. Find movie
+4. Quit
+1
+Movie List:
+
+Title: Star Wars
+Director: George Lucas
+Studio: 20th Century Fox
+Gross: $798,000,000.00
+
+Title: Jaws
+Director: Steven Spielberg
+Studio: Universal
+Gross: $470,600,000.00
+
+Title: The Return of the King
+Director: Peter Jackson
+Studio: New Line
+Gross: $1,129,200,000.00
+
+Title: Spider-Man
+Director: Sam Raimi
+Studio: Sony
+Gross: $821,600,000.00
+
+
+Enter your choice:
+1. List movies
+2. Add new movie
+3. Find movie
+4. Quit
+4
+Good-bye
+
+C:\>type movieFile.txt
+4
+Star Wars
+George Lucas
+20th Century Fox
+7.98E8
+Jaws
+Steven Spielberg
+Universal
+4.706E8
+The Return of the King
+Peter Jackson
+New Line
+1.1292E9
+Spider-Man
+Sam Raimi
+Sony
+8.216E8

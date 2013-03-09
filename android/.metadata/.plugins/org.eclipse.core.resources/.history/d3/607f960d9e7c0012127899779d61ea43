@@ -1,0 +1,125 @@
+/*
+Programmer: Scott Whipkey
+Homework Assignment 1
+CS1653
+Adam J. Lee
+*/
+
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+import javax.crypto.*;
+
+import java.security.*;
+
+import org.bouncycastle.*;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+public class hw1{
+	  /* A 1024-bit key will encrypt messages up to 117 bytes long. */
+	  private static final int RSA_KEY_SIZE = 1024;
+	  private static final int AES_KEY_SIZE = 128;
+	//private static BlockCipher engine = new AESEngine();
+
+	public static void main(String[] args) {
+		try{
+
+			// Startup stuff
+			BouncyCastleProvider bc = new BouncyCastleProvider();
+			Security.addProvider(bc);
+			
+			// Generate AES key and cipher.
+			KeyGenerator keyGenAES = KeyGenerator.getInstance("AES", bc);
+			keyGenAES.init(AES_KEY_SIZE);
+	        Key keyAES = keyGenAES.generateKey();
+
+	        // Generate RSA keys and cipher.
+	        KeyPair rsaKeys = generateKeyPair();
+			Cipher cipherRSA = Cipher.getInstance("RSA", bc);
+			MessageDigest sha1 = MessageDigest.getInstance("SHA-1", bc);
+
+			// Get some text from the console
+	        Scanner input = new Scanner(System.in);
+			System.out.print("Input a word: ");	
+		 	byte[] plainText = input.next().getBytes();
+			input.close();
+			
+			
+		 	
+
+		 	cipherAES.init(Cipher.DECRYPT_MODE, keyAES);
+		 	byte[] dt = cipherAES.doFinal(cipherText);
+			System.out.println("\n\nAES: ");
+			System.out.println("*********************");
+			System.out.println("You entered: " + new String(plainText) + "\n");
+			System.out.println("which encrypts to (with public key): "); 
+			System.out.println(new String(cipherText) + "\n");
+			System.out.println("which decrypts to (with private key): ");
+			System.out.println(new String(dt) + "\n");
+			System.out.println("*********************");
+
+			cipherRSA.init(Cipher.ENCRYPT_MODE, rsaKeys.getPublic());
+		 	byte[] rct = cipherRSA.doFinal(plainText);
+		 	cipherRSA.init(Cipher.DECRYPT_MODE, rsaKeys.getPrivate());
+		 	byte[] rdt = cipherRSA.doFinal(rct);
+			System.out.println("\n\nRSA: ");
+			System.out.println("*********************");
+			System.out.println("You entered: " + new String(plainText) + "\n");
+			System.out.println("which encrypts to (with public key): "); 
+			System.out.println(new String(rct) + "\n");
+			System.out.println("which decrypts to (with private key): ");
+			System.out.println(new String(rdt) + "\n");
+			System.out.println("*********************");
+
+			byte[] sdt = sha1.digest(plainText);
+			cipherRSA.init(Cipher.DECRYPT_MODE, rsaKeys.getPrivate());
+			byte[] ssig = cipherRSA.doFinal(sdt);
+			System.out.println("\n\nSignature: ");
+			System.out.println("*********************");
+			System.out.println("You entered: " + new String(plainText) + "\n");
+			System.out.println("Signature: "); 
+			System.out.println(new String(ssig) + "\n");
+			cipherRSA.init(Cipher.ENCRYPT_MODE, rsaKeys.getPublic());
+			byte[] verify = cipherRSA.doFinal(ssig);
+				
+				System.out.println("Preliminary Hash: " + String.format("%0128x", new BigInteger(1, sdt)) + "\n");
+				System.out.println("Verify Hash: " + String.format("%0128x", new BigInteger(1, verify)));				
+				System.out.println("*********************");
+
+			
+		}
+		catch(Exception e){
+			System.out.println("error");
+		}
+			
+	}
+
+	public static byte[] encryptAES(byte[] plaintext, Key key) throws Exception{
+        Cipher cipherAES = Cipher.getInstance("AES");
+		cipherAES.init(Cipher.ENCRYPT_MODE, key);
+	 	byte[] cipherText = cipherAES.doFinal(plaintext);
+	 	return cipherText;
+	}
+	
+	  public static KeyPair generateKeyPair() throws Exception
+	  {
+	    KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+	    generator.initialize(RSA_KEY_SIZE);
+	    return generator.generateKeyPair();
+	  }
+
+	  public static byte[] encryptRSA(byte[] plaintext, PublicKey publicKey) throws Exception
+	  {
+	    Cipher RSAcipher = Cipher.getInstance("RSA");
+	    RSAcipher.init(Cipher.ENCRYPT_MODE, publicKey);
+	    return RSAcipher.doFinal(plaintext); // TODO: Make it get moar key?
+	  }
+
+	  public static byte[] decryptRSA(byte[] ciphertext, PrivateKey privateKey) throws Exception
+	  {
+	    Cipher cipher = Cipher.getInstance("RSA");
+	    cipher.init(Cipher.DECRYPT_MODE, privateKey);
+	    return cipher.doFinal(ciphertext);
+	  }
+
+}

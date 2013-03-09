@@ -1,0 +1,11 @@
+19:15:54 **** Incremental Build of configuration Default for project break ****
+ndk-build V=1 
+/home/sean/Desktop/android-ndk-r8d/build/core/add-application.mk:128: Android NDK: WARNING: APP_PLATFORM android-14 is larger than android:minSdkVersion 9 in ./AndroidManifest.xml    
+Android NDK: jni/Android.mk: Cannot find module with tag 'cocos2dx' in import path    
+jni/Android.mk:19: *** Android NDK: Aborting.    .  Stop.
+Android NDK: Are you sure your NDK_MODULE_PATH variable is properly defined ?    
+Android NDK: The following directories were searched:    
+Android NDK:         
+
+19:15:54 Build Finished (took 123ms)
+

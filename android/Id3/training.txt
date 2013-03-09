@@ -1,0 +1,2 @@
+1,yes,rainy,maybe
+2,no,sunny,of course

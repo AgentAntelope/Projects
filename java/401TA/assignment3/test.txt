@@ -1,0 +1,17 @@
+How many magic cards does it take to win?
+3
+Yes.
+No.
+Nee.
+2
+0
+0
+Who is Nee's favorite person in the world?
+4
+Scott
+Sean
+Vince
+Nee
+2
+0
+0

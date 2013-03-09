@@ -1,10 +1,13 @@
 package edu.cs1635.stm52.translator;
 
+import android.app.AlertDialog;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Point;
+import android.util.Log;
+
 import java.util.ArrayList;
 
 /**
@@ -16,7 +19,7 @@ import java.util.ArrayList;
  * 		an extra set of points to do so.
  */
 public class TranslatorPath extends Path {
-	private ArrayList<Point> points;
+	private ArrayList<Integer> points;
 	float normalizedWidth;
 	float normalizedHeight;
 	int color;
@@ -31,9 +34,9 @@ public class TranslatorPath extends Path {
 		super();
 		final float NORMALIZED_WIDTH = 254.0f;
 		final float NORMALIZED_HEIGHT = 254.0f;
-		points = new ArrayList<Point>();
-		normalizedWidth = width_ / NORMALIZED_WIDTH;
-		normalizedHeight = height_ / NORMALIZED_HEIGHT;
+		points = new ArrayList<Integer>();
+		normalizedWidth = NORMALIZED_WIDTH / width_;
+		normalizedHeight = NORMALIZED_HEIGHT / height_;
 		color = Color.BLACK;
 	}
 	
@@ -45,7 +48,9 @@ public class TranslatorPath extends Path {
 	 */
 	public void lineTo(float dx, float dy){
 		super.lineTo(dx, dy);
-		points.add(new Point((int)(dx * normalizedWidth), (int)(dy * normalizedHeight)));
+		
+		points.add((int) (dx * normalizedWidth));
+		points.add((int) (dy * normalizedHeight));
 	}
 	
 	/**
@@ -56,6 +61,10 @@ public class TranslatorPath extends Path {
 		color = newColor;
 	}
 	
+	public ArrayList<Integer> encodedPoints(){
+		return points;
+	}
+	
 	/**
 	 * draw: Each path now has an individual color, so the canvas must be
 	 * 		brought to the path, like so. Nondestructive to the paint object.
@@ -63,6 +72,7 @@ public class TranslatorPath extends Path {
 	 */
 	public void draw(Canvas canvas, Paint paint){
 		int savedColor = paint.getColor();
+
 		paint.setColor(color);
 		canvas.drawPath(this, paint);
 		paint.setColor(savedColor);

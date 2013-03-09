@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/com.android.toolchain.gcc.1230267960/PATH/delimiter=\:
+environment/project/com.android.toolchain.gcc.1230267960/PATH/operation=replace
+environment/project/com.android.toolchain.gcc.1230267960/PATH/value=/home/sean/local/bin\:/usr/lib/lightdm/lightdm\:/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/usr/games\:/usr/local/games\:/home/sean/Desktop/Montage_v3.0/bin\:/home/sean/tools/depot_tools/\:/home/sean/Desktop/dart/dart-sdk/bin/\:/opt/node/bin\:/home/sean/androiddev/sdk/platform-tools/\:/home/sean/androiddev/sdk/tools/\:/home/sean/Desktop/android-ndk-r8d
+environment/project/com.android.toolchain.gcc.1230267960/append=true
+environment/project/com.android.toolchain.gcc.1230267960/appendContributed=true

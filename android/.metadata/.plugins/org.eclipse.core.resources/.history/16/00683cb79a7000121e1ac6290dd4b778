@@ -1,0 +1,166 @@
+package edu.cs1635.stm52.translator;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
+import android.util.DisplayMetrics;
+import android.view.Menu;
+import android.view.View;
+import android.view.WindowManager;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+
+public class CanvasActivity extends Activity {
+	PaintWidget paint;
+	CanvasActivity rel;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_canvas);
+		rel = this;
+		final RelativeLayout rel = (RelativeLayout)findViewById(R.id.rel);
+		final Button settings = (Button) findViewById(R.id.Settings);
+		final Button clear = (Button) findViewById(R.id.clear);
+		final Button transmit = (Button) findViewById(R.id.button1); //TODO: Stop being lazy.
+		
+		
+		//TODO: Clean up?
+		DisplayMetrics metrics = new DisplayMetrics();
+		((WindowManager) getBaseContext().getSystemService(Context.WINDOW_SERVICE))
+		  .getDefaultDisplay().getMetrics(metrics);
+		int width = metrics.widthPixels; 
+		
+		paint = new PaintWidget(this, width, 800);
+		rel.addView(paint, 0);
+
+		settings.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				Intent setters = new Intent(arg0.getContext(), SettingsActivity.class);
+				startActivityForResult(setters, 1);
+			}
+		});
+		
+		transmit.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				sendData();
+
+			}
+		});
+		
+		clear.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				paint.clear();
+
+			}
+		});
+	}
+	
+	public void sendData(){
+        //new AlertDialog.Builder(this).setTitle("Careful!").setMessage(paint.encode()).setNeutralButton("Close", null).show();
+
+		new HttpAsyncTask().execute(paint.encode());
+		   // Create a new HttpClient and Post Header
+	   
+	}
+	
+	private class HttpAsyncTask extends AsyncTask<String, Void, String>{
+
+		@Override
+		protected String doInBackground(String... params) {
+
+		    try {
+		        // Add your data
+				HttpClient httpclient = new DefaultHttpClient();
+			    HttpPost httppost = new HttpPost("http://cwritepad.appspot.com/reco/gb2312");
+
+		        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+		        nameValuePairs.add(new BasicNameValuePair("key", "11773edfd643f813c18d82f56a8104ed"));
+		        nameValuePairs.add(new BasicNameValuePair("q", params[0]));
+		        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+		        // Execute HTTP Post Request
+		        HttpResponse response = httpclient.execute(httppost);
+		        byte[] buffer = new byte[200];
+		        do{
+		        	int readBytes = (char)response.getEntity().getContent().read(buffer);
+		        	
+		        	if(readByte < 200){
+		        		
+		        	}
+		        }
+		        return ""+ response.getEntity().getContent().read();
+		    } catch (ClientProtocolException e) {
+		        // TODO Auto-generated catch block
+		    } catch (IOException e) {
+		        // TODO Auto-generated catch block
+		    }
+		    return "DIDNT WORK, SORRY";
+			
+		}
+		
+		 protected void onPostExecute(String result) {
+		        new AlertDialog.Builder(rel).setTitle("Careful!").setMessage(result).setNeutralButton("Close", null).show();
+	     }
+		
+		
+	}
+	
+	protected void onRestoreInstanceState(Bundle notInUSe){
+		super.onRestoreInstanceState(notInUSe);
+
+	}
+	protected void onResume(){
+		super.onResume();
+		
+	}
+	
+	protected void onPause(){
+		super.onPause();
+	}
+	
+	protected void onSaveInstanceState(Bundle outState){
+		super.onSaveInstanceState(outState);
+	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.activity_canvas, menu);
+
+		return true;
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data){
+		//Get the data hoes!!
+		super.onActivityResult(requestCode, resultCode, data);
+		if(data.getExtras().containsKey("color")){
+			int color = data.getIntExtra("color", Color.RED);
+	        paint.setColor(color);
+		}
+
+	}
+}

@@ -1,0 +1,123 @@
+/*
+Programmer: Scott Whipkey
+Homework Assignment 1
+CS1653
+Adam J. Lee
+*/
+
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+import javax.crypto.*;
+
+import java.security.*;
+
+import org.bouncycastle.*;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+public class hw1{
+	  /* A 1024-bit key will encrypt messages up to 117 bytes long. */
+	  private static final int RSA_KEY_SIZE = 1024;
+	  private static final int AES_KEY_SIZE = 128;
+	//private static BlockCipher engine = new AESEngine();
+
+	public static void main(String[] args) {
+		try{
+
+			// Startup stuff
+			BouncyCastleProvider bc = new BouncyCastleProvider();
+			Security.addProvider(bc);
+			
+			// Generate AES key and cipher.
+			KeyGenerator keyGenAES = KeyGenerator.getInstance("AES", bc);
+			keyGenAES.init(AES_KEY_SIZE);
+	        Key keyAES = keyGenAES.generateKey();
+
+	        // Generate RSA keys and cipher.
+	        KeyPair rsaKeys = generateKeyPair();
+			Cipher cipherRSA = Cipher.getInstance("RSA", bc);
+			
+
+			// Get some text from the console
+	        Scanner input = new Scanner(System.in);
+			System.out.print("Input a word: ");	
+		 	byte[] plainText = input.next().getBytes();
+			input.close();
+			
+			
+			// AES crypto
+			byte[] cipherText = encryptAES(plainText, keyAES);
+		 	byte[] decryptedText = decryptAES(cipherText, keyAES);
+		 	output("AES", plainText, cipherText, decryptedText);
+		 	
+		 	// RSA crypto
+		 	cipherText = encryptRSA(plainText, rsaKeys.getPublic());
+		 	decryptedText = decryptRSA(cipherText, rsaKeys.getPrivate());
+		 	output("RSA", plainText, cipherText, decryptedText);
+		 	
+		 	// Signature fun.
+			MessageDigest sha1 = MessageDigest.getInstance("SHA-1", bc);
+			byte[] signature = sha1.digest(plainText);
+			
+			byte[] ssig = decryptRSA(signature, rsaKeys.getPrivate());
+			//cipherRSA.init(Cipher.DECRYPT_MODE, rsaKeys.getPrivate());
+			//byte[] ssig = cipherRSA.doFinal(signature);
+			System.out.println("You entered: " + new String(plainText) + "\n");
+			System.out.println("Signature: "); 
+			System.out.println(new String(ssig) + "\n");
+			byte[] verify = encryptRSA(ssig, rsaKeys.getPublic());
+				
+			System.out.println("Preliminary Hash: " + String.format("%0128x", new BigInteger(1, signature)) + "\n");
+			System.out.println("Verify Hash: " + String.format("%0128x", new BigInteger(1, verify)));				
+
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+			
+	}
+
+	public static byte[] encryptAES(byte[] plaintext, Key key) throws Exception{
+        Cipher cipherAES = Cipher.getInstance("AES");
+		cipherAES.init(Cipher.ENCRYPT_MODE, key);
+	 	byte[] cipherText = cipherAES.doFinal(plaintext);
+	 	return cipherText;
+	}
+	
+	public static byte[] decryptAES(byte[] cipherText, Key keyAES) throws Exception{
+        Cipher cipherAES = Cipher.getInstance("AES");
+	 	cipherAES.init(Cipher.DECRYPT_MODE, keyAES);
+	 	byte[] plainText = cipherAES.doFinal(cipherText);
+	 	return plainText;
+	}
+
+	
+	  public static KeyPair generateKeyPair() throws Exception
+	  {
+	    KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+	    generator.initialize(RSA_KEY_SIZE);
+	    return generator.generateKeyPair();
+	  }
+
+	  public static byte[] encryptRSA(byte[] plaintext, PublicKey publicKey) throws Exception
+	  {
+	    Cipher RSAcipher = Cipher.getInstance("RSA");
+	    RSAcipher.init(Cipher.ENCRYPT_MODE, publicKey);
+	    return RSAcipher.doFinal(plaintext); // TODO: Make it get moar key?
+	  }
+
+	  public static byte[] decryptRSA(byte[] ciphertext, PrivateKey privateKey) throws Exception
+	  {
+	    Cipher cipher = Cipher.getInstance("RSA", "BC");
+	    cipher.init(Cipher.DECRYPT_MODE, privateKey);
+	    return cipher.doFinal(ciphertext);
+	  }
+	  
+	  public static void output(String resultType, byte[] plainText, byte[] cipherText, byte[] decryptedText){
+			System.out.println("\n\nResults for " + resultType +": ");
+			System.out.println(String.format("{Plaintext word: %s, Decrypted word: %s}", new String(plainText), new String(decryptedText)));
+			System.out.println("Ciphertext: " + new String(cipherText)); 
+	  }
+
+}

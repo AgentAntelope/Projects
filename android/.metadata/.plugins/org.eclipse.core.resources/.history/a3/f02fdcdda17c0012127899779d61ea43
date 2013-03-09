@@ -1,0 +1,123 @@
+/*
+Programmer: Scott Whipkey
+Homework Assignment 1
+CS1653
+Adam J. Lee
+*/
+
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+import javax.crypto.*;
+
+import java.security.*;
+
+import org.bouncycastle.*;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+public class hw1{
+	  /* A 1024-bit key will encrypt messages up to 117 bytes long. */
+	  private static final int RSA_KEY_SIZE = 1024;
+	  private static final int AES_KEY_SIZE = 128;
+	//private static BlockCipher engine = new AESEngine();
+
+	public static void main(String[] args) {
+		try{
+
+			// Startup stuff
+			BouncyCastleProvider bc = new BouncyCastleProvider();
+			Security.addProvider(bc);
+			
+			// Generate AES key and cipher.
+			KeyGenerator keyGenAES = KeyGenerator.getInstance("AES", bc);
+			keyGenAES.init(AES_KEY_SIZE);
+	        Key keyAES = keyGenAES.generateKey();
+
+	        // Generate RSA keys and cipher.
+	        KeyPair rsaKeys = generateKeyPair();
+			Cipher cipherRSA = Cipher.getInstance("RSA", bc);
+			
+
+			// Get some text from the console
+	        Scanner input = new Scanner(System.in);
+			System.out.print("Input a word: ");	
+		 	byte[] plainText = input.next().getBytes();
+			input.close();
+			
+			
+			// AES crypto
+			byte[] cipherText = encryptAES(plainText, keyAES);
+		 	byte[] decryptedText = decryptAES(cipherText, keyAES);
+		 	output("AES", plainText, cipherText, decryptedText);
+		 	
+		 	// RSA crypto
+		 	cipherText = encryptRSA(plainText, rsaKeys.getPublic());
+		 	decryptedText = decryptRSA(cipherText, rsaKeys.getPrivate());
+		 	output("RSA", plainText, cipherText, decryptedText);
+		 	
+		 	// Signature fun.
+		 	doSignature()
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+			
+	}
+
+	public static byte[] encryptAES(byte[] plaintext, Key key) throws Exception{
+        Cipher cipherAES = Cipher.getInstance("AES");
+		cipherAES.init(Cipher.ENCRYPT_MODE, key);
+	 	byte[] cipherText = cipherAES.doFinal(plaintext);
+	 	return cipherText;
+	}
+	
+	public static byte[] decryptAES(byte[] cipherText, Key keyAES) throws Exception{
+        Cipher cipherAES = Cipher.getInstance("AES");
+	 	cipherAES.init(Cipher.DECRYPT_MODE, keyAES);
+	 	byte[] plainText = cipherAES.doFinal(cipherText);
+	 	return plainText;
+	}
+
+	
+	  public static KeyPair generateKeyPair() throws Exception
+	  {
+	    KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+	    generator.initialize(RSA_KEY_SIZE);
+	    return generator.generateKeyPair();
+	  }
+
+	  public static byte[] encryptRSA(byte[] plaintext, PublicKey publicKey) throws Exception
+	  {
+	    Cipher RSAcipher = Cipher.getInstance("RSA", "BC");
+	    RSAcipher.init(Cipher.ENCRYPT_MODE, publicKey);
+	    return RSAcipher.doFinal(plaintext); // TODO: Make it get moar key?
+	  }
+
+	  public static byte[] decryptRSA(byte[] ciphertext, PrivateKey privateKey) throws Exception
+	  {
+	    Cipher cipher = Cipher.getInstance("RSA", "BC");
+	    cipher.init(Cipher.DECRYPT_MODE, privateKey);
+	    return cipher.doFinal(ciphertext);
+	  }
+	  
+	  public static void output(String resultType, byte[] plainText, byte[] cipherText, byte[] decryptedText){
+			System.out.println("\n\nResults for " + resultType +": ");
+			System.out.println(String.format("{Plaintext word: %s, Decrypted word: %s}", new String(plainText), new String(decryptedText)));
+			System.out.println("Ciphertext: " + new String(cipherText)); 
+	  }
+
+	  public static void doSignature(byte[] plainText, KeyPair rsaKeys) throws Exception{
+		  MessageDigest sha1 = MessageDigest.getInstance("SHA-1", "BC");
+			byte[] signature = sha1.digest(plainText);
+			byte[] secureSignature = decryptRSA(signature, rsaKeys.getPrivate());
+			System.out.println("\n\nResults for Signature --------------------");
+			System.out.print("Secure Signature: "); 
+			System.out.println(new String(secureSignature) + "\n");
+			byte[] verifiedSignature = encryptRSA(secureSignature, rsaKeys.getPublic());
+			
+			System.out.println("My original: " + String.format("%-128x", new BigInteger(1, signature)) + "\n");
+			System.out.println("Verify Hash: " + String.format("%-128x", new BigInteger(1, verifiedSignature)));				
+
+	  }
+}

@@ -1,0 +1,4 @@
+1
+yes,no
+weather,rainy,sunny,crappy
+shorts-worthy,of course,no fool!,maybe

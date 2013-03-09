@@ -22,7 +22,7 @@ public class SettingsActivity extends Activity{
 		final SeekBar blueSeek = (SeekBar) this.findViewById(R.id.BlueSeekBar);
 		final Button coloredButton = (Button) this.findViewById(R.id.button1);
 		final Button saveColor = (Button) this.findViewById(R.id.button2);
-		
+		coloredButton.setBackgroundColor(Color.rgb(red, green, blue));
 		saveColor.setOnClickListener(new OnClickListener(){
 
 			@Override

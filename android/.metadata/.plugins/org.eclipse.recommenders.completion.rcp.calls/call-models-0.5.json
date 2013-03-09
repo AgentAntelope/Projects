@@ -1,0 +1,18 @@
+{
+  "/home/sean/androiddev/sdk/platforms/android-17/android.jar": {
+    "location": "/home/sean/androiddev/sdk/platforms/android-17/android.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027/home/sean/androiddev/sdk/platforms/android-17/android.jar\u0027. Neither fingerprint \u0027f3fec4e3d887c5bba177bd62933a8e9ee4b4403c\u0027 nor symbolic name \u0027android\u0027 are known."
+  },
+  "/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rt.jar",
+    "status": "RESOLVED",
+    "error": "No class path info available for \u0027/usr/lib/jvm/java-7-openjdk-i386/jre/lib/rt.jar\u0027. Skipped."
+  },
+  "/home/sean/Desktop/security/src": {
+    "location": "/home/sean/Desktop/security/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/home/sean/Desktop/security/src\u0027. Skipped."
+  }
+}

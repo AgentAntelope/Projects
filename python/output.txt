@@ -1,0 +1,1016 @@
+['assign5code.py', '5']
+ 
+ 
+ 
+ 
+clear(microwave)   not_cooked(soup)   
+-------------------
+  put_in_microwave  
+-------------------
+in_microwave(soup)   DEL:clear(microwave)   
+ 
+ 
+in_oven(casserole)   
+-------------------
+ take_out_casserole 
+-------------------
+clear(oven)   cooked(casserole)   DEL:in_oven(casserole)   
+ 
+ 
+clear(oven)   not_cooked(casserole)   
+-------------------
+  put_in_casserole  
+-------------------
+in_oven(casserole)   DEL:clear(oven)   
+ 
+ 
+in_microwave(soup)   
+-------------------
+ take_out_microwave 
+-------------------
+clear(microwave)   cooked(soup)   DEL:in_microwave(soup)   
+ 
+ 
+in_oven(cake)   
+-------------------
+   take_out_cake   
+-------------------
+clear(oven)   cooked(cake)   DEL:in_oven(cake)   
+ 
+ 
+clear(oven)   not_cooked(cake)   
+-------------------
+    put_in_cake    
+-------------------
+in_oven(cake)   DEL:clear(oven)   
+ 
+ 
+
+initial props: ['not_cooked(cake)', 'not_cooked(casserole)', 'not_cooked(soup)', 'clear(oven)', 'clear(microwave)']
+goal props: ['cooked(casserole)', 'cooked(soup)', 'cooked(cake)']
+
+
+plan1 -----
+steps: ['init', 'goal']
+open conditions:
+  (cooked(casserole), goal)
+  (cooked(soup), goal)
+  (cooked(cake), goal)
+=========
+Len of fringe: 1
+Removing condition..  ('cooked(casserole)', 'goal')
+Action to take:  take_out_casserole
+NEW STEP ADDED:  0*take_out_casserole
+Adding new condition:  ('in_oven(casserole)', '0*take_out_casserole')
+BEFORE set(['init'])
+AFTER: set([])
+
+plan2 -----
+steps: ['init', 'goal', '0*take_out_casserole']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (cooked(soup), goal)
+  (cooked(cake), goal)
+  (in_oven(casserole), 0*take_out_casserole)
+None
+fringe[0].state: plan1 ---
+
+plan1 -----
+steps: ['init', 'goal']
+open conditions:
+  (cooked(casserole), goal)
+  (cooked(soup), goal)
+  (cooked(cake), goal)
+=========
+Len of fringe: 1
+Removing condition..  ('cooked(soup)', 'goal')
+Action to take:  take_out_microwave
+NEW STEP ADDED:  0*take_out_microwave
+Adding new condition:  ('in_microwave(soup)', '0*take_out_microwave')
+BEFORE set(['init'])
+AFTER: set([])
+
+plan3 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (cooked(cake), goal)
+  (in_oven(casserole), 0*take_out_casserole)
+  (in_microwave(soup), 0*take_out_microwave)
+None
+fringe[0].state: plan2 ---
+
+plan2 -----
+steps: ['init', 'goal', '0*take_out_casserole']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (cooked(soup), goal)
+  (cooked(cake), goal)
+  (in_oven(casserole), 0*take_out_casserole)
+parent: plan plan1
+=========
+Len of fringe: 1
+Removing condition..  ('cooked(cake)', 'goal')
+Action to take:  take_out_cake
+NEW STEP ADDED:  0*take_out_cake
+Adding new condition:  ('in_oven(cake)', '0*take_out_cake')
+BEFORE set(['init'])
+AFTER: set([])
+
+plan4 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (in_oven(casserole), 0*take_out_casserole)
+  (in_microwave(soup), 0*take_out_microwave)
+  (in_oven(cake), 0*take_out_cake)
+None
+fringe[0].state: plan3 ---
+
+plan3 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (cooked(cake), goal)
+  (in_oven(casserole), 0*take_out_casserole)
+  (in_microwave(soup), 0*take_out_microwave)
+parent: plan plan2
+=========
+Len of fringe: 1
+Removing condition..  ('in_oven(casserole)', '0*take_out_casserole')
+Action to take:  put_in_casserole
+NEW STEP ADDED:  0*put_in_casserole
+Adding new condition:  ('clear(oven)', '0*put_in_casserole')
+Adding new condition:  ('not_cooked(casserole)', '0*put_in_casserole')
+BEFORE set(['init'])
+AFTER: set(['goal'])
+
+plan5 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+open conditions:
+  (in_microwave(soup), 0*take_out_microwave)
+  (in_oven(cake), 0*take_out_cake)
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+None
+fringe[0].state: plan4 ---
+
+plan4 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (in_oven(casserole), 0*take_out_casserole)
+  (in_microwave(soup), 0*take_out_microwave)
+  (in_oven(cake), 0*take_out_cake)
+parent: plan plan3
+=========
+Len of fringe: 1
+Removing condition..  ('in_microwave(soup)', '0*take_out_microwave')
+Action to take:  put_in_microwave
+NEW STEP ADDED:  0*put_in_microwave
+Adding new condition:  ('clear(microwave)', '0*put_in_microwave')
+Adding new condition:  ('not_cooked(soup)', '0*put_in_microwave')
+BEFORE set(['init'])
+AFTER: set(['goal'])
+
+plan6 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+open conditions:
+  (in_oven(cake), 0*take_out_cake)
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+None
+fringe[0].state: plan5 ---
+
+plan5 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+open conditions:
+  (in_microwave(soup), 0*take_out_microwave)
+  (in_oven(cake), 0*take_out_cake)
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+parent: plan plan4
+=========
+Len of fringe: 1
+Removing condition..  ('in_oven(cake)', '0*take_out_cake')
+Action to take:  put_in_cake
+NEW STEP ADDED:  0*put_in_cake
+Adding new condition:  ('clear(oven)', '0*put_in_cake')
+Adding new condition:  ('not_cooked(cake)', '0*put_in_cake')
+BEFORE set(['init'])
+AFTER: set(['goal'])
+
+plan7 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+open conditions:
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+None
+fringe[0].state: plan6 ---
+
+plan6 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+open conditions:
+  (in_oven(cake), 0*take_out_cake)
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+parent: plan plan5
+=========
+Len of fringe: 1
+Removing condition..  ('clear(oven)', '0*put_in_casserole')
+BEFORE set([])
+AFTER: set(['0*take_out_casserole', 'goal'])
+REAL THREAT FROM ADDING init  AND THREAT IS:  0*put_in_cake  AND CONDITION: clear(oven)
+
+plan8 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (init < clear(oven) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+open conditions:
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+threats:
+   (('init', 'clear(oven)', '0*put_in_casserole'), '0*put_in_cake')
+None
+BEFORE set(['init', '0*put_in_cake'])
+AFTER: set(['0*take_out_casserole', 'goal'])
+
+plan9 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+None
+Action to take:  take_out_casserole
+NEW STEP ADDED:  1*take_out_casserole
+Adding new condition:  ('in_oven(casserole)', '1*take_out_casserole')
+BEFORE set(['init'])
+AFTER: set(['0*take_out_casserole', 'goal'])
+REAL THREAT FROM ADDING 1*take_out_casserole  AND THREAT IS:  0*put_in_cake  AND CONDITION: clear(oven)
+
+plan10 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake', '1*take_out_casserole']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (1*take_out_casserole < clear(oven) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (1*take_out_casserole < 0*put_in_casserole)
+open conditions:
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+  (in_oven(casserole), 1*take_out_casserole)
+threats:
+   (('1*take_out_casserole', 'clear(oven)', '0*put_in_casserole'), '0*put_in_cake')
+None
+Action to take:  take_out_cake
+NEW STEP ADDED:  1*take_out_cake
+Adding new condition:  ('in_oven(cake)', '1*take_out_cake')
+BEFORE set(['init'])
+AFTER: set(['0*take_out_casserole', 'goal'])
+REAL THREAT FROM ADDING 1*take_out_cake  AND THREAT IS:  0*put_in_cake  AND CONDITION: clear(oven)
+
+plan11 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake', '1*take_out_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (1*take_out_cake < clear(oven) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (1*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+  (in_oven(cake), 1*take_out_cake)
+threats:
+   (('1*take_out_cake', 'clear(oven)', '0*put_in_casserole'), '0*put_in_cake')
+None
+fringe[0].state: plan7 ---
+
+plan7 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+open conditions:
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+parent: plan plan6
+=========
+Len of fringe: 4
+Removing condition..  ('not_cooked(casserole)', '0*put_in_casserole')
+BEFORE set([])
+AFTER: set(['0*take_out_casserole', 'goal'])
+
+plan12 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+None
+fringe[0].state: plan9 ---
+
+plan9 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+parent: plan plan7
+=========
+Len of fringe: 4
+Removing condition..  ('clear(microwave)', '0*put_in_microwave')
+BEFORE set([])
+AFTER: set(['0*take_out_microwave', 'goal'])
+
+plan13 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+None
+Action to take:  take_out_microwave
+NEW STEP ADDED:  1*take_out_microwave
+Adding new condition:  ('in_microwave(soup)', '1*take_out_microwave')
+BEFORE set(['init'])
+AFTER: set(['0*take_out_microwave', 'goal'])
+
+plan14 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake', '1*take_out_microwave']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (1*take_out_microwave < clear(microwave) < 0*put_in_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+  (1*take_out_microwave < 0*put_in_microwave)
+open conditions:
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+  (in_microwave(soup), 1*take_out_microwave)
+None
+fringe[0].state: plan12 ---
+
+plan12 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+parent: plan plan9
+=========
+Len of fringe: 5
+Removing condition..  ('not_cooked(soup)', '0*put_in_microwave')
+BEFORE set([])
+AFTER: set(['0*take_out_microwave', 'goal'])
+
+plan15 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+None
+fringe[0].state: plan13 ---
+
+plan13 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+parent: plan plan12
+=========
+Len of fringe: 5
+Removing condition..  ('clear(oven)', '0*put_in_cake')
+BEFORE set([])
+AFTER: set(['0*put_in_casserole', '0*take_out_casserole', 'goal', '0*take_out_cake'])
+
+plan16 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+  (init < clear(oven) < 0*put_in_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(cake), 0*put_in_cake)
+None
+Action to take:  take_out_casserole
+NEW STEP ADDED:  1*take_out_casserole
+Adding new condition:  ('in_oven(casserole)', '1*take_out_casserole')
+BEFORE set(['init'])
+AFTER: set(['0*put_in_casserole', '0*take_out_casserole', 'goal', '0*take_out_cake'])
+
+plan17 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake', '1*take_out_casserole']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+  (1*take_out_casserole < clear(oven) < 0*put_in_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+  (1*take_out_casserole < 0*put_in_cake)
+open conditions:
+  (not_cooked(cake), 0*put_in_cake)
+  (in_oven(casserole), 1*take_out_casserole)
+None
+Action to take:  take_out_cake
+NEW STEP ADDED:  1*take_out_cake
+Adding new condition:  ('in_oven(cake)', '1*take_out_cake')
+BEFORE set(['init'])
+AFTER: set(['0*put_in_casserole', '0*take_out_casserole', 'goal', '0*take_out_cake'])
+
+plan18 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake', '1*take_out_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+  (1*take_out_cake < clear(oven) < 0*put_in_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+  (1*take_out_cake < 0*put_in_cake)
+open conditions:
+  (not_cooked(cake), 0*put_in_cake)
+  (in_oven(cake), 1*take_out_cake)
+None
+fringe[0].state: plan15 ---
+
+plan15 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+parent: plan plan13
+=========
+Len of fringe: 7
+Removing condition..  ('not_cooked(cake)', '0*put_in_cake')
+BEFORE set([])
+AFTER: set(['0*put_in_casserole', '0*take_out_casserole', 'goal', '0*take_out_cake'])
+
+plan19 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+  (init < clear(oven) < 0*put_in_cake)
+  (init < not_cooked(cake) < 0*put_in_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+None
+fringe[0].state: plan16 ---
+
+plan16 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+  (init < clear(oven) < 0*put_in_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(cake), 0*put_in_cake)
+parent: plan plan15
+=========
+Len of fringe: 7
+
+Result:**********************
+
+
+plan1 -----
+steps: ['init', 'goal']
+open conditions:
+  (cooked(casserole), goal)
+  (cooked(soup), goal)
+  (cooked(cake), goal)
+
+plan2 -----
+steps: ['init', 'goal', '0*take_out_casserole']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (cooked(soup), goal)
+  (cooked(cake), goal)
+  (in_oven(casserole), 0*take_out_casserole)
+
+plan3 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (cooked(cake), goal)
+  (in_oven(casserole), 0*take_out_casserole)
+  (in_microwave(soup), 0*take_out_microwave)
+
+plan4 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+ordering constraints (other than those with goal or init):
+none
+open conditions:
+  (in_oven(casserole), 0*take_out_casserole)
+  (in_microwave(soup), 0*take_out_microwave)
+  (in_oven(cake), 0*take_out_cake)
+
+plan5 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+open conditions:
+  (in_microwave(soup), 0*take_out_microwave)
+  (in_oven(cake), 0*take_out_cake)
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+
+plan6 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+open conditions:
+  (in_oven(cake), 0*take_out_cake)
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+
+plan7 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+open conditions:
+  (clear(oven), 0*put_in_casserole)
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+
+plan9 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(casserole), 0*put_in_casserole)
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+
+plan12 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (clear(microwave), 0*put_in_microwave)
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+
+plan13 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(soup), 0*put_in_microwave)
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+
+plan15 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (clear(oven), 0*put_in_cake)
+  (not_cooked(cake), 0*put_in_cake)
+
+plan16 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+  (init < clear(oven) < 0*put_in_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)
+open conditions:
+  (not_cooked(cake), 0*put_in_cake)
+
+plan19 -----
+steps: ['init', 'goal', '0*take_out_casserole', '0*take_out_microwave', '0*take_out_cake', '0*put_in_casserole', '0*put_in_microwave', '0*put_in_cake']
+causal links:
+  (0*take_out_casserole < cooked(casserole) < goal)
+  (0*take_out_microwave < cooked(soup) < goal)
+  (0*take_out_cake < cooked(cake) < goal)
+  (0*put_in_casserole < in_oven(casserole) < 0*take_out_casserole)
+  (0*put_in_microwave < in_microwave(soup) < 0*take_out_microwave)
+  (0*put_in_cake < in_oven(cake) < 0*take_out_cake)
+  (0*take_out_cake < clear(oven) < 0*put_in_casserole)
+  (init < not_cooked(casserole) < 0*put_in_casserole)
+  (init < clear(microwave) < 0*put_in_microwave)
+  (init < not_cooked(soup) < 0*put_in_microwave)
+  (init < clear(oven) < 0*put_in_cake)
+  (init < not_cooked(cake) < 0*put_in_cake)
+ordering constraints (other than those with goal or init):
+  (0*put_in_casserole < 0*take_out_casserole)
+  (0*put_in_microwave < 0*take_out_microwave)
+  (0*put_in_cake < 0*take_out_cake)
+  (0*take_out_cake < 0*put_in_casserole)

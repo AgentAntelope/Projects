@@ -1,0 +1,23 @@
+21:49:32 **** Incremental Build of configuration Default for project project3 ****
+bash /home/sean/programming/cocos2d-x/project3/proj.android/build_native.sh NDK_DEBUG=1 V=1 all 
+NDK_ROOT = /home/sean/Desktop/android-ndk-r8d/
+COCOS2DX_ROOT = /home/sean/programming/cocos2d-x/project3/proj.android/../..
+APP_ROOT = /home/sean/programming/cocos2d-x/project3/proj.android/..
+APP_ANDROID_ROOT = /home/sean/programming/cocos2d-x/project3/proj.android
+Using prebuilt externals
+make: Entering directory `/home/sean/programming/cocos2d-x/project3/proj.android'
+rm -f ./libs/armeabi/lib*.so ./libs/armeabi-v7a/lib*.so ./libs/mips/lib*.so ./libs/x86/lib*.so
+rm -f ./libs/armeabi/gdbserver ./libs/armeabi-v7a/gdbserver ./libs/mips/gdbserver ./libs/x86/gdbserver
+rm -f ./libs/armeabi/gdb.setup ./libs/armeabi-v7a/gdb.setup ./libs/mips/gdb.setup ./libs/x86/gdb.setup
+Gdbserver      : [arm-linux-androideabi-4.6] libs/armeabi/gdbserver
+install -p /home/sean/Desktop/android-ndk-r8d/prebuilt/android-arm/gdbserver/gdbserver ./libs/armeabi/gdbserver
+Gdbsetup       : libs/armeabi/gdb.setup
+echo "set solib-search-path ./obj/local/armeabi" > ./libs/armeabi/gdb.setup
+echo "directory /home/sean/Desktop/android-ndk-r8d/platforms/android-9/arch-arm/usr/include /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/include /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/kazmath/include /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/platform/android /home/sean/Desktop/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.6/include /home/sean/Desktop/android-ndk-r8d/sources/cxx-stl/gnu-libstdc++/4.6/libs/armeabi/include /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/platform/third_party/android/prebuilt/libpng/include /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/platform/third_party/android/prebuilt/libjpeg/include /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/platform/third_party/android/prebuilt/libxml2/include /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/platform/third_party/android/prebuilt/libtiff/include /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/platform/third_party/android/prebuilt/libcurl /home/sean/programming/cocos2d-x/project3/proj.android/../../cocos2dx/platform/third_party/android/prebuilt/libcurl/include /home/sean/programming/cocos2d-x/project3/proj.android/../../extensions /home/sean/programming/cocos2d-x/project3/proj.android/../../CocosDenshion/android/../include /home/sean/programming/cocos2d-x/project3/proj.android/../../CocosDenshion/android/../../cocos2dx /home/sean/programming/cocos2d-x/project3/proj.android/../../CocosDenshion/android/../../cocos2dx/include /home/sean/programming/cocos2d-x/project3/proj.android/../../CocosDenshion/android/../../cocos2dx/platform/android jni/../../Classes /home/sean/programming/cocos2d-x/project3/proj.android/../../extensions/CCBReader /home/sean/programming/cocos2d-x/project3/proj.android/../../extensions/GUI/CCControlExtension /home/sean/programming/cocos2d-x/project3/proj.android/../../extensions/GUI/CCScrollView /home/sean/programming/cocos2d-x/project3/proj.android/../../extensions/network" >> ./libs/armeabi/gdb.setup
+Install        : libgame.so => libs/armeabi/libgame.so
+install -p ./obj/local/armeabi/libgame.so ./libs/armeabi/libgame.so
+/home/sean/Desktop/android-ndk-r8d/toolchains/arm-linux-androideabi-4.6/prebuilt/linux-x86/bin/arm-linux-androideabi-strip --strip-unneeded  ./libs/armeabi/libgame.so
+make: Leaving directory `/home/sean/programming/cocos2d-x/project3/proj.android'
+
+21:49:33 Build Finished (took 719ms)
+

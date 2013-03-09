@@ -1,0 +1,9 @@
+21:01:09 **** Clean-only build of configuration Default for project breakout ****
+ndk-build clean 
+Cannot run program "ndk-build": Unknown reason
+
+Error: Program "ndk-build" not found in PATH
+PATH=[/home/sean/local/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/sean/Desktop/Montage_v3.0/bin:/home/sean/tools/depot_tools/:/home/sean/Desktop/dart/dart-sdk/bin/:/opt/node/bin:/home/sean/androiddev/sdk/platform-tools/:/home/sean/androiddev/sdk/tools/]
+
+21:01:10 Build Finished (took 134ms)
+

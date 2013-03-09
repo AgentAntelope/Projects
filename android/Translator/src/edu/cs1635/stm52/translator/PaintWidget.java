@@ -11,12 +11,16 @@ import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.view.WindowManager;
 
 public class PaintWidget extends View implements OnTouchListener {
-	int color;
+	int color, width, height;
 	TranslatorPath currentPath;
 	Paint paint;
 	ArrayList<TranslatorPath> paths;
@@ -24,10 +28,7 @@ public class PaintWidget extends View implements OnTouchListener {
 	public PaintWidget(Context context) {
 		super(context);
 		color = Color.BLACK;
-		this.setMinimumHeight(700);
-		this.setMinimumWidth(800);
 		paths = new ArrayList<TranslatorPath>();
-		currentPath = new TranslatorPath(700, 800);
 		paint = new Paint();
 		paint.setColor(Color.BLACK);
 		paint.setStrokeWidth(10); // set the size
@@ -35,10 +36,45 @@ public class PaintWidget extends View implements OnTouchListener {
 		paint.setStyle(Paint.Style.STROKE); // set to STOKE
 		paint.setStrokeCap(Paint.Cap.ROUND); // set the paint cap to round too														// when they join.
 		paint.setAntiAlias(true); // set anti alias so it smooths
+		currentPath = new TranslatorPath(width, height);
 
 		this.setOnTouchListener(this);
 	}
+	
+	public PaintWidget(Context context, int width_, int height_){
+		this(context);
+		width = width_;
+		height = height_;
+		this.setMinimumHeight(height);
+		this.setMinimumWidth(width);
 
+	}
+
+	public String encode(){
+		StringBuilder builder = new StringBuilder();
+		builder.append("[");
+		for(TranslatorPath path: paths){
+			ArrayList<Integer> points = path.encodedPoints();
+			if(points.isEmpty()){
+				continue;
+			}
+			for(Integer i: points){
+				builder.append(i + ", ");
+			}
+			builder.append("255, 0, ");
+		}
+		ArrayList<Integer> points = currentPath.encodedPoints();
+		if(!points.isEmpty()){
+			for(Integer i: points){
+				builder.append(i + ", ");
+			}
+			builder.append("255, 0, ");
+		}
+		
+		builder.append("255, 255]");
+		return builder.toString();
+	}
+	
 	public PaintWidget(Context context, AttributeSet attrs, int defStyle) {
 		this(context);
 	}
@@ -53,7 +89,7 @@ public class PaintWidget extends View implements OnTouchListener {
 	}
 	public void clear(){
 		paths.clear();
-		currentPath = new TranslatorPath(700, 800);
+		currentPath = new TranslatorPath(width, height);
 		invalidate();
 	}
 	@Override
@@ -66,7 +102,8 @@ public class PaintWidget extends View implements OnTouchListener {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		canvas.drawColor(Color.RED);
+		canvas.drawColor(Color.rgb(200, 200, 200));
+
 		for(TranslatorPath p: paths){
 			p.draw(canvas, paint);
 		}
@@ -74,10 +111,9 @@ public class PaintWidget extends View implements OnTouchListener {
 	}
 
 	public boolean onTouch(View v, MotionEvent e) {
-		
 		if(e.getActionMasked() == MotionEvent.ACTION_DOWN){
 			paths.add(currentPath);
-			currentPath = new TranslatorPath(700, 800);
+			currentPath = new TranslatorPath(width, height);
 			currentPath.setColor(color);
 			currentPath.moveTo(e.getX(), e.getY());
 		}

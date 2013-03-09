@@ -1,0 +1,117 @@
+/*
+Programmer: Scott Whipkey
+Homework Assignment 1
+CS1653
+Adam J. Lee
+*/
+
+import java.io.*;
+import java.util.*;
+import java.math.BigInteger;
+import javax.crypto.*;
+
+import java.security.*;
+
+import org.bouncycastle.*;
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+public class hw1{
+	
+	//private static BlockCipher engine = new AESEngine();
+
+	public static void main(String[] args) {
+		try{
+
+			// Startup stuff
+			BouncyCastleProvider bc = new BouncyCastleProvider();
+			Security.addProvider(bc);
+			
+			
+			KeyGenerator kg = KeyGenerator.getInstance("AES", bc);
+			Cipher cipher = Cipher.getInstance("AES", bc);
+			Cipher rsaC = Cipher.getInstance("RSA", bc);
+			MessageDigest sha1 = MessageDigest.getInstance("SHA-1", bc);
+			kg.init(128);
+			rsaKG.initialize(1024);
+
+	        Key key = kg.generateKey();
+	        KeyPair rsaKeys = this.generateKeyPair();
+
+	        Scanner input = new Scanner(System.in);
+			System.out.print("Input a word: ");				
+			cipher.init(Cipher.ENCRYPT_MODE, key);
+		 	byte[] pt = input.next().getBytes();
+		 	byte[] ct = cipher.doFinal(pt);
+		 	cipher.init(Cipher.DECRYPT_MODE, key);
+		 	byte[] dt = cipher.doFinal(ct);
+			System.out.println("\n\nAES: ");
+			System.out.println("*********************");
+			System.out.println("You entered: " + new String(pt) + "\n");
+			System.out.println("which encrypts to (with public key): "); 
+			System.out.println(new String(ct) + "\n");
+			System.out.println("which decrypts to (with private key): ");
+			System.out.println(new String(dt) + "\n");
+			System.out.println("*********************");
+
+			rsaC.init(Cipher.ENCRYPT_MODE, rsaKeys.getPublic());
+		 	byte[] rct = rsaC.doFinal(pt);
+		 	rsaC.init(Cipher.DECRYPT_MODE, rsaKeys.getPrivate());
+		 	byte[] rdt = rsaC.doFinal(rct);
+			System.out.println("\n\nRSA: ");
+			System.out.println("*********************");
+			System.out.println("You entered: " + new String(pt) + "\n");
+			System.out.println("which encrypts to (with public key): "); 
+			System.out.println(new String(rct) + "\n");
+			System.out.println("which decrypts to (with private key): ");
+			System.out.println(new String(rdt) + "\n");
+			System.out.println("*********************");
+
+			byte[] sdt = sha1.digest(pt);
+			rsaC.init(Cipher.DECRYPT_MODE, rsaKeys.getPrivate());
+			byte[] ssig = rsaC.doFinal(sdt);
+			System.out.println("\n\nSignature: ");
+			System.out.println("*********************");
+			System.out.println("You entered: " + new String(pt) + "\n");
+			System.out.println("Signature: "); 
+			System.out.println(new String(ssig) + "\n");
+			rsaC.init(Cipher.ENCRYPT_MODE, rsaKeys.getPublic());
+			byte[] verify = rsaC.doFinal(ssig);
+				
+				System.out.println("Preliminary Hash: " + String.format("%0128x", new BigInteger(1, sdt)) + "\n");
+				System.out.println("Verify Hash: " + String.format("%0128x", new BigInteger(1, verify)));				
+				System.out.println("*********************");
+
+			
+		}
+		catch(Exception e){
+			System.out.println("error");
+		}
+			
+	}
+	
+	  /* A 1024-bit key will encrypt messages up to 117 bytes long. */
+	  private static final int KEY_SIZE = 1024;
+
+
+	  public static KeyPair generateRSAKeyPair() throws Exception
+	  {
+	    KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+	    generator.initialize(KEY_SIZE);
+	    return generator.generateKeyPair();
+	  }
+
+	  public static byte[] encryptRSA(byte[] plaintext, PublicKey publicKey) throws Exception
+	  {
+	    Cipher RSAcipher = Cipher.getInstance("RSA");
+	    RSAcipher.init(Cipher.ENCRYPT_MODE, publicKey);
+	    return RSAcipher.doFinal(plaintext); // TODO: Make it get moar key?
+	  }
+
+	  public static byte[] decryptRSA(byte[] ciphertext, PrivateKey privateKey) throws Exception
+	  {
+	    Cipher cipher = Cipher.getInstance("RSA");
+	    cipher.init(Cipher.DECRYPT_MODE, privateKey);
+	    return cipher.doFinal(ciphertext);
+	  }
+
+}

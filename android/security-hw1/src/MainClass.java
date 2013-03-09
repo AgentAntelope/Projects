@@ -1,0 +1,60 @@
+import java.math.BigInteger;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.SecureRandom;
+import java.security.Security;
+import java.security.interfaces.RSAPrivateKey;
+import java.security.interfaces.RSAPublicKey;
+import java.security.spec.RSAPrivateKeySpec;
+import java.security.spec.RSAPublicKeySpec;
+import java.util.Scanner;
+
+import javax.crypto.Cipher;
+
+public class MainClass {
+
+	  /* A 1024-bit key will encrypt messages up to 117 bytes long. */
+	  private static final int KEY_SIZE = 1024;
+
+
+	  public static KeyPair generateRSAKeyPair() throws Exception
+	  {
+	    KeyPairGenerator gen = KeyPairGenerator.getInstance("RSA");
+	    gen.initialize(KEY_SIZE);
+	    return gen.generateKeyPair();
+	  }
+
+	  public static byte[] encryptRSA(byte[] plaintext, PublicKey pub) throws Exception
+	  {
+	    Cipher cipher = Cipher.getInstance("RSA");
+	    cipher.init(Cipher.ENCRYPT_MODE, pub);
+	    return cipher.doFinal(plaintext);
+	  }
+
+	  public static byte[] decryptRSA(byte[] ciphertext, PrivateKey pvt) throws Exception
+	  {
+	    Cipher cipher = Cipher.getInstance("RSA");
+	    cipher.init(Cipher.DECRYPT_MODE, pvt);
+	    return cipher.doFinal(ciphertext);
+	  }
+
+	  public static void main(String... argv)
+	    throws Exception
+	  {
+	    KeyPair pair = generateRSAKeyPair();
+	    System.out.println("Enter a message: ");
+	    Scanner kbd = new Scanner(System.in);
+	    String line = kbd.nextLine();
+	    byte[] plaintext = line.getBytes("UTF-8");
+	    //System.out.println(pair.getPrivate());
+	    byte[] ciphertext = encryptRSA(plaintext, pair.getPublic());
+	    System.out.println(new String(ciphertext, "UTF-8"));
+	    byte[] recovered = decryptRSA(ciphertext, pair.getPrivate());
+	    System.out.println(new String(recovered, "UTF-8"));
+	  }
+
+}
