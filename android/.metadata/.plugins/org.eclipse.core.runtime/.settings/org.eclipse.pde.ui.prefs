@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+editor.color.default=255,255,255
+editor.color.externalized_string=0,128,0
+editor.color.header_assignment=255,255,255
+editor.color.header_attributes=71,116,136
+editor.color.header_key=236,105,30
+editor.color.header_osgi=236,105,30
+editor.color.header_value=255,255,255
+editor.color.instr=128,128,128
+editor.color.string=71,116,136
+editor.color.tag=236,105,30
+editor.color.xml_comment=0,128,128

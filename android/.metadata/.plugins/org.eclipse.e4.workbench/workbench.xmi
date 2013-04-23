@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_PRxNQW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_PRx0UG7kEeKyi6QsY3Uf0w" bindingContexts="_PRx0WW7kEeKyi6QsY3Uf0w">
-  <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
+  <tags>activeSchemeId:com.mulgasoft.emacsplusConfiguration</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_PRx0UG7kEeKyi6QsY3Uf0w" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" selectedElement="_PqWsYG7kEeKyi6QsY3Uf0w" x="134" y="50" width="962" height="750">
     <tags>topLevel</tags>
     <tags>shellMaximized</tags>
@@ -92,9 +92,9 @@
               <children xsi:type="basic:PartSashContainer" xmi:id="_P2xXwW7kEeKyi6QsY3Uf0w" containerData="7264" selectedElement="_P2xXwm7kEeKyi6QsY3Uf0w" horizontal="true">
                 <children xsi:type="advanced:Placeholder" xmi:id="_P2xXwm7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_P2TdsG7kEeKyi6QsY3Uf0w"/>
                 <children xsi:type="basic:PartSashContainer" xmi:id="_P2xXw27kEeKyi6QsY3Uf0w" containerData="2500" selectedElement="_P2xXxm7kEeKyi6QsY3Uf0w">
-                  <children xsi:type="basic:PartStack" xmi:id="_P2xXxG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.mylyn.tasks.ui.views.tasksMStack" containerData="5000" selectedElement="_P2xXxW7kEeKyi6QsY3Uf0w">
+                  <children xsi:type="basic:PartStack" xmi:id="_P2xXxG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.mylyn.tasks.ui.views.tasksMStack" toBeRendered="false" containerData="5000">
                     <tags>newtablook</tags>
-                    <children xsi:type="advanced:Placeholder" xmi:id="_P2xXxW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" ref="_P2sfQG7kEeKyi6QsY3Uf0w"/>
+                    <children xsi:type="advanced:Placeholder" xmi:id="_P2xXxW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" toBeRendered="false" ref="_P2sfQG7kEeKyi6QsY3Uf0w"/>
                   </children>
                   <children xsi:type="basic:PartStack" xmi:id="_P2xXxm7kEeKyi6QsY3Uf0w" elementId="right" containerData="5000" selectedElement="_P2xXx27kEeKyi6QsY3Uf0w">
                     <tags>newtablook</tags>
@@ -241,33 +241,21 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_P2TdsG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.editorss" selectedElement="_P2TdsW7kEeKyi6QsY3Uf0w">
-      <children xsi:type="basic:PartStack" xmi:id="_P2TdsW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_VyeKEIdiEeKHmupLIqq0Kw">
+      <children xsi:type="basic:PartStack" xmi:id="_P2TdsW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_PhHmUJsiEeKWadAeUzSTZg">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
-        <children xsi:type="basic:Part" xmi:id="_PHdqoIdiEeKHmupLIqq0Kw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="HelloCpp.java" iconURI="platform:/plugin/org.eclipse.jdt.ui//icons/full/obj16/jcu_obj.gif" tooltip="HelloCpp/src/org/cocos2dx/hellocpp/HelloCpp.java" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HelloCpp/src/org/cocos2dx/hellocpp/HelloCpp.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;79&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+        <children xsi:type="basic:Part" xmi:id="_PhHmUJsiEeKWadAeUzSTZg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="UserToken.java" iconURI="platform:/plugin/org.eclipse.jdt.ui//icons/full/obj16/jcu_obj.gif" tooltip="src/UserToken.java" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/src/UserToken.java&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;346&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_Tu-oUIdiEeKHmupLIqq0Kw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="project.properties" iconURI="platform:/plugin/org.eclipse.jdt.ui//icons/full/obj16/file_obj.gif" tooltip="HelloCpp/project.properties" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.PropertiesFileEditor&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HelloCpp/project.properties&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>org.eclipse.jdt.ui.PropertiesFileEditor</tags>
-          <tags>removeOnHide</tags>
-        </children>
-        <children xsi:type="basic:Part" xmi:id="_VyeKEIdiEeKHmupLIqq0Kw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="build.xml" iconURI="platform:/plugin/com.android.ide.eclipse.adt/icons/android_file.png" tooltip="HelloCpp/build.xml" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;com.android.ide.eclipse.editors.CommonXmlEditor&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/HelloCpp/build.xml&quot;/>&#xA;&lt;/editor>"/>
-          <tags>Editor</tags>
-          <tags>com.android.ide.eclipse.editors.CommonXmlEditor</tags>
           <tags>removeOnHide</tags>
           <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_P2ec0G7kEeKyi6QsY3Uf0w" elementId="org.eclipse.jdt.ui.PackageExplorer" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Package Explorer" iconURI="platform:/plugin/org.eclipse.jdt.ui//icons/full/eview16/package.gif" tooltip="Workspace" closeable="true">
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view group_libraries=&quot;1&quot; layout=&quot;2&quot; linkWithEditor=&quot;0&quot; rootMode=&quot;1&quot; workingSetName=&quot;&quot;>&#xA;&lt;customFilters userDefinedPatternsEnabled=&quot;false&quot;>&#xA;&lt;xmlDefinedFilters>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LibraryFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.StaticsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.FieldsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.mylyn.java.ui.MembersFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.m2e.MavenModuleFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;/xmlDefinedFilters>&#xA;&lt;/customFilters>&#xA;&lt;/view>"/>
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view group_libraries=&quot;1&quot; layout=&quot;2&quot; linkWithEditor=&quot;0&quot; rootMode=&quot;1&quot; workingSetName=&quot;&quot;>&#xA;&lt;customFilters userDefinedPatternsEnabled=&quot;false&quot;>&#xA;&lt;xmlDefinedFilters>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LibraryFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.StaticsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.FieldsFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter&quot; isEnabled=&quot;true&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.m2e.MavenModuleFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;child filterId=&quot;org.eclipse.mylyn.java.ui.MembersFilter&quot; isEnabled=&quot;false&quot;/>&#xA;&lt;/xmlDefinedFilters>&#xA;&lt;/customFilters>&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:Java</tags>
       <menus xmi:id="_P6MfMG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.jdt.ui.PackageExplorer">
@@ -288,8 +276,8 @@
       <tags>View</tags>
       <tags>categoryTag:General</tags>
     </sharedElements>
-    <sharedElements xsi:type="basic:Part" xmi:id="_P2iHMW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide//icons/full/eview16/problems_view.gif" tooltip="0 errors, 6 warnings, 0 others" closeable="true">
-      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;105&quot; org.eclipse.ui.ide.markerType=&quot;234&quot; org.eclipse.ui.ide.pathField=&quot;140&quot; org.eclipse.ui.ide.resourceField=&quot;105&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;350&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xA;&lt;/view>"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_P2iHMW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide//icons/full/eview16/problems_view.gif" tooltip="0 errors, 111 warnings, 0 others (Filter matched 100 of 111 items)" closeable="true">
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xA;&lt;expanded>&#xA;&lt;category IMemento.internal.id=&quot;Warnings (100 of 105 items)&quot;/>&#xA;&lt;/expanded>&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;105&quot; org.eclipse.ui.ide.markerType=&quot;234&quot; org.eclipse.ui.ide.pathField=&quot;140&quot; org.eclipse.ui.ide.resourceField=&quot;105&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;350&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xA;&lt;/view>"/>
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_QFhlcG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.views.ProblemView">
@@ -460,19 +448,19 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Pu0VoG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGRoEIdyEeKAJJHZl_eeMA" elementId="new.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGSPIIdyEeKAJJHZl_eeMA" elementId="newWizardDropDown"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGSPIYdyEeKAJJHZl_eeMA" elementId="new.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGSPIodyEeKAJJHZl_eeMA" elementId="save.group" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGSPI4dyEeKAJJHZl_eeMA" elementId="save"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGS2MIdyEeKAJJHZl_eeMA" elementId="saveAll"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGS2MYdyEeKAJJHZl_eeMA" elementId="save.ext" visible="false"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_zGS2ModyEeKAJJHZl_eeMA" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.gif" tooltip="Print" command="_PSg0IW7kEeKyi6QsY3Uf0w"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGXHoIdyEeKAJJHZl_eeMA" elementId="print.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGXusIdyEeKAJJHZl_eeMA" elementId="build.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGXusYdyEeKAJJHZl_eeMA" elementId="build.ext" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGXusodyEeKAJJHZl_eeMA" elementId="additions"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLk-0IdyEeKAJJHZl_eeMA" elementId="org.eclipse.wb.core.wizards.actions.NewDesignerTypeDropDownAction"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uATiEJshEeKWadAeUzSTZg" elementId="new.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAUJIJshEeKWadAeUzSTZg" elementId="newWizardDropDown"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAUJIZshEeKWadAeUzSTZg" elementId="new.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAUwMJshEeKWadAeUzSTZg" elementId="save.group" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAUwMZshEeKWadAeUzSTZg" elementId="save"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAUwMpshEeKWadAeUzSTZg" elementId="saveAll"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAUwM5shEeKWadAeUzSTZg" elementId="save.ext" visible="false"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_uAVXQJshEeKWadAeUzSTZg" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.gif" tooltip="Print" command="_PSg0IW7kEeKyi6QsY3Uf0w"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uArVgJshEeKWadAeUzSTZg" elementId="print.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAr8kJshEeKWadAeUzSTZg" elementId="build.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAr8kZshEeKWadAeUzSTZg" elementId="build.ext" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAsjoJshEeKWadAeUzSTZg" elementId="additions"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJbB0JshEeKWadAeUzSTZg" elementId="org.eclipse.wb.core.wizards.actions.NewDesignerTypeDropDownAction"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Pu0VoW7kEeKyi6QsY3Uf0w" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -480,55 +468,55 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kB3_IG7kEeKMG6rGi4LzIg" elementId="adt.actionSet.avdManager">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLk-0YdyEeKAJJHZl_eeMA" elementId="android_project"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLll4IdyEeKAJJHZl_eeMA" elementId="com.android.ide.eclipse.adt.ui.sdkmanager"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLll4YdyEeKAJJHZl_eeMA" elementId="com.android.ide.eclipse.adt.ui.avdmanager"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJbB0ZshEeKWadAeUzSTZg" elementId="android_project"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJbo4JshEeKWadAeUzSTZg" elementId="com.android.ide.eclipse.adt.ui.sdkmanager"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJbo4ZshEeKWadAeUzSTZg" elementId="com.android.ide.eclipse.adt.ui.avdmanager"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kBvcQG7kEeKMG6rGi4LzIg" elementId="adt.actionSet.lint">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLll4odyEeKAJJHZl_eeMA" elementId="android_project"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLll44dyEeKAJJHZl_eeMA" elementId="com.android.ide.eclipse.adt.ui.lintrunner"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJbo4pshEeKWadAeUzSTZg" elementId="android_project"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJbo45shEeKWadAeUzSTZg" elementId="com.android.ide.eclipse.adt.ui.lintrunner"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kBsY8G7kEeKMG6rGi4LzIg" elementId="adt.actionSet.wizards">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLll5IdyEeKAJJHZl_eeMA" elementId="android_project"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLmM8IdyEeKAJJHZl_eeMA" elementId="com.android.ide.eclipse.adt.wizards.actions.NewXmlFileAction"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJcP8JshEeKWadAeUzSTZg" elementId="android_project"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJcP8ZshEeKWadAeUzSTZg" elementId="com.android.ide.eclipse.adt.wizards.actions.NewXmlFileAction"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_kB2xAG7kEeKMG6rGi4LzIg" elementId="org.eclipse.debug.ui.breakpointActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLmM8YdyEeKAJJHZl_eeMA" elementId="breakpointGroup"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLmM8odyEeKAJJHZl_eeMA" elementId="org.eclipse.debug.ui.actions.SkipAllBreakpoints"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJcP8pshEeKWadAeUzSTZg" elementId="breakpointGroup"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJcP85shEeKWadAeUzSTZg" elementId="org.eclipse.debug.ui.actions.SkipAllBreakpoints"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_QHBaQG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.debug.ui.launchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLmM84dyEeKAJJHZl_eeMA" elementId="debug"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLmM9IdyEeKAJJHZl_eeMA" elementId="org.eclipse.debug.internal.ui.actions.DebugDropDownAction"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLmM9YdyEeKAJJHZl_eeMA" elementId="org.eclipse.debug.internal.ui.actions.RunDropDownAction"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLm0AIdyEeKAJJHZl_eeMA" elementId="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJc3AJshEeKWadAeUzSTZg" elementId="debug"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJc3AZshEeKWadAeUzSTZg" elementId="org.eclipse.debug.internal.ui.actions.DebugDropDownAction"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJc3ApshEeKWadAeUzSTZg" elementId="org.eclipse.debug.internal.ui.actions.RunDropDownAction"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJc3A5shEeKWadAeUzSTZg" elementId="org.eclipse.ui.externaltools.ExternalToolMenuDelegateToolbar"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_QH6yIG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.jdt.ui.JavaElementCreationActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLm0AYdyEeKAJJHZl_eeMA" elementId="JavaWizards"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLm0AodyEeKAJJHZl_eeMA" elementId="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLm0A4dyEeKAJJHZl_eeMA" elementId="org.eclipse.jdt.ui.actions.OpenPackageWizard"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLm0BIdyEeKAJJHZl_eeMA" elementId="org.eclipse.jdt.ui.actions.NewTypeDropDown"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJdeEJshEeKWadAeUzSTZg" elementId="JavaWizards"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJdeEZshEeKWadAeUzSTZg" elementId="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJeFIJshEeKWadAeUzSTZg" elementId="org.eclipse.jdt.ui.actions.OpenPackageWizard"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJeFIZshEeKWadAeUzSTZg" elementId="org.eclipse.jdt.ui.actions.NewTypeDropDown"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_QHX_kG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.search.searchActionSet">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLnbEIdyEeKAJJHZl_eeMA" elementId="Search"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLnbEYdyEeKAJJHZl_eeMA" elementId="openType"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLnbEodyEeKAJJHZl_eeMA" elementId="org.eclipse.mylyn.tasks.ui.openTask"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLnbE4dyEeKAJJHZl_eeMA" elementId="org.eclipse.search.OpenSearchDialogPage"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJeFIpshEeKWadAeUzSTZg" elementId="Search"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJeFI5shEeKWadAeUzSTZg" elementId="openType"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJfTQJshEeKWadAeUzSTZg" elementId="org.eclipse.mylyn.tasks.ui.openTask"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJf6UJshEeKWadAeUzSTZg" elementId="org.eclipse.search.OpenSearchDialogPage"/>
       </children>
-      <children xsi:type="menu:ToolBar" xmi:id="_w9kjYIOGEeKsgp1hGgHivg" elementId="org.eclipse.ui.edit.text.actionSet.presentation" visible="false">
+      <children xsi:type="menu:ToolBar" xmi:id="_w9kjYIOGEeKsgp1hGgHivg" elementId="org.eclipse.ui.edit.text.actionSet.presentation">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_piLFUIdWEeKHmupLIqq0Kw" elementId="Presentation"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_piLsYIdWEeKHmupLIqq0Kw" elementId="org.eclipse.jdt.ui.edit.text.java.toggleBreadcrumb"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_piLsYYdWEeKHmupLIqq0Kw" elementId="org.eclipse.jdt.ui.edit.text.java.toggleMarkOccurrences"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_piLsYodWEeKHmupLIqq0Kw" elementId="org.eclipse.mylyn.java.ui.editor.folding.auto"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_piLsY4dWEeKHmupLIqq0Kw" elementId="org.eclipse.ui.edit.text.toggleBlockSelectionMode"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_piLsZIdWEeKHmupLIqq0Kw" elementId="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_piMTcIdWEeKHmupLIqq0Kw" elementId="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uwFZMJshEeKWadAeUzSTZg" elementId="Presentation"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uwJqoJshEeKWadAeUzSTZg" elementId="org.eclipse.jdt.ui.edit.text.java.toggleBreadcrumb"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uwJqoZshEeKWadAeUzSTZg" elementId="org.eclipse.jdt.ui.edit.text.java.toggleMarkOccurrences"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uwJqopshEeKWadAeUzSTZg" elementId="org.eclipse.mylyn.java.ui.editor.folding.auto"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uwKRsJshEeKWadAeUzSTZg" elementId="org.eclipse.ui.edit.text.toggleBlockSelectionMode"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uwKRsZshEeKWadAeUzSTZg" elementId="org.eclipse.ui.edit.text.toggleShowWhitespaceCharacters"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uwKRspshEeKWadAeUzSTZg" elementId="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Pu08sG7kEeKyi6QsY3Uf0w" elementId="group.nav" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -536,15 +524,15 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Pu1jwG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGXus4dyEeKAJJHZl_eeMA" elementId="history.group"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGXutIdyEeKAJJHZl_eeMA" elementId="group.application" visible="false"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGYVwIdyEeKAJJHZl_eeMA" elementId="backardHistory"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGYVwYdyEeKAJJHZl_eeMA" elementId="forwardHistory"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGYVwodyEeKAJJHZl_eeMA" elementId="pin.group"/>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_zGYVw4dyEeKAJJHZl_eeMA" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.gif" tooltip="Pin the current editor" enabled="false" command="_PSRjmm7kEeKyi6QsY3Uf0w"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLnbFIdyEeKAJJHZl_eeMA" elementId="org.eclipse.ui.edit.text.gotoNextAnnotation"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLnbFYdyEeKAJJHZl_eeMA" elementId="org.eclipse.ui.edit.text.gotoPreviousAnnotation"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zLoCIIdyEeKAJJHZl_eeMA" elementId="org.eclipse.ui.edit.text.gotoLastEditPosition"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAsjoZshEeKWadAeUzSTZg" elementId="history.group"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAsjopshEeKWadAeUzSTZg" elementId="group.application" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAsjo5shEeKWadAeUzSTZg" elementId="backardHistory"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAtKsJshEeKWadAeUzSTZg" elementId="forwardHistory"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAtKsZshEeKWadAeUzSTZg" elementId="pin.group"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_uAtKspshEeKWadAeUzSTZg" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.gif" tooltip="Pin the current editor" enabled="false" command="_PSRjmm7kEeKyi6QsY3Uf0w"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJf6UZshEeKWadAeUzSTZg" elementId="org.eclipse.ui.edit.text.gotoNextAnnotation"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJhIcJshEeKWadAeUzSTZg" elementId="org.eclipse.ui.edit.text.gotoPreviousAnnotation"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uJhIcZshEeKWadAeUzSTZg" elementId="org.eclipse.ui.edit.text.gotoLastEditPosition"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Pu1jwW7kEeKyi6QsY3Uf0w" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -556,8 +544,8 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_Pu2K0G7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.workbench.help" visible="false">
         <tags>Draggable</tags>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGY80IdyEeKAJJHZl_eeMA" elementId="group.help"/>
-        <children xsi:type="menu:OpaqueToolItem" xmi:id="_zGY80YdyEeKAJJHZl_eeMA" elementId="group.application" visible="false"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAyqQJshEeKWadAeUzSTZg" elementId="group.help"/>
+        <children xsi:type="menu:OpaqueToolItem" xmi:id="_uAyqQZshEeKWadAeUzSTZg" elementId="group.application" visible="false"/>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_QIsOMW7kEeKyi6QsY3Uf0w" elementId="PerspectiveSpacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
         <tags>stretch</tags>
@@ -631,6 +619,25 @@
     <bindings xmi:id="_PTo1gm7kEeKyi6QsY3Uf0w" keySequence="ALT+PAGE_UP" command="_PSath27kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTpckm7kEeKyi6QsY3Uf0w" keySequence="CTRL+C" command="_PSY4XW7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTqDoW7kEeKyi6QsY3Uf0w" keySequence="ALT+PAGE_DOWN" command="_PSdJ1G7kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_T4UFgZshEeK9lfYKgcrnfg" keySequence="CTRL+Y" command="_PSTY0m7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+      <tags>platform:gtk</tags>
+    </bindings>
+    <bindings xmi:id="_T4o1o5shEeK9lfYKgcrnfg" keySequence="ALT+/" command="_PSatj27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4rR45shEeK9lfYKgcrnfg" keySequence="CTRL+X H" command="_PSY4Um7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4u8QpshEeK9lfYKgcrnfg" keySequence="ALT+W" command="_PSY4XW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ACAJshEeK9lfYKgcrnfg" keySequence="ESC W" command="_PSY4XW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5M2UpshEeK9lfYKgcrnfg" keySequence="CTRL+W" command="_PSdJxW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_PTGqAG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.jdt.ui.javaEditorScope" bindingContext="_PStBZ27kEeKyi6QsY3Uf0w">
     <bindings xmi:id="_PTKUYG7kEeKyi6QsY3Uf0w" keySequence="CTRL+I" command="_PSZfZW7kEeKyi6QsY3Uf0w"/>
@@ -658,6 +665,53 @@
     <bindings xmi:id="_PTjV-G7kEeKyi6QsY3Uf0w" keySequence="CTRL+2 R" command="_PSUm9W7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTnAUm7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+ARROW_DOWN" command="_PSnh0m7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTnAVG7kEeKyi6QsY3Uf0w" keySequence="ALT+SHIFT+ARROW_LEFT" command="_PSj3hG7kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_3VQ7wJsgEeK9lfYKgcrnfg" keySequence="ALT+;" command="_PSRjnm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3VRi0JsgEeK9lfYKgcrnfg" keySequence="ALT+." command="_PSdJ0G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3Xko4JsgEeK9lfYKgcrnfg" keySequence="ALT+CTRL+U" command="_PSciuG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XmeEJsgEeK9lfYKgcrnfg" keySequence="CTRL+]" command="_PSXDJm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XmeEZsgEeK9lfYKgcrnfg" keySequence="CTRL+[" command="_PSaGcG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XnsMJsgEeK9lfYKgcrnfg" keySequence="ESC ;" command="_PSRjnm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XoTQZsgEeK9lfYKgcrnfg" keySequence="CTRL+C CTRL+V CTRL+Y" command="_PSdJ0G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3Xo6UJsgEeK9lfYKgcrnfg" keySequence="ESC ." command="_PSdJ0G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_T4lLQZshEeK9lfYKgcrnfg" keySequence="ESC P" command="_1AHCQJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4vjUZshEeK9lfYKgcrnfg" keySequence="ESC N" command="_1AJeipsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4xYgJshEeK9lfYKgcrnfg" keySequence="ALT+P" command="_1AHCQJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4x_k5shEeK9lfYKgcrnfg" keySequence="CTRL+;" command="_1AF0JJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5OEcJshEeK9lfYKgcrnfg" keySequence="ALT+N" command="_1AJeipsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_PTK7cG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.wst.sse.ui.structuredTextEditorScope" bindingContext="_PSsaXW7kEeKyi6QsY3Uf0w">
     <bindings xmi:id="_PTK7cW7kEeKyi6QsY3Uf0w" keySequence="CTRL+I" command="_PSRjn27kEeKyi6QsY3Uf0w"/>
@@ -676,6 +730,14 @@
     <bindings xmi:id="_PTiH0G7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+\" command="_PSeX427kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTnAU27kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+ARROW_DOWN" command="_PSVN8m7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTnAVW7kEeKyi6QsY3Uf0w" keySequence="ALT+SHIFT+ARROW_LEFT" command="_PSmTs27kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_3XlP8ZsgEeK9lfYKgcrnfg" keySequence="ALT+;" command="_PSV1A27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XphYZsgEeK9lfYKgcrnfg" keySequence="ESC ;" command="_PSV1A27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_PTK7c27kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.contexts.window" bindingContext="_PRx0Wm7kEeKyi6QsY3Uf0w">
     <bindings xmi:id="_PTK7dG7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+NUMPAD_MULTIPLY" command="_PSQ8kW7kEeKyi6QsY3Uf0w"/>
@@ -815,18 +877,152 @@
     <bindings xmi:id="_jlpWIG7kEeKMG6rGi4LzIg" keySequence="ALT+SHIFT+A S" command="_jlHKom7kEeKMG6rGi4LzIg"/>
     <bindings xmi:id="_jlpWIW7kEeKMG6rGi4LzIg" keySequence="ALT+SHIFT+A D" command="_jlHxs27kEeKMG6rGi4LzIg"/>
     <bindings xmi:id="_jlp9MG7kEeKMG6rGi4LzIg" keySequence="ALT+SHIFT+A R" command="_jlHxsm7kEeKMG6rGi4LzIg"/>
-    <bindings xmi:id="_HCIjQm7tEeKgQPvuW21Ruw" keySequence="F9" command="_HBgRJW7tEeKgQPvuW21Ruw"/>
+    <bindings xmi:id="_HCIjQm7tEeKgQPvuW21Ruw" keySequence="F9" command="_HBgRJW7tEeKgQPvuW21Ruw">
+      <tags>deleted</tags>
+    </bindings>
     <bindings xmi:id="_HCIjQ27tEeKgQPvuW21Ruw" keySequence="SHIFT+F9" command="_HBeb9G7tEeKgQPvuW21Ruw"/>
+    <bindings xmi:id="_T4S3YZshEeK9lfYKgcrnfg" keySequence="CTRL+L" command="_0_9RRZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4UskJshEeK9lfYKgcrnfg" keySequence="CTRL+X K" command="_PSY4U27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4V6sJshEeK9lfYKgcrnfg" keySequence="CTRL+X S" command="_PSaGdG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4XI0pshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+-" command="_PSUm627kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4Xv4JshEeK9lfYKgcrnfg" keySequence="F9" command="_PSUm627kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4d2gZshEeK9lfYKgcrnfg" keySequence="CTRL+/" command="_PSUm627kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4edkJshEeK9lfYKgcrnfg" keySequence="CTRL+X (" command="_1ACw2ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4edkpshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+A SPACE" command="_PSe-8m7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4g50ZshEeK9lfYKgcrnfg" keySequence="CTRL+X O" command="_1AAUk5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ivApshEeK9lfYKgcrnfg" keySequence="ALT+?" command="_PSjQcG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4jWEJshEeK9lfYKgcrnfg" keySequence="ALT+R" command="_PSdJx27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4nAcZshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+C" command="_PSm6zG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4nAcpshEeK9lfYKgcrnfg" keySequence="CTRL+X ARROW_LEFT" command="_PSb7um7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4o1oZshEeK9lfYKgcrnfg" keySequence="CTRL+X 1" command="_0_8DIZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4o1opshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+B" command="_PSatm27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4qDwJshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+ARROW_RIGHT" command="_PSg0Im7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4r48ZshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+;" command="_1AJegpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4r48pshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+ARROW_LEFT" command="_PSb7um7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4uVMZshEeK9lfYKgcrnfg" keySequence="CTRL+H S" command="_PShbR27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4uVMpshEeK9lfYKgcrnfg" keySequence="ALT+Z" command="_1ACJwpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4vjUpshEeK9lfYKgcrnfg" keySequence="CTRL+X 0" command="_1AA7qJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4wxcZshEeK9lfYKgcrnfg" keySequence="CTRL+X 2" command="_1ACJxJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4xYgpshEeK9lfYKgcrnfg" keySequence="ALT+," command="_PSXDJG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ymoZshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+?" command="_PSjQcG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4z0wJshEeK9lfYKgcrnfg" keySequence="CTRL+X U" command="_PSUm627kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ApEJshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+S" command="_PSb7om7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ApEZshEeK9lfYKgcrnfg" keySequence="CTRL+X R" command="_PSgNGm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5B3MpshEeK9lfYKgcrnfg" keySequence="ESC Z" command="_1ACJwpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5DFUpshEeK9lfYKgcrnfg" keySequence="ALT+F9" command="_PSg0IW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ETcJshEeK9lfYKgcrnfg" keySequence="CTRL+X B" command="_1ACJypsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5HWwZshEeK9lfYKgcrnfg" keySequence="CTRL+X 3" command="_1AHCRJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5H90ZshEeK9lfYKgcrnfg" keySequence="F10" command="_PSgNGm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5H90pshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT++" command="_PSgNGm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5Ik4pshEeK9lfYKgcrnfg" keySequence="CTRL+X ARROW_RIGHT" command="_PSg0Im7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5JL8JshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+SHIFT+L" command="_PShbQW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5KaEZshEeK9lfYKgcrnfg" keySequence="ESC R" command="_PSdJx27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5LBIpshEeK9lfYKgcrnfg" keySequence="CTRL+X SPACE" command="_PSe-8m7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5OrgpshEeK9lfYKgcrnfg" keySequence="ESC SHIFT+;" command="_1AJegpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5PSkJshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+F" command="_PSZfaG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5PSkZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+L" command="_PSVOAW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5P5oZshEeK9lfYKgcrnfg" keySequence="ESC F9" command="_PSg0IW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdfI4ZshEeKWadAeUzSTZg" keySequence="CTRL+X B" command="_PSTYyW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_PTK7dW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.textEditorScope" bindingContext="_PSsaW27kEeKyi6QsY3Uf0w">
     <bindings xmi:id="_PTK7dm7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+NUMPAD_MULTIPLY" command="_PSRjpm7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTK7d27kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+J" command="_PSeX7G7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTOl0W7kEeKyi6QsY3Uf0w" keySequence="CTRL+ARROW_UP" command="_PSgNH27kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTPM4G7kEeKyi6QsY3Uf0w" keySequence="ALT+CTRL+ARROW_UP" command="_PShbMG7kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_PTOl0W7kEeKyi6QsY3Uf0w" keySequence="CTRL+ARROW_UP" command="_PSgNH27kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_PTPM4G7kEeKyi6QsY3Uf0w" keySequence="ALT+CTRL+ARROW_UP" command="_PShbMG7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
     <bindings xmi:id="_PTPM5W7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+INSERT" command="_PSdJz27kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTPM6G7kEeKyi6QsY3Uf0w" keySequence="ALT+ARROW_DOWN" command="_PSdJxm7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTPz9W7kEeKyi6QsY3Uf0w" keySequence="ALT+SHIFT+A" command="_PSb7oW7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTPz-G7kEeKyi6QsY3Uf0w" keySequence="CTRL+ARROW_DOWN" command="_PSgNF27kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_PTPz-G7kEeKyi6QsY3Uf0w" keySequence="CTRL+ARROW_DOWN" command="_PSgNF27kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
     <bindings xmi:id="_PTV6lG7kEeKyi6QsY3Uf0w" keySequence="F12" command="_PSiCTG7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTV6lW7kEeKyi6QsY3Uf0w" keySequence="ALT+/" command="_PSov_G7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTV6l27kEeKyi6QsY3Uf0w" keySequence="F2" command="_PSSKq27kEeKyi6QsY3Uf0w"/>
@@ -839,31 +1035,779 @@
     <bindings xmi:id="_PTd2YW7kEeKyi6QsY3Uf0w" keySequence="CTRL+K" command="_PSlssW7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTd2Ym7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+K" command="_PSmTwm7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTd2Y27kEeKyi6QsY3Uf0w" keySequence="CTRL+J" command="_PSaGfm7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTd2ZG7kEeKyi6QsY3Uf0w" keySequence="CTRL+L" command="_PSdJ0m7kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_PTd2ZG7kEeKyi6QsY3Uf0w" keySequence="CTRL+L" command="_PSdJ0m7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
     <bindings xmi:id="_PTd2Zm7kEeKyi6QsY3Uf0w" keySequence="INSERT" command="_PSSKr27kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTedcW7kEeKyi6QsY3Uf0w" keySequence="CTRL+F10" command="_PSb7sm7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTedc27kEeKyi6QsY3Uf0w" keySequence="SHIFT+CR" command="_PSatim7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTeddG7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+CR" command="_PSQ8l27kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTeddW7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+X" command="_PSj3eG7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTeddm7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+Y" command="_PSciuW7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTedd27kEeKyi6QsY3Uf0w" keySequence="END" command="_PSnh1W7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTfEgG7kEeKyi6QsY3Uf0w" keySequence="HOME" command="_PSbUqG7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTfEg27kEeKyi6QsY3Uf0w" keySequence="SHIFT+END" command="_PSQ8lG7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTfEhG7kEeKyi6QsY3Uf0w" keySequence="CTRL+HOME" command="_PShbQ27kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_PTedd27kEeKyi6QsY3Uf0w" keySequence="END" command="_PSnh1W7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_PTfEgG7kEeKyi6QsY3Uf0w" keySequence="HOME" command="_PSbUqG7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_PTfEg27kEeKyi6QsY3Uf0w" keySequence="SHIFT+END" command="_PSQ8lG7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_PTfEhG7kEeKyi6QsY3Uf0w" keySequence="CTRL+HOME" command="_PShbQ27kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
     <bindings xmi:id="_PTfEhW7kEeKyi6QsY3Uf0w" keySequence="CTRL+DEL" command="_PSUm6G7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTfEh27kEeKyi6QsY3Uf0w" keySequence="ALT+ARROW_UP" command="_PSiCQW7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTgSoG7kEeKyi6QsY3Uf0w" keySequence="CTRL+BS" command="_PSV1Am7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTgSpG7kEeKyi6QsY3Uf0w" keySequence="ALT+CTRL+J" command="_PSgNHm7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTgSpW7kEeKyi6QsY3Uf0w" keySequence="CTRL+END" command="_PSSKsG7kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_PTgSpW7kEeKyi6QsY3Uf0w" keySequence="CTRL+END" command="_PSSKsG7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
     <bindings xmi:id="_PTg5sm7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+ARROW_LEFT" command="_PSciyG7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTnnYm7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+DEL" command="_PSVN_W7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTnnY27kEeKyi6QsY3Uf0w" keySequence="ALT+CTRL+ARROW_DOWN" command="_PSiCRW7kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_PTnnY27kEeKyi6QsY3Uf0w" keySequence="ALT+CTRL+ARROW_DOWN" command="_PSiCRW7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
     <bindings xmi:id="_PTnnZm7kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+ARROW_RIGHT" command="_PSm6z27kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTo1gG7kEeKyi6QsY3Uf0w" keySequence="SHIFT+HOME" command="_PSeX5m7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTo1gW7kEeKyi6QsY3Uf0w" keySequence="CTRL+ARROW_LEFT" command="_PSUm-m7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTpclW7kEeKyi6QsY3Uf0w" keySequence="CTRL+ARROW_RIGHT" command="_PSiCTm7kEeKyi6QsY3Uf0w"/>
-    <bindings xmi:id="_PTqDoG7kEeKyi6QsY3Uf0w" keySequence="CTRL+D" command="_PSaGe27kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_PTo1gG7kEeKyi6QsY3Uf0w" keySequence="SHIFT+HOME" command="_PSeX5m7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_PTo1gW7kEeKyi6QsY3Uf0w" keySequence="CTRL+ARROW_LEFT" command="_PSUm-m7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_PTpclW7kEeKyi6QsY3Uf0w" keySequence="CTRL+ARROW_RIGHT" command="_PSiCTm7kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_PTqDoG7kEeKyi6QsY3Uf0w" keySequence="CTRL+D" command="_PSaGe27kEeKyi6QsY3Uf0w">
+      <tags>deleted</tags>
+    </bindings>
     <bindings xmi:id="_X6ExwXPEEeKdqoAjHHxOyA" keySequence="SHIFT+F12" command="_X5T8wXPEEeKdqoAjHHxOyA"/>
+    <bindings xmi:id="_T4SQUJshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+T" command="_1AEmAZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4SQUpshEeK9lfYKgcrnfg" keySequence="ALT+B" command="_PSUm-m7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4S3YJshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+K CTRL+N" command="_1AJehpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4S3YpshEeK9lfYKgcrnfg" keySequence="ESC D" command="_PSUm6G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4TecJshEeK9lfYKgcrnfg" keySequence="CTRL+ARROW_DOWN" command="_0_-fZJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4TecZshEeK9lfYKgcrnfg" keySequence="ALT+B" command="_1AGbNpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4UFgJshEeK9lfYKgcrnfg" keySequence="ESC F" command="_1AD--ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4UFgpshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+T" command="_1AD-8ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4UskZshEeK9lfYKgcrnfg" keySequence="CTRL+X N N" command="_1ABis5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4UskpshEeK9lfYKgcrnfg" keySequence="ARROW_DOWN" command="_1AA7ppsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4Usk5shEeK9lfYKgcrnfg" keySequence="CTRL+N" command="_1AA7ppsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4VToJshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+N" command="_1AA7ppsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4VToZshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+K K" command="_0__GeJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4VTopshEeK9lfYKgcrnfg" keySequence="CTRL+H K" command="_0_8DIJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4V6sZshEeK9lfYKgcrnfg" keySequence="CTRL+HOME" command="_0_-fY5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4V6spshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+ARROW_DOWN" command="_1AHpVJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4WhwJshEeK9lfYKgcrnfg" keySequence="CTRL+R" command="_PSeX7G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4WhwZshEeK9lfYKgcrnfg" keySequence="CTRL+X R +" command="_1ACw1ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4WhwpshEeK9lfYKgcrnfg" keySequence="ALT+%" command="_1ALTsZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4Whw5shEeK9lfYKgcrnfg" keySequence="ALT+M" command="_1ADX4JsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4XI0JshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+5" command="_1ALTsZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4XI0ZshEeK9lfYKgcrnfg" keySequence="ALT+U" command="_0_94WZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4Xv4ZshEeK9lfYKgcrnfg" keySequence="ALT+PAGE_DOWN" command="_0__GdJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4YW8ZshEeK9lfYKgcrnfg" keySequence="ALT+>" command="_PSSKsG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4YW8pshEeK9lfYKgcrnfg" keySequence="ARROW_RIGHT" command="_1AKsp5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4Y-AJshEeK9lfYKgcrnfg" keySequence="CTRL+B" command="_0_8qMZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4Y-AZshEeK9lfYKgcrnfg" keySequence="ALT+ARROW_RIGHT" command="_0_8DIpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4Y-ApshEeK9lfYKgcrnfg" keySequence="ESC V" command="_1AKsqZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ZlEJshEeK9lfYKgcrnfg" keySequence="ESC SHIFT+V" command="_1AKsqZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ZlEZshEeK9lfYKgcrnfg" keySequence="CTRL+H ?" command="_0_-fYZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ZlEpshEeK9lfYKgcrnfg" keySequence="CTRL+X R D" command="_0_-fZ5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ZlE5shEeK9lfYKgcrnfg" keySequence="ALT+CTRL+V" command="_0__GdJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4aMIJshEeK9lfYKgcrnfg" keySequence="CTRL+X /" command="_1AGbOZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4aMIZshEeK9lfYKgcrnfg" keySequence="CTRL+X G" command="_1ACJyJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4aMIpshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+S" command="_1AHpU5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4azMJshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+2" command="_1AEmBZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4d2gpshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+W" command="_1ALTuJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4edkZshEeK9lfYKgcrnfg" keySequence="ESC SHIFT+>" command="_PSSKsG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4fEoJshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+Q" command="_1AGbMpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4fEoZshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+K CTRL+E" command="_0_9RQZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4fEo5shEeK9lfYKgcrnfg" keySequence="CTRL+2" command="_PSV1CG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4frsJshEeK9lfYKgcrnfg" keySequence="ALT+X" command="_0__tgJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4frsZshEeK9lfYKgcrnfg" keySequence="CTRL+X R S" command="_1AI3eZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4frspshEeK9lfYKgcrnfg" keySequence="CTRL+H F" command="_1ABisZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4gSwJshEeK9lfYKgcrnfg" keySequence="CTRL+H D" command="_1ABisZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4gSwZshEeK9lfYKgcrnfg" keySequence="F3" command="_1ACw2ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4gSwpshEeK9lfYKgcrnfg" keySequence="SHIFT+END" command="_1AA7pZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4gSw5shEeK9lfYKgcrnfg" keySequence="ALT+CTRL+%" command="_1AAUkZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4g50JshEeK9lfYKgcrnfg" keySequence="CTRL+END" command="_1AD-9psgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4g50pshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+D" command="_1AHpVJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4hg4JshEeK9lfYKgcrnfg" keySequence="CTRL+X =" command="_1AKFlpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4hg4ZshEeK9lfYKgcrnfg" keySequence="CTRL+X R T" command="_1AIQYZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4hg4pshEeK9lfYKgcrnfg" keySequence="CTRL+X E" command="_0__GeJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4iH8JshEeK9lfYKgcrnfg" keySequence="ALT+H" command="_1ACJwJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4iH8ZshEeK9lfYKgcrnfg" keySequence="CTRL+H A" command="_1ACw05sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4iH8pshEeK9lfYKgcrnfg" keySequence="CTRL+V" command="_PSati27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ivAJshEeK9lfYKgcrnfg" keySequence="ALT+T" command="_1ABiuJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ivAZshEeK9lfYKgcrnfg" keySequence="CTRL+H W" command="_1AFNGpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ivA5shEeK9lfYKgcrnfg" keySequence="ALT+END" command="_1ADX5ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4j9IJshEeK9lfYKgcrnfg" keySequence="CTRL+SPACE" command="_0_-fapsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4kkMJshEeK9lfYKgcrnfg" keySequence="ALT+^" command="_1AHCSpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4kkMZshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+." command="_1AD-9psgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4kkMpshEeK9lfYKgcrnfg" keySequence="ESC BS" command="_PSV1Am7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4lLQJshEeK9lfYKgcrnfg" keySequence="CTRL+X N W" command="_1AIQYpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4lLQpshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+ARROW_UP" command="_0__thpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4lyUpshEeK9lfYKgcrnfg" keySequence="ALT+Z" command="_PSgNH27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4lyU5shEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+O" command="_1ALTspsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4mZYJshEeK9lfYKgcrnfg" keySequence="ALT+*" command="_1AA7oJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4mZYZshEeK9lfYKgcrnfg" keySequence="ESC &lt;" command="_PShbQ27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4mZYpshEeK9lfYKgcrnfg" keySequence="CTRL+X [" command="_PShbQ27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4nAcJshEeK9lfYKgcrnfg" keySequence="CTRL+A" command="_0_-fYpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4nAc5shEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+B" command="_0_8qMZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4nngJshEeK9lfYKgcrnfg" keySequence="ALT+D" command="_PSUm6G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4nngZshEeK9lfYKgcrnfg" keySequence="CTRL+X R J" command="_0_8DJJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4nngpshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+U" command="_0__thpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4oOkJshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+X" command="_1AJegZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4oOkZshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+V" command="_0_9RR5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4oOkpshEeK9lfYKgcrnfg" keySequence="CTRL+V" command="_0_9RR5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4o1oJshEeK9lfYKgcrnfg" keySequence="SHIFT+ARROW_DOWN" command="_1AA7ppsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4pcsJshEeK9lfYKgcrnfg" keySequence="CTRL+H C" command="_0_-fYJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4pcsZshEeK9lfYKgcrnfg" keySequence="ESC >" command="_PSSKsG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4pcspshEeK9lfYKgcrnfg" keySequence="CTRL+X ]" command="_PSSKsG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4pcs5shEeK9lfYKgcrnfg" keySequence="ALT+DEL" command="_PSUm6G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4qDwZshEeK9lfYKgcrnfg" keySequence="ALT+&lt;" command="_0_-fY5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4qDwpshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+8" command="_1AA7oJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4qq0JshEeK9lfYKgcrnfg" keySequence="CTRL+G" command="_PSjQY27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4qq0ZshEeK9lfYKgcrnfg" keySequence="ALT+BS" command="_PSV1Am7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4qq0pshEeK9lfYKgcrnfg" keySequence="ALT+F" command="_PSiCTm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4rR4JshEeK9lfYKgcrnfg" keySequence="CTRL+X R I" command="_1ACJyJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4rR4ZshEeK9lfYKgcrnfg" keySequence="CTRL+X R G" command="_1ACJyJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4rR4pshEeK9lfYKgcrnfg" keySequence="ALT+HOME" command="_0__tgpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4sgAJshEeK9lfYKgcrnfg" keySequence="CTRL+X R O" command="_1AHCQZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4sgAZshEeK9lfYKgcrnfg" keySequence="CTRL+X R N" command="_0__GdpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4sgApshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+SPACE" command="_0__tg5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4tHEJshEeK9lfYKgcrnfg" keySequence="CTRL+T" command="_1AKsoJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4tHEZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+R" command="_1AKspJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4tHEpshEeK9lfYKgcrnfg" keySequence="ALT+V" command="_PSVOB27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4tuIJshEeK9lfYKgcrnfg" keySequence="CTRL+X R SPACE" command="_1AGbOZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4tuIZshEeK9lfYKgcrnfg" keySequence="ALT+@" command="_1AEmBZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4tuIpshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+F" command="_0_8DIpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4uVMJshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+SHIFT+5" command="_1AAUkZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4u8QJshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+[" command="_1AD-95sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4u8QZshEeK9lfYKgcrnfg" keySequence="ALT+{" command="_1AD-95sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4u8Q5shEeK9lfYKgcrnfg" keySequence="ALT+}" command="_0_-fZJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4wKYJshEeK9lfYKgcrnfg" keySequence="CTRL+K" command="_PSeX6G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4wKYZshEeK9lfYKgcrnfg" keySequence="CTRL+ARROW_UP" command="_1AD-95sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4wKYpshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+," command="_0_-fY5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4wxcJshEeK9lfYKgcrnfg" keySequence="CTRL+X R C" command="_1AIQapsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4xYgZshEeK9lfYKgcrnfg" keySequence="ALT+>" command="_1AD-9psgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4x_kJshEeK9lfYKgcrnfg" keySequence="ALT+INSERT" command="_1AKFmJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4x_kZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+SHIFT+B" command="_1ALTtpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4x_kpshEeK9lfYKgcrnfg" keySequence="CTRL+Z" command="_PSgNF27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ymoJshEeK9lfYKgcrnfg" keySequence="ALT+=" command="_1AI3dpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4ymopshEeK9lfYKgcrnfg" keySequence="CTRL+K" command="_1AEmA5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4zNsJshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+A" command="_0_-fYpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4zNsZshEeK9lfYKgcrnfg" keySequence="F4" command="_1AA7oZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4zNspshEeK9lfYKgcrnfg" keySequence="CTRL+G" command="_0__GcpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4z0wZshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+6" command="_1AHCSpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4z0wpshEeK9lfYKgcrnfg" keySequence="CTRL+E" command="_1AA7pZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T40b0JshEeK9lfYKgcrnfg" keySequence="ESC B" command="_1AGbNpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T40b0ZshEeK9lfYKgcrnfg" keySequence="CTRL+-" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T40b0pshEeK9lfYKgcrnfg" keySequence="CTRL+1" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T41C4JshEeK9lfYKgcrnfg" keySequence="CTRL+2" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T41C4ZshEeK9lfYKgcrnfg" keySequence="CTRL+3" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T41C4pshEeK9lfYKgcrnfg" keySequence="CTRL+4" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T41p8JshEeK9lfYKgcrnfg" keySequence="CTRL+5" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T41p8ZshEeK9lfYKgcrnfg" keySequence="CTRL+6" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T41p8pshEeK9lfYKgcrnfg" keySequence="CTRL+8" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T42RAJshEeK9lfYKgcrnfg" keySequence="CTRL+9" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T42RAZshEeK9lfYKgcrnfg" keySequence="CTRL+0" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T42RApshEeK9lfYKgcrnfg" keySequence="CTRL+7" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T424EJshEeK9lfYKgcrnfg" keySequence="CTRL+U" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T424EZshEeK9lfYKgcrnfg" keySequence="ALT+-" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T43fIJshEeK9lfYKgcrnfg" keySequence="ALT+1" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T43fIZshEeK9lfYKgcrnfg" keySequence="ALT+2" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T44GMJshEeK9lfYKgcrnfg" keySequence="ALT+3" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T44GMZshEeK9lfYKgcrnfg" keySequence="ALT+4" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T44GMpshEeK9lfYKgcrnfg" keySequence="ALT+5" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T44tQJshEeK9lfYKgcrnfg" keySequence="ALT+6" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T44tQZshEeK9lfYKgcrnfg" keySequence="ALT+7" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T45UUJshEeK9lfYKgcrnfg" keySequence="ALT+8" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T45UUZshEeK9lfYKgcrnfg" keySequence="ALT+9" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T457YJshEeK9lfYKgcrnfg" keySequence="ALT+0" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T457YZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+-" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T457YpshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+1" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T46icJshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+2" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T46icZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+3" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T47JgJshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+4" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T47wkJshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+5" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T47wkZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+6" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T48XoJshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+7" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T48XoZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+8" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T48-sJshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+9" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T48-sZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+0" command="_1AF0J5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T49lwJshEeK9lfYKgcrnfg" keySequence="HOME" command="_0_-fYpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T49lwZshEeK9lfYKgcrnfg" keySequence="CTRL+L" command="_PSUm_W7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T49lwpshEeK9lfYKgcrnfg" keySequence="ESC 0 CTRL+K" command="_PSm6zW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4-M0JshEeK9lfYKgcrnfg" keySequence="ESC Z" command="_PSgNH27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4-M0ZshEeK9lfYKgcrnfg" keySequence="ESC Y" command="_1AEmCZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4-M0pshEeK9lfYKgcrnfg" keySequence="CTRL+S" command="_1AIQaZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4-z4JshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+K" command="_0__tipsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4-z4ZshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+K CTRL+P" command="_1AA7qZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4_a8JshEeK9lfYKgcrnfg" keySequence="ALT+G" command="_0_9RSZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4_a8ZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+O" command="_1ADX5psgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4_a8pshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+E" command="_1AA7pZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ACAZshEeK9lfYKgcrnfg" keySequence="CTRL+P" command="_PSUm5G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ACApshEeK9lfYKgcrnfg" keySequence="ALT+ARROW_LEFT" command="_1ALTtpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ApEpshEeK9lfYKgcrnfg" keySequence="CTRL+H N" command="_1ADX5JsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5BQIJshEeK9lfYKgcrnfg" keySequence="ALT+PAGE_UP" command="_1AD-9JsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5BQIpshEeK9lfYKgcrnfg" keySequence="ESC SHIFT+." command="_1AD-9psgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5B3MJshEeK9lfYKgcrnfg" keySequence="ESC >" command="_1AD-9psgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5B3MZshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+K R" command="_1AKFmZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5CeQJshEeK9lfYKgcrnfg" keySequence="END" command="_1AA7pZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5CeQZshEeK9lfYKgcrnfg" keySequence="ALT+\" command="_0_8qM5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5CeQpshEeK9lfYKgcrnfg" keySequence="ARROW_UP" command="_1AHCRZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5DFUJshEeK9lfYKgcrnfg" keySequence="CTRL+P" command="_1AHCRZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5DFUZshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+P" command="_1AHCRZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5DsYJshEeK9lfYKgcrnfg" keySequence="CTRL+F" command="_PSkegG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5DsYZshEeK9lfYKgcrnfg" keySequence="CTRL+X X" command="_1AI3eZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ETcZshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+>" command="_PSSKsG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5ETcpshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+F" command="_1AD--ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5E6gJshEeK9lfYKgcrnfg" keySequence="CTRL+X U" command="_0__thJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5E6gZshEeK9lfYKgcrnfg" keySequence="ALT+L" command="_1ABitpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5E6gpshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+B" command="_1ALTtpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5FhkJshEeK9lfYKgcrnfg" keySequence="ALT+C" command="_1ALTtJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5FhkZshEeK9lfYKgcrnfg" keySequence="CTRL+X R Y" command="_1AA7opsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5FhkpshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+ARROW_DOWN" command="_0_-fZJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5GIoJshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+BS" command="_1AF0IpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5GIoZshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+B" command="_1AGbNpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5GvsJshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+Y" command="_1AHpV5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5GvsZshEeK9lfYKgcrnfg" keySequence="CTRL+Y" command="_1AHCR5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5GvspshEeK9lfYKgcrnfg" keySequence="CTRL+X R V" command="_0_8qN5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5HWwJshEeK9lfYKgcrnfg" keySequence="CTRL+X H" command="_1AF0IZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5HWwpshEeK9lfYKgcrnfg" keySequence="CTRL+D" command="_PSUm527kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5HWw5shEeK9lfYKgcrnfg" keySequence="ALT+CTRL+SPACE" command="_1ABitJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5H90JshEeK9lfYKgcrnfg" keySequence="CTRL+R" command="_1AJeiJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5Ik4JshEeK9lfYKgcrnfg" keySequence="SHIFT+ARROW_UP" command="_1AHCRZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5Ik4ZshEeK9lfYKgcrnfg" keySequence="CTRL+O" command="_PSQ8l27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5JL8ZshEeK9lfYKgcrnfg" keySequence="ESC SHIFT+8" command="_1AA7oJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5JL8pshEeK9lfYKgcrnfg" keySequence="ESC *" command="_1AA7oJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5JzAZshEeK9lfYKgcrnfg" keySequence="CTRL+ARROW_LEFT" command="_1AGbNpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5JzApshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+-" command="_0__thJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5KaEJshEeK9lfYKgcrnfg" keySequence="CTRL+/" command="_0__thJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5KaEpshEeK9lfYKgcrnfg" keySequence="CTRL+F" command="_1AKsp5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5LBIJshEeK9lfYKgcrnfg" keySequence="ESC SHIFT+&lt;" command="_PShbQ27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5LBIZshEeK9lfYKgcrnfg" keySequence="ALT+CTRL+SHIFT+F" command="_0_8DIpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5LoMJshEeK9lfYKgcrnfg" keySequence="CTRL+X L" command="_1AD-85sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5LoMZshEeK9lfYKgcrnfg" keySequence="CTRL+ARROW_RIGHT" command="_1AD--ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5LoMpshEeK9lfYKgcrnfg" keySequence="ALT+F" command="_1AD--ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5MPQJshEeK9lfYKgcrnfg" keySequence="CTRL+H B" command="_1AFNEpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5MPQpshEeK9lfYKgcrnfg" keySequence="CTRL+X )" command="_0_94VZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5M2UZshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+ARROW_UP" command="_1AD-95sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5M2U5shEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+]" command="_0_-fZJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5NdYJshEeK9lfYKgcrnfg" keySequence="ALT+V" command="_1AKsqZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5NdYZshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+V" command="_1AKsqZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5OEcZshEeK9lfYKgcrnfg" keySequence="ALT+Y" command="_1AEmCZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5OEcpshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+K N" command="_1AHpVpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5OrgJshEeK9lfYKgcrnfg" keySequence="CTRL+X J" command="_0_8DJJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5OrgZshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+K B" command="_0_94UZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5PSkpshEeK9lfYKgcrnfg" keySequence="ALT+SPACE" command="_1AFNGJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5P5oJshEeK9lfYKgcrnfg" keySequence="CTRL+X R K" command="_1AAUkpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5P5opshEeK9lfYKgcrnfg" keySequence="SHIFT+HOME" command="_0_-fYpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5QgsJshEeK9lfYKgcrnfg" keySequence="CTRL+SHIFT+F" command="_1AKsp5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5QgsZshEeK9lfYKgcrnfg" keySequence="ALT+SHIFT+&lt;" command="_PShbQ27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5QgspshEeK9lfYKgcrnfg" keySequence="CTRL+X TAB" command="_1ADX6ZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5Qgs5shEeK9lfYKgcrnfg" keySequence="ESC SHIFT+," command="_0_-fY5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5RHwJshEeK9lfYKgcrnfg" keySequence="ESC &lt;" command="_0_-fY5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5RHwZshEeK9lfYKgcrnfg" keySequence="ARROW_LEFT" command="_0_8qMZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5RHwpshEeK9lfYKgcrnfg" keySequence="CTRL+X R R" command="_1AGbNJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5Ru0JshEeK9lfYKgcrnfg" keySequence="ALT+S" command="_1AIQZ5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdLm4JshEeKWadAeUzSTZg" keySequence="CTRL+N" command="_PSe-8W7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdOqMJshEeKWadAeUzSTZg" keySequence="CTRL+S" command="_PSaGfm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdVX4JshEeKWadAeUzSTZg" keySequence="CTRL+E" command="_PSnh1W7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdXNEJshEeKWadAeUzSTZg" keySequence="CTRL+A" command="_PSbUqG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdX0IJshEeKWadAeUzSTZg" keySequence="CTRL+SPACE" command="_PSV1CG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdYbMJshEeKWadAeUzSTZg" keySequence="CTRL+B" command="_PSdJ2G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdZCQJshEeKWadAeUzSTZg" keySequence="ALT+&lt;" command="_PShbQ27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdbegJshEeKWadAeUzSTZg" keySequence="CTRL+X G" command="_PSdJ0m7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdd6wJshEeKWadAeUzSTZg" keySequence="CTRL+X CTRL+X" command="_PSb7vG7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdeh0JshEeKWadAeUzSTZg" keySequence="ESC F" command="_PSiCTm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdeh0ZshEeKWadAeUzSTZg" keySequence="ESC B" command="_PSUm-m7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_tdfI4JshEeKWadAeUzSTZg" keySequence="ESC V" command="_PSVOB27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:org.eclipse.ui.emacsAcceleratorConfiguration</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_PTOl0m7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ant.ui.AntEditorScope" bindingContext="_PSsaXG7kEeKyi6QsY3Uf0w">
     <bindings xmi:id="_PTOl027kEeKyi6QsY3Uf0w" keySequence="CTRL+SHIFT+F" command="_PSgNEW7kEeKyi6QsY3Uf0w"/>
@@ -901,6 +1845,36 @@
     <bindings xmi:id="_PTUFZm7kEeKyi6QsY3Uf0w" keySequence="F7" command="_PSnh0G7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTUscG7kEeKyi6QsY3Uf0w" keySequence="F6" command="_PSQ8nW7kEeKyi6QsY3Uf0w"/>
     <bindings xmi:id="_PTUsdG7kEeKyi6QsY3Uf0w" keySequence="CTRL+R" command="_PSY4YW7kEeKyi6QsY3Uf0w"/>
+    <bindings xmi:id="_T4SQUZshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+A CTRL+U" command="_PSY4YW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4TecpshEeK9lfYKgcrnfg" keySequence="CTRL+C CTRL+N" command="_PSQ8nW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4YW8JshEeK9lfYKgcrnfg" keySequence="CTRL+C CTRL+F" command="_PSnh0G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4YW85shEeK9lfYKgcrnfg" keySequence="CTRL+C CTRL+U" command="_PSY4YW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4lyUJshEeK9lfYKgcrnfg" keySequence="CTRL+C CTRL+S" command="_PSgNG27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4lyUZshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+A CTRL+F" command="_PSnh0G7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4r48JshEeK9lfYKgcrnfg" keySequence="CTRL+C CTRL+R" command="_PSpXBW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4vjUJshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+A CTRL+S" command="_PSgNG27kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4wxcpshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+A CTRL+R" command="_PSpXBW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5NdYpshEeK9lfYKgcrnfg" keySequence="CTRL+X CTRL+A CTRL+N" command="_PSQ8nW7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_PTRCFG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.debug.ui.BreakpointView" bindingContext="_PSsaWW7kEeKyi6QsY3Uf0w">
     <bindings xmi:id="_PTRCFW7kEeKyi6QsY3Uf0w" keySequence="ALT+CR" command="_PSg0I27kEeKyi6QsY3Uf0w"/>
@@ -1050,6 +2024,34 @@
     <bindings xmi:id="_HCOp4G7tEeKgQPvuW21Ruw" keySequence="CTRL+#" command="_HBfqF27tEeKgQPvuW21Ruw"/>
     <bindings xmi:id="_HCOp4W7tEeKgQPvuW21Ruw" keySequence="CTRL+SHIFT+G" command="_HBd05m7tEeKgQPvuW21Ruw"/>
     <bindings xmi:id="_HCPQ8G7tEeKgQPvuW21Ruw" keySequence="ALT+CTRL+H" command="_HBeb8m7tEeKgQPvuW21Ruw"/>
+    <bindings xmi:id="_3VPtoJsgEeK9lfYKgcrnfg" keySequence="ALT+;" command="_HBeb827tEeKgQPvuW21Ruw">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XlP8JsgEeK9lfYKgcrnfg" keySequence="ALT+." command="_HBd05W7tEeKgQPvuW21Ruw">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3Xl3AJsgEeK9lfYKgcrnfg" keySequence="CTRL+C CTRL+V CTRL+Y" command="_HBd05W7tEeKgQPvuW21Ruw">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3Xl3AZsgEeK9lfYKgcrnfg" keySequence="ESC ." command="_HBd05W7tEeKgQPvuW21Ruw">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XoTQJsgEeK9lfYKgcrnfg" keySequence="CTRL+]" command="_HBeb8W7tEeKgQPvuW21Ruw">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3Xo6UZsgEeK9lfYKgcrnfg" keySequence="CTRL+[" command="_HBbYpG7tEeKgQPvuW21Ruw">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XphYJsgEeK9lfYKgcrnfg" keySequence="ESC ;" command="_HBeb827tEeKgQPvuW21Ruw">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
   </bindingTables>
   <bindingTables xmi:id="_HCBOgW7tEeKgQPvuW21Ruw" elementId="org.eclipse.cdt.ui.macroExpansionHoverScope" bindingContext="_HBkilW7tEeKgQPvuW21Ruw">
     <bindings xmi:id="_HCBOgm7tEeKgQPvuW21Ruw" keySequence="ALT+ARROW_LEFT" command="_HBb_sW7tEeKgQPvuW21Ruw"/>
@@ -1105,6 +2107,42 @@
     <bindings xmi:id="_X6JDMHPEEeKdqoAjHHxOyA" keySequence="CTRL+SHIFT+A" command="_PSb7s27kEeKyi6QsY3Uf0w"/>
   </bindingTables>
   <bindingTables xmi:id="_X_s4oXPEEeKdqoAjHHxOyA" bindingContext="_X_s4oHPEEeKdqoAjHHxOyA"/>
+  <bindingTables xmi:id="_3VSJ4ZsgEeK9lfYKgcrnfg" elementId="org.eclipse.pde.ui.pdeEditorContext" bindingContext="_3VSJ4JsgEeK9lfYKgcrnfg">
+    <bindings xmi:id="_3XkB0JsgEeK9lfYKgcrnfg" keySequence="ALT+;" command="_PSRjnm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+    <bindings xmi:id="_3XnsMZsgEeK9lfYKgcrnfg" keySequence="ESC ;" command="_PSRjnm7kEeKyi6QsY3Uf0w">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+      <tags>deleted</tags>
+    </bindings>
+  </bindingTables>
+  <bindingTables xmi:id="_T4azMZshEeK9lfYKgcrnfg" elementId="org.eclipse.ui.console.ConsoleView" bindingContext="_PStocG7kEeKyi6QsY3Uf0w">
+    <bindings xmi:id="_T4d2gJshEeK9lfYKgcrnfg" keySequence="ALT+BS" command="_1AHpWZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4fEopshEeK9lfYKgcrnfg" keySequence="CTRL+W" command="_0_94U5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T4-z4pshEeK9lfYKgcrnfg" keySequence="ESC BS" command="_1AHpWZsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5BQIZshEeK9lfYKgcrnfg" keySequence="ESC D" command="_1ACJxpsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5DsYpshEeK9lfYKgcrnfg" keySequence="CTRL+K" command="_1AEmA5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5JzAJshEeK9lfYKgcrnfg" keySequence="CTRL+D" command="_1AA7o5sgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5MPQZshEeK9lfYKgcrnfg" keySequence="ALT+W" command="_1AF0IJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+    <bindings xmi:id="_T5M2UJshEeK9lfYKgcrnfg" keySequence="ESC W" command="_1AF0IJsgEeK9lfYKgcrnfg">
+      <tags>schemeId:com.mulgasoft.emacsplusConfiguration</tags>
+    </bindings>
+  </bindingTables>
   <rootContext xmi:id="_PRx0WW7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.ui.workbench" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_PRx0Wm7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.ui.workbench" name="In Windows" description="A window is open">
       <children xmi:id="_PRx0W27kEeKyi6QsY3Uf0w" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.ui.workbench" name="%bindingcontext.name.bindingView"/>
@@ -1237,6 +2275,7 @@
   <rootContext xmi:id="_HVkcom7tEeKgQPvuW21Ruw" elementId="org.eclipse.cdt.ui.text.c.actionSet.presentation" name="Auto::org.eclipse.cdt.ui.text.c.actionSet.presentation"/>
   <rootContext xmi:id="_HERpoHMREeKX_obm7LdGxA" elementId="com.android.ide.eclipse.adt.debug.LaunchConfigType.internal.org.eclipse.debug.ui.DebugPerspective" name="Auto::com.android.ide.eclipse.adt.debug.LaunchConfigType.internal.org.eclipse.debug.ui.DebugPerspective"/>
   <rootContext xmi:id="_X_s4oHPEEeKdqoAjHHxOyA" elementId="org.eclipse.wb.core.xml.editor.actions.SwitchPairEditorAction" name="Auto::org.eclipse.wb.core.xml.editor.actions.SwitchPairEditorAction"/>
+  <rootContext xmi:id="_3VSJ4JsgEeK9lfYKgcrnfg" elementId="org.eclipse.pde.ui.pdeEditorContext" name="Auto::org.eclipse.pde.ui.pdeEditorContext"/>
   <descriptors xmi:id="_PWsJgG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.e4.ui.compatibility.editor" allowMultiple="true" category="org.eclipse.e4.primaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor">
     <tags>Editor</tags>
   </descriptors>
@@ -1332,7 +2371,7 @@
     <tags>View</tags>
     <tags>categoryTag:Java</tags>
   </descriptors>
-  <descriptors xmi:id="_PW_EcG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.texteditor.TemplatesView" label="Templates" iconURI="platform:/plugin/org.eclipse.cdt.ui//icons/view16/templates.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+  <descriptors xmi:id="_PW_EcG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.ui.texteditor.TemplatesView" label="Templates" iconURI="platform:/plugin/org.eclipse.jdt.ui//icons/full/eview16/templates.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:General</tags>
   </descriptors>
@@ -1599,6 +2638,14 @@
   <descriptors xmi:id="_HFRW0G7tEeKgQPvuW21Ruw" elementId="org.eclipse.cdt.ui.typeHierarchy" label="Type Hierarchy" iconURI="platform:/plugin/org.eclipse.cdt.ui/icons/view16/class_hi.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
     <tags>View</tags>
     <tags>categoryTag:&amp;C/C++</tags>
+  </descriptors>
+  <descriptors xmi:id="_zzjacJseEeKVIPPf_jktsA" elementId="org.eclipse.sequoyah.device.framework.ui.InstanceMgtView" label="Device Management" iconURI="platform:/plugin/org.eclipse.sequoyah.device.framework.ui/icons/full/obj16/device.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:Sequoyah</tags>
+  </descriptors>
+  <descriptors xmi:id="_zzlPoJseEeKVIPPf_jktsA" elementId="org.eclipse.sequoyah.vnc.vncviewer.vncviews.views.VNCViewerView" label="VNC Viewer" iconURI="platform:/plugin/org.eclipse.sequoyah.vnc.vncviewer.vncviews/icons/vncMonitor.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:VNC</tags>
   </descriptors>
   <commands xmi:id="_PRx0XW7kEeKyi6QsY3Uf0w" elementId="e4.exit" contributorURI="platform:/plugin/org.eclipse.ui.workbench" commandName="%command.name.exit" description=""/>
   <commands xmi:id="_PRx0Xm7kEeKyi6QsY3Uf0w" elementId="e4.show.view" contributorURI="platform:/plugin/org.eclipse.ui.workbench" commandName="%command.name.showView">
@@ -2473,6 +3520,358 @@
   <commands xmi:id="_X5T8wXPEEeKdqoAjHHxOyA" elementId="org.eclipse.wb.core.xml.editor.actions.SwitchPairEditorAction" commandName="Switch Source/Design Editors" description="Switch between the Source and Design editors." category="_PSQVdm7kEeKyi6QsY3Uf0w"/>
   <commands xmi:id="_X5Uj0HPEEeKdqoAjHHxOyA" elementId="org.eclipse.wb.core.xml.editor.actions.SwitchAction" commandName="Switch Source/Design Views" description="Switch between the Source and Design views." category="_PSQVdm7kEeKyi6QsY3Uf0w"/>
   <commands xmi:id="_X5VK4HPEEeKdqoAjHHxOyA" elementId="org.eclipse.wb.core.xml.commands.empty" commandName="Empty command" description="Command which does nothing" category="_PSQVdm7kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_zlOqkJseEeKVIPPf_jktsA" elementId="org.eclipse.sequoyah.android.cdt.internal.build.ui.javatocppgenerator" commandName="Generate C files from Java Class..." category="_PSQVgG7kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_zlOqkZseEeKVIPPf_jktsA" elementId="org.eclipse.sequoyah.android.cdt.internal.build.ui.addNativeSupport" commandName="Add Native Support to project..." category="_PSQVgG7kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_8DIJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.commandDescribeKey" commandName="Describe Key" description="Reads a key sequence from the minibuffer and displays information about the associated command" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_8DIZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.joinWindow" commandName="Join Other Windows" description="Join previously split window to window frame" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_8DIpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardMarkSexp" commandName="Forward Sexp" description="Move forward one s-expression (balanced expression)" category="_PSQVf27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_8DI5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_8DJJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.jumpToRegister" commandName="Jump to Register" description="Move point to location stored in register *R*" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_8qMJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardDeleteLine" commandName="Backward Delete Line" description="Internal Backward Delete Line" category="_0_7cEZsgEeK9lfYKgcrnfg"/>
+  <commands xmi:id="_0_8qMZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardChar" commandName="Backward Character" description="Move point backward one character" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_8qMpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_8qM5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.deletehorizspace" commandName="Delete Horizontal Space" description="Delete all tabs and spaces from around the cursor" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_8qNJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.sortFields" commandName="Sort Fields" description="Sort lines in region lexicographically by the ARGth field of each line" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_8qNZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_8qNpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.rotateGlobalMark" commandName="Rotate Global Mark" description="Rotate global mark ring and jump to the top location" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_8qN5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.viewRegister" commandName="View Register" description="Display what is contained in register *R*" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_8qOJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_9RQJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.popMark" commandName="Pop To Mark" description="Jump to mark, and pop a new position for mark off the mark ring" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_9RQZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.viewKbdMacro" commandName="View Kbd Macro" description="View Kbd Macro" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_9RQpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_9RQ5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardSelectParagraph" commandName="Select Forward Paragraph" description="Select forward to end of paragraph" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_0_9RRJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_9RRZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.recenterTopBottom" commandName="Recenter Top Bottom" description="Move current line to window center, top, and bottom, successively" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_9RRpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_9RR5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.scrollUp" commandName="Scroll Up" description="Scroll forward by nearly a full window" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_9RSJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_9RSZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.gotoLine" commandName="Goto Line" description="Goto line, counting from line 1 at beginning of buffer" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_94UJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_94UZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.kbdMacroBind" commandName="Kbd Macro Bind To Key" description="Offer to bind last macro to a key when not defining or executing a macro" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_94UpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_94U5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.consoleCut" commandName="Cut" description="Cut" category="_0_7cEZsgEeK9lfYKgcrnfg"/>
+  <commands xmi:id="_0_94VJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardsWindow" commandName="Backward Other Window" description="Activate the oldest previous editor window" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_94VZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.endKbdMacro" commandName="Kbd Macro End" description="End the definition of a Kbd Macro" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_94VpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.saveKbdMacro" commandName="Save Kbd Macro" description="Save a Kbd Macro to a file" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_94V5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_94WJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.whatLine" commandName="What Line" description="Print the current buffer line number and narrowed line number of point" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_94WZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.uppercase" commandName="Uppercase" description="Upper case the selected region or the following word" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_94WpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_-fYJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.commandDescribeBriefKey" commandName="Describe Key Briefly" description="Reads a key sequence from the minibuffer and displays command information in the status bar" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_-fYZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.getHelp" commandName="Describe Help Commands" description="Help about the Emacs+ help commands" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_-fYpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.beginLine" commandName="Begin Line" description="Move point to the beginning of the line" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_-fY5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.beginBuffer" commandName="Begin Buffer" description="Move point to the beginning of the buffer" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_-fZJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardMarkParagraph" commandName="Forward Paragraph" description="Move forward to end of paragraph" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_-fZZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_-fZpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.closeOtherInstances" commandName="Close Other Instances" description="Close all other instances of the selected editor" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_-fZ5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.deleteRectangle" commandName="Delete Rectangle" description="Delete the text of the rectangle" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0_-faJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.tagsSearchSpace" commandName="Search in Workspace" description="Search for text in the Workspace" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0_-faZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0_-fapsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.setMark" commandName="Set Mark Command" description="Set the mark at cursor position and push onto mark ring" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0__GcJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+    <parameters xmi:id="_0__GcZsgEeK9lfYKgcrnfg" elementId="shiftArg" name="Shift" typeId="com.mulgasoft.emacsplus.String"/>
+  </commands>
+  <commands xmi:id="_0__GcpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.keyboardQuit" commandName="Keyboard Quit" description="End operation - deactivate current selection" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0__Gc5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.linenumberMode" commandName="Line Number Mode" description="Toggle display of line numbers in buffer" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0__GdJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.scrollOther" commandName="Scroll Other Window" description="Scroll the other window one block of lines" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0__GdZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0__GdpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.numberToRegister" commandName="Number to Register" description="Store a number into register *R*&#xA;&#x9;Number is universal argument, read from selection or point, or 0" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0__Gd5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0__GeJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.executeKbdMacro" commandName="Kbd Macro Call" description="Call the most recent Kbd Macro" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0__GeZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0__tgJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.metaX" commandName="Execute Extended Command" description="Reads a command name from the minibuffer (with completion &amp; wildcards) and executes it" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0__tgZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0__tgpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.beginOther" commandName="Begin Buffer Other Window" description="Go to the beginning of the buffer in the other window" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0__tg5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.popGlobalMark" commandName="Pop Global Mark" description="Pop off global mark ring and jump to the top location" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_0__thJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.undoRedo" commandName="Undo+" description="Undo some previous change(s)" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0__thZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0__thpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardUpList" commandName="Backward Up List" description="Move backward out of one level of brackets" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_0__th5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0__tiJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardSelectSexp" commandName="Select Backward Balanced Expression" description="Select back one balanced expression" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_0__tiZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_0__tipsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.killforwardsexp" commandName="Kill Sexp" description="Kill forward one s-expression (balanced expression)" category="_PSQVf27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AAUkJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AAUkZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.queryRegexpReplace" commandName="Query Replace Regexp" description="Replace some occurrences of (regular expression) query-string after starting point with (substitution expression) replacement string" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AAUkpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.killRectangle" commandName="Kill Rectangle" description="Kill the text of the rectangle, saving its contents as the last killed rectangle" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AAUk5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.otherWindow" commandName="Other Window" description="Activate the next previous editor window" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AAUlJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AAUlZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardSelectParagraph" commandName="Select Backward Paragraph" description="Select backward to start of paragraph" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AAUlpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AAUl5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardsexp" commandName="Backward Balanced Expression" description="Move back one balanced expression" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AAUmJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AA7oJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.popTagMark" commandName="Pop Tag Mark" description="Pop off tag mark ring and jump to the top location" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AA7oZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.endCallKbdMacro" commandName="Kbd Macro End or Call" description="End the definition of a Kbd Macro, or execute the most recent Kbd Macro" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AA7opsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.yankRectangle" commandName="Yank Rectangle" description="Yank the last killed rectangle with its upper left corner at point" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AA7o5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.deleteChar" commandName="Delete Char" description="Delete Char" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AA7pJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AA7pZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.endLine" commandName="End Line" description="Move point to the end of the line" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AA7ppsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.nextLine" commandName="Next Line" description="Move point down one line" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AA7p5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AA7qJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.deleteWindow" commandName="Deactivate Window" description="Deactivate (and join if previously split) window" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AA7qZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.previousKbdMacro" commandName="Kbd Macro Cycle Ring Previous" description="Rotate the keyboard macro ring to the previous macro (defined later)" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ABisJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ABisZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.commandDescribe" commandName="Describe Command" description="Reads a command name from the minibuffer and displays information about it" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ABispsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardKillLine" commandName="Backward Kill Line" description="Internal Backward Kill Line" category="_0_7cEZsgEeK9lfYKgcrnfg"/>
+  <commands xmi:id="_1ABis5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.narrowRegion" commandName="Narrow To Region" description="Restrict editing of the buffer to the selected region" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ABitJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.markSexp" commandName="Mark Sexp" description="Select forward ARG s-expressions (balanced expression)" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ABitZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ABitpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.lowercase" commandName="Lowercase" description="Lower case the selected region or the following word" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ABit5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ABiuJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.transposeword" commandName="Transpose Words" description="Interchange words around point, leaving point at end of them" category="_PSQVf27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ABiuZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ACJwJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.markParagraph" commandName="Mark Paragraph" description="Put point and mark around this or next paragraph" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ACJwZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ACJwpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.zapToChar" commandName="Zap to Char" description="Kill up to and including ARGth occurrence of char" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ACJw5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ACJxJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.splitHorizontalWindow" commandName="Split Window Horizontally" description="Split the window frame horizontally and put the current window below the others" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ACJxZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.emacsPref" commandName="Emacs Preferences" description="Open Emacs preferences page" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ACJxpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.deleteNextWord" commandName="Delete Next Word" description="Delete Next Word" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1ACJx5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ACJyJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.insertRegister" commandName="Insert Register" description="Insert contents of register *R*" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ACJyZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ACJypsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.switchToBuffer" commandName="Switch to Buffer" description="Activate current text editor and prompt in the minibuffer for a buffer to which to switch" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ACw0JsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.pushMark" commandName="Push Mark" description="Set the mark at cursor position and push onto mark ring without activation" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ACw0ZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardBlockOfLines" commandName="Backward Block of Lines" description="Move backward by one block of lines" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ACw0psgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ACw05sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.commandApropos" commandName="Apropos Command" description="Reads a string from the minibuffer and displays list of matching commands" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ACw1JsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.deleteTrailingWhitespace" commandName="Delete Trailing Whitespace" description="Delete all the trailing whitespace across the current buffer" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ACw1ZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.incrementRegister" commandName="Increment Register" description="Add number to the contents of register *R*&#xA;&#x9;Number is universal argument or 1" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ACw1psgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ACw15sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.sortCase" commandName="Sort Fold Case" description="Toggle whether alphabetic case affects sort order" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ACw2JsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ACw2ZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.startKbdMacro" commandName="Kbd Macro Start" description="Start the definition of a Kbd Macro" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ACw2psgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ADX4JsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backToIndent" commandName="Back To Indent" description="Move point to the first non-whitespace character on this line" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ADX4ZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ADX4psgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.sortNumeric" commandName="Sort Numeric Fields" description="Sort lines in region numerically by the ARGth field of each line" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ADX45sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ADX5JsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.getNews" commandName="Emacs+ News" description="%news.command.descriptions" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ADX5ZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.endOther" commandName="End Buffer Other Window" description="Go to the end of the buffer in the other window" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ADX5psgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.splitLine" commandName="Split Line" description="Split current line, moving portion beyond point vertically down" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ADX55sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ADX6JsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.insertRectangle" commandName="String Rectangle" description="Insert &lt;STRING> on each line of rectangle" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ADX6ZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.indentRigidly" commandName="Indent Rigidly" description="Indent all lines starting in the region sideways by ARG columns" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AD-8JsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AD-8ZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.transposesexp" commandName="Transpose Sexps" description="Interchange s-expressions (balanced expressions) around point, leaving point at end of them" category="_PSQVf27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AD-8psgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AD-85sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.countLinesBuffer" commandName="Count Lines Buffer" description="Print number of lines in current buffer, and how many are before or after point" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AD-9JsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.scrollOtherDown" commandName="Scroll Other Window Down" description="Scroll the other window down one block of lines" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AD-9ZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AD-9psgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.endBuffer" commandName="End Buffer" description="Move point to the end of the buffer" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AD-95sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardMarkParagraph" commandName="Backward Paragraph" description="Move backward to start of paragraph" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AD--JsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AD--ZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardWord" commandName="Forward Word" description="Move point forward one word" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AEmAJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AEmAZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.transposeline" commandName="Transpose Lines" description="Exchange current line and previous line, leaving point after both" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AEmApsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AEmA5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.killLine" commandName="Kill Line" description="Internal Kill Line" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AEmBJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AEmBZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.markWord" commandName="Mark Word" description="Select forward ARG words away from point" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AEmBpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AEmB5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardParagraph" commandName="Forward Paragraph" description="Move forward to end of paragraph" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AEmCJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AEmCZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.yankpop" commandName="Yank Pop" description="Replace just-yanked stretch of killed text with a different stretch" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AFNEJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardSelectSexp" commandName="Select Forward Balanced Expression" description="Select forward one balanced expression" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AFNEZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AFNEpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.commandBindings" commandName="Describe Bindings" description="Show a list of all currently active key bindings and their associated command" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AFNE5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.listMatching" commandName="List Matching Lines" description="Display search results showing each line in the buffer that contains a match for the regexp" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AFNFJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.gotoChar" commandName="Goto Char" description="Move point to character position" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AFNFZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AFNFpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.tagsSearchSet" commandName="Search in Working Set" description="Search for text in the current Working Set" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AFNF5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AFNGJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.justOneSpace" commandName="Just One Space" description="Delete all spaces and tabs around point, leaving one space" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AFNGZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.browseKillRing" commandName="Browse Kill Ring" description="Display items from the Kill-Ring in the Emacs+ console" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AFNGpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.commandWhereIs" commandName="Where Is Command" description="Reads a command name from the minibuffer and displays just key-binding information about it" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AF0IJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.consoleCopy" commandName="Copy" description="Copy" category="_0_7cEZsgEeK9lfYKgcrnfg"/>
+  <commands xmi:id="_1AF0IZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.markAll" commandName="Mark Whole Buffer" description="Put point at beginning and mark at end of buffer and select" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AF0IpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.killbackwardsexp" commandName="Backward Kill Sexp" description="Kill backward one s-expression (balanced expression)" category="_PSQVf27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AF0I5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AF0JJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.appendcomment" commandName="Indent For Comment" description="Add or jump to comment at line end" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AF0JZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardParagraph" commandName="Backward Paragraph" description="Move backward to start of paragraph" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AF0JpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AF0J5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.universalArgument" commandName="Universal Argument" description="Begin a numeric argument for the following command" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AF0KJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.shiftSelect" commandName="Shift Select Mode" description="Toggle whether shift selection mode is enabled" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AF0KZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AGbMJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardBlockOfLines" commandName="Forward Block of Lines" description="Move forward by one block of lines" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AGbMZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AGbMpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.toggleAllowEdit" commandName="Toggle Allow Edit" description="Allow Emacs+ extended edit commands in read-only buffers globally" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AGbM5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.countMatches" commandName="Count Matches" description="Print and return number of matches for REGEXP following point" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AGbNJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.rectangleToRegister" commandName="Copy Rectangle To Register" description="Copy the rectangle to register *R*" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AGbNZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AGbNpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardWord" commandName="Backward Word" description="Move point backward one word" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AGbN5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AGbOJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.occur" commandName="Occur" description="Display search results showing each line in the buffer that contains a match for the regexp" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AGbOZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.pointToRegister" commandName="Point to Register" description="Store current location of point in register *R*" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AHCQJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.preappendcomment" commandName="Comment Previous" description="Append comment previous line" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AHCQZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.openRectangle" commandName="Open Rectangle" description="Insert blank space to fill the space of the rectangle" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AHCQpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.alignRegexp" commandName="Align Regexp" description="Align the current region using an ad-hoc rule read from the minibuffer" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AHCQ5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AHCRJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.splitVerticalWindow" commandName="Split Window Vertically" description="Split the window frame vertically and put the current window beside the others" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AHCRZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.previousLine" commandName="Previous Line" description="Move point up one line" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AHCRpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AHCR5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.yank" commandName="Yank" description="Reinsert the last stretch of killed text" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AHCSJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AHCSZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.eclipseKeys" commandName="Keys Preferences" description="Open Keys preferences page" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AHCSpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.mergeLine" commandName="Delete Indentation" description="Join this line to previous and fix up whitespace at join" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AHpUJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AHpUZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.newLineIndent" commandName="New Line Indent" description="Insert a newline, with potential auto-indent determined by editor" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AHpUpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AHpU5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.isearchRegexpForward" commandName="Regexp I-Search forward" description="Incremental search forward for a regular expression" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AHpVJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.downList" commandName="Down List" description="Move forward down one level of brackets" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AHpVZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AHpVpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.nameKbdMacro" commandName="Name Last Kbd Macro" description="Give a command name (for the duration of the Eclipse session) to the most recently defined keyboard macro" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AHpV5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.yankrotate" commandName="Rotate Yank Pointer" description="Rotate the yank pointer in the kill ring" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AHpWJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AHpWZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.deletePreviousWord" commandName="Delete Previous Word" description="Delete Previous Word" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AIQYJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AIQYZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.replaceRectangle" commandName="Replace Rectangle" description="Replace rectangle contents with &lt;STRING> on each line" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AIQYpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.widenRegion" commandName="Widen" description="Remove the restrictions (narrowing) from the buffer" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AIQY5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.appendToRegister" commandName="Append to Register" description="Append selection to text stored in register *R*" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AIQZJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AIQZZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardsexp" commandName="Forward Balanced Expression" description="Move forward one balanced expression" category="_0_7cEZsgEeK9lfYKgcrnfg">
+    <parameters xmi:id="_1AIQZpsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AIQZ5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.tagsSearchProject" commandName="Search in Project" description="Search for text in the Project" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AIQaJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AIQaZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.isearchForward" commandName="I-Search forward" description="Incremental search forward" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AIQapsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.clearRectangle" commandName="Clear Rectangle" description="Clear the rectangle by replacing all of its contents with whitespace" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AI3cJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.transposeParagraph" commandName="Transpose Paragraphs" description="Interchange the current paragraph with the next one" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AI3cZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AI3cpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.joinLine" commandName="Join Line" description="Join this line to previous line and fix up whitespace at join" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AI3c5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AI3dJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.upList" commandName="Up List" description="Move forward out of one level of brackets" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AI3dZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AI3dpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.countLinesRegion" commandName="Count Lines Region" description="Print number of lines and characters in the region" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AI3d5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.prependToRegister" commandName="Prepend to Register" description="Prepend selection to text stored in register *R*" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AI3eJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AI3eZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.copyToRegister" commandName="Copy to Register" description="Copy selection into register *R*" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AJegJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AJegZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.exchangeMark" commandName="Exchange Point and Mark" description="- Exchange point and mark" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AJegpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.eval" commandName="Eval Expression" description="Set/Show a preference variable dynamically" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AJeg5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AJehJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.indentForTab" commandName="Indent For Tab" description="Indent line or region in proper way for current mode or insert a tab" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AJehZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AJehpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.nextKbdMacro" commandName="Kbd Macro Cycle Ring Next" description="Rotate the keyboard macro ring to the next macro (defined earlier)" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AJeh5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AJeiJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.isearchBackward" commandName="I-Search backward" description="Incremental search backward" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AJeiZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.whitespaceRectangle" commandName="Delete Whitespace Rectangle" description="Delete initial whitespace on each of the lines in the specified rectangle" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AJeipsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.postappendcomment" commandName="Comment Next" description="Append comment next line" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKFkJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.whitespaceMode" commandName="Global Whitespace Mode" description="Toggle whitespace global mode visualization" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKFkZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.reverseRegion" commandName="Reverse Region" description="Reverse the order of the lines in the region" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKFkpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.loadKbdMacro" commandName="Load Kbd Macro" description="Load a saved Kbd Macro into this session" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AKFk5sgEeK9lfYKgcrnfg" elementId="Name" name="Name" typeId="com.mulgasoft.emacsplus.String"/>
+    <parameters xmi:id="_1AKFlJsgEeK9lfYKgcrnfg" elementId="Force" name="Force" typeId="com.mulgasoft.emacsplus.Boolean"/>
+  </commands>
+  <commands xmi:id="_1AKFlZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.toggleLineHighlight" commandName="Hl Line Mode" description="Toggle mode that highlights the line about the buffer's point in all buffers globally" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKFlpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.cursorPosition" commandName="What Cursor Position" description="Print info on cursor position (on screen and within buffer)" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKFl5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.stringReplace" commandName="Replace String" description="Replace occurrences of search-string after point with replacement string" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKFmJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.recenterOther" commandName="Recenter Other Window" description="Center point in the other window" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKFmZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.kbdMacroApply" commandName="Apply Macro To Region Lines" description="Run the last keyboard macro on each line that begins in the region" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKsoJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.transposechar" commandName="Transpose Characters" description="Interchange characters around point" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AKsoZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AKsopsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.listRegister" commandName="List Registers" description="Display a list of nonempty registers saying briefly what they contain" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKso5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.regexpReplace" commandName="Replace Regexp" description="Replace occurrences of (regular expression) search-string after starting point with (substitution expression) replacement string" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKspJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.isearchRegexpBackward" commandName="Regexp I-Search backward" description="Incremental search backward for a regular expression" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1AKspZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.sortLines" commandName="Sort Lines" description="Sort lines in region alphabetically; argument means descending order" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AKsppsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AKsp5sgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.forwardChar" commandName="Forward Character" description="Move point forward one character" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1AKsqJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1AKsqZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.scrollDown" commandName="Scroll Down" description="Scroll backward by nearly a full window" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ALTsJsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ALTsZsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.queryReplace" commandName="Query Replace" description="Replace some occurrences of query-string after starting point with replacement-string" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_1ALTspsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.deleteBlankLines" commandName="Delete Blank Lines" description="On blank line, delete all surrounding blank lines, leaving just one.&#xA;&#x9;On isolated blank line, delete that one.&#xA;&#x9;On non-blank line, delete any immediately following blank lines" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ALTs5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ALTtJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.capitalize" commandName="Capitalize" description="Capitalize region or word" category="_PSQVe27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ALTtZsgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ALTtpsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.backwardMarkSexp" commandName="Backward Sexp" description="Move back one s-expression (balanced expression)" category="_PSQVf27kEeKyi6QsY3Uf0w">
+    <parameters xmi:id="_1ALTt5sgEeK9lfYKgcrnfg" elementId="universalArg" name="Arg" typeId="com.mulgasoft.emacsplus.Integer"/>
+  </commands>
+  <commands xmi:id="_1ALTuJsgEeK9lfYKgcrnfg" elementId="com.mulgasoft.emacsplus.appendNextKill" commandName="Append Next Kill" description="Cause following command, if it kills, to append to previous kill" category="_PSQVe27kEeKyi6QsY3Uf0w"/>
+  <commands xmi:id="_tcGBwZshEeKWadAeUzSTZg" elementId="org.eclipse.egit.ui.team.clean" commandName="Clean..." category="_PSQVeW7kEeKyi6QsY3Uf0w"/>
   <addons xmi:id="_PRx0Ym7kEeKyi6QsY3Uf0w" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_PRx0Y27kEeKyi6QsY3Uf0w" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_PRx0ZG7kEeKyi6QsY3Uf0w" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -2524,4 +3923,7 @@
   <categories xmi:id="_HBbYoG7tEeKgQPvuW21Ruw" elementId="org.eclipse.cdt.ui.category.source" name="C/C++ Source" description="C/C++ Source Actions"/>
   <categories xmi:id="_HBbYoW7tEeKgQPvuW21Ruw" elementId="org.eclipse.cdt.debug.ui.category.runControl" name="Run Control Commands" description="Set of commands for Run Control"/>
   <categories xmi:id="_HBbYom7tEeKgQPvuW21Ruw" elementId="org.eclipse.cdt.debug.ui.category.tracing" name="Tracing Commands" description="Category for Tracing Commands"/>
+  <categories xmi:id="_zlODgZseEeKVIPPf_jktsA" elementId="org.eclipse.sequoyah.localization.editor.commands" name="Localization" description="Commands related to localization"/>
+  <categories xmi:id="_0_7cEJsgEeK9lfYKgcrnfg" elementId="emacsplus.keyboard.macros" name="Emacs+ Keyboard Macros" description="Keyboard Macros"/>
+  <categories xmi:id="_0_7cEZsgEeK9lfYKgcrnfg" elementId="gazonk.del" name="gazonk.del" description="Uncategorized Emacs+ commands that should not be invoked via M-x"/>
 </application:Application>

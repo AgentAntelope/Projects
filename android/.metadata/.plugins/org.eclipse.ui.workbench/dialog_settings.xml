@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="PreferencesImportWizard">
+		<item value="/home/sean/Downloads/theme-52.epf" key=""/>
+		<list key="WizardPreferencesExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/home/sean/Downloads/theme-52.epf"/>
+		</list>
+	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item value="794" key="dialogWidth"/>
-		<item value="494" key="dialogHeight"/>
+		<item value="800" key="dialogWidth"/>
+		<item value="500" key="dialogHeight"/>
 		<list key="orderedProviders">
 		</list>
 		<list key="textArray">
@@ -11,6 +17,10 @@
 		</list>
 		<list key="textEntries">
 		</list>
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="19" key="DIALOG_Y_ORIGIN"/>
+		<item value="0" key="DIALOG_X_ORIGIN"/>
 	</section>
 	<section name="NewWizardAction">
 		<item value="org.eclipse.wb.swing.JDialog" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
@@ -22,10 +32,19 @@
 	<section name="EditorSelectionDialog">
 		<item value="false" key="EditorSelectionDialog.STORE_ID_INTERNAL_EXTERNAL"/>
 	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+		<item value="true" key="uncategorizedFilter"/>
+		<item value="true" key="internalFilter"/>
+		<item value="true" key="actionSetFilter"/>
+	</section>
 	<section name="ImportExportAction">
-		<item value="com.android.ide.eclipse.adt.project.ImportProjectWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
+		<item value="org.eclipse.egit.ui.internal.clone.GitCloneWizard" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
 			<item value="com.android.ide.eclipse.wizards.category"/>
+			<item value="org.eclipse.egit.ui.internal.clone.gitclonecategory"/>
+			<item value="org.eclipse.team.ui.importWizards"/>
+			<item value="org.eclipse.wst.XMLCategory"/>
 		</list>
 	</section>
 </section>
