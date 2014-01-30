@@ -57,7 +57,7 @@ void          "void"
 {newline}           {yyline++; yycolumn=0;}
 {or}                { yycolumn+=2;return (ORnum);}
 {and}               { yycolumn+=2;return (ANDnum);}
-{assign}            { yycolumn+=2;return (ASSGNnum); }
+
 {decls}             { yycolumn+=12;return (DECLARATIONSnum);}
 {dot}               { yycolumn+=1;return (DOTnum);}
 {end-decls}         {  yycolumn+=15;return (ENDDECLARATIONSnum);}
