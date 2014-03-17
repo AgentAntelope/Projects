@@ -616,7 +616,7 @@ static int yy_more_len = 0;
 char *yytext;
 #line 1 "gens/mylex.l"
 #line 4 "gens/mylex.l"
-//#include "y.tab.h"
+#include "y.tab.h"
 #define EOFnum 0
 #define SLASHED 1
 #define NONE 0

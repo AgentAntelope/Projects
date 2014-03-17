@@ -7,6 +7,8 @@ import parser.InstructionAssembler;
 import java_cup.runtime.Symbol;
 import java.io.*;
 import parser.Interpreter;
+import tools.parser;
+import tools.WrapperLex;
 
 public class main {
 	public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class main {
 		}
 		Symbol parse_tree = null;
 		try {
-			parser parser_obj = new parser(new MipsLex(new FileInputStream(args[0])));
+			parser parser_obj = new parser(new WrapperLex(new FileInputStream(args[0])));
 			parse_tree = parser_obj.parse();
 			InstructionAssembler assembler = parser_obj.getAssembler();
 			assembler.resolve();

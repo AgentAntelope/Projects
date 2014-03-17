@@ -1,7 +1,8 @@
 %option noyywrap
 
 %{
-#include "token.h"
+//#include "y.tab.h"
+#define EOFnum 0
 #define SLASHED 1
 #define NONE 0
 void lowercase(char *, int);

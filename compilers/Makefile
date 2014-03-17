@@ -1,16 +1,16 @@
 LEX_FILE = mylex.l
-YACC_FILE = grammar.l
+YACC_FILE = grammar.y
+
 OUTPUT_PROGRAM = mylex
 
 all: lex yacc
-	gcc -o $(OUTPUT_PROGRAM) main.c -g
+	gcc -o $(OUTPUT_PROGRAM) src/main.c -g
 
 lex:
-	lex $(LEX_FILE)
+	lex gens/$(LEX_FILE)
 
 yacc:
-	ls	#	yacc $(YACC_FILE)
-
+	yacc -s -d -o src/y.tab.c gens/$(YACC_FILE)
 clean:
 	rm lex.yy.c 
 	rm mylex

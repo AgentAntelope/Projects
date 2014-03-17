@@ -2,7 +2,6 @@
 * @author: Sean Myers 
 */
 package parser.instructions;
-import parser.Operation;
 import parser.Immediate;
 import parser.InstructionAssembler;
 import parser.Interpreter;

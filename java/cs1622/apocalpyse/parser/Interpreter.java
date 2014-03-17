@@ -50,9 +50,11 @@ public class Interpreter{
 
 	public void run(){
 		while(true){
+			if(position < 0 || position >= instructions.size()){
+				System.exit(0);
+			}
 			Instruction ins = instructions.get(position);
 			ins.runInstruction(this);
-			System.out.println(ins);
 		}
 	}
 }
