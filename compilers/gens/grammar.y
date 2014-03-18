@@ -70,7 +70,7 @@ class_body           :  LBRACEnum RBRACEnum
 ;
 
 decls                :  DECLARATIONSnum field_decls ENDDECLARATIONSnum
-		             |  DECLARATIONSnum ENDDECLARATIONSnum
+                     |  DECLARATIONSnum ENDDECLARATIONSnum
 ;
 
 field_decls          :  field_decl
@@ -121,7 +121,6 @@ params            : INTnum identifier_list
                   | VALnum INTnum identifier_list SEMInum params
                   | VALnum INTnum identifier_list
                   | INTnum identifier_list SEMInum params
-
 ;
 
 identifier_list   :  IDnum
@@ -149,13 +148,14 @@ statement_list    :   LBRACEnum statement_inner RBRACEnum
 
 statement_inner   :   statement
                   |   statement_inner SEMInum statement
-				  ;
+;
+
 statement         :   assign_stmt
                   |   method_call_stmt
                   |   return_stmt
                   |   if_stmt
                   |   while_stmt
-		          |
+                  |
 ;
 
 assign_stmt       :   variable ASSGNnum expression;
@@ -167,12 +167,12 @@ method_call_stmt  :   variable LPARENnum RPARENnum
 
 return_stmt   :   RETURNnum expression
               |   RETURNnum
-              ;
+;
 
 if_stmt       :   IFnum expression statement_list
               |   IFnum expression statement_list ELSEnum statement_list;
               |   IFnum expression statement_list ELSEnum if_stmt
-			  ;
+;
 
 
 while_stmt       :   WHILEnum expression statement_list;
@@ -180,7 +180,7 @@ while_stmt       :   WHILEnum expression statement_list;
 
 variable      :      IDnum
               |      IDnum selection 
-              ;
+;
 
 selection     :      LBRACnum indece_expr RBRACnum
 		      |      DOTnum IDnum
@@ -199,16 +199,16 @@ expression    :     simple_expression
               |     simple_expression NEnum simple_expression
               |     simple_expression GEnum simple_expression
               |     simple_expression GTnum simple_expression
-              ;
+;
 
 simple_expression  : optional_plus_minus term
                    |  optional_plus_minus term other_term
 ;
 
 optional_plus_minus :  
-                   |  PLUSnum
-                   |  MINUSnum
-				   ;
+                    |  PLUSnum
+                    |  MINUSnum
+;
 
 other_term    :    PLUSnum term
               |    MINUSnum term
@@ -229,10 +229,10 @@ other_factor  :   TIMESnum factor
 factor        :   SCONSTnum
               |   ICONSTnum
               |   variable
-	          |   method_call_stmt
+              |   method_call_stmt
               |   LPARENnum expression RPARENnum
               |   NOTnum factor
-              ;
+;
 
 
 
