@@ -3,6 +3,8 @@ YACC_FILE = grammar.y
 
 OUTPUT_PROGRAM = mylex
 OBJ_FILES = bin/main.o bin/yacc.o bin/lex.o
+
+
 all: yacc lex main
 	gcc -o $(OUTPUT_PROGRAM) $(OBJ_FILES)
 
