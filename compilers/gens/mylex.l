@@ -1,13 +1,31 @@
 %option noyywrap
 
 %{
-//#include "y.tab.h"
+#include "y.tab.h"
 #define EOFnum 0
 #define SLASHED 1
 #define NONE 0
+#define START_SIZE 20
+
 void lowercase(char *, int);
-extern int yycolumn, yylength, yyline, yylval;
-//extern char * yytext;
+int find_string(char * str, int word_size, char * str_table, int filled, int size);
+char * manage_string_table(char * old_table, int current_size);
+void manage_string(char * str, int size, char ** str_table, int * filled, int * str_table_size);
+int check_str_table(char * needle, char * haystack);
+
+
+extern int yycolumn, yylength, yyline;
+
+int yyline = 0;
+int yycolumn = 0;
+int start = 257;
+int lexReturn;
+int stringtable_size = START_SIZE;
+int filled = 0;
+int i = 0;
+char * string_table;
+char * arr[] = {"ANDnum", "ASSGNnum", "DECLARATIONSnum", "DOTnum", "ENDDECLARATIONSnum", "EQUALnum", "GTnum", "IDnum", "INTnum", "LBRACnum", "LPARENnum", "METHODnum", "NEnum", "ORnum", "PROGRAMnum", "RBRACnum", "RPARENnum", "SEMInum", "VALnum", "WHILEnum", "CLASSnum", "COMMAnum", "DIVIDEnum", "ELSEnum", "EQnum", "GEnum", "ICONSTnum", "IFnum", "LBRACEnum", "LEnum", "LTnum", "MINUSnum", "NOTnum", "PLUSnum", "RBRACEnum", "RETURNnum", "SCONSTnum", "TIMESnum", "VOIDnum"};
+
 int flag = NONE;
 %}
 
@@ -67,7 +85,21 @@ void          "void"
 %%
 \'[^'\n]*             {yycolumn+=yyleng;if(yytext[yyleng-1] == '\\') yymore();
                       else if(yytext[yyleng-1] == '\n'){ printf("String literals cant be spaced on multiple lines: line %d, column %d", yyline, yycolumn);yymore();}
-                     else{ input(); return SCONSTnum; }  
+                     else{ 
+                           input();
+			   int pos = filled;
+			   int possible_pos = 0;
+			   possible_pos = find_string(yytext + 1, yyleng, string_table, filled, stringtable_size);
+
+		           pos = (possible_pos > 0)?(possible_pos):(filled);
+			   printf("\t%-20s %-10d %-10d%-10d\n", "d", yyline, yycolumn, pos);
+			   if(possible_pos < 0){
+				manage_string(yytext + 1, yyleng, &string_table, &filled, &stringtable_size);
+			   }
+                           return SCONSTnum;
+
+
+                         }
                     }
 <WHITE>"/*"         {yycolumn+=2;}
 <WHITE>"*/"         {BEGIN INITIAL; yycolumn+=2; }
@@ -115,17 +147,32 @@ void          "void"
 {return}            {yycolumn+=yyleng; return (RETURNnum);}
 {times}             {yycolumn+=yyleng; return (TIMESnum);}
 {void}              {yycolumn+=yyleng; return (VOIDnum);}
-{id}                {yycolumn+=yyleng; lowercase(yytext, yyleng); return (IDnum);}
-{integer}           {yycolumn+=yyleng; return ICONSTnum;}
+{id}                {yycolumn+=yyleng; 
+                        lowercase(yytext, yyleng); 
+			int pos = filled;
+			int possible_pos = 0;
+			possible_pos = find_string(yytext, yyleng+1,string_table, filled, stringtable_size);
+
+			pos = (possible_pos >= 0)?(possible_pos):(filled);
+			if(possible_pos < 0){
+				manage_string(yytext, yyleng +1, &string_table, &filled, &stringtable_size);
+                        }
+
+                        return (IDnum);}
+{integer}           {   yycolumn+=yyleng; 
+                    	int pos = filled;
+			int possible_pos = 0;
+			possible_pos = find_string(yytext, yyleng+1,string_table, filled, stringtable_size);
+
+			pos = (possible_pos >= 0)?(possible_pos):(filled);
+			if(possible_pos < 0)
+				manage_string(yytext, yyleng +1, &string_table, &filled, &stringtable_size);
+
+                      return ICONSTnum;}
 {invalidid}         {yycolumn+=yyleng;printf("Error. Identifiers can't start with numbers: line %d, column %d.\n", yyline, yycolumn);}
 "//"[^\n]*             {}
 [%\^#@!$&*_|~?]     {yycolumn+=yyleng;printf("Malformed token at: Line  %d, Column %d\n", yyline, yycolumn);}
 %%
-
-int yyline = 0;
-int yycolumn = 0;
-int start = 257;
-char * arr[] = {"ANDnum", "ASSGNnum", "DECLARATIONSnum", "DOTnum", "ENDDECLARATIONSnum", "EQUALnum", "GTnum", "IDnum", "INTnum", "LBRACnum", "LPARENnum", "METHODnum", "NEnum", "ORnum", "PROGRAMnum", "RBRACnum", "RPARENnum", "SEMInum", "VALnum", "WHILEnum", "CLASSnum", "COMMAnum", "DIVIDEnum", "ELSEnum", "EQnum", "GEnum", "ICONSTnum", "IFnum", "LBRACEnum", "LEnum", "LTnum", "MINUSnum", "NOTnum", "PLUSnum", "RBRACEnum", "RETURNnum", "SCONSTnum", "TIMESnum", "VOIDnum"};
 
 /* Turns anything in the buffer to lowercase character */
 void lowercase(char * buffer, int length){
@@ -133,7 +180,58 @@ void lowercase(char * buffer, int length){
    int i;
    for(i = 0; i < length; i++){
 	   if(buffer[i] >= 65 && buffer[i] <= 90){
-	        buffer[i] += amt;		
+	        buffer[i] += amt;
 	   }
    }
+}
+
+
+/* Checks if a string is in the string table. Takes size into account, NO BUFFER OVERFLOW */
+int find_string(char * str, int word_size, char * str_table, int filled, int size){
+    // Check if the string is in the str_table.
+    int position = 0;
+    while(position < filled && word_size < size){
+		if(strcmp(str, str_table + position) == 0){
+			return position;
+		}
+		else{
+			// SEEEEEEEEEK
+			while(str_table[position++] != '\0');
+		}
+    }
+    return -1;
+}
+
+/* Puts a string into the string table. Manages size properly. */
+void manage_string(char * str, int size, char ** str_table, int * filled, int * str_table_size){
+    while((*str_table_size - *filled) < size){
+		*str_table = manage_string_table(*str_table, *str_table_size);
+		*str_table_size *= 2;
+    }
+    memcpy((*str_table) + *filled, str, size);
+
+    *filled = (*filled) + size;
+}
+
+/* Takes a string table, copies it to a doubly sized array and returns that */
+char * manage_string_table(char * old_table, int current_size){
+	int new_size = current_size * 2;
+	char * new_table = (char *) malloc(new_size);
+	if(new_table == 0){
+		exit(-1); // Bad news malloc bears.
+	}
+	memset(new_table, 0, new_size);
+
+	if(old_table == 0){
+		return new_table;
+	}
+	else{
+        memcpy(new_table, old_table, current_size);
+        return new_table;
+	}
+}
+
+void startup(){
+    string_table = manage_string_table(0, stringtable_size);    
+    printf("here\n");
 }

@@ -620,14 +620,32 @@ char *yytext;
 #define EOFnum 0
 #define SLASHED 1
 #define NONE 0
+#define START_SIZE 20
+
 void lowercase(char *, int);
-extern int yycolumn, yylength, yyline, yylval;
-//extern char * yytext;
+int find_string(char * str, int word_size, char * str_table, int filled, int size);
+char * manage_string_table(char * old_table, int current_size);
+void manage_string(char * str, int size, char ** str_table, int * filled, int * str_table_size);
+int check_str_table(char * needle, char * haystack);
+
+
+extern int yycolumn, yylength, yyline;
+
+int yyline = 0;
+int yycolumn = 0;
+int start = 257;
+int lexReturn;
+int stringtable_size = START_SIZE;
+int filled = 0;
+int i = 0;
+char * string_table;
+char * arr[] = {"ANDnum", "ASSGNnum", "DECLARATIONSnum", "DOTnum", "ENDDECLARATIONSnum", "EQUALnum", "GTnum", "IDnum", "INTnum", "LBRACnum", "LPARENnum", "METHODnum", "NEnum", "ORnum", "PROGRAMnum", "RBRACnum", "RPARENnum", "SEMInum", "VALnum", "WHILEnum", "CLASSnum", "COMMAnum", "DIVIDEnum", "ELSEnum", "EQnum", "GEnum", "ICONSTnum", "IFnum", "LBRACEnum", "LEnum", "LTnum", "MINUSnum", "NOTnum", "PLUSnum", "RBRACEnum", "RETURNnum", "SCONSTnum", "TIMESnum", "VOIDnum"};
+
 int flag = NONE;
 /* regular definitions */
 
 
-#line 631 "lex.yy.c"
+#line 649 "lex.yy.c"
 
 #define INITIAL 0
 #define WHITE 1
@@ -816,9 +834,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 67 "gens/mylex.l"
+#line 85 "gens/mylex.l"
 
-#line 822 "lex.yy.c"
+#line 840 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -909,258 +927,292 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 68 "gens/mylex.l"
+#line 86 "gens/mylex.l"
 {yycolumn+=yyleng;if(yytext[yyleng-1] == '\\') yymore();
                       else if(yytext[yyleng-1] == '\n'){ printf("String literals cant be spaced on multiple lines: line %d, column %d", yyline, yycolumn);yymore();}
-                     else{ input(); return SCONSTnum; }  
+                     else{ 
+                           input();
+			   int pos = filled;
+			   int possible_pos = 0;
+			   possible_pos = find_string(yytext + 1, yyleng, string_table, filled, stringtable_size);
+
+		           pos = (possible_pos > 0)?(possible_pos):(filled);
+			   printf("\t%-20s %-10d %-10d%-10d\n", "d", yyline, yycolumn, pos);
+			   if(possible_pos < 0){
+				manage_string(yytext + 1, yyleng, &string_table, &filled, &stringtable_size);
+			   }
+                           return SCONSTnum;
+
+
+                         }
                     }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 72 "gens/mylex.l"
+#line 104 "gens/mylex.l"
 {yycolumn+=2;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 73 "gens/mylex.l"
+#line 105 "gens/mylex.l"
 {BEGIN INITIAL; yycolumn+=2; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 74 "gens/mylex.l"
+#line 106 "gens/mylex.l"
 {yycolumn+=yyleng;}
 	YY_BREAK
 case YY_STATE_EOF(WHITE):
-#line 75 "gens/mylex.l"
+#line 107 "gens/mylex.l"
 {printf("Error, unended comment! Line %d, column %d\n", yyline, yycolumn); return 0;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 77 "gens/mylex.l"
+#line 109 "gens/mylex.l"
 {BEGIN WHITE; yycolumn+=2; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 80 "gens/mylex.l"
+#line 112 "gens/mylex.l"
 {yycolumn+=yyleng;}
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 81 "gens/mylex.l"
+#line 113 "gens/mylex.l"
 {yyline++; yycolumn=0;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 82 "gens/mylex.l"
+#line 114 "gens/mylex.l"
 {yycolumn+=yyleng; return (INTnum);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 83 "gens/mylex.l"
+#line 115 "gens/mylex.l"
 {yycolumn+=yyleng; return (ORnum);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 84 "gens/mylex.l"
+#line 116 "gens/mylex.l"
 {yycolumn+=yyleng; return (ANDnum);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 85 "gens/mylex.l"
+#line 117 "gens/mylex.l"
 {yycolumn+=yyleng; return (ASSGNnum); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 86 "gens/mylex.l"
+#line 118 "gens/mylex.l"
 {yycolumn+=yyleng; return (DECLARATIONSnum);}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 87 "gens/mylex.l"
+#line 119 "gens/mylex.l"
 {yycolumn+=yyleng; return (DOTnum);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 88 "gens/mylex.l"
+#line 120 "gens/mylex.l"
 {yycolumn+=yyleng; return (ENDDECLARATIONSnum);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 89 "gens/mylex.l"
+#line 121 "gens/mylex.l"
 {yycolumn+=yyleng; return (EQUALnum); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 90 "gens/mylex.l"
+#line 122 "gens/mylex.l"
 {yycolumn+=yyleng; return (GTnum);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 91 "gens/mylex.l"
+#line 123 "gens/mylex.l"
 {yycolumn+=yyleng; return (LBRACnum);}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 92 "gens/mylex.l"
+#line 124 "gens/mylex.l"
 {yycolumn+=yyleng; return (LPARENnum);}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 93 "gens/mylex.l"
+#line 125 "gens/mylex.l"
 {yycolumn+=yyleng; return (METHODnum);}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 94 "gens/mylex.l"
+#line 126 "gens/mylex.l"
 {yycolumn+=yyleng; return (NEnum);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 95 "gens/mylex.l"
+#line 127 "gens/mylex.l"
 {yycolumn+=yyleng; return (PROGRAMnum);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 96 "gens/mylex.l"
+#line 128 "gens/mylex.l"
 {yycolumn+=yyleng; return (RBRACnum);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 97 "gens/mylex.l"
+#line 129 "gens/mylex.l"
 {yycolumn+=yyleng; return (RPARENnum);}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 98 "gens/mylex.l"
+#line 130 "gens/mylex.l"
 {yycolumn+=yyleng; return (SEMInum);}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 99 "gens/mylex.l"
+#line 131 "gens/mylex.l"
 {yycolumn+=yyleng; return (VALnum);}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 100 "gens/mylex.l"
+#line 132 "gens/mylex.l"
 {yycolumn+=yyleng; return (WHILEnum);}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 101 "gens/mylex.l"
+#line 133 "gens/mylex.l"
 {yycolumn+=yyleng; return (CLASSnum);}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 102 "gens/mylex.l"
+#line 134 "gens/mylex.l"
 {yycolumn+=yyleng; return (COMMAnum);}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 103 "gens/mylex.l"
+#line 135 "gens/mylex.l"
 {yycolumn+=yyleng; return (DIVIDEnum);}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 104 "gens/mylex.l"
+#line 136 "gens/mylex.l"
 {yycolumn+=yyleng; return (ELSEnum);}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 105 "gens/mylex.l"
+#line 137 "gens/mylex.l"
 {yycolumn+=yyleng; return (EQnum);}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 106 "gens/mylex.l"
+#line 138 "gens/mylex.l"
 {yycolumn+=yyleng; return (GEnum);}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 107 "gens/mylex.l"
+#line 139 "gens/mylex.l"
 {yycolumn+=yyleng; return (IFnum);}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 108 "gens/mylex.l"
+#line 140 "gens/mylex.l"
 {yycolumn+=yyleng; return (LBRACEnum);}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 109 "gens/mylex.l"
+#line 141 "gens/mylex.l"
 {yycolumn+=yyleng; return (LEnum);}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 110 "gens/mylex.l"
+#line 142 "gens/mylex.l"
 {yycolumn+=yyleng; return (LTnum);}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 111 "gens/mylex.l"
+#line 143 "gens/mylex.l"
 {yycolumn+=yyleng; return (MINUSnum);}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 112 "gens/mylex.l"
+#line 144 "gens/mylex.l"
 {yycolumn+=yyleng; return (NOTnum);}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 113 "gens/mylex.l"
+#line 145 "gens/mylex.l"
 {yycolumn+=yyleng; return (PLUSnum);}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 114 "gens/mylex.l"
+#line 146 "gens/mylex.l"
 {yycolumn+=yyleng; return (RBRACEnum);}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 115 "gens/mylex.l"
+#line 147 "gens/mylex.l"
 {yycolumn+=yyleng; return (RETURNnum);}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 116 "gens/mylex.l"
+#line 148 "gens/mylex.l"
 {yycolumn+=yyleng; return (TIMESnum);}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 117 "gens/mylex.l"
+#line 149 "gens/mylex.l"
 {yycolumn+=yyleng; return (VOIDnum);}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 118 "gens/mylex.l"
-{yycolumn+=yyleng; lowercase(yytext, yyleng); return (IDnum);}
+#line 150 "gens/mylex.l"
+{yycolumn+=yyleng; 
+                        lowercase(yytext, yyleng); 
+			int pos = filled;
+			int possible_pos = 0;
+			possible_pos = find_string(yytext, yyleng+1,string_table, filled, stringtable_size);
+
+			pos = (possible_pos >= 0)?(possible_pos):(filled);
+			if(possible_pos < 0){
+				manage_string(yytext, yyleng +1, &string_table, &filled, &stringtable_size);
+                        }
+
+                        return (IDnum);}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 119 "gens/mylex.l"
-{yycolumn+=yyleng; return ICONSTnum;}
+#line 162 "gens/mylex.l"
+{   yycolumn+=yyleng; 
+                    	int pos = filled;
+			int possible_pos = 0;
+			possible_pos = find_string(yytext, yyleng+1,string_table, filled, stringtable_size);
+
+			pos = (possible_pos >= 0)?(possible_pos):(filled);
+			if(possible_pos < 0)
+				manage_string(yytext, yyleng +1, &string_table, &filled, &stringtable_size);
+
+                      return ICONSTnum;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 120 "gens/mylex.l"
+#line 172 "gens/mylex.l"
 {yycolumn+=yyleng;printf("Error. Identifiers can't start with numbers: line %d, column %d.\n", yyline, yycolumn);}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 121 "gens/mylex.l"
+#line 173 "gens/mylex.l"
 {}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 122 "gens/mylex.l"
+#line 174 "gens/mylex.l"
 {yycolumn+=yyleng;printf("Malformed token at: Line  %d, Column %d\n", yyline, yycolumn);}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 123 "gens/mylex.l"
+#line 175 "gens/mylex.l"
 ECHO;
 	YY_BREAK
-#line 1164 "lex.yy.c"
+#line 1216 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(STRCONST):
 	yyterminate();
@@ -2159,14 +2211,9 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 123 "gens/mylex.l"
+#line 175 "gens/mylex.l"
 
 
-
-int yyline = 0;
-int yycolumn = 0;
-int start = 257;
-char * arr[] = {"ANDnum", "ASSGNnum", "DECLARATIONSnum", "DOTnum", "ENDDECLARATIONSnum", "EQUALnum", "GTnum", "IDnum", "INTnum", "LBRACnum", "LPARENnum", "METHODnum", "NEnum", "ORnum", "PROGRAMnum", "RBRACnum", "RPARENnum", "SEMInum", "VALnum", "WHILEnum", "CLASSnum", "COMMAnum", "DIVIDEnum", "ELSEnum", "EQnum", "GEnum", "ICONSTnum", "IFnum", "LBRACEnum", "LEnum", "LTnum", "MINUSnum", "NOTnum", "PLUSnum", "RBRACEnum", "RETURNnum", "SCONSTnum", "TIMESnum", "VOIDnum"};
 
 /* Turns anything in the buffer to lowercase character */
 void lowercase(char * buffer, int length){
@@ -2174,8 +2221,59 @@ void lowercase(char * buffer, int length){
    int i;
    for(i = 0; i < length; i++){
 	   if(buffer[i] >= 65 && buffer[i] <= 90){
-	        buffer[i] += amt;		
+	        buffer[i] += amt;
 	   }
    }
+}
+
+
+/* Checks if a string is in the string table. Takes size into account, NO BUFFER OVERFLOW */
+int find_string(char * str, int word_size, char * str_table, int filled, int size){
+    // Check if the string is in the str_table.
+    int position = 0;
+    while(position < filled && word_size < size){
+		if(strcmp(str, str_table + position) == 0){
+			return position;
+		}
+		else{
+			// SEEEEEEEEEK
+			while(str_table[position++] != '\0');
+		}
+    }
+    return -1;
+}
+
+/* Puts a string into the string table. Manages size properly. */
+void manage_string(char * str, int size, char ** str_table, int * filled, int * str_table_size){
+    while((*str_table_size - *filled) < size){
+		*str_table = manage_string_table(*str_table, *str_table_size);
+		*str_table_size *= 2;
+    }
+    memcpy((*str_table) + *filled, str, size);
+
+    *filled = (*filled) + size;
+}
+
+/* Takes a string table, copies it to a doubly sized array and returns that */
+char * manage_string_table(char * old_table, int current_size){
+	int new_size = current_size * 2;
+	char * new_table = (char *) malloc(new_size);
+	if(new_table == 0){
+		exit(-1); // Bad news malloc bears.
+	}
+	memset(new_table, 0, new_size);
+
+	if(old_table == 0){
+		return new_table;
+	}
+	else{
+        memcpy(new_table, old_table, current_size);
+        return new_table;
+	}
+}
+
+void startup(){
+    string_table = manage_string_table(0, stringtable_size);    
+    printf("here\n");
 }
 

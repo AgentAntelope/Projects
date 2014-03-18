@@ -7,12 +7,12 @@ typedef struct treenode
 
 tree Root;
 
-//typedef union
-//{
- // int intg;
- // tree tptr;
-//} YYSTYPE;
-
+typedef union
+{
+	int intg;
+    tree tptr;
+} YYSTYPE;
+#define YYSTYPE YYSTYPE
 
 #define ProgramOp       100
 #define BodyOp          101
