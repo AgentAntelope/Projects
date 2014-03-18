@@ -59,150 +59,150 @@
     
 %%
 program              :  PROGRAMnum IDnum SEMInum class_decls
-	 {$$ = MakeTree(ProgramOp, $4, MakeLeaf(IDNode, $2)); printtree($$, 0);}
+	                   {$$ = MakeTree(ProgramOp, $4, MakeLeaf(IDNode, $2)); printtree($$, 0);}
 ;
                        
 
 class_decls          :  class_decl
-                                {$$ = MakeTree(ClassOp, NullExp(), $1);}
+                       {$$ = MakeTree(ClassOp, NullExp(), $1);}
                      |  class_decls class_decl
-                                {$$ = MakeTree(ClassOp, $1, $2);}
+                       {$$ = MakeTree(ClassOp, $1, $2);}
 ;
 
 class_decl           :  CLASSnum IDnum class_body;
-	 {$$ = MakeTree(ClassDefOp, $3, MakeLeaf(IDNode, $2));}
+	                   {$$ = MakeTree(ClassDefOp, $3, MakeLeaf(IDNode, $2));}
 
 class_body           :  LBRACEnum RBRACEnum
-	 {$$ = NullExp();}
+	                   {$$ = NullExp();}
                      |  LBRACEnum method_decls RBRACEnum
-	 {$$ = $2;}
+	                   {$$ = $2;}
 ;
 
 decls                :  DECLARATIONSnum field_decls ENDDECLARATIONSnum
-	 {$$ = $2;}
+	                   {$$ = $2;}
                      |  DECLARATIONSnum ENDDECLARATIONSnum
-	 {$$ = NullExp();}
+	                   {$$ = NullExp();}
 ;
 
 field_decls          :  field_decl
-		 {$$ = MakeTree(DeclOp, NullExp(), $1);}
+		               {$$ = MakeTree(DeclOp, NullExp(), $1);}
                      |  field_decls field_decl
-	 {$$ = MakeTree(DeclOp, $1, $2);}
+	                   {$$ = MakeTree(DeclOp, $1, $2);}
 ;
 
 field_decl           :  type var_decl;
-	 {$$ = $2;}
+	                   {$$ = $2;}
 
 var_decl             :  var_decl_id EQUALnum variable_initializer SEMInum
-	 {tree temp = MakeTree(CommaOp, $1, MakeTree(CommaOp, type_ptr, $3)); $$ = MakeTree(DeclOp, NullExp(), temp);}
+	                   {tree temp = MakeTree(CommaOp, $1, MakeTree(CommaOp, type_ptr, $3)); $$ = MakeTree(DeclOp, NullExp(), temp);}
                      |  var_decl_id SEMInum
-	 {tree temp = MakeTree(CommaOp, $1, MakeTree(CommaOp, type_ptr, NullExp())); $$ = MakeTree(DeclOp, NullExp(), temp);}
+	                   {tree temp = MakeTree(CommaOp, $1, MakeTree(CommaOp, type_ptr, NullExp())); $$ = MakeTree(DeclOp, NullExp(), temp);}
                      |  var_decl_id COMMAnum var_decl
-	 {tree temp = MakeTree(CommaOp, $1, MakeTree(CommaOp, type_ptr, NullExp())); $$ = MakeTree(DeclOp, $3, temp);}
+	                   {tree temp = MakeTree(CommaOp, $1, MakeTree(CommaOp, type_ptr, NullExp())); $$ = MakeTree(DeclOp, $3, temp);}
                      |  var_decl_id EQUALnum variable_initializer COMMAnum var_decl
-	 {tree temp = MakeTree(CommaOp, $1, MakeTree(CommaOp, type_ptr, $3)); $$ = MakeTree(DeclOp, $5, temp);}
+	                   {tree temp = MakeTree(CommaOp, $1, MakeTree(CommaOp, type_ptr, $3)); $$ = MakeTree(DeclOp, $5, temp);}
 ;
 
 var_decl_id          :  IDnum braces
-	 {$$ = MakeLeaf(IDNode, $1);}
+	                   {$$ = MakeLeaf(IDNode, $1);}
                      |  IDnum
-	 {$$ = MakeLeaf(IDNode, $1);}
+	                   {$$ = MakeLeaf(IDNode, $1);}
 ;
 
 variable_initializer :  expression
-		 {$$ = $1;}
+		               {$$ = $1;}
                      |  array_init
-							{$$ = $1;}
+					   {$$ = $1;}
                      |  array_creation
-							{$$ = $1;}
+					   {$$ = $1;}
 ;
 
 array_init        :  LBRACEnum variable_init_list RBRACEnum;
-	 {$$ = MakeTree(ArrayTypeOp, $2, type_ptr);}
+	                   {$$ = MakeTree(ArrayTypeOp, $2, type_ptr);}
 
 variable_init_list : variable_initializer
-		 {$$ = MakeTree(CommaOp, NullExp(), $1);}
+		               {$$ = MakeTree(CommaOp, NullExp(), $1);}
                    | variable_initializer COMMAnum variable_init_list
-	 {$$ = MakeTree(CommaOp, $3, $1);}
+	                   {$$ = MakeTree(CommaOp, $3, $1);}
 ;
 
 array_creation    :  INTnum array_expr
-	 {$$ = MakeTree(ArrayTypeOp, $2, MakeLeaf(INTEGERTNode, 0));}
+	                   {$$ = MakeTree(ArrayTypeOp, $2, MakeLeaf(INTEGERTNode, 0));}
 ;
 
 array_expr        :  LBRACnum expression RBRACnum
-	 {$$ = MakeTree(BoundOp, NullExp(), $2 );}
+	                   {$$ = MakeTree(BoundOp, NullExp(), $2 );}
                   |  LBRACnum expression RBRACnum array_expr
-	 {$$ = MakeTree(BoundOp, $4, $2);}
+	                   {$$ = MakeTree(BoundOp, $4, $2);}
 ;
 
 method_decls      :  method_decl
-		 {$$ = MakeTree(BodyOp, NullExp(), $1);}
+		               {$$ = MakeTree(BodyOp, NullExp(), $1);}
                   |  decls method_decl
-	 {$$ = MakeTree(BodyOp, $1, $2);}
+	                   {$$ = MakeTree(BodyOp, $1, $2);}
                   |  decls
-						 {$$ = MakeTree(BodyOp, $1, NullExp());}
+					   {$$ = MakeTree(BodyOp, $1, NullExp());}
                   |  method_decls method_decl
-	 {$$ = MakeTree(BodyOp, $1, $2);}
+	                   {$$ = MakeTree(BodyOp, $1, $2);}
 ;
 
 method_decl       :  METHODnum type IDnum LPARENnum parama_bubble RPARENnum block
-	 {$$ = MakeTree(MethodOp, MakeTree(HeadOp, MakeLeaf(IDNode, $3), $5), $7);}
+	                   {$$ = MakeTree(MethodOp, MakeTree(HeadOp, MakeLeaf(IDNode, $3), $5), $7);}
                   |  METHODnum voids IDnum LPARENnum parama_bubble RPARENnum block
-	 {$$ = MakeTree(MethodOp, MakeTree(HeadOp, MakeLeaf(IDNode, $3), $5), $7);}
+	                   {$$ = MakeTree(MethodOp, MakeTree(HeadOp, MakeLeaf(IDNode, $3), $5), $7);}
 ;
 
 voids : VOIDnum
-	{type_ptr = NullExp();}
+	                   {type_ptr = NullExp();}
 ;
 
 parama_bubble     : params
-		 {$$ = MakeTree(SpecOp, $1, type_ptr);}
+		               {$$ = MakeTree(SpecOp, $1, type_ptr);}
                   |
-		 {$$ = MakeTree(SpecOp, NullExp(), type_ptr);}
+		               {$$ = MakeTree(SpecOp, NullExp(), type_ptr);}
 		 ;
 params            : INTnum identifier_list
-	 {$$ = MakeTree(RArgTypeOp, MakeTree(CommaOp, $2, MakeLeaf(INTEGERTNode, 0)), NullExp());}
+	                   {$$ = MakeTree(RArgTypeOp, MakeTree(CommaOp, $2, MakeLeaf(INTEGERTNode, 0)), NullExp());}
                   | VALnum INTnum identifier_list SEMInum params
-	 {$$ = MakeTree(VArgTypeOp, MakeTree(CommaOp, $3, MakeLeaf(INTEGERTNode, 0)), $5);}
+	                   {$$ = MakeTree(VArgTypeOp, MakeTree(CommaOp, $3, MakeLeaf(INTEGERTNode, 0)), $5);}
                   | VALnum INTnum identifier_list
-	 {$$ = MakeTree(VArgTypeOp, MakeTree(CommaOp, $3, MakeLeaf(INTEGERTNode, 0)), NullExp());}
+	                   {$$ = MakeTree(VArgTypeOp, MakeTree(CommaOp, $3, MakeLeaf(INTEGERTNode, 0)), NullExp());}
                   | INTnum identifier_list SEMInum params
-	 {$$ = MakeTree(RArgTypeOp, MakeTree(CommaOp, $2, MakeLeaf(INTEGERTNode, 0)), $4);}
+	                   {$$ = MakeTree(RArgTypeOp, MakeTree(CommaOp, $2, MakeLeaf(INTEGERTNode, 0)), $4);}
 ;
 
 identifier_list   :  IDnum
-		 {$$ = MakeTree(CommaOp, MakeLeaf(IDNode, $1), NullExp());}
+		               {$$ = MakeTree(CommaOp, MakeLeaf(IDNode, $1), NullExp());}
                   |  identifier_list COMMAnum IDnum
-	 {$$ = MakeTree(CommaOp, MakeLeaf(IDNode, $3), $1);}
+	                   {$$ = MakeTree(CommaOp, MakeLeaf(IDNode, $3), $1);}
 ;
 
 block             :   decls statement_list
-	 {$$ = MakeTree(BodyOp, $1, $2);}
+	                   {$$ = MakeTree(BodyOp, $1, $2);}
                   |   statement_list
-						  {$$ = MakeTree(BodyOp, NullExp(), $1);}
+					   {$$ = MakeTree(BodyOp, NullExp(), $1);}
 ;
 
 type              :   INTnum
-		 {$$ = MakeTree(TypeIdOp, MakeLeaf(INTEGERTNode, 0), NullExp()); type_ptr = $$;}
+		               {$$ = MakeTree(TypeIdOp, MakeLeaf(INTEGERTNode, 0), NullExp()); type_ptr = $$;}
                   |   INTnum type_braces
-	 {$$ = MakeTree(TypeIdOp,MakeLeaf(INTEGERTNode, 0), $2); type_ptr = $$;}
+	                   {$$ = MakeTree(TypeIdOp,MakeLeaf(INTEGERTNode, 0), $2); type_ptr = $$;}
                   |   IDnum 
-						  {$$ = MakeTree(TypeIdOp, MakeLeaf(IDNode, $1), NullExp()); type_ptr = $$;}
+					   {$$ = MakeTree(TypeIdOp, MakeLeaf(IDNode, $1), NullExp()); type_ptr = $$;}
                   |   IDnum type_braces
-	 {$$ = MakeTree(TypeIdOp, MakeLeaf(IDNode, $1), $2); type_ptr = $$;}
+	                   {$$ = MakeTree(TypeIdOp, MakeLeaf(IDNode, $1), $2); type_ptr = $$;}
 ;
 
 type_braces       :  LBRACnum RBRACnum
-	 {$$ = MakeTree(IndexOp, NullExp(), NullExp());}
+	                   {$$ = MakeTree(IndexOp, NullExp(), NullExp());}
                   |  LBRACnum RBRACnum DOTnum field_op_type
-	 {$$ = MakeTree(IndexOp, NullExp(), $4);}
+	                   {$$ = MakeTree(IndexOp, NullExp(), $4);}
                   |  LBRACnum RBRACnum type_braces
-	 {$$ = MakeTree(IndexOp, NullExp(), $3);}
+	                   {$$ = MakeTree(IndexOp, NullExp(), $3);}
 ;
 
 field_op_type     :  type
-         {$$ = MakeTree(FieldOp, $1, NullExp());}
+                       {$$ = MakeTree(FieldOp, $1, NullExp());}
 ;
 
 braces            :  LBRACnum RBRACnum
@@ -210,94 +210,94 @@ braces            :  LBRACnum RBRACnum
 ;
 
 statement_list    :   LBRACEnum statement_inner RBRACEnum
-	 {$$ = $2;}
+	                   {$$ = $2;}
 ;
 
 statement_inner   :   statement
-		 {$$ = MakeTree(StmtOp, NullExp(), $1);}
+		               {$$ = MakeTree(StmtOp, NullExp(), $1);}
                   |   statement SEMInum statement_inner
-	 {$$ = MakeTree(StmtOp, $3, $1);}
+	                   {$$ = MakeTree(StmtOp, $3, $1);}
 ;
 
 statement         :   assign_stmt
-		 {$$ = $1;}
+		               {$$ = $1;}
                   |   method_call_stmt
-		 {$$ = $1;}
+		               {$$ = $1;}
                   |   return_stmt
-		 {$$ = $1;}
+		               {$$ = $1;}
                   |   if_stmt
-		 {$$ = $1;}
+		               {$$ = $1;}
                   |   while_stmt
-		 {$$ = $1;}
+		               {$$ = $1;}
                   |
-						  {$$ = NullExp();}
+					   {$$ = NullExp();}
 ;
 
 assign_stmt       :   variable ASSGNnum expression
-						  {$$ = MakeTree(AssignOp, MakeTree(AssignOp, NullExp(), $1), $3);}
+					   {$$ = MakeTree(AssignOp, MakeTree(AssignOp, NullExp(), $1), $3);}
 ;
 
 method_call_stmt  :   variable LPARENnum RPARENnum
-	 {$$ = MakeTree(RoutineCallOp, $1, NullExp());}
+	                   {$$ = MakeTree(RoutineCallOp, $1, NullExp());}
                   |   variable LPARENnum indece_expr RPARENnum
-	 {$$ = MakeTree(RoutineCallOp, $1, $3);}
+	                   {$$ = MakeTree(RoutineCallOp, $1, $3);}
 ;
 
 
 return_stmt   :   RETURNnum expression
-	 {$$ = MakeTree(ReturnOp, $2, NullExp());}
+	                   {$$ = MakeTree(ReturnOp, $2, NullExp());}
               |   RETURNnum
-					  {$$ = MakeTree(ReturnOp, NullExp(), NullExp());}
+					   {$$ = MakeTree(ReturnOp, NullExp(), NullExp());}
 ;
 
 if_stmt       :   IFnum expression statement_list
-	 {$$ = MakeTree(IfElseOp, MakeTree(CommaOp, $2, $3), NullExp());}
+	                   {$$ = MakeTree(IfElseOp, MakeTree(CommaOp, $2, $3), NullExp());}
               |   IFnum expression statement_list ELSEnum statement_list;
-	 {$$ = MakeTree(IfElseOp, MakeTree(CommaOp, $2, $3), $5);}
+	                   {$$ = MakeTree(IfElseOp, MakeTree(CommaOp, $2, $3), $5);}
               |   IFnum expression statement_list ELSEnum if_stmt
-	 {$$ = MakeTree(IfElseOp, MakeTree(CommaOp, $2, $3), $5);}
+	                   {$$ = MakeTree(IfElseOp, MakeTree(CommaOp, $2, $3), $5);}
 ;
 
 
 while_stmt       :   WHILEnum expression statement_list
-	 {$$ = MakeTree(LoopOp, $2, $3);}
+	                   {$$ = MakeTree(LoopOp, $2, $3);}
 ;
 
 
 variable      :      IDnum
-		 {$$ = MakeTree(VarOp, MakeLeaf(IDNode, $1), NullExp());}
+		               {$$ = MakeTree(VarOp, MakeLeaf(IDNode, $1), NullExp());}
               |      IDnum selection 
-	 {$$ = MakeTree(VarOp, MakeLeaf(IDNode, $1), $2);}
+	                   {$$ = MakeTree(VarOp, MakeLeaf(IDNode, $1), $2);}
 ;
 
 selection     :      LBRACnum indece_expr RBRACnum
-	 {$$ = MakeTree(SelectOp, $2, NullExp());}
+	                   {$$ = MakeTree(SelectOp, $2, NullExp());}
 		      |      DOTnum IDnum
-	 {$$ = MakeTree(SelectOp, MakeTree(FieldOp, MakeLeaf(IDNode, $2), NullExp()), NullExp());}
+	                   {$$ = MakeTree(SelectOp, MakeTree(FieldOp, MakeLeaf(IDNode, $2), NullExp()), NullExp());}
               |      DOTnum IDnum selection
-	 {$$ = MakeTree(SelectOp, MakeTree(FieldOp, MakeLeaf(IDNode, $2), NullExp()), $3);}
+	                   {$$ = MakeTree(SelectOp, MakeTree(FieldOp, MakeLeaf(IDNode, $2), NullExp()), $3);}
               |      LBRACnum indece_expr RBRACnum selection
-	 {$$ = MakeTree(IndexOp, $2, $4);} 
+	                   {$$ = MakeTree(IndexOp, $2, $4);} 
 ;
 
 indece_expr   :      expression
-		 {$$ = MakeTree(IndexOp, $1, NullExp());}
+		               {$$ = MakeTree(IndexOp, $1, NullExp());}
               |      expression COMMAnum indece_expr
-	 {$$ = MakeTree(IndexOp, $1, $3);}
+	                   {$$ = MakeTree(IndexOp, $1, $3);}
               ;
 
 expression    :     simple_expression
-		 {$$ = $1;}
+		               {$$ = $1;}
               |     simple_expression LTnum simple_expression
-	 {$$ = MakeTree(LTOp, $1, $3);}
+	                   {$$ = MakeTree(LTOp, $1, $3);}
               |     simple_expression LEnum simple_expression
-	 {$$ = MakeTree(LEOp, $1, $3);}
+	                   {$$ = MakeTree(LEOp, $1, $3);}
               |     simple_expression EQnum simple_expression
-	 {$$ = MakeTree(EQOp, $1, $3);}
+	                   {$$ = MakeTree(EQOp, $1, $3);}
               |     simple_expression NEnum simple_expression
-	 {$$ = MakeTree(NEOp, $1, $3);}
+	                   {$$ = MakeTree(NEOp, $1, $3);}
               |     simple_expression GEnum simple_expression
-	 {$$ = MakeTree(GEOp, $1, $3);}
+	                   {$$ = MakeTree(GEOp, $1, $3);}
               |     simple_expression GTnum simple_expression
 	                   {$$ = MakeTree(GTOp, $1, $3);}
 ;
