@@ -57,7 +57,7 @@ program       "program"
 rsqbracket    "]"
 rparens       ")"
 semicolon     ";"
-val           "val"
+val           [vV][aA][lL]
 while         "while"
 class         "class"
 int           "int"

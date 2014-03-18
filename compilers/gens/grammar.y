@@ -1,8 +1,10 @@
 
 
 %{
-		#include "proj2.h"
+    #include "proj2.h"
 	#include<stdio.h>
+	int yyline;
+	int yycolumn;
 	int yylex(void);
 	int yyerror (char *msg) ;
  %}
@@ -68,6 +70,7 @@ class_body           :  LBRACEnum RBRACEnum
 ;
 
 decls                :  DECLARATIONSnum field_decls ENDDECLARATIONSnum
+		             |  DECLARATIONSnum ENDDECLARATIONSnum
 ;
 
 field_decls          :  field_decl
@@ -83,6 +86,7 @@ var_decl             :  var_decl_id EQUALnum variable_initializer SEMInum
 ;
 
 var_decl_id          :  IDnum braces
+                     |  IDnum
 ;
 
 variable_initializer :  expression
@@ -99,8 +103,8 @@ variable_init_list : variable_initializer
 array_creation    :  INTnum array_expr
 ;
 
-array_expr        :  RBRACnum expression LBRACnum
-                  |  array_expr RBRACnum expression LBRACnum
+array_expr        :  LBRACnum expression RBRACnum
+                  |  array_expr LBRACnum expression RBRACnum
 ;
 
 method_decls      :  method_decl
@@ -114,9 +118,10 @@ method_decl       :  METHODnum type IDnum LPARENnum params RPARENnum block
 ;
 
 params            : INTnum identifier_list
+                  | VALnum INTnum identifier_list SEMInum params
                   | VALnum INTnum identifier_list
                   | INTnum identifier_list SEMInum params
-                  | VALnum INTnum identifier_list params
+
 ;
 
 identifier_list   :  IDnum
@@ -142,14 +147,15 @@ braces            :  LBRACnum RBRACnum
 statement_list    :   LBRACEnum statement_inner RBRACEnum
 ;
 
-statement_inner   :   statement SEMInum 
-                  |   statement SEMInum statement_inner
+statement_inner   :   statement
+                  |   statement_inner SEMInum statement
 				  ;
 statement         :   assign_stmt
                   |   method_call_stmt
                   |   return_stmt
                   |   if_stmt
                   |   while_stmt
+		          |
 ;
 
 assign_stmt       :   variable ASSGNnum expression;
@@ -175,9 +181,10 @@ while_stmt       :   WHILEnum expression statement_list;
 variable      :      IDnum
               |      IDnum selection 
               ;
+
 selection     :      LBRACnum indece_expr RBRACnum
-              |      IDnum 
-              |      IDnum DOTnum selection
+		      |      DOTnum IDnum
+              |      DOTnum IDnum selection
               |      LBRACnum indece_expr RBRACnum selection
 ;
 
@@ -222,6 +229,7 @@ other_factor  :   TIMESnum factor
 factor        :   SCONSTnum
               |   ICONSTnum
               |   variable
+	          |   method_call_stmt
               |   LPARENnum expression RPARENnum
               |   NOTnum factor
               ;
@@ -233,6 +241,6 @@ factor        :   SCONSTnum
 
 %%
 int yyerror(char *s){
-	printf("FAIL %s\n", s);
+	printf("FAIL %s %d, line %d, column: %d\n", s, yychar, yyline, yycolumn);
 }
 
