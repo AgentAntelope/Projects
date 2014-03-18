@@ -633,6 +633,7 @@ char *yytext;
 #line 1 "gens/mylex.l"
 #line 4 "gens/mylex.l"
 #include "y.tab.h"
+#include "proj2.h"
 #define EOFnum 0
 #define SLASHED 1
 #define NONE 0
@@ -644,9 +645,9 @@ char * manage_string_table(char * old_table, int current_size);
 void manage_string(char * str, int size, char ** str_table, int * filled, int * str_table_size);
 int check_str_table(char * needle, char * haystack);
 
-
+YYSTYPE yylval;
 extern int yycolumn, yylength, yyline;
-
+char * strg_tbl;
 int yyline = 0;
 int yycolumn = 0;
 int start = 257;
@@ -661,7 +662,7 @@ int flag = NONE;
 /* regular definitions */
 
 
-#line 665 "lex.yy.c"
+#line 666 "lex.yy.c"
 
 #define INITIAL 0
 #define WHITE 1
@@ -850,9 +851,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 85 "gens/mylex.l"
+#line 86 "gens/mylex.l"
 
-#line 856 "lex.yy.c"
+#line 857 "lex.yy.c"
 
 	if ( !(yy_init) )
 		{
@@ -943,7 +944,7 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 86 "gens/mylex.l"
+#line 87 "gens/mylex.l"
 {yycolumn+=yyleng;if(yytext[yyleng-1] == '\\') yymore();
                       else if(yytext[yyleng-1] == '\n'){ printf("String literals cant be spaced on multiple lines: line %d, column %d", yyline, yycolumn);yymore();}
                      else{ 
@@ -953,234 +954,232 @@ YY_RULE_SETUP
 			   possible_pos = find_string(yytext + 1, yyleng, string_table, filled, stringtable_size);
 
 		           pos = (possible_pos > 0)?(possible_pos):(filled);
-			   printf("\t%-20s %-10d %-10d%-10d\n", "d", yyline, yycolumn, pos);
 			   if(possible_pos < 0){
 				manage_string(yytext + 1, yyleng, &string_table, &filled, &stringtable_size);
 			   }
+                           yylval.intg = pos;
                            return SCONSTnum;
-
-
-                         }
+                        }
                     }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 104 "gens/mylex.l"
+#line 103 "gens/mylex.l"
 {yycolumn+=2;}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 105 "gens/mylex.l"
+#line 104 "gens/mylex.l"
 {BEGIN INITIAL; yycolumn+=2; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 106 "gens/mylex.l"
+#line 105 "gens/mylex.l"
 {yycolumn+=yyleng;}
 	YY_BREAK
 case YY_STATE_EOF(WHITE):
-#line 107 "gens/mylex.l"
+#line 106 "gens/mylex.l"
 {printf("Error, unended comment! Line %d, column %d\n", yyline, yycolumn); return 0;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 109 "gens/mylex.l"
+#line 108 "gens/mylex.l"
 {BEGIN WHITE; yycolumn+=2; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 112 "gens/mylex.l"
+#line 111 "gens/mylex.l"
 {yycolumn+=yyleng;}
 	YY_BREAK
 case 7:
 /* rule 7 can match eol */
 YY_RULE_SETUP
-#line 113 "gens/mylex.l"
+#line 112 "gens/mylex.l"
 {yyline++; yycolumn=0;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 114 "gens/mylex.l"
+#line 113 "gens/mylex.l"
 {yycolumn+=yyleng; return (INTnum);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 115 "gens/mylex.l"
+#line 114 "gens/mylex.l"
 {yycolumn+=yyleng; return (ORnum);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 116 "gens/mylex.l"
+#line 115 "gens/mylex.l"
 {yycolumn+=yyleng; return (ANDnum);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 117 "gens/mylex.l"
+#line 116 "gens/mylex.l"
 {yycolumn+=yyleng; return (ASSGNnum); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 118 "gens/mylex.l"
+#line 117 "gens/mylex.l"
 {yycolumn+=yyleng; return (DECLARATIONSnum);}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 119 "gens/mylex.l"
+#line 118 "gens/mylex.l"
 {yycolumn+=yyleng; return (DOTnum);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 120 "gens/mylex.l"
+#line 119 "gens/mylex.l"
 {yycolumn+=yyleng; return (ENDDECLARATIONSnum);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 121 "gens/mylex.l"
+#line 120 "gens/mylex.l"
 {yycolumn+=yyleng; return (EQUALnum); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 122 "gens/mylex.l"
+#line 121 "gens/mylex.l"
 {yycolumn+=yyleng; return (GTnum);}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 123 "gens/mylex.l"
+#line 122 "gens/mylex.l"
 {yycolumn+=yyleng; return (LBRACnum);}
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 124 "gens/mylex.l"
+#line 123 "gens/mylex.l"
 {yycolumn+=yyleng; return (LPARENnum);}
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 125 "gens/mylex.l"
+#line 124 "gens/mylex.l"
 {yycolumn+=yyleng; return (METHODnum);}
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 126 "gens/mylex.l"
+#line 125 "gens/mylex.l"
 {yycolumn+=yyleng; return (NEnum);}
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 127 "gens/mylex.l"
+#line 126 "gens/mylex.l"
 {yycolumn+=yyleng; return (PROGRAMnum);}
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 128 "gens/mylex.l"
+#line 127 "gens/mylex.l"
 {yycolumn+=yyleng; return (RBRACnum);}
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 129 "gens/mylex.l"
+#line 128 "gens/mylex.l"
 {yycolumn+=yyleng; return (RPARENnum);}
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 130 "gens/mylex.l"
+#line 129 "gens/mylex.l"
 {yycolumn+=yyleng; return (SEMInum);}
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 131 "gens/mylex.l"
+#line 130 "gens/mylex.l"
 {yycolumn+=yyleng; return (VALnum);}
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 132 "gens/mylex.l"
+#line 131 "gens/mylex.l"
 {yycolumn+=yyleng; return (WHILEnum);}
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 133 "gens/mylex.l"
+#line 132 "gens/mylex.l"
 {yycolumn+=yyleng; return (CLASSnum);}
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 134 "gens/mylex.l"
+#line 133 "gens/mylex.l"
 {yycolumn+=yyleng; return (COMMAnum);}
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 135 "gens/mylex.l"
+#line 134 "gens/mylex.l"
 {yycolumn+=yyleng; return (DIVIDEnum);}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 136 "gens/mylex.l"
+#line 135 "gens/mylex.l"
 {yycolumn+=yyleng; return (ELSEnum);}
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 137 "gens/mylex.l"
+#line 136 "gens/mylex.l"
 {yycolumn+=yyleng; return (EQnum);}
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 138 "gens/mylex.l"
+#line 137 "gens/mylex.l"
 {yycolumn+=yyleng; return (GEnum);}
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 139 "gens/mylex.l"
+#line 138 "gens/mylex.l"
 {yycolumn+=yyleng; return (IFnum);}
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 140 "gens/mylex.l"
+#line 139 "gens/mylex.l"
 {yycolumn+=yyleng; return (LBRACEnum);}
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 141 "gens/mylex.l"
+#line 140 "gens/mylex.l"
 {yycolumn+=yyleng; return (LEnum);}
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 142 "gens/mylex.l"
+#line 141 "gens/mylex.l"
 {yycolumn+=yyleng; return (LTnum);}
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 143 "gens/mylex.l"
+#line 142 "gens/mylex.l"
 {yycolumn+=yyleng; return (MINUSnum);}
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 144 "gens/mylex.l"
+#line 143 "gens/mylex.l"
 {yycolumn+=yyleng; return (NOTnum);}
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 145 "gens/mylex.l"
+#line 144 "gens/mylex.l"
 {yycolumn+=yyleng; return (PLUSnum);}
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 146 "gens/mylex.l"
+#line 145 "gens/mylex.l"
 {yycolumn+=yyleng; return (RBRACEnum);}
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 147 "gens/mylex.l"
+#line 146 "gens/mylex.l"
 {yycolumn+=yyleng; return (RETURNnum);}
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 148 "gens/mylex.l"
+#line 147 "gens/mylex.l"
 {yycolumn+=yyleng; return (TIMESnum);}
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 149 "gens/mylex.l"
+#line 148 "gens/mylex.l"
 {yycolumn+=yyleng; return (VOIDnum);}
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 150 "gens/mylex.l"
+#line 149 "gens/mylex.l"
 {yycolumn+=yyleng; 
                         lowercase(yytext, yyleng); 
 			int pos = filled;
@@ -1191,44 +1190,37 @@ YY_RULE_SETUP
 			if(possible_pos < 0){
 				manage_string(yytext, yyleng +1, &string_table, &filled, &stringtable_size);
                         }
-
+                        yylval.intg = pos;
                         return (IDnum);}
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 162 "gens/mylex.l"
+#line 161 "gens/mylex.l"
 {   yycolumn+=yyleng; 
-                    	int pos = filled;
-			int possible_pos = 0;
-			possible_pos = find_string(yytext, yyleng+1,string_table, filled, stringtable_size);
-
-			pos = (possible_pos >= 0)?(possible_pos):(filled);
-			if(possible_pos < 0)
-				manage_string(yytext, yyleng +1, &string_table, &filled, &stringtable_size);
-
+                        yylval.intg = atoi(yytext);
                       return ICONSTnum;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 172 "gens/mylex.l"
+#line 164 "gens/mylex.l"
 {yycolumn+=yyleng;printf("Error. Identifiers can't start with numbers: line %d, column %d.\n", yyline, yycolumn);}
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 173 "gens/mylex.l"
+#line 165 "gens/mylex.l"
 {}
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 174 "gens/mylex.l"
+#line 166 "gens/mylex.l"
 {yycolumn+=yyleng;printf("Malformed token at: Line  %d, Column %d\n", yyline, yycolumn);}
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 175 "gens/mylex.l"
+#line 167 "gens/mylex.l"
 ECHO;
 	YY_BREAK
-#line 1232 "lex.yy.c"
+#line 1224 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(STRCONST):
 	yyterminate();
@@ -2227,7 +2219,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 175 "gens/mylex.l"
+#line 167 "gens/mylex.l"
 
 
 
@@ -2290,6 +2282,7 @@ char * manage_string_table(char * old_table, int current_size){
 
 void startup(){
     string_table = manage_string_table(0, stringtable_size);    
-    printf("here\n");
+    strg_tbl = string_table;
+
 }
 

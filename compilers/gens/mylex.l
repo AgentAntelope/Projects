@@ -2,6 +2,7 @@
 
 %{
 #include "y.tab.h"
+#include "proj2.h"
 #define EOFnum 0
 #define SLASHED 1
 #define NONE 0
@@ -13,9 +14,9 @@ char * manage_string_table(char * old_table, int current_size);
 void manage_string(char * str, int size, char ** str_table, int * filled, int * str_table_size);
 int check_str_table(char * needle, char * haystack);
 
-
+YYSTYPE yylval;
 extern int yycolumn, yylength, yyline;
-
+char * strg_tbl;
 int yyline = 0;
 int yycolumn = 0;
 int start = 257;
@@ -92,14 +93,12 @@ void          "void"
 			   possible_pos = find_string(yytext + 1, yyleng, string_table, filled, stringtable_size);
 
 		           pos = (possible_pos > 0)?(possible_pos):(filled);
-			   printf("\t%-20s %-10d %-10d%-10d\n", "d", yyline, yycolumn, pos);
 			   if(possible_pos < 0){
 				manage_string(yytext + 1, yyleng, &string_table, &filled, &stringtable_size);
 			   }
+                           yylval.intg = pos;
                            return SCONSTnum;
-
-
-                         }
+                        }
                     }
 <WHITE>"/*"         {yycolumn+=2;}
 <WHITE>"*/"         {BEGIN INITIAL; yycolumn+=2; }
@@ -157,17 +156,10 @@ void          "void"
 			if(possible_pos < 0){
 				manage_string(yytext, yyleng +1, &string_table, &filled, &stringtable_size);
                         }
-
+                        yylval.intg = pos;
                         return (IDnum);}
 {integer}           {   yycolumn+=yyleng; 
-                    	int pos = filled;
-			int possible_pos = 0;
-			possible_pos = find_string(yytext, yyleng+1,string_table, filled, stringtable_size);
-
-			pos = (possible_pos >= 0)?(possible_pos):(filled);
-			if(possible_pos < 0)
-				manage_string(yytext, yyleng +1, &string_table, &filled, &stringtable_size);
-
+                        yylval.intg = atoi(yytext);
                       return ICONSTnum;}
 {invalidid}         {yycolumn+=yyleng;printf("Error. Identifiers can't start with numbers: line %d, column %d.\n", yyline, yycolumn);}
 "//"[^\n]*             {}
@@ -233,5 +225,6 @@ char * manage_string_table(char * old_table, int current_size){
 
 void startup(){
     string_table = manage_string_table(0, stringtable_size);    
-    printf("here\n");
+    strg_tbl = string_table;
+
 }

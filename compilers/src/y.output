@@ -8,140 +8,151 @@
    4  class_decl : CLASSnum IDnum class_body
 
    5  class_body : LBRACEnum RBRACEnum
-   6             | LBRACEnum decls RBRACEnum
-   7             | LBRACEnum decls method_decls RBRACEnum
-   8             | LBRACEnum method_decls RBRACEnum
+   6             | LBRACEnum method_decls RBRACEnum
 
-   9  decls : DECLARATIONSnum field_decls ENDDECLARATIONSnum
-  10        | DECLARATIONSnum ENDDECLARATIONSnum
+   7  decls : DECLARATIONSnum field_decls ENDDECLARATIONSnum
+   8        | DECLARATIONSnum ENDDECLARATIONSnum
 
-  11  field_decls : field_decl
-  12              | field_decls field_decl
+   9  field_decls : field_decl
+  10              | field_decls field_decl
 
-  13  field_decl : type var_decl
+  11  field_decl : type var_decl
 
-  14  var_decl : var_decl_id EQUALnum variable_initializer SEMInum
-  15           | var_decl_id SEMInum
-  16           | var_decl_id COMMAnum var_decl
-  17           | var_decl_id EQUALnum variable_initializer COMMAnum var_decl
+  12  var_decl : var_decl_id EQUALnum variable_initializer SEMInum
+  13           | var_decl_id SEMInum
+  14           | var_decl_id COMMAnum var_decl
+  15           | var_decl_id EQUALnum variable_initializer COMMAnum var_decl
 
-  18  var_decl_id : IDnum braces
-  19              | IDnum
+  16  var_decl_id : IDnum braces
+  17              | IDnum
 
-  20  variable_initializer : expression
-  21                       | array_init
-  22                       | array_creation
+  18  variable_initializer : expression
+  19                       | array_init
+  20                       | array_creation
 
-  23  array_init : LBRACEnum variable_init_list RBRACEnum
+  21  array_init : LBRACEnum variable_init_list RBRACEnum
 
-  24  variable_init_list : variable_initializer
-  25                     | variable_init_list COMMAnum variable_initializer
+  22  variable_init_list : variable_initializer
+  23                     | variable_initializer COMMAnum variable_init_list
 
-  26  array_creation : INTnum array_expr
+  24  array_creation : INTnum array_expr
 
-  27  array_expr : LBRACnum expression RBRACnum
-  28             | array_expr LBRACnum expression RBRACnum
+  25  array_expr : LBRACnum expression RBRACnum
+  26             | LBRACnum expression RBRACnum array_expr
 
-  29  method_decls : method_decl
+  27  method_decls : method_decl
+  28               | decls method_decl
+  29               | decls
   30               | method_decls method_decl
 
-  31  method_decl : METHODnum type IDnum LPARENnum params RPARENnum block
-  32              | METHODnum type IDnum LPARENnum RPARENnum block
-  33              | METHODnum VOIDnum IDnum LPARENnum params RPARENnum block
-  34              | METHODnum VOIDnum IDnum LPARENnum RPARENnum block
+  31  method_decl : METHODnum type IDnum LPARENnum parama_bubble RPARENnum block
+  32              | METHODnum voids IDnum LPARENnum parama_bubble RPARENnum block
 
-  35  params : INTnum identifier_list
-  36         | VALnum INTnum identifier_list SEMInum params
-  37         | VALnum INTnum identifier_list
-  38         | INTnum identifier_list SEMInum params
+  33  voids : VOIDnum
 
-  39  identifier_list : IDnum
-  40                  | identifier_list COMMAnum IDnum
+  34  parama_bubble : params
+  35                |
 
-  41  block : decls statement_list
-  42        | statement_list
+  36  params : INTnum identifier_list
+  37         | VALnum INTnum identifier_list SEMInum params
+  38         | VALnum INTnum identifier_list
+  39         | INTnum identifier_list SEMInum params
 
-  43  type : INTnum
-  44       | INTnum braces
-  45       | INTnum braces DOTnum type
+  40  identifier_list : IDnum
+  41                  | identifier_list COMMAnum IDnum
+
+  42  block : decls statement_list
+  43        | statement_list
+
+  44  type : INTnum
+  45       | INTnum type_braces
   46       | IDnum
-  47       | IDnum braces
-  48       | IDnum braces DOTnum type
+  47       | IDnum type_braces
 
-  49  braces : LBRACnum RBRACnum
-  50         | braces LBRACnum RBRACnum
+  48  type_braces : LBRACnum RBRACnum
+  49              | LBRACnum RBRACnum DOTnum field_op_type
+  50              | LBRACnum RBRACnum type_braces
 
-  51  statement_list : LBRACEnum statement_inner RBRACEnum
+  51  field_op_type : type
 
-  52  statement_inner : statement
-  53                  | statement_inner SEMInum statement
+  52  braces : LBRACnum RBRACnum
+  53         | braces LBRACnum RBRACnum
 
-  54  statement : assign_stmt
-  55            | method_call_stmt
-  56            | return_stmt
-  57            | if_stmt
-  58            | while_stmt
-  59            |
+  54  statement_list : LBRACEnum statement_inner RBRACEnum
 
-  60  assign_stmt : variable ASSGNnum expression
+  55  statement_inner : statement
+  56                  | statement SEMInum statement_inner
 
-  61  method_call_stmt : variable LPARENnum RPARENnum
-  62                   | variable LPARENnum indece_expr RPARENnum
+  57  statement : assign_stmt
+  58            | method_call_stmt
+  59            | return_stmt
+  60            | if_stmt
+  61            | while_stmt
+  62            |
 
-  63  return_stmt : RETURNnum expression
-  64              | RETURNnum
+  63  assign_stmt : variable ASSGNnum expression
 
-  65  if_stmt : IFnum expression statement_list
-  66          | IFnum expression statement_list ELSEnum statement_list
-  67          | IFnum expression statement_list ELSEnum if_stmt
+  64  method_call_stmt : variable LPARENnum RPARENnum
+  65                   | variable LPARENnum indece_expr RPARENnum
 
-  68  while_stmt : WHILEnum expression statement_list
+  66  return_stmt : RETURNnum expression
+  67              | RETURNnum
 
-  69  variable : IDnum
-  70           | IDnum selection
+  68  if_stmt : IFnum expression statement_list
+  69          | IFnum expression statement_list ELSEnum statement_list
+  70          | IFnum expression statement_list ELSEnum if_stmt
 
-  71  selection : LBRACnum indece_expr RBRACnum
-  72            | DOTnum IDnum
-  73            | DOTnum IDnum selection
-  74            | LBRACnum indece_expr RBRACnum selection
+  71  while_stmt : WHILEnum expression statement_list
 
-  75  indece_expr : expression
-  76              | expression COMMAnum indece_expr
+  72  variable : IDnum
+  73           | IDnum selection
 
-  77  expression : simple_expression
-  78             | simple_expression LTnum simple_expression
-  79             | simple_expression LEnum simple_expression
-  80             | simple_expression EQnum simple_expression
-  81             | simple_expression NEnum simple_expression
-  82             | simple_expression GEnum simple_expression
-  83             | simple_expression GTnum simple_expression
+  74  selection : LBRACnum indece_expr RBRACnum
+  75            | DOTnum IDnum
+  76            | DOTnum IDnum selection
+  77            | LBRACnum indece_expr RBRACnum selection
 
-  84  simple_expression : optional_plus_minus term
-  85                    | optional_plus_minus term other_term
+  78  indece_expr : expression
+  79              | expression COMMAnum indece_expr
 
-  86  optional_plus_minus :
-  87                      | PLUSnum
-  88                      | MINUSnum
+  80  expression : simple_expression
+  81             | simple_expression LTnum simple_expression
+  82             | simple_expression LEnum simple_expression
+  83             | simple_expression EQnum simple_expression
+  84             | simple_expression NEnum simple_expression
+  85             | simple_expression GEnum simple_expression
+  86             | simple_expression GTnum simple_expression
 
-  89  other_term : PLUSnum term
-  90             | MINUSnum term
-  91             | ORnum term
-  92             | other_term other_term
+  87  simple_expression : optional_plus_minus
+  88                    | optional_plus_minus PLUSnum other_term
+  89                    | optional_plus_minus MINUSnum other_term
+  90                    | optional_plus_minus ORnum other_term
 
-  93  term : factor
-  94       | factor other_factor
+  91  optional_plus_minus : PLUSnum term
+  92                      | MINUSnum term
+  93                      | term
 
-  95  other_factor : TIMESnum factor
-  96               | DIVIDEnum factor
-  97               | ANDnum factor
-  98               | other_factor other_factor
+  94  other_term : term
+  95             | term MINUSnum other_term
+  96             | term PLUSnum other_term
+  97             | term ORnum other_term
 
-  99  factor : SCONSTnum
- 100         | ICONSTnum
- 101         | variable
- 102         | method_call_stmt
- 103         | LPARENnum expression RPARENnum
- 104         | NOTnum factor
+  98  term : factor
+  99       | factor TIMESnum other_factor
+ 100       | factor DIVIDEnum other_factor
+ 101       | factor ANDnum other_factor
+
+ 102  other_factor : factor TIMESnum other_factor
+ 103               | factor DIVIDEnum other_factor
+ 104               | factor ANDnum other_factor
+ 105               | factor
+
+ 106  factor : SCONSTnum
+ 107         | ICONSTnum
+ 108         | variable
+ 109         | method_call_stmt
+ 110         | LPARENnum expression RPARENnum
+ 111         | NOTnum factor
 
 state 0
 	$accept : . program $end  (0)
@@ -222,18 +233,16 @@ state 9
 
 state 10
 	class_body : LBRACEnum . RBRACEnum  (5)
-	class_body : LBRACEnum . decls RBRACEnum  (6)
-	class_body : LBRACEnum . decls method_decls RBRACEnum  (7)
-	class_body : LBRACEnum . method_decls RBRACEnum  (8)
+	class_body : LBRACEnum . method_decls RBRACEnum  (6)
 
 	DECLARATIONSnum  shift 12
 	METHODnum  shift 13
 	RBRACEnum  shift 14
 	.  error
 
-	decls  goto 15
-	method_decls  goto 16
-	method_decl  goto 17
+	method_decls  goto 15
+	method_decl  goto 16
+	decls  goto 17
 
 
 state 11
@@ -243,8 +252,8 @@ state 11
 
 
 state 12
-	decls : DECLARATIONSnum . field_decls ENDDECLARATIONSnum  (9)
-	decls : DECLARATIONSnum . ENDDECLARATIONSnum  (10)
+	decls : DECLARATIONSnum . field_decls ENDDECLARATIONSnum  (7)
+	decls : DECLARATIONSnum . ENDDECLARATIONSnum  (8)
 
 	ENDDECLARATIONSnum  shift 18
 	IDnum  shift 19
@@ -257,10 +266,8 @@ state 12
 
 
 state 13
-	method_decl : METHODnum . type IDnum LPARENnum params RPARENnum block  (31)
-	method_decl : METHODnum . type IDnum LPARENnum RPARENnum block  (32)
-	method_decl : METHODnum . VOIDnum IDnum LPARENnum params RPARENnum block  (33)
-	method_decl : METHODnum . VOIDnum IDnum LPARENnum RPARENnum block  (34)
+	method_decl : METHODnum . type IDnum LPARENnum parama_bubble RPARENnum block  (31)
+	method_decl : METHODnum . voids IDnum LPARENnum parama_bubble RPARENnum block  (32)
 
 	IDnum  shift 19
 	INTnum  shift 20
@@ -268,6 +275,7 @@ state 13
 	.  error
 
 	type  goto 25
+	voids  goto 26
 
 
 state 14
@@ -277,65 +285,62 @@ state 14
 
 
 state 15
-	class_body : LBRACEnum decls . RBRACEnum  (6)
-	class_body : LBRACEnum decls . method_decls RBRACEnum  (7)
-
-	METHODnum  shift 13
-	RBRACEnum  shift 26
-	.  error
-
-	method_decls  goto 27
-	method_decl  goto 17
-
-
-state 16
-	class_body : LBRACEnum method_decls . RBRACEnum  (8)
+	class_body : LBRACEnum method_decls . RBRACEnum  (6)
 	method_decls : method_decls . method_decl  (30)
 
 	METHODnum  shift 13
-	RBRACEnum  shift 28
+	RBRACEnum  shift 27
 	.  error
+
+	method_decl  goto 28
+
+
+state 16
+	method_decls : method_decl .  (27)
+
+	.  reduce 27
+
+
+17: shift/reduce conflict (shift 13, reduce 29) on METHODnum
+state 17
+	method_decls : decls . method_decl  (28)
+	method_decls : decls .  (29)
+
+	METHODnum  shift 13
+	RBRACEnum  reduce 29
 
 	method_decl  goto 29
 
 
-state 17
-	method_decls : method_decl .  (29)
-
-	.  reduce 29
-
-
 state 18
-	decls : DECLARATIONSnum ENDDECLARATIONSnum .  (10)
+	decls : DECLARATIONSnum ENDDECLARATIONSnum .  (8)
 
-	.  reduce 10
+	.  reduce 8
 
 
 state 19
 	type : IDnum .  (46)
-	type : IDnum . braces  (47)
-	type : IDnum . braces DOTnum type  (48)
+	type : IDnum . type_braces  (47)
 
 	LBRACnum  shift 30
 	IDnum  reduce 46
 
-	braces  goto 31
+	type_braces  goto 31
 
 
 state 20
-	type : INTnum .  (43)
-	type : INTnum . braces  (44)
-	type : INTnum . braces DOTnum type  (45)
+	type : INTnum .  (44)
+	type : INTnum . type_braces  (45)
 
 	LBRACnum  shift 30
-	IDnum  reduce 43
+	IDnum  reduce 44
 
-	braces  goto 32
+	type_braces  goto 32
 
 
 state 21
-	decls : DECLARATIONSnum field_decls . ENDDECLARATIONSnum  (9)
-	field_decls : field_decls . field_decl  (12)
+	decls : DECLARATIONSnum field_decls . ENDDECLARATIONSnum  (7)
+	field_decls : field_decls . field_decl  (10)
 
 	ENDDECLARATIONSnum  shift 33
 	IDnum  shift 19
@@ -347,13 +352,13 @@ state 21
 
 
 state 22
-	field_decls : field_decl .  (11)
+	field_decls : field_decl .  (9)
 
-	.  reduce 11
+	.  reduce 9
 
 
 state 23
-	field_decl : type . var_decl  (13)
+	field_decl : type . var_decl  (11)
 
 	IDnum  shift 35
 	.  error
@@ -363,1328 +368,252 @@ state 23
 
 
 state 24
-	method_decl : METHODnum VOIDnum . IDnum LPARENnum params RPARENnum block  (33)
-	method_decl : METHODnum VOIDnum . IDnum LPARENnum RPARENnum block  (34)
+	voids : VOIDnum .  (33)
+
+	.  reduce 33
+
+
+state 25
+	method_decl : METHODnum type . IDnum LPARENnum parama_bubble RPARENnum block  (31)
 
 	IDnum  shift 38
 	.  error
 
 
-state 25
-	method_decl : METHODnum type . IDnum LPARENnum params RPARENnum block  (31)
-	method_decl : METHODnum type . IDnum LPARENnum RPARENnum block  (32)
+state 26
+	method_decl : METHODnum voids . IDnum LPARENnum parama_bubble RPARENnum block  (32)
 
 	IDnum  shift 39
 	.  error
 
 
-state 26
-	class_body : LBRACEnum decls RBRACEnum .  (6)
+state 27
+	class_body : LBRACEnum method_decls RBRACEnum .  (6)
 
 	.  reduce 6
 
 
-state 27
-	class_body : LBRACEnum decls method_decls . RBRACEnum  (7)
-	method_decls : method_decls . method_decl  (30)
-
-	METHODnum  shift 13
-	RBRACEnum  shift 40
-	.  error
-
-	method_decl  goto 29
-
-
 state 28
-	class_body : LBRACEnum method_decls RBRACEnum .  (8)
-
-	.  reduce 8
-
-
-state 29
 	method_decls : method_decls method_decl .  (30)
 
 	.  reduce 30
 
 
-state 30
-	braces : LBRACnum . RBRACnum  (49)
+state 29
+	method_decls : decls method_decl .  (28)
 
-	RBRACnum  shift 41
+	.  reduce 28
+
+
+state 30
+	type_braces : LBRACnum . RBRACnum  (48)
+	type_braces : LBRACnum . RBRACnum DOTnum field_op_type  (49)
+	type_braces : LBRACnum . RBRACnum type_braces  (50)
+
+	RBRACnum  shift 40
 	.  error
 
 
 state 31
-	type : IDnum braces .  (47)
-	type : IDnum braces . DOTnum type  (48)
-	braces : braces . LBRACnum RBRACnum  (50)
+	type : IDnum type_braces .  (47)
 
-	DOTnum  shift 42
-	LBRACnum  shift 43
-	IDnum  reduce 47
+	.  reduce 47
 
 
 state 32
-	type : INTnum braces .  (44)
-	type : INTnum braces . DOTnum type  (45)
-	braces : braces . LBRACnum RBRACnum  (50)
-
-	DOTnum  shift 44
-	LBRACnum  shift 43
-	IDnum  reduce 44
-
-
-state 33
-	decls : DECLARATIONSnum field_decls ENDDECLARATIONSnum .  (9)
-
-	.  reduce 9
-
-
-state 34
-	field_decls : field_decls field_decl .  (12)
-
-	.  reduce 12
-
-
-state 35
-	var_decl_id : IDnum . braces  (18)
-	var_decl_id : IDnum .  (19)
-
-	LBRACnum  shift 30
-	EQUALnum  reduce 19
-	SEMInum  reduce 19
-	COMMAnum  reduce 19
-
-	braces  goto 45
-
-
-state 36
-	field_decl : type var_decl .  (13)
-
-	.  reduce 13
-
-
-state 37
-	var_decl : var_decl_id . EQUALnum variable_initializer SEMInum  (14)
-	var_decl : var_decl_id . SEMInum  (15)
-	var_decl : var_decl_id . COMMAnum var_decl  (16)
-	var_decl : var_decl_id . EQUALnum variable_initializer COMMAnum var_decl  (17)
-
-	EQUALnum  shift 46
-	SEMInum  shift 47
-	COMMAnum  shift 48
-	.  error
-
-
-state 38
-	method_decl : METHODnum VOIDnum IDnum . LPARENnum params RPARENnum block  (33)
-	method_decl : METHODnum VOIDnum IDnum . LPARENnum RPARENnum block  (34)
-
-	LPARENnum  shift 49
-	.  error
-
-
-state 39
-	method_decl : METHODnum type IDnum . LPARENnum params RPARENnum block  (31)
-	method_decl : METHODnum type IDnum . LPARENnum RPARENnum block  (32)
-
-	LPARENnum  shift 50
-	.  error
-
-
-state 40
-	class_body : LBRACEnum decls method_decls RBRACEnum .  (7)
-
-	.  reduce 7
-
-
-state 41
-	braces : LBRACnum RBRACnum .  (49)
-
-	.  reduce 49
-
-
-state 42
-	type : IDnum braces DOTnum . type  (48)
-
-	IDnum  shift 19
-	INTnum  shift 20
-	.  error
-
-	type  goto 51
-
-
-state 43
-	braces : braces LBRACnum . RBRACnum  (50)
-
-	RBRACnum  shift 52
-	.  error
-
-
-state 44
-	type : INTnum braces DOTnum . type  (45)
-
-	IDnum  shift 19
-	INTnum  shift 20
-	.  error
-
-	type  goto 53
-
-
-state 45
-	var_decl_id : IDnum braces .  (18)
-	braces : braces . LBRACnum RBRACnum  (50)
-
-	LBRACnum  shift 43
-	EQUALnum  reduce 18
-	SEMInum  reduce 18
-	COMMAnum  reduce 18
-
-
-state 46
-	var_decl : var_decl_id EQUALnum . variable_initializer SEMInum  (14)
-	var_decl : var_decl_id EQUALnum . variable_initializer COMMAnum var_decl  (17)
-	optional_plus_minus : .  (86)
-
-	INTnum  shift 54
-	LBRACEnum  shift 55
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	variable_initializer  goto 58
-	expression  goto 59
-	array_init  goto 60
-	array_creation  goto 61
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 47
-	var_decl : var_decl_id SEMInum .  (15)
-
-	.  reduce 15
-
-
-state 48
-	var_decl : var_decl_id COMMAnum . var_decl  (16)
-
-	IDnum  shift 35
-	.  error
-
-	var_decl  goto 64
-	var_decl_id  goto 37
-
-
-state 49
-	method_decl : METHODnum VOIDnum IDnum LPARENnum . params RPARENnum block  (33)
-	method_decl : METHODnum VOIDnum IDnum LPARENnum . RPARENnum block  (34)
-
-	INTnum  shift 65
-	RPARENnum  shift 66
-	VALnum  shift 67
-	.  error
-
-	params  goto 68
-
-
-state 50
-	method_decl : METHODnum type IDnum LPARENnum . params RPARENnum block  (31)
-	method_decl : METHODnum type IDnum LPARENnum . RPARENnum block  (32)
-
-	INTnum  shift 65
-	RPARENnum  shift 69
-	VALnum  shift 67
-	.  error
-
-	params  goto 70
-
-
-state 51
-	type : IDnum braces DOTnum type .  (48)
-
-	.  reduce 48
-
-
-state 52
-	braces : braces LBRACnum RBRACnum .  (50)
-
-	.  reduce 50
-
-
-state 53
-	type : INTnum braces DOTnum type .  (45)
+	type : INTnum type_braces .  (45)
 
 	.  reduce 45
 
 
-state 54
-	array_creation : INTnum . array_expr  (26)
+state 33
+	decls : DECLARATIONSnum field_decls ENDDECLARATIONSnum .  (7)
 
-	LBRACnum  shift 71
-	.  error
-
-	array_expr  goto 72
+	.  reduce 7
 
 
-state 55
-	array_init : LBRACEnum . variable_init_list RBRACEnum  (23)
-	optional_plus_minus : .  (86)
+state 34
+	field_decls : field_decls field_decl .  (10)
 
-	INTnum  shift 54
-	LBRACEnum  shift 55
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	variable_initializer  goto 73
-	expression  goto 59
-	array_init  goto 60
-	array_creation  goto 61
-	variable_init_list  goto 74
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
+	.  reduce 10
 
 
-state 56
-	optional_plus_minus : MINUSnum .  (88)
+state 35
+	var_decl_id : IDnum . braces  (16)
+	var_decl_id : IDnum .  (17)
 
-	.  reduce 88
+	LBRACnum  shift 41
+	EQUALnum  reduce 17
+	SEMInum  reduce 17
+	COMMAnum  reduce 17
+
+	braces  goto 42
 
 
-state 57
-	optional_plus_minus : PLUSnum .  (87)
+state 36
+	field_decl : type var_decl .  (11)
 
-	.  reduce 87
+	.  reduce 11
 
 
-state 58
-	var_decl : var_decl_id EQUALnum variable_initializer . SEMInum  (14)
-	var_decl : var_decl_id EQUALnum variable_initializer . COMMAnum var_decl  (17)
+state 37
+	var_decl : var_decl_id . EQUALnum variable_initializer SEMInum  (12)
+	var_decl : var_decl_id . SEMInum  (13)
+	var_decl : var_decl_id . COMMAnum var_decl  (14)
+	var_decl : var_decl_id . EQUALnum variable_initializer COMMAnum var_decl  (15)
 
-	SEMInum  shift 75
-	COMMAnum  shift 76
+	EQUALnum  shift 43
+	SEMInum  shift 44
+	COMMAnum  shift 45
 	.  error
 
 
-state 59
-	variable_initializer : expression .  (20)
+state 38
+	method_decl : METHODnum type IDnum . LPARENnum parama_bubble RPARENnum block  (31)
 
-	.  reduce 20
-
-
-state 60
-	variable_initializer : array_init .  (21)
-
-	.  reduce 21
-
-
-state 61
-	variable_initializer : array_creation .  (22)
-
-	.  reduce 22
-
-
-state 62
-	expression : simple_expression .  (77)
-	expression : simple_expression . LTnum simple_expression  (78)
-	expression : simple_expression . LEnum simple_expression  (79)
-	expression : simple_expression . EQnum simple_expression  (80)
-	expression : simple_expression . NEnum simple_expression  (81)
-	expression : simple_expression . GEnum simple_expression  (82)
-	expression : simple_expression . GTnum simple_expression  (83)
-
-	GTnum  shift 77
-	NEnum  shift 78
-	EQnum  shift 79
-	GEnum  shift 80
-	LEnum  shift 81
-	LTnum  shift 82
-	RBRACnum  reduce 77
-	RPARENnum  reduce 77
-	SEMInum  reduce 77
-	COMMAnum  reduce 77
-	LBRACEnum  reduce 77
-	RBRACEnum  reduce 77
-
-
-state 63
-	simple_expression : optional_plus_minus . term  (84)
-	simple_expression : optional_plus_minus . term other_term  (85)
-
-	IDnum  shift 83
-	LPARENnum  shift 84
-	ICONSTnum  shift 85
-	NOTnum  shift 86
-	SCONSTnum  shift 87
-	.  error
-
-	method_call_stmt  goto 88
-	variable  goto 89
-	term  goto 90
-	factor  goto 91
-
-
-state 64
-	var_decl : var_decl_id COMMAnum var_decl .  (16)
-
-	.  reduce 16
-
-
-state 65
-	params : INTnum . identifier_list  (35)
-	params : INTnum . identifier_list SEMInum params  (38)
-
-	IDnum  shift 92
-	.  error
-
-	identifier_list  goto 93
-
-
-state 66
-	method_decl : METHODnum VOIDnum IDnum LPARENnum RPARENnum . block  (34)
-
-	DECLARATIONSnum  shift 12
-	LBRACEnum  shift 94
-	.  error
-
-	decls  goto 95
-	block  goto 96
-	statement_list  goto 97
-
-
-state 67
-	params : VALnum . INTnum identifier_list SEMInum params  (36)
-	params : VALnum . INTnum identifier_list  (37)
-
-	INTnum  shift 98
+	LPARENnum  shift 46
 	.  error
 
 
-state 68
-	method_decl : METHODnum VOIDnum IDnum LPARENnum params . RPARENnum block  (33)
+state 39
+	method_decl : METHODnum voids IDnum . LPARENnum parama_bubble RPARENnum block  (32)
 
-	RPARENnum  shift 99
+	LPARENnum  shift 47
 	.  error
 
 
-state 69
-	method_decl : METHODnum type IDnum LPARENnum RPARENnum . block  (32)
+state 40
+	type_braces : LBRACnum RBRACnum .  (48)
+	type_braces : LBRACnum RBRACnum . DOTnum field_op_type  (49)
+	type_braces : LBRACnum RBRACnum . type_braces  (50)
 
-	DECLARATIONSnum  shift 12
-	LBRACEnum  shift 94
-	.  error
+	DOTnum  shift 48
+	LBRACnum  shift 30
+	IDnum  reduce 48
 
-	decls  goto 95
-	block  goto 100
-	statement_list  goto 97
-
-
-state 70
-	method_decl : METHODnum type IDnum LPARENnum params . RPARENnum block  (31)
-
-	RPARENnum  shift 101
-	.  error
+	type_braces  goto 49
 
 
-state 71
-	array_expr : LBRACnum . expression RBRACnum  (27)
-	optional_plus_minus : .  (86)
+state 41
+	braces : LBRACnum . RBRACnum  (52)
 
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 102
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 72
-	array_creation : INTnum array_expr .  (26)
-	array_expr : array_expr . LBRACnum expression RBRACnum  (28)
-
-	LBRACnum  shift 103
-	SEMInum  reduce 26
-	COMMAnum  reduce 26
-	RBRACEnum  reduce 26
-
-
-state 73
-	variable_init_list : variable_initializer .  (24)
-
-	.  reduce 24
-
-
-state 74
-	array_init : LBRACEnum variable_init_list . RBRACEnum  (23)
-	variable_init_list : variable_init_list . COMMAnum variable_initializer  (25)
-
-	COMMAnum  shift 104
-	RBRACEnum  shift 105
+	RBRACnum  shift 50
 	.  error
 
 
-state 75
-	var_decl : var_decl_id EQUALnum variable_initializer SEMInum .  (14)
+state 42
+	var_decl_id : IDnum braces .  (16)
+	braces : braces . LBRACnum RBRACnum  (53)
 
-	.  reduce 14
+	LBRACnum  shift 51
+	EQUALnum  reduce 16
+	SEMInum  reduce 16
+	COMMAnum  reduce 16
 
 
-state 76
-	var_decl : var_decl_id EQUALnum variable_initializer COMMAnum . var_decl  (17)
+state 43
+	var_decl : var_decl_id EQUALnum . variable_initializer SEMInum  (12)
+	var_decl : var_decl_id EQUALnum . variable_initializer COMMAnum var_decl  (15)
+
+	IDnum  shift 52
+	INTnum  shift 53
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	LBRACEnum  shift 56
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	variable_initializer  goto 61
+	array_init  goto 62
+	array_creation  goto 63
+	expression  goto 64
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 44
+	var_decl : var_decl_id SEMInum .  (13)
+
+	.  reduce 13
+
+
+state 45
+	var_decl : var_decl_id COMMAnum . var_decl  (14)
 
 	IDnum  shift 35
 	.  error
 
-	var_decl  goto 106
+	var_decl  goto 71
 	var_decl_id  goto 37
 
 
-state 77
-	expression : simple_expression GTnum . simple_expression  (83)
-	optional_plus_minus : .  (86)
+state 46
+	method_decl : METHODnum type IDnum LPARENnum . parama_bubble RPARENnum block  (31)
+	parama_bubble : .  (35)
 
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	simple_expression  goto 107
-	optional_plus_minus  goto 63
-
-
-state 78
-	expression : simple_expression NEnum . simple_expression  (81)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	simple_expression  goto 108
-	optional_plus_minus  goto 63
-
-
-state 79
-	expression : simple_expression EQnum . simple_expression  (80)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	simple_expression  goto 109
-	optional_plus_minus  goto 63
-
-
-state 80
-	expression : simple_expression GEnum . simple_expression  (82)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	simple_expression  goto 110
-	optional_plus_minus  goto 63
-
-
-state 81
-	expression : simple_expression LEnum . simple_expression  (79)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	simple_expression  goto 111
-	optional_plus_minus  goto 63
-
-
-state 82
-	expression : simple_expression LTnum . simple_expression  (78)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	simple_expression  goto 112
-	optional_plus_minus  goto 63
-
-
-state 83
-	variable : IDnum .  (69)
-	variable : IDnum . selection  (70)
-
-	DOTnum  shift 113
-	LBRACnum  shift 114
-	ANDnum  reduce 69
-	ASSGNnum  reduce 69
-	GTnum  reduce 69
-	LPARENnum  reduce 69
-	NEnum  reduce 69
-	ORnum  reduce 69
-	RBRACnum  reduce 69
-	RPARENnum  reduce 69
-	SEMInum  reduce 69
-	COMMAnum  reduce 69
-	DIVIDEnum  reduce 69
-	EQnum  reduce 69
-	GEnum  reduce 69
-	LBRACEnum  reduce 69
-	LEnum  reduce 69
-	LTnum  reduce 69
-	MINUSnum  reduce 69
-	PLUSnum  reduce 69
-	RBRACEnum  reduce 69
-	TIMESnum  reduce 69
-
-	selection  goto 115
-
-
-state 84
-	factor : LPARENnum . expression RPARENnum  (103)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 116
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 85
-	factor : ICONSTnum .  (100)
-
-	.  reduce 100
-
-
-state 86
-	factor : NOTnum . factor  (104)
-
-	IDnum  shift 83
-	LPARENnum  shift 84
-	ICONSTnum  shift 85
-	NOTnum  shift 86
-	SCONSTnum  shift 87
-	.  error
-
-	method_call_stmt  goto 88
-	variable  goto 89
-	factor  goto 117
-
-
-state 87
-	factor : SCONSTnum .  (99)
-
-	.  reduce 99
-
-
-state 88
-	factor : method_call_stmt .  (102)
-
-	.  reduce 102
-
-
-state 89
-	method_call_stmt : variable . LPARENnum RPARENnum  (61)
-	method_call_stmt : variable . LPARENnum indece_expr RPARENnum  (62)
-	factor : variable .  (101)
-
-	LPARENnum  shift 118
-	ANDnum  reduce 101
-	GTnum  reduce 101
-	NEnum  reduce 101
-	ORnum  reduce 101
-	RBRACnum  reduce 101
-	RPARENnum  reduce 101
-	SEMInum  reduce 101
-	COMMAnum  reduce 101
-	DIVIDEnum  reduce 101
-	EQnum  reduce 101
-	GEnum  reduce 101
-	LBRACEnum  reduce 101
-	LEnum  reduce 101
-	LTnum  reduce 101
-	MINUSnum  reduce 101
-	PLUSnum  reduce 101
-	RBRACEnum  reduce 101
-	TIMESnum  reduce 101
-
-
-state 90
-	simple_expression : optional_plus_minus term .  (84)
-	simple_expression : optional_plus_minus term . other_term  (85)
-
-	ORnum  shift 119
-	MINUSnum  shift 120
-	PLUSnum  shift 121
-	GTnum  reduce 84
-	NEnum  reduce 84
-	RBRACnum  reduce 84
-	RPARENnum  reduce 84
-	SEMInum  reduce 84
-	COMMAnum  reduce 84
-	EQnum  reduce 84
-	GEnum  reduce 84
-	LBRACEnum  reduce 84
-	LEnum  reduce 84
-	LTnum  reduce 84
-	RBRACEnum  reduce 84
-
-	other_term  goto 122
-
-
-state 91
-	term : factor .  (93)
-	term : factor . other_factor  (94)
-
-	ANDnum  shift 123
-	DIVIDEnum  shift 124
-	TIMESnum  shift 125
-	GTnum  reduce 93
-	NEnum  reduce 93
-	ORnum  reduce 93
-	RBRACnum  reduce 93
-	RPARENnum  reduce 93
-	SEMInum  reduce 93
-	COMMAnum  reduce 93
-	EQnum  reduce 93
-	GEnum  reduce 93
-	LBRACEnum  reduce 93
-	LEnum  reduce 93
-	LTnum  reduce 93
-	MINUSnum  reduce 93
-	PLUSnum  reduce 93
-	RBRACEnum  reduce 93
-
-	other_factor  goto 126
-
-
-state 92
-	identifier_list : IDnum .  (39)
-
-	.  reduce 39
-
-
-state 93
-	params : INTnum identifier_list .  (35)
-	params : INTnum identifier_list . SEMInum params  (38)
-	identifier_list : identifier_list . COMMAnum IDnum  (40)
-
-	SEMInum  shift 127
-	COMMAnum  shift 128
+	INTnum  shift 72
+	VALnum  shift 73
 	RPARENnum  reduce 35
 
-
-state 94
-	statement_list : LBRACEnum . statement_inner RBRACEnum  (51)
-	statement : .  (59)
-
-	IDnum  shift 83
-	WHILEnum  shift 129
-	IFnum  shift 130
-	RETURNnum  shift 131
-	SEMInum  reduce 59
-	RBRACEnum  reduce 59
-
-	statement_inner  goto 132
-	statement  goto 133
-	assign_stmt  goto 134
-	method_call_stmt  goto 135
-	return_stmt  goto 136
-	if_stmt  goto 137
-	while_stmt  goto 138
-	variable  goto 139
+	params  goto 74
+	parama_bubble  goto 75
 
 
-state 95
-	block : decls . statement_list  (41)
+state 47
+	method_decl : METHODnum voids IDnum LPARENnum . parama_bubble RPARENnum block  (32)
+	parama_bubble : .  (35)
 
-	LBRACEnum  shift 94
+	INTnum  shift 72
+	VALnum  shift 73
+	RPARENnum  reduce 35
+
+	params  goto 74
+	parama_bubble  goto 76
+
+
+state 48
+	type_braces : LBRACnum RBRACnum DOTnum . field_op_type  (49)
+
+	IDnum  shift 19
+	INTnum  shift 20
 	.  error
 
-	statement_list  goto 140
+	type  goto 77
+	field_op_type  goto 78
 
 
-state 96
-	method_decl : METHODnum VOIDnum IDnum LPARENnum RPARENnum block .  (34)
+state 49
+	type_braces : LBRACnum RBRACnum type_braces .  (50)
 
-	.  reduce 34
+	.  reduce 50
 
 
-state 97
-	block : statement_list .  (42)
-
-	.  reduce 42
-
-
-state 98
-	params : VALnum INTnum . identifier_list SEMInum params  (36)
-	params : VALnum INTnum . identifier_list  (37)
-
-	IDnum  shift 92
-	.  error
-
-	identifier_list  goto 141
-
-
-state 99
-	method_decl : METHODnum VOIDnum IDnum LPARENnum params RPARENnum . block  (33)
-
-	DECLARATIONSnum  shift 12
-	LBRACEnum  shift 94
-	.  error
-
-	decls  goto 95
-	block  goto 142
-	statement_list  goto 97
-
-
-state 100
-	method_decl : METHODnum type IDnum LPARENnum RPARENnum block .  (32)
-
-	.  reduce 32
-
-
-state 101
-	method_decl : METHODnum type IDnum LPARENnum params RPARENnum . block  (31)
-
-	DECLARATIONSnum  shift 12
-	LBRACEnum  shift 94
-	.  error
-
-	decls  goto 95
-	block  goto 143
-	statement_list  goto 97
-
-
-state 102
-	array_expr : LBRACnum expression . RBRACnum  (27)
-
-	RBRACnum  shift 144
-	.  error
-
-
-state 103
-	array_expr : array_expr LBRACnum . expression RBRACnum  (28)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 145
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 104
-	variable_init_list : variable_init_list COMMAnum . variable_initializer  (25)
-	optional_plus_minus : .  (86)
-
-	INTnum  shift 54
-	LBRACEnum  shift 55
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	variable_initializer  goto 146
-	expression  goto 59
-	array_init  goto 60
-	array_creation  goto 61
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 105
-	array_init : LBRACEnum variable_init_list RBRACEnum .  (23)
-
-	.  reduce 23
-
-
-state 106
-	var_decl : var_decl_id EQUALnum variable_initializer COMMAnum var_decl .  (17)
-
-	.  reduce 17
-
-
-state 107
-	expression : simple_expression GTnum simple_expression .  (83)
-
-	.  reduce 83
-
-
-state 108
-	expression : simple_expression NEnum simple_expression .  (81)
-
-	.  reduce 81
-
-
-state 109
-	expression : simple_expression EQnum simple_expression .  (80)
-
-	.  reduce 80
-
-
-state 110
-	expression : simple_expression GEnum simple_expression .  (82)
-
-	.  reduce 82
-
-
-state 111
-	expression : simple_expression LEnum simple_expression .  (79)
-
-	.  reduce 79
-
-
-state 112
-	expression : simple_expression LTnum simple_expression .  (78)
-
-	.  reduce 78
-
-
-state 113
-	selection : DOTnum . IDnum  (72)
-	selection : DOTnum . IDnum selection  (73)
-
-	IDnum  shift 147
-	.  error
-
-
-state 114
-	selection : LBRACnum . indece_expr RBRACnum  (71)
-	selection : LBRACnum . indece_expr RBRACnum selection  (74)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 148
-	indece_expr  goto 149
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 115
-	variable : IDnum selection .  (70)
-
-	.  reduce 70
-
-
-state 116
-	factor : LPARENnum expression . RPARENnum  (103)
-
-	RPARENnum  shift 150
-	.  error
-
-
-state 117
-	factor : NOTnum factor .  (104)
-
-	.  reduce 104
-
-
-state 118
-	method_call_stmt : variable LPARENnum . RPARENnum  (61)
-	method_call_stmt : variable LPARENnum . indece_expr RPARENnum  (62)
-	optional_plus_minus : .  (86)
-
-	RPARENnum  shift 151
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 148
-	indece_expr  goto 152
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 119
-	other_term : ORnum . term  (91)
-
-	IDnum  shift 83
-	LPARENnum  shift 84
-	ICONSTnum  shift 85
-	NOTnum  shift 86
-	SCONSTnum  shift 87
-	.  error
-
-	method_call_stmt  goto 88
-	variable  goto 89
-	term  goto 153
-	factor  goto 91
-
-
-state 120
-	other_term : MINUSnum . term  (90)
-
-	IDnum  shift 83
-	LPARENnum  shift 84
-	ICONSTnum  shift 85
-	NOTnum  shift 86
-	SCONSTnum  shift 87
-	.  error
-
-	method_call_stmt  goto 88
-	variable  goto 89
-	term  goto 154
-	factor  goto 91
-
-
-state 121
-	other_term : PLUSnum . term  (89)
-
-	IDnum  shift 83
-	LPARENnum  shift 84
-	ICONSTnum  shift 85
-	NOTnum  shift 86
-	SCONSTnum  shift 87
-	.  error
-
-	method_call_stmt  goto 88
-	variable  goto 89
-	term  goto 155
-	factor  goto 91
-
-
-state 122
-	simple_expression : optional_plus_minus term other_term .  (85)
-	other_term : other_term . other_term  (92)
-
-	ORnum  shift 119
-	MINUSnum  shift 120
-	PLUSnum  shift 121
-	GTnum  reduce 85
-	NEnum  reduce 85
-	RBRACnum  reduce 85
-	RPARENnum  reduce 85
-	SEMInum  reduce 85
-	COMMAnum  reduce 85
-	EQnum  reduce 85
-	GEnum  reduce 85
-	LBRACEnum  reduce 85
-	LEnum  reduce 85
-	LTnum  reduce 85
-	RBRACEnum  reduce 85
-
-	other_term  goto 156
-
-
-state 123
-	other_factor : ANDnum . factor  (97)
-
-	IDnum  shift 83
-	LPARENnum  shift 84
-	ICONSTnum  shift 85
-	NOTnum  shift 86
-	SCONSTnum  shift 87
-	.  error
-
-	method_call_stmt  goto 88
-	variable  goto 89
-	factor  goto 157
-
-
-state 124
-	other_factor : DIVIDEnum . factor  (96)
-
-	IDnum  shift 83
-	LPARENnum  shift 84
-	ICONSTnum  shift 85
-	NOTnum  shift 86
-	SCONSTnum  shift 87
-	.  error
-
-	method_call_stmt  goto 88
-	variable  goto 89
-	factor  goto 158
-
-
-state 125
-	other_factor : TIMESnum . factor  (95)
-
-	IDnum  shift 83
-	LPARENnum  shift 84
-	ICONSTnum  shift 85
-	NOTnum  shift 86
-	SCONSTnum  shift 87
-	.  error
-
-	method_call_stmt  goto 88
-	variable  goto 89
-	factor  goto 159
-
-
-state 126
-	term : factor other_factor .  (94)
-	other_factor : other_factor . other_factor  (98)
-
-	ANDnum  shift 123
-	DIVIDEnum  shift 124
-	TIMESnum  shift 125
-	GTnum  reduce 94
-	NEnum  reduce 94
-	ORnum  reduce 94
-	RBRACnum  reduce 94
-	RPARENnum  reduce 94
-	SEMInum  reduce 94
-	COMMAnum  reduce 94
-	EQnum  reduce 94
-	GEnum  reduce 94
-	LBRACEnum  reduce 94
-	LEnum  reduce 94
-	LTnum  reduce 94
-	MINUSnum  reduce 94
-	PLUSnum  reduce 94
-	RBRACEnum  reduce 94
-
-	other_factor  goto 160
-
-
-state 127
-	params : INTnum identifier_list SEMInum . params  (38)
-
-	INTnum  shift 65
-	VALnum  shift 67
-	.  error
-
-	params  goto 161
-
-
-state 128
-	identifier_list : identifier_list COMMAnum . IDnum  (40)
-
-	IDnum  shift 162
-	.  error
-
-
-state 129
-	while_stmt : WHILEnum . expression statement_list  (68)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 163
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 130
-	if_stmt : IFnum . expression statement_list  (65)
-	if_stmt : IFnum . expression statement_list ELSEnum statement_list  (66)
-	if_stmt : IFnum . expression statement_list ELSEnum if_stmt  (67)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 164
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 131
-	return_stmt : RETURNnum . expression  (63)
-	return_stmt : RETURNnum .  (64)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	SEMInum  reduce 64
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	RBRACEnum  reduce 64
-	SCONSTnum  reduce 86
-
-	expression  goto 165
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
-
-
-state 132
-	statement_list : LBRACEnum statement_inner . RBRACEnum  (51)
-	statement_inner : statement_inner . SEMInum statement  (53)
-
-	SEMInum  shift 166
-	RBRACEnum  shift 167
-	.  error
-
-
-state 133
-	statement_inner : statement .  (52)
+state 50
+	braces : LBRACnum RBRACnum .  (52)
 
 	.  reduce 52
 
 
-state 134
-	statement : assign_stmt .  (54)
+state 51
+	braces : braces LBRACnum . RBRACnum  (53)
 
-	.  reduce 54
-
-
-state 135
-	statement : method_call_stmt .  (55)
-
-	.  reduce 55
-
-
-state 136
-	statement : return_stmt .  (56)
-
-	.  reduce 56
-
-
-state 137
-	statement : if_stmt .  (57)
-
-	.  reduce 57
-
-
-state 138
-	statement : while_stmt .  (58)
-
-	.  reduce 58
-
-
-state 139
-	assign_stmt : variable . ASSGNnum expression  (60)
-	method_call_stmt : variable . LPARENnum RPARENnum  (61)
-	method_call_stmt : variable . LPARENnum indece_expr RPARENnum  (62)
-
-	ASSGNnum  shift 168
-	LPARENnum  shift 118
+	RBRACnum  shift 79
 	.  error
 
 
-state 140
-	block : decls statement_list .  (41)
+state 52
+	variable : IDnum .  (72)
+	variable : IDnum . selection  (73)
 
-	.  reduce 41
-
-
-state 141
-	params : VALnum INTnum identifier_list . SEMInum params  (36)
-	params : VALnum INTnum identifier_list .  (37)
-	identifier_list : identifier_list . COMMAnum IDnum  (40)
-
-	SEMInum  shift 169
-	COMMAnum  shift 128
-	RPARENnum  reduce 37
-
-
-state 142
-	method_decl : METHODnum VOIDnum IDnum LPARENnum params RPARENnum block .  (33)
-
-	.  reduce 33
-
-
-state 143
-	method_decl : METHODnum type IDnum LPARENnum params RPARENnum block .  (31)
-
-	.  reduce 31
-
-
-state 144
-	array_expr : LBRACnum expression RBRACnum .  (27)
-
-	.  reduce 27
-
-
-state 145
-	array_expr : array_expr LBRACnum expression . RBRACnum  (28)
-
-	RBRACnum  shift 170
-	.  error
-
-
-state 146
-	variable_init_list : variable_init_list COMMAnum variable_initializer .  (25)
-
-	.  reduce 25
-
-
-state 147
-	selection : DOTnum IDnum .  (72)
-	selection : DOTnum IDnum . selection  (73)
-
-	DOTnum  shift 113
-	LBRACnum  shift 114
+	DOTnum  shift 80
+	LBRACnum  shift 81
 	ANDnum  reduce 72
 	ASSGNnum  reduce 72
 	GTnum  reduce 72
@@ -1706,117 +635,190 @@ state 147
 	RBRACEnum  reduce 72
 	TIMESnum  reduce 72
 
-	selection  goto 171
+	selection  goto 82
 
 
-state 148
-	indece_expr : expression .  (75)
-	indece_expr : expression . COMMAnum indece_expr  (76)
+state 53
+	array_creation : INTnum . array_expr  (24)
 
-	COMMAnum  shift 172
-	RBRACnum  reduce 75
-	RPARENnum  reduce 75
+	LBRACnum  shift 83
+	.  error
+
+	array_expr  goto 84
 
 
-state 149
-	selection : LBRACnum indece_expr . RBRACnum  (71)
-	selection : LBRACnum indece_expr . RBRACnum selection  (74)
+state 54
+	factor : LPARENnum . expression RPARENnum  (110)
 
-	RBRACnum  shift 173
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	expression  goto 85
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 55
+	factor : ICONSTnum .  (107)
+
+	.  reduce 107
+
+
+state 56
+	array_init : LBRACEnum . variable_init_list RBRACEnum  (21)
+
+	IDnum  shift 52
+	INTnum  shift 53
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	LBRACEnum  shift 56
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	variable_initializer  goto 86
+	variable_init_list  goto 87
+	array_init  goto 62
+	array_creation  goto 63
+	expression  goto 64
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 57
+	optional_plus_minus : MINUSnum . term  (92)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	term  goto 88
+	factor  goto 67
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 58
+	factor : NOTnum . factor  (111)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	factor  goto 89
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 59
+	optional_plus_minus : PLUSnum . term  (91)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	term  goto 90
+	factor  goto 67
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 60
+	factor : SCONSTnum .  (106)
+
+	.  reduce 106
+
+
+state 61
+	var_decl : var_decl_id EQUALnum variable_initializer . SEMInum  (12)
+	var_decl : var_decl_id EQUALnum variable_initializer . COMMAnum var_decl  (15)
+
+	SEMInum  shift 91
+	COMMAnum  shift 92
 	.  error
 
 
-state 150
-	factor : LPARENnum expression RPARENnum .  (103)
+state 62
+	variable_initializer : array_init .  (19)
 
-	.  reduce 103
-
-
-state 151
-	method_call_stmt : variable LPARENnum RPARENnum .  (61)
-
-	.  reduce 61
+	.  reduce 19
 
 
-state 152
-	method_call_stmt : variable LPARENnum indece_expr . RPARENnum  (62)
+state 63
+	variable_initializer : array_creation .  (20)
 
-	RPARENnum  shift 174
-	.  error
-
-
-state 153
-	other_term : ORnum term .  (91)
-
-	.  reduce 91
+	.  reduce 20
 
 
-state 154
-	other_term : MINUSnum term .  (90)
+state 64
+	variable_initializer : expression .  (18)
 
-	.  reduce 90
-
-
-state 155
-	other_term : PLUSnum term .  (89)
-
-	.  reduce 89
+	.  reduce 18
 
 
-156: shift/reduce conflict (shift 119, reduce 92) on ORnum
-156: shift/reduce conflict (shift 120, reduce 92) on MINUSnum
-156: shift/reduce conflict (shift 121, reduce 92) on PLUSnum
-state 156
-	other_term : other_term . other_term  (92)
-	other_term : other_term other_term .  (92)
+state 65
+	expression : simple_expression .  (80)
+	expression : simple_expression . LTnum simple_expression  (81)
+	expression : simple_expression . LEnum simple_expression  (82)
+	expression : simple_expression . EQnum simple_expression  (83)
+	expression : simple_expression . NEnum simple_expression  (84)
+	expression : simple_expression . GEnum simple_expression  (85)
+	expression : simple_expression . GTnum simple_expression  (86)
 
-	ORnum  shift 119
-	MINUSnum  shift 120
-	PLUSnum  shift 121
-	GTnum  reduce 92
-	NEnum  reduce 92
-	RBRACnum  reduce 92
-	RPARENnum  reduce 92
-	SEMInum  reduce 92
-	COMMAnum  reduce 92
-	EQnum  reduce 92
-	GEnum  reduce 92
-	LBRACEnum  reduce 92
-	LEnum  reduce 92
-	LTnum  reduce 92
-	RBRACEnum  reduce 92
-
-	other_term  goto 156
+	GTnum  shift 93
+	NEnum  shift 94
+	EQnum  shift 95
+	GEnum  shift 96
+	LEnum  shift 97
+	LTnum  shift 98
+	RBRACnum  reduce 80
+	RPARENnum  reduce 80
+	SEMInum  reduce 80
+	COMMAnum  reduce 80
+	LBRACEnum  reduce 80
+	RBRACEnum  reduce 80
 
 
-state 157
-	other_factor : ANDnum factor .  (97)
+state 66
+	optional_plus_minus : term .  (93)
 
-	.  reduce 97
-
-
-state 158
-	other_factor : DIVIDEnum factor .  (96)
-
-	.  reduce 96
+	.  reduce 93
 
 
-state 159
-	other_factor : TIMESnum factor .  (95)
+state 67
+	term : factor .  (98)
+	term : factor . TIMESnum other_factor  (99)
+	term : factor . DIVIDEnum other_factor  (100)
+	term : factor . ANDnum other_factor  (101)
 
-	.  reduce 95
-
-
-160: shift/reduce conflict (shift 123, reduce 98) on ANDnum
-160: shift/reduce conflict (shift 124, reduce 98) on DIVIDEnum
-160: shift/reduce conflict (shift 125, reduce 98) on TIMESnum
-state 160
-	other_factor : other_factor . other_factor  (98)
-	other_factor : other_factor other_factor .  (98)
-
-	ANDnum  shift 123
-	DIVIDEnum  shift 124
-	TIMESnum  shift 125
+	ANDnum  shift 99
+	DIVIDEnum  shift 100
+	TIMESnum  shift 101
 	GTnum  reduce 98
 	NEnum  reduce 98
 	ORnum  reduce 98
@@ -1833,239 +835,1366 @@ state 160
 	PLUSnum  reduce 98
 	RBRACEnum  reduce 98
 
-	other_factor  goto 160
+
+state 68
+	simple_expression : optional_plus_minus .  (87)
+	simple_expression : optional_plus_minus . PLUSnum other_term  (88)
+	simple_expression : optional_plus_minus . MINUSnum other_term  (89)
+	simple_expression : optional_plus_minus . ORnum other_term  (90)
+
+	ORnum  shift 102
+	MINUSnum  shift 103
+	PLUSnum  shift 104
+	GTnum  reduce 87
+	NEnum  reduce 87
+	RBRACnum  reduce 87
+	RPARENnum  reduce 87
+	SEMInum  reduce 87
+	COMMAnum  reduce 87
+	EQnum  reduce 87
+	GEnum  reduce 87
+	LBRACEnum  reduce 87
+	LEnum  reduce 87
+	LTnum  reduce 87
+	RBRACEnum  reduce 87
 
 
-state 161
-	params : INTnum identifier_list SEMInum params .  (38)
+state 69
+	method_call_stmt : variable . LPARENnum RPARENnum  (64)
+	method_call_stmt : variable . LPARENnum indece_expr RPARENnum  (65)
+	factor : variable .  (108)
 
-	.  reduce 38
+	LPARENnum  shift 105
+	ANDnum  reduce 108
+	GTnum  reduce 108
+	NEnum  reduce 108
+	ORnum  reduce 108
+	RBRACnum  reduce 108
+	RPARENnum  reduce 108
+	SEMInum  reduce 108
+	COMMAnum  reduce 108
+	DIVIDEnum  reduce 108
+	EQnum  reduce 108
+	GEnum  reduce 108
+	LBRACEnum  reduce 108
+	LEnum  reduce 108
+	LTnum  reduce 108
+	MINUSnum  reduce 108
+	PLUSnum  reduce 108
+	RBRACEnum  reduce 108
+	TIMESnum  reduce 108
 
 
-state 162
-	identifier_list : identifier_list COMMAnum IDnum .  (40)
+state 70
+	factor : method_call_stmt .  (109)
 
-	.  reduce 40
+	.  reduce 109
 
 
-state 163
-	while_stmt : WHILEnum expression . statement_list  (68)
+state 71
+	var_decl : var_decl_id COMMAnum var_decl .  (14)
 
-	LBRACEnum  shift 94
+	.  reduce 14
+
+
+state 72
+	params : INTnum . identifier_list  (36)
+	params : INTnum . identifier_list SEMInum params  (39)
+
+	IDnum  shift 106
 	.  error
 
-	statement_list  goto 175
+	identifier_list  goto 107
 
 
-state 164
-	if_stmt : IFnum expression . statement_list  (65)
-	if_stmt : IFnum expression . statement_list ELSEnum statement_list  (66)
-	if_stmt : IFnum expression . statement_list ELSEnum if_stmt  (67)
+state 73
+	params : VALnum . INTnum identifier_list SEMInum params  (37)
+	params : VALnum . INTnum identifier_list  (38)
 
-	LBRACEnum  shift 94
+	INTnum  shift 108
 	.  error
 
-	statement_list  goto 176
+
+state 74
+	parama_bubble : params .  (34)
+
+	.  reduce 34
 
 
-state 165
-	return_stmt : RETURNnum expression .  (63)
+state 75
+	method_decl : METHODnum type IDnum LPARENnum parama_bubble . RPARENnum block  (31)
 
-	.  reduce 63
-
-
-state 166
-	statement_inner : statement_inner SEMInum . statement  (53)
-	statement : .  (59)
-
-	IDnum  shift 83
-	WHILEnum  shift 129
-	IFnum  shift 130
-	RETURNnum  shift 131
-	SEMInum  reduce 59
-	RBRACEnum  reduce 59
-
-	statement  goto 177
-	assign_stmt  goto 134
-	method_call_stmt  goto 135
-	return_stmt  goto 136
-	if_stmt  goto 137
-	while_stmt  goto 138
-	variable  goto 139
+	RPARENnum  shift 109
+	.  error
 
 
-state 167
-	statement_list : LBRACEnum statement_inner RBRACEnum .  (51)
+state 76
+	method_decl : METHODnum voids IDnum LPARENnum parama_bubble . RPARENnum block  (32)
+
+	RPARENnum  shift 110
+	.  error
+
+
+state 77
+	field_op_type : type .  (51)
 
 	.  reduce 51
 
 
-state 168
-	assign_stmt : variable ASSGNnum . expression  (60)
-	optional_plus_minus : .  (86)
+state 78
+	type_braces : LBRACnum RBRACnum DOTnum field_op_type .  (49)
 
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 178
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
+	.  reduce 49
 
 
-state 169
-	params : VALnum INTnum identifier_list SEMInum . params  (36)
+state 79
+	braces : braces LBRACnum RBRACnum .  (53)
 
-	INTnum  shift 65
-	VALnum  shift 67
+	.  reduce 53
+
+
+state 80
+	selection : DOTnum . IDnum  (75)
+	selection : DOTnum . IDnum selection  (76)
+
+	IDnum  shift 111
+	.  error
+
+
+state 81
+	selection : LBRACnum . indece_expr RBRACnum  (74)
+	selection : LBRACnum . indece_expr RBRACnum selection  (77)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	expression  goto 112
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	indece_expr  goto 113
+	method_call_stmt  goto 70
+
+
+state 82
+	variable : IDnum selection .  (73)
+
+	.  reduce 73
+
+
+state 83
+	array_expr : LBRACnum . expression RBRACnum  (25)
+	array_expr : LBRACnum . expression RBRACnum array_expr  (26)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	expression  goto 114
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 84
+	array_creation : INTnum array_expr .  (24)
+
+	.  reduce 24
+
+
+state 85
+	factor : LPARENnum expression . RPARENnum  (110)
+
+	RPARENnum  shift 115
+	.  error
+
+
+state 86
+	variable_init_list : variable_initializer .  (22)
+	variable_init_list : variable_initializer . COMMAnum variable_init_list  (23)
+
+	COMMAnum  shift 116
+	RBRACEnum  reduce 22
+
+
+state 87
+	array_init : LBRACEnum variable_init_list . RBRACEnum  (21)
+
+	RBRACEnum  shift 117
+	.  error
+
+
+state 88
+	optional_plus_minus : MINUSnum term .  (92)
+
+	.  reduce 92
+
+
+state 89
+	factor : NOTnum factor .  (111)
+
+	.  reduce 111
+
+
+state 90
+	optional_plus_minus : PLUSnum term .  (91)
+
+	.  reduce 91
+
+
+state 91
+	var_decl : var_decl_id EQUALnum variable_initializer SEMInum .  (12)
+
+	.  reduce 12
+
+
+state 92
+	var_decl : var_decl_id EQUALnum variable_initializer COMMAnum . var_decl  (15)
+
+	IDnum  shift 35
+	.  error
+
+	var_decl  goto 118
+	var_decl_id  goto 37
+
+
+state 93
+	expression : simple_expression GTnum . simple_expression  (86)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	simple_expression  goto 119
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 94
+	expression : simple_expression NEnum . simple_expression  (84)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	simple_expression  goto 120
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 95
+	expression : simple_expression EQnum . simple_expression  (83)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	simple_expression  goto 121
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 96
+	expression : simple_expression GEnum . simple_expression  (85)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	simple_expression  goto 122
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 97
+	expression : simple_expression LEnum . simple_expression  (82)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	simple_expression  goto 123
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 98
+	expression : simple_expression LTnum . simple_expression  (81)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	simple_expression  goto 124
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 99
+	term : factor ANDnum . other_factor  (101)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	factor  goto 125
+	other_factor  goto 126
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 100
+	term : factor DIVIDEnum . other_factor  (100)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	factor  goto 125
+	other_factor  goto 127
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 101
+	term : factor TIMESnum . other_factor  (99)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	factor  goto 125
+	other_factor  goto 128
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 102
+	simple_expression : optional_plus_minus ORnum . other_term  (90)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	term  goto 129
+	other_term  goto 130
+	factor  goto 67
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 103
+	simple_expression : optional_plus_minus MINUSnum . other_term  (89)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	term  goto 129
+	other_term  goto 131
+	factor  goto 67
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 104
+	simple_expression : optional_plus_minus PLUSnum . other_term  (88)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	term  goto 129
+	other_term  goto 132
+	factor  goto 67
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 105
+	method_call_stmt : variable LPARENnum . RPARENnum  (64)
+	method_call_stmt : variable LPARENnum . indece_expr RPARENnum  (65)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	RPARENnum  shift 133
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	expression  goto 112
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	indece_expr  goto 134
+	method_call_stmt  goto 70
+
+
+state 106
+	identifier_list : IDnum .  (40)
+
+	.  reduce 40
+
+
+state 107
+	params : INTnum identifier_list .  (36)
+	params : INTnum identifier_list . SEMInum params  (39)
+	identifier_list : identifier_list . COMMAnum IDnum  (41)
+
+	SEMInum  shift 135
+	COMMAnum  shift 136
+	RPARENnum  reduce 36
+
+
+state 108
+	params : VALnum INTnum . identifier_list SEMInum params  (37)
+	params : VALnum INTnum . identifier_list  (38)
+
+	IDnum  shift 106
+	.  error
+
+	identifier_list  goto 137
+
+
+state 109
+	method_decl : METHODnum type IDnum LPARENnum parama_bubble RPARENnum . block  (31)
+
+	DECLARATIONSnum  shift 12
+	LBRACEnum  shift 138
+	.  error
+
+	decls  goto 139
+	statement_list  goto 140
+	block  goto 141
+
+
+state 110
+	method_decl : METHODnum voids IDnum LPARENnum parama_bubble RPARENnum . block  (32)
+
+	DECLARATIONSnum  shift 12
+	LBRACEnum  shift 138
+	.  error
+
+	decls  goto 139
+	statement_list  goto 140
+	block  goto 142
+
+
+state 111
+	selection : DOTnum IDnum .  (75)
+	selection : DOTnum IDnum . selection  (76)
+
+	DOTnum  shift 80
+	LBRACnum  shift 81
+	ANDnum  reduce 75
+	ASSGNnum  reduce 75
+	GTnum  reduce 75
+	LPARENnum  reduce 75
+	NEnum  reduce 75
+	ORnum  reduce 75
+	RBRACnum  reduce 75
+	RPARENnum  reduce 75
+	SEMInum  reduce 75
+	COMMAnum  reduce 75
+	DIVIDEnum  reduce 75
+	EQnum  reduce 75
+	GEnum  reduce 75
+	LBRACEnum  reduce 75
+	LEnum  reduce 75
+	LTnum  reduce 75
+	MINUSnum  reduce 75
+	PLUSnum  reduce 75
+	RBRACEnum  reduce 75
+	TIMESnum  reduce 75
+
+	selection  goto 143
+
+
+state 112
+	indece_expr : expression .  (78)
+	indece_expr : expression . COMMAnum indece_expr  (79)
+
+	COMMAnum  shift 144
+	RBRACnum  reduce 78
+	RPARENnum  reduce 78
+
+
+state 113
+	selection : LBRACnum indece_expr . RBRACnum  (74)
+	selection : LBRACnum indece_expr . RBRACnum selection  (77)
+
+	RBRACnum  shift 145
+	.  error
+
+
+state 114
+	array_expr : LBRACnum expression . RBRACnum  (25)
+	array_expr : LBRACnum expression . RBRACnum array_expr  (26)
+
+	RBRACnum  shift 146
+	.  error
+
+
+state 115
+	factor : LPARENnum expression RPARENnum .  (110)
+
+	.  reduce 110
+
+
+state 116
+	variable_init_list : variable_initializer COMMAnum . variable_init_list  (23)
+
+	IDnum  shift 52
+	INTnum  shift 53
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	LBRACEnum  shift 56
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	variable_initializer  goto 86
+	variable_init_list  goto 147
+	array_init  goto 62
+	array_creation  goto 63
+	expression  goto 64
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 117
+	array_init : LBRACEnum variable_init_list RBRACEnum .  (21)
+
+	.  reduce 21
+
+
+state 118
+	var_decl : var_decl_id EQUALnum variable_initializer COMMAnum var_decl .  (15)
+
+	.  reduce 15
+
+
+state 119
+	expression : simple_expression GTnum simple_expression .  (86)
+
+	.  reduce 86
+
+
+state 120
+	expression : simple_expression NEnum simple_expression .  (84)
+
+	.  reduce 84
+
+
+state 121
+	expression : simple_expression EQnum simple_expression .  (83)
+
+	.  reduce 83
+
+
+state 122
+	expression : simple_expression GEnum simple_expression .  (85)
+
+	.  reduce 85
+
+
+state 123
+	expression : simple_expression LEnum simple_expression .  (82)
+
+	.  reduce 82
+
+
+state 124
+	expression : simple_expression LTnum simple_expression .  (81)
+
+	.  reduce 81
+
+
+state 125
+	other_factor : factor . TIMESnum other_factor  (102)
+	other_factor : factor . DIVIDEnum other_factor  (103)
+	other_factor : factor . ANDnum other_factor  (104)
+	other_factor : factor .  (105)
+
+	ANDnum  shift 148
+	DIVIDEnum  shift 149
+	TIMESnum  shift 150
+	GTnum  reduce 105
+	NEnum  reduce 105
+	ORnum  reduce 105
+	RBRACnum  reduce 105
+	RPARENnum  reduce 105
+	SEMInum  reduce 105
+	COMMAnum  reduce 105
+	EQnum  reduce 105
+	GEnum  reduce 105
+	LBRACEnum  reduce 105
+	LEnum  reduce 105
+	LTnum  reduce 105
+	MINUSnum  reduce 105
+	PLUSnum  reduce 105
+	RBRACEnum  reduce 105
+
+
+state 126
+	term : factor ANDnum other_factor .  (101)
+
+	.  reduce 101
+
+
+state 127
+	term : factor DIVIDEnum other_factor .  (100)
+
+	.  reduce 100
+
+
+state 128
+	term : factor TIMESnum other_factor .  (99)
+
+	.  reduce 99
+
+
+state 129
+	other_term : term .  (94)
+	other_term : term . MINUSnum other_term  (95)
+	other_term : term . PLUSnum other_term  (96)
+	other_term : term . ORnum other_term  (97)
+
+	ORnum  shift 151
+	MINUSnum  shift 152
+	PLUSnum  shift 153
+	GTnum  reduce 94
+	NEnum  reduce 94
+	RBRACnum  reduce 94
+	RPARENnum  reduce 94
+	SEMInum  reduce 94
+	COMMAnum  reduce 94
+	EQnum  reduce 94
+	GEnum  reduce 94
+	LBRACEnum  reduce 94
+	LEnum  reduce 94
+	LTnum  reduce 94
+	RBRACEnum  reduce 94
+
+
+state 130
+	simple_expression : optional_plus_minus ORnum other_term .  (90)
+
+	.  reduce 90
+
+
+state 131
+	simple_expression : optional_plus_minus MINUSnum other_term .  (89)
+
+	.  reduce 89
+
+
+state 132
+	simple_expression : optional_plus_minus PLUSnum other_term .  (88)
+
+	.  reduce 88
+
+
+state 133
+	method_call_stmt : variable LPARENnum RPARENnum .  (64)
+
+	.  reduce 64
+
+
+state 134
+	method_call_stmt : variable LPARENnum indece_expr . RPARENnum  (65)
+
+	RPARENnum  shift 154
+	.  error
+
+
+state 135
+	params : INTnum identifier_list SEMInum . params  (39)
+
+	INTnum  shift 72
+	VALnum  shift 73
+	.  error
+
+	params  goto 155
+
+
+state 136
+	identifier_list : identifier_list COMMAnum . IDnum  (41)
+
+	IDnum  shift 156
+	.  error
+
+
+state 137
+	params : VALnum INTnum identifier_list . SEMInum params  (37)
+	params : VALnum INTnum identifier_list .  (38)
+	identifier_list : identifier_list . COMMAnum IDnum  (41)
+
+	SEMInum  shift 157
+	COMMAnum  shift 136
+	RPARENnum  reduce 38
+
+
+state 138
+	statement_list : LBRACEnum . statement_inner RBRACEnum  (54)
+	statement : .  (62)
+
+	IDnum  shift 52
+	WHILEnum  shift 158
+	IFnum  shift 159
+	RETURNnum  shift 160
+	SEMInum  reduce 62
+	RBRACEnum  reduce 62
+
+	variable  goto 161
+	statement  goto 162
+	while_stmt  goto 163
+	if_stmt  goto 164
+	return_stmt  goto 165
+	method_call_stmt  goto 166
+	assign_stmt  goto 167
+	statement_inner  goto 168
+
+
+state 139
+	block : decls . statement_list  (42)
+
+	LBRACEnum  shift 138
+	.  error
+
+	statement_list  goto 169
+
+
+state 140
+	block : statement_list .  (43)
+
+	.  reduce 43
+
+
+state 141
+	method_decl : METHODnum type IDnum LPARENnum parama_bubble RPARENnum block .  (31)
+
+	.  reduce 31
+
+
+state 142
+	method_decl : METHODnum voids IDnum LPARENnum parama_bubble RPARENnum block .  (32)
+
+	.  reduce 32
+
+
+state 143
+	selection : DOTnum IDnum selection .  (76)
+
+	.  reduce 76
+
+
+state 144
+	indece_expr : expression COMMAnum . indece_expr  (79)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	expression  goto 112
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	indece_expr  goto 170
+	method_call_stmt  goto 70
+
+
+state 145
+	selection : LBRACnum indece_expr RBRACnum .  (74)
+	selection : LBRACnum indece_expr RBRACnum . selection  (77)
+
+	DOTnum  shift 80
+	LBRACnum  shift 81
+	ANDnum  reduce 74
+	ASSGNnum  reduce 74
+	GTnum  reduce 74
+	LPARENnum  reduce 74
+	NEnum  reduce 74
+	ORnum  reduce 74
+	RBRACnum  reduce 74
+	RPARENnum  reduce 74
+	SEMInum  reduce 74
+	COMMAnum  reduce 74
+	DIVIDEnum  reduce 74
+	EQnum  reduce 74
+	GEnum  reduce 74
+	LBRACEnum  reduce 74
+	LEnum  reduce 74
+	LTnum  reduce 74
+	MINUSnum  reduce 74
+	PLUSnum  reduce 74
+	RBRACEnum  reduce 74
+	TIMESnum  reduce 74
+
+	selection  goto 171
+
+
+state 146
+	array_expr : LBRACnum expression RBRACnum .  (25)
+	array_expr : LBRACnum expression RBRACnum . array_expr  (26)
+
+	LBRACnum  shift 83
+	SEMInum  reduce 25
+	COMMAnum  reduce 25
+	RBRACEnum  reduce 25
+
+	array_expr  goto 172
+
+
+state 147
+	variable_init_list : variable_initializer COMMAnum variable_init_list .  (23)
+
+	.  reduce 23
+
+
+state 148
+	other_factor : factor ANDnum . other_factor  (104)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	factor  goto 125
+	other_factor  goto 173
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 149
+	other_factor : factor DIVIDEnum . other_factor  (103)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	factor  goto 125
+	other_factor  goto 174
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 150
+	other_factor : factor TIMESnum . other_factor  (102)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	factor  goto 125
+	other_factor  goto 175
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 151
+	other_term : term ORnum . other_term  (97)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	term  goto 129
+	other_term  goto 176
+	factor  goto 67
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 152
+	other_term : term MINUSnum . other_term  (95)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	term  goto 129
+	other_term  goto 177
+	factor  goto 67
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 153
+	other_term : term PLUSnum . other_term  (96)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	NOTnum  shift 58
+	SCONSTnum  shift 60
+	.  error
+
+	term  goto 129
+	other_term  goto 178
+	factor  goto 67
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
+state 154
+	method_call_stmt : variable LPARENnum indece_expr RPARENnum .  (65)
+
+	.  reduce 65
+
+
+state 155
+	params : INTnum identifier_list SEMInum params .  (39)
+
+	.  reduce 39
+
+
+state 156
+	identifier_list : identifier_list COMMAnum IDnum .  (41)
+
+	.  reduce 41
+
+
+state 157
+	params : VALnum INTnum identifier_list SEMInum . params  (37)
+
+	INTnum  shift 72
+	VALnum  shift 73
 	.  error
 
 	params  goto 179
 
 
-state 170
-	array_expr : array_expr LBRACnum expression RBRACnum .  (28)
+state 158
+	while_stmt : WHILEnum . expression statement_list  (71)
 
-	.  reduce 28
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
 
-
-state 171
-	selection : DOTnum IDnum selection .  (73)
-
-	.  reduce 73
-
-
-state 172
-	indece_expr : expression COMMAnum . indece_expr  (76)
-	optional_plus_minus : .  (86)
-
-	MINUSnum  shift 56
-	PLUSnum  shift 57
-	IDnum  reduce 86
-	LPARENnum  reduce 86
-	ICONSTnum  reduce 86
-	NOTnum  reduce 86
-	SCONSTnum  reduce 86
-
-	expression  goto 148
-	indece_expr  goto 180
-	simple_expression  goto 62
-	optional_plus_minus  goto 63
+	expression  goto 180
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
 
 
-state 173
-	selection : LBRACnum indece_expr RBRACnum .  (71)
-	selection : LBRACnum indece_expr RBRACnum . selection  (74)
+state 159
+	if_stmt : IFnum . expression statement_list  (68)
+	if_stmt : IFnum . expression statement_list ELSEnum statement_list  (69)
+	if_stmt : IFnum . expression statement_list ELSEnum if_stmt  (70)
 
-	DOTnum  shift 113
-	LBRACnum  shift 114
-	ANDnum  reduce 71
-	ASSGNnum  reduce 71
-	GTnum  reduce 71
-	LPARENnum  reduce 71
-	NEnum  reduce 71
-	ORnum  reduce 71
-	RBRACnum  reduce 71
-	RPARENnum  reduce 71
-	SEMInum  reduce 71
-	COMMAnum  reduce 71
-	DIVIDEnum  reduce 71
-	EQnum  reduce 71
-	GEnum  reduce 71
-	LBRACEnum  reduce 71
-	LEnum  reduce 71
-	LTnum  reduce 71
-	MINUSnum  reduce 71
-	PLUSnum  reduce 71
-	RBRACEnum  reduce 71
-	TIMESnum  reduce 71
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
 
-	selection  goto 181
+	expression  goto 181
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
 
 
-state 174
-	method_call_stmt : variable LPARENnum indece_expr RPARENnum .  (62)
+state 160
+	return_stmt : RETURNnum . expression  (66)
+	return_stmt : RETURNnum .  (67)
 
-	.  reduce 62
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	SEMInum  reduce 67
+	RBRACEnum  reduce 67
 
-
-state 175
-	while_stmt : WHILEnum expression statement_list .  (68)
-
-	.  reduce 68
-
-
-state 176
-	if_stmt : IFnum expression statement_list .  (65)
-	if_stmt : IFnum expression statement_list . ELSEnum statement_list  (66)
-	if_stmt : IFnum expression statement_list . ELSEnum if_stmt  (67)
-
-	ELSEnum  shift 182
-	SEMInum  reduce 65
-	RBRACEnum  reduce 65
-
-
-state 177
-	statement_inner : statement_inner SEMInum statement .  (53)
-
-	.  reduce 53
+	expression  goto 182
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
 
 
-state 178
-	assign_stmt : variable ASSGNnum expression .  (60)
+state 161
+	assign_stmt : variable . ASSGNnum expression  (63)
+	method_call_stmt : variable . LPARENnum RPARENnum  (64)
+	method_call_stmt : variable . LPARENnum indece_expr RPARENnum  (65)
+
+	ASSGNnum  shift 183
+	LPARENnum  shift 105
+	.  error
+
+
+state 162
+	statement_inner : statement .  (55)
+	statement_inner : statement . SEMInum statement_inner  (56)
+
+	SEMInum  shift 184
+	RBRACEnum  reduce 55
+
+
+state 163
+	statement : while_stmt .  (61)
+
+	.  reduce 61
+
+
+state 164
+	statement : if_stmt .  (60)
 
 	.  reduce 60
 
 
-state 179
-	params : VALnum INTnum identifier_list SEMInum params .  (36)
+state 165
+	statement : return_stmt .  (59)
 
-	.  reduce 36
+	.  reduce 59
+
+
+state 166
+	statement : method_call_stmt .  (58)
+
+	.  reduce 58
+
+
+state 167
+	statement : assign_stmt .  (57)
+
+	.  reduce 57
+
+
+state 168
+	statement_list : LBRACEnum statement_inner . RBRACEnum  (54)
+
+	RBRACEnum  shift 185
+	.  error
+
+
+state 169
+	block : decls statement_list .  (42)
+
+	.  reduce 42
+
+
+state 170
+	indece_expr : expression COMMAnum indece_expr .  (79)
+
+	.  reduce 79
+
+
+state 171
+	selection : LBRACnum indece_expr RBRACnum selection .  (77)
+
+	.  reduce 77
+
+
+state 172
+	array_expr : LBRACnum expression RBRACnum array_expr .  (26)
+
+	.  reduce 26
+
+
+state 173
+	other_factor : factor ANDnum other_factor .  (104)
+
+	.  reduce 104
+
+
+state 174
+	other_factor : factor DIVIDEnum other_factor .  (103)
+
+	.  reduce 103
+
+
+state 175
+	other_factor : factor TIMESnum other_factor .  (102)
+
+	.  reduce 102
+
+
+state 176
+	other_term : term ORnum other_term .  (97)
+
+	.  reduce 97
+
+
+state 177
+	other_term : term MINUSnum other_term .  (95)
+
+	.  reduce 95
+
+
+state 178
+	other_term : term PLUSnum other_term .  (96)
+
+	.  reduce 96
+
+
+state 179
+	params : VALnum INTnum identifier_list SEMInum params .  (37)
+
+	.  reduce 37
 
 
 state 180
-	indece_expr : expression COMMAnum indece_expr .  (76)
+	while_stmt : WHILEnum expression . statement_list  (71)
 
-	.  reduce 76
+	LBRACEnum  shift 138
+	.  error
+
+	statement_list  goto 186
 
 
 state 181
-	selection : LBRACnum indece_expr RBRACnum selection .  (74)
+	if_stmt : IFnum expression . statement_list  (68)
+	if_stmt : IFnum expression . statement_list ELSEnum statement_list  (69)
+	if_stmt : IFnum expression . statement_list ELSEnum if_stmt  (70)
 
-	.  reduce 74
+	LBRACEnum  shift 138
+	.  error
+
+	statement_list  goto 187
 
 
 state 182
-	if_stmt : IFnum expression statement_list ELSEnum . statement_list  (66)
-	if_stmt : IFnum expression statement_list ELSEnum . if_stmt  (67)
-
-	IFnum  shift 130
-	LBRACEnum  shift 94
-	.  error
-
-	statement_list  goto 183
-	if_stmt  goto 184
-
-
-state 183
-	if_stmt : IFnum expression statement_list ELSEnum statement_list .  (66)
+	return_stmt : RETURNnum expression .  (66)
 
 	.  reduce 66
 
 
+state 183
+	assign_stmt : variable ASSGNnum . expression  (63)
+
+	IDnum  shift 52
+	LPARENnum  shift 54
+	ICONSTnum  shift 55
+	MINUSnum  shift 57
+	NOTnum  shift 58
+	PLUSnum  shift 59
+	SCONSTnum  shift 60
+	.  error
+
+	expression  goto 188
+	simple_expression  goto 65
+	term  goto 66
+	factor  goto 67
+	optional_plus_minus  goto 68
+	variable  goto 69
+	method_call_stmt  goto 70
+
+
 state 184
-	if_stmt : IFnum expression statement_list ELSEnum if_stmt .  (67)
+	statement_inner : statement SEMInum . statement_inner  (56)
+	statement : .  (62)
 
-	.  reduce 67
+	IDnum  shift 52
+	WHILEnum  shift 158
+	IFnum  shift 159
+	RETURNnum  shift 160
+	SEMInum  reduce 62
+	RBRACEnum  reduce 62
+
+	variable  goto 161
+	statement  goto 162
+	while_stmt  goto 163
+	if_stmt  goto 164
+	return_stmt  goto 165
+	method_call_stmt  goto 166
+	assign_stmt  goto 167
+	statement_inner  goto 189
 
 
-State 156 contains 3 shift/reduce conflicts.
-State 160 contains 3 shift/reduce conflicts.
+state 185
+	statement_list : LBRACEnum statement_inner RBRACEnum .  (54)
+
+	.  reduce 54
 
 
-41 terminals, 40 nonterminals
-105 grammar rules, 185 states
+state 186
+	while_stmt : WHILEnum expression statement_list .  (71)
+
+	.  reduce 71
+
+
+state 187
+	if_stmt : IFnum expression statement_list .  (68)
+	if_stmt : IFnum expression statement_list . ELSEnum statement_list  (69)
+	if_stmt : IFnum expression statement_list . ELSEnum if_stmt  (70)
+
+	ELSEnum  shift 190
+	SEMInum  reduce 68
+	RBRACEnum  reduce 68
+
+
+state 188
+	assign_stmt : variable ASSGNnum expression .  (63)
+
+	.  reduce 63
+
+
+state 189
+	statement_inner : statement SEMInum statement_inner .  (56)
+
+	.  reduce 56
+
+
+state 190
+	if_stmt : IFnum expression statement_list ELSEnum . statement_list  (69)
+	if_stmt : IFnum expression statement_list ELSEnum . if_stmt  (70)
+
+	IFnum  shift 159
+	LBRACEnum  shift 138
+	.  error
+
+	statement_list  goto 191
+	if_stmt  goto 192
+
+
+state 191
+	if_stmt : IFnum expression statement_list ELSEnum statement_list .  (69)
+
+	.  reduce 69
+
+
+state 192
+	if_stmt : IFnum expression statement_list ELSEnum if_stmt .  (70)
+
+	.  reduce 70
+
+
+State 17 contains 1 shift/reduce conflict.
+
+
+41 terminals, 44 nonterminals
+112 grammar rules, 193 states

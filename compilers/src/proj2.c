@@ -332,17 +332,16 @@ void zerocrosses ()
   for (i = 0; i < 162; i++)
     crosses [i] = 0;
 }
-
-extern char  strg_tbl[];
+extern char * string_table;
 
 char* getname(int i)/*return ID name or String, i is the index of the string table, passed through yylval*/
 {
-  return( strg_tbl+i );/*return string table indexed at i*/
+  return( string_table+i );/*return string table indexed at i*/
 }
 
 char* getstring(int i)
 {
-  return( strg_tbl+i );/*return string table indexed at i*/
+  return( string_table+i );/*return string table indexed at i*/
 }
 
 
